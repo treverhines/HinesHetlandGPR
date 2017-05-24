@@ -42,18 +42,21 @@
 % - define model
 % - discuss known deficiencies with the model
 % - describe covariance as a time-space separable function 
-% - describe geophysically relevant gaussian processese
+% - describe geophysically relevant gaussian processes. (include seasonal and spherical)
 % - REML for determining optimal hyperparameters
 % - conditioning the prior with observations
 % - differentiating the Gaussian process
 % - note on addition, subtraction, and scaling
 % - REML
+% - Numerical notes
+%   - partition inverse and solve with CHOLMOD
 %
 % APPLICATION TO CASCADIA SSE
 % - SSE background
 % - REML results
 %   - noise 
 %   - signal for IBM, SE, and WEN
+%   - Plot all covariances functions
 
 % - Strain results
 %   - map view plot
@@ -89,6 +92,21 @@ We begin this paper by summarizing the RBF-FD scheme and explaining how we const
 
 \section{Method}\label{sec:Method}
 
+In this section, we describe how GNSS displacement observations are used to infer transient strain rates. We consider transient strain rates to be any deviation from the steady rate of strain accumulation resulting from plate tectonics. We model transient deformation, $u(x,t)$, as a three-dimensional (two spatial dimensions and time) Gaussian process,
+\begin{equation}\label{eq:TransientDeformation}
+u(x,t) \sim \mathcal{N}\left(0,C_u\right),
+\end{equation}
+where the covariance function, $C_u$, can be separated into positive definite spatial and temporal functions as 
+\begin{equation}\label{eq:TransientCovariance}
+C_u(x,t;x',t') = X(x,x')T(t,t').
+\end{equation}  
+The appropriate choice for $X$ and $T$ may vary depending on the geophysical signal we are trying to describe (e.g. postseismic deformation or deformation from slow slip events), and we discuss this matter in the next section.  GNSS observations record transient deformation as well as other physical and non-physical processes which we are not interested in. We describe GNSS data that is observed at position $x_i$ and time $t_j$ as   
+
+\begin{equation}\label{eq:Data}
+d_{ij} = a_{i} + b_{i} t_j + c_{1i}\sin(2 \pi t) + c_{2i}\cos(2 \pi t) + c_{3i}\sin(4 \pi t) + c_{4i}\cos(4 \pi t) + u(x_i,t_j) + \epsilon(x_i,t_j),
+\end{equation}
+where $a_i$ is an offset, $b_i$ is the steady rate of tectonic deformation at $x_i$, the sinusoids describe seasonal deformation, and $\epsilon_{ij}$ is a Gaussian process for noise which cannot be described parametrically. $\epsilon$ can consist of white noise, temporally correlated noise describing benchmark wobble \citep[e.g.,][]{Wyatt1982,Wyatt1989}, or spatially correlated noise describing common mode error \citep[e.g.,][]{Wdowinski1997}.  For now, we just describe $\epsilon$ as $\epsilon \sim \mathcal{N}(0,C_d)$.  In this study, we consider the coefficients $a_{i}$, $b_{i}$, and $c_{kj}$, to be unknown and uncorrelated between stations. Of course, the tectonic deformation, $b_i$, is in reality spatially correlated and we could invoke tectonic model to form a prior on $b_i$. However, in our application to Cascadia, we will be using displacement time series which are long enough to sufficiently constrain $b_i$ for each station and there is no need to incorporate a prior. Likewise, the seasonal coefficients may be spatially correlated as suggested by Langbein2008?. It may be worth exploring and exploiting such a correlation in a future study.       
+     
 
 \subsection{Time Depenent Strain Rate in Cascadia}\label{sec:ApplicationsCascadia}
 

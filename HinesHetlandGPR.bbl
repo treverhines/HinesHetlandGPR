@@ -181,6 +181,13 @@ Tolstykh, A.~I. and Shirobokov, D.~A. (2003).
   applications to elasticity problems}.
 \newblock {\em Computational Mechanics}, 33(1):68--79.
 
+\bibitem[Wdowinski et~al., 1997]{Wdowinski1997}
+Wdowinski, S., Zhang, J., Fang, P., and Genrich, J. (1997).
+\newblock {Southern California Permanent GPS Geodetic Array: Spatial filtering
+  of daily positions for estimating coseismic and postseismic displacements
+  induced by the 1992 Landers earthquake}.
+\newblock 102(97):57--70.
+
 \bibitem[Wech et~al., 2009]{Wech2009}
 Wech, A.~G., Creager, K.~C., and Melbourne, T.~I. (2009).
 \newblock {Seismic and geodetic constraints on Cascadia slow slip}.
@@ -191,5 +198,15 @@ Wright, G.~B. and Fornberg, B. (2006).
 \newblock {Scattered node compact finite difference-type formulas generated
   from radial basis functions}.
 \newblock {\em Journal of Computational Physics}, 212(1):99--123.
+
+\bibitem[Wyatt, 1982]{Wyatt1982}
+Wyatt, F. (1982).
+\newblock {Displacement of Surface Monuments: Horizontal Motion}.
+\newblock {\em Journal of Geophysical Research}, 87:979--989.
+
+\bibitem[Wyatt, 1989]{Wyatt1989}
+Wyatt, F.~K. (1989).
+\newblock {Displacement of surface monuments: Vertical motion}.
+\newblock {\em Journal of Geophysical Research}, 94(B2):1655--1664.
 
 \end{thebibliography}

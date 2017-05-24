@@ -1,0 +1,145 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{arydshln}
+\title{Revealing Transient Strain in Geodetic Data with the Radial Basis Function Finite Difference Method}
+\author{Trever T. Hines and Eric A. Hetland}
+
+% OUTLINE
+% INTRODUCTION
+% - Why we care about strain in the crust
+%   - Knowing long term strain rates tells us where we can expect seismicity
+%
+% - How people have gone about estimating strain rates
+%   - Draw distinction between parametric and nonparametric methods
+%   - Draw distinction between model based and data based parametric methods 
+%   - Talk about Kato
+%
+% - Another, more challenging problem is how to calculate time-dependent strain
+%   - Time dependent strain rates could illuminate transient geophysical signals such as postseismic deformation, 
+%	  slow slip events, or volcanic deformation. 	  
+%	- Since numerous megathrust earthquakes were preceded by slow slip, it is important to detect these features.
+%	- We can also use estimates of transient strain to calibrate strain meters.	
+%	- People who have tackled this problem before include Ohtani and Holt.	
+%	- A major deficiency with these methods is that they are parametric giving poor uncertainties. Without good 
+%	  uncertainties we cannot objectively discern signal from noise and we cannot calibrate BSM.	
+% - Here we propose GPR and we tackle several two major difficulties	
+%   - The method is similar to an extension of Kato to the time domain. We address two debilitating difficulties that 
+%     arise. We also dont do that autocovariance bullshit.  Instead we use REML.  
+%	- outliers  
+%	- dense matrix
+%	
+% - GPR can be used for more than just estimating strain and it is a powerful geophysical tool. We can use it to quantify
+%   spatial noise in GPS data. (this should be a side blurb when talking about quantifying signal.   
+%
+% - We discuss the method, form prior with REML, and demonstrate utility in detecting SSE by comparing it to tremor.	  
+%
+% METHODS
+% - define model
+% - discuss known deficiencies with the model
+% - describe covariance as a time-space separable function 
+% - describe geophysically relevant gaussian processese
+% - REML for determining optimal hyperparameters
+% - conditioning the prior with observations
+% - differentiating the Gaussian process
+% - note on addition, subtraction, and scaling
+% - REML
+%
+% APPLICATION TO CASCADIA SSE
+% - SSE background
+% - REML results
+%   - noise 
+%   - signal for IBM, SE, and WEN
+
+% - Strain results
+%   - map view plot
+%   - time series plot
+
+% CONCLUSION
+% - future work
+% - additional applications other than sse. Discuss potential use for noise modeling
+
+
+\begin{document}
+
+\maketitle
+
+
+\section{Introduction}\label{sec:Introduction}
+
+Crustal strain rates are fundamentally important quantities for assessing seismic hazard, since knowing where and how quickly strain is accumulating gives insight into where we can expect stored elastic energy to be released seismically.  It is then important to develop and improve upon methods for mapping strain in tectonically active regions because such maps could conceivably feed into seismic hazard models such as UCERF3 \citep{Field2014}. 
+
+Methods for estimating strain from geodetic data fall in one of two categories.  There are model-based approaches which assume that strain is the result of loading on faults which have a known geometry, and there are data-based approaches which make no assumptions about the source of deformation.  We will exclusively consider data-based approaches in this paper.  The classic and simplest method for estimating strain is to assume that the strain rate is constant in time and spatially uniform within subnetworks of the geodetic data.  Linear least squares is then used to find the components of the strain rate tensor for each subnetwork \citep[e.g][]{Frank1966,Prescott1976,Savage1986,Feigl1990,Murray2000}. Several algorithms have been developed to improve upon this procedure. \citet{Shen1996} and \citet{Shen2015} discuss an algorithm where, instead of using the immediately adjacent stations to calculate strain at a position, the strain is computed with a weighted average over the entire network where the weighting is smaller for more distant stations.  Another strategy is to fit a set of interpolating basis functions to the deformation field and then compute the strain from the analytical derivative of the interpolant \citep[e.g.][]{Beavan2001,Tape2009,Sandwell2016}.  
+
+The aforementioned studies have all been concerned with estimating long term strain rates. Time dependent strain would be useful for studying geophysical processes which occur over timescales of days to years such as slow slip events, postseismic relaxation, or volcanic deformation.  \citet{Ohtani2010} identified transient strain events by fitting a set of spatial wavelet basis functions to the deformation field at discrete time epochs, and a Kalman filtering strategy was used to ensure that the coefficients for each basis function varied smoothly in time. \citet{Holt2013} calculated time dependent strain by differentiating a bicubic interpolant that was fit to each epoch of a temporally smoothed deformation field. 
+
+Each of the methods described above are designed to overcome two complications that arise in estimating deformation gradients: (1) geodetic data are noisy and differentiation will only amplify the noise and (2) geodetic data are not observed on a regular grid, which prevents the use of standard finite difference methods for computing derivatives. In this paper we demonstrate that both of these complications can be elegantly handled with the Radial Basis Function-Finite Difference (RBF-FD) method.  
+
+The RBF-FD method was developed simultaneously and independently by \citet{Tolstykh2003}, \citet{Shu2003}, \citet{Cecil2004}, and \citet{Wright2006} as a computationally efficient way to solve large scale partial differential equations over irregular, multi-dimensional domains.  The RBF-FD method can be thought of as a generalization of the traditional finite difference method, where the node layout is no longer restricted to regular grids. Indeed, the RBF-FD method can be used to estimate derivates of discrete data located at arbitrary scattered positions in multi-dimensional space.  The RBF-FD method is particularly appealing because it is algorithmically simple, regardless of the domain shape or node layout, and also because the method has performed well in numerous benchmark tests \citep[and references therein]{Fornberg2015}.
+
+In this paper, we do not use the RBF-FD method to solve a partial differential equation, but rather we use it to spatially smooth geodetic data and to compute deformation gradients. Our smoothing strategy can be viewed as a non-parametric, low-pass filter for scattered data where the degree of smoothness is controlled by a user specifies cutoff frequency. This can be contrasted with interpolation based methods where the resulting interpolant can be largely and perhaps unpredictably controlled by the choice of basis function. This process of smoothing and differentiating can be extended to estimate time dependent strain rates.  In that case, we first temporally smooth and differentiate GPS displacement time series to get time dependent velocities.  We then spatially smooth and differentiate the resulting velocities for each time epoch to get time dependent strain rates.  
+
+The method proposed in this paper has numerous advantages which set it apart from other methods for computing strain rates. The method is computationally efficient and stable (there is no inversion of an ill-conditioned matrix).  There are no hyper parameters or penalty parameters that need to be tuned for each application.  As opposed to interpolation strategies such as \citet{Beavan2001}, \citet{Tape2009}, or \citet{Ohtani2010}, our method assumes that velocities are locally rather than globally continuous, which allows us to easily handle discontinuities resulting from, for example, a creeping fault. 
+
+We begin this paper by summarizing the RBF-FD scheme and explaining how we construct differentiation matrices for scattered data. We then introduce the RBF-FD filter, which is used to smooth the observed geodetic data prior to differentiation.  We provide two real world demonstraitions of our method for calculating strain rates.  First we calculate the long term strain rates in Southern California from the CMM3 velocity data set \citep{Shen2011}, and we verify that our results are consistent with other studies. We then calculate time dependent strain rates in Cascadia from the GPS data provided by UNAVCO.  In Cascadia, we analyze strain resulting from slow slip events and compare it to the long term tectonic strain accumulation. Slow slip events are found to produce compression in the Olympic Peninsula, which is in addition to the compression resulting from tectonic loading.  Further south in Oregon, the slow slip events tend to release the compressional strain that is accumulated tectonically.  While similar conclusions have been drawn from fault slip inversions for slow slip events, it is important to recognize that slip inversion are the product of inverting an ill-conditioned matrix making it difficult to determine whether slip inferences are real or just an artifact of the inversion.  The strain rates presented in this paper are more direct observations and can be interpretted with a higher degree of confidence. 
+
+\section{Method}\label{sec:Method}
+
+
+\subsection{Time Depenent Strain Rate in Cascadia}\label{sec:ApplicationsCascadia}
+
+BACKGROUND
+
+\citet{Dragert2001} first discovered slow slip events
+
+Slow slip event depths from \citet{Dragert2001}, \citet{Wech2009}, \citet{Schmidt2010}, \citet{Bartlow2011} show slip concentrated at depths from 30 to 50 km detph.
+ 
+Interseismic locking depths from \citet{Fluck1997}, \citet{Murray2000}, \citet{McCaffrey2007} and \citet{McCaffrey2013}, \citet{Burgette2009}, \citet{schmalzle2014} are consistent with a full locking down to about 20 km.
+
+%Studies which simultaneously looked at intersesimic and ets are \citet{Holtkamp2010} and \citet{Schmalzle2014}
+Studies which simultaneously modeled interseismic and ets are \citet{Holtkamp2010} and \citet{schmalzle2014}
+
+METHOD
+
+We use GPS displacement time series to make daily estimates of strain rates from 2010-01-01 to 2016-07-01 in the Pacific Northwest.  Our method consists of two distinct steps; we temporally smooth and differentiate the displacement time series for each station, and then we spatially smooth and differentiate the velocity field for each day.  We temporally smooth the GPS displacements with the method described in \ref{sec:Filter}, and we treat days with missing data as observations with infinite uncertainty. As noted above, this is effectively equivalent to fitting a smoothing spline to each time series, which can also be efficiently done with a Kalman filtering strategy \citep{Kohn1987}.  We chose a cutoff frequency of ZZZ, which is high enough to acurately describe deformation during a slow slip event.  Spatial smoothing is done with the RBF-FD filter and differentiation to get the strain rates was done with the RBF-FD scheme.  We picked a cutoff frequency of XXX for smoothing.
+
+\section{Discussion and Conclusion}\label{sec:Discussion}
+% discuss potential applications for slip models
+
+% discuss how we remove errors like reference frame and seasonals
+
+% discuss how this can be used for tikhonov regularization
+
+% we do not interpolate the strain field because it may introduce spurious artifacts Baxter2011
+
+% Discuss similarities with PCA used in Dong2006 and common mode error by Wdowinski1997
+% note that these errors are due to long wavelength features which get removed in strain calculations!!!
+% see strain method by almendinger2007
+
+% mention the scec geodetic transient exercise Lohman2013 and references therein
+
+% Note that segalls 2016 paper mentions the gap between interseismic and sse
+
+% mention howell2016, who said some crap about verticals, mention Hammond2016 so said more sensible crap about verticals
+
+% note that this can be used for smoothing verticals, and compare it with burgette2009
+
+% change the notation for stencil size or smoothness order because they are both n. use p for smoothness order
+
+
+The material presented in this paper is primarily focused on GPS data; however, we speculate that the RBF-FD scheme can be of particular use in denoising borehole strain meter (BSM) data.  The Plate Boundary Observatory has deployed X BSMs along the Western United States.  BSM data contains low frequency drift resulting from relaxation of the borehole \citep{Gladwin1987}, which can obscure the geophysical signal of interest.  We suggest that the RBF-FD scheme may be useful in denoising BSM data.  Since the RBF-FD scheme provides a straight-forward mapping from GPS displacements to strain at any target locations, it is possible to use GPS derived strains as \textit{a priori} information for strain at BSM sites. GPS derived strains could then aid in discerning tectonic signal from noise in BSM data.
+
+Additional uses for strain: transient detection, prior for strain meters,  
+
+Additional potential applications of the RBF-FD method: regularizing inverse problems, 
+
+% cite eric calais for triangulation strain
+
+\bibliographystyle{apalike}
+\bibliography{mybib}  
+ 
+\end{document}

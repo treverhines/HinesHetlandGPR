@@ -24,6 +24,11 @@ Cecil, T., Qian, J., and Osher, S. (2004).
   using radial basis functions}.
 \newblock {\em Journal of Computational Physics}, 196(1):327--347.
 
+\bibitem[Cressie, 1993]{Cressie1992}
+Cressie, N. (1993).
+\newblock {\em {Statistics for Spatial Data}}.
+\newblock John Wiley {\&} Sons, New York, rev. edition.
+
 \bibitem[Dragert et~al., 2001]{Dragert2001}
 Dragert, G., Wang, K., and James, T.~S. (2001).
 \newblock {A silent slip event on the deeper Cascadia subduction interface.}
@@ -203,6 +208,10 @@ Wdowinski, S., Zhang, J., Fang, P., and Genrich, J. (1997).
 Wech, A.~G., Creager, K.~C., and Melbourne, T.~I. (2009).
 \newblock {Seismic and geodetic constraints on Cascadia slow slip}.
 \newblock {\em Journal of Geophysical Research: Solid Earth}, 114(10):1--9.
+
+\bibitem[Wendland, 2005]{Wendland2005}
+Wendland, H. (2005).
+\newblock {\em {Scattered data approximation}}.
 
 \bibitem[Wright and Fornberg, 2006]{Wright2006}
 Wright, G.~B. and Fornberg, B. (2006).

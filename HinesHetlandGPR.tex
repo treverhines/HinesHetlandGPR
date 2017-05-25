@@ -106,9 +106,26 @@ The appropriate choice for $X$ and $T$ may vary depending on the geophysical sig
 \subsection{Spatial and temporal covariance functions}
 In this section, we list several covariance functions which are considered in this paper or could be of use in future studies. For see \citet{Rasmussen2006} for additional information.   
 
-The squared exponential covariance function is frequently used in Kriging and Gaussian Process Regression application. It has been convincingly demonstrated by \cite{Kato1998} and others to be an appropriate model for long-term tectonic strain rates. The squared exponential covariance functions describes an isotropic, infinitely differentiable Gaussian processes. It is also positive-definite covariance function for any number of spatial dimensions.  
+The squared exponential covariance function,
+\begin{equation}\label{eq:SE}
+C(x,x') = \alpha^2 \exp\left(\frac{-||x - x'||_2^2}{2 \beta^2}\right),
+\end{equation}
+is commonly used in Kriging \citep[e.g,][]{Cressie1992} and Gaussian process regression \citep[e.g.,][]{Rasmussen2006}.  The squared exponential is a valid (i.e. positive definite) covariance function for any number of spatial dimensions, and it describes an isotropic Gaussian processes with realizations that are infinitely differentiable.  \citet{Kato1998} demonstrated that eq. (\ref{eq:SE}) is an appropriate covariance model for describing long-term tectonic strain rates.  
 
-The Wendland covariance functions are isotropic and have compact support. They are positive definite for a finite dimensional space and are finitely differentiable.  If the length-scale is sufficiently small then we can take advantage of the sparsity of the covariance matrices in Section X. This turns out to significantly increase scale of the problems which can be addressed in this analysis.
+The Wendland class of covariance functions \citep{Wendland2005} are positive definite in $\mathbb{R}^d$, and they describes an isotropic Gaussian process with realizations that can be differentiated $k$ times. The form of the covariance function depends on the choice of $d$ and $k$. Wendland covariance functions have compact support, which is a particularly useful property because we can exploit the sparsity of the the corresponding covariance matrices. In this study we use Wendland covariance functions to describe the temporal component of transient displacements. Therefore, we only require that $d=1$ and $k=1$. The corresponding Wendland covariance function is 
+\begin{equation}\label{eq:Wendland}
+C(x,x') = \alpha^2\left(1 - \frac{|x - x'|}{\beta}\right)^3_+ \left(\frac{3|x - x'|}{\beta} + 1\right), \ \ \ x \in \mathbb{R}^1,
+\end{equation}
+where
+\begin{equation}
+(x)_+ = 
+\begin{cases}
+x, \ \ \ x > 0 \\
+0, \ \ \ \mathrm{otherwise}.
+\end{cases}
+\end{equation}
+
+They are positive definite for a finite dimensional space and are finitely differentiable.  If the length-scale is sufficiently small then we can take advantage of the sparsity of the covariance matrices in Section X. This turns out to significantly increase scale of the problems which can be addressed in this analysis.
 
 FOGM solves the differential equation .... Has been used by Langbein.
 

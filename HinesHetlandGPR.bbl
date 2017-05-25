@@ -83,6 +83,12 @@ Holtkamp, S. and Brudzinski, M.~R. (2010).
   the Cascadia margin}.
 \newblock {\em Journal of Geophysical Research: Solid Earth}, 115(4):1--21.
 
+\bibitem[Kato et~al., 1998]{Kato1998}
+Kato, T., El-Fiky, G.~S., Oware, E.~N., and Miyazaki, S. (1998).
+\newblock {Crustal strains in the Japanese islands as deduced from dense GPS
+  array}.
+\newblock {\em Geophysical Research Letters}, 25(18):3445--3448.
+
 \bibitem[Kohn and Ansley, 1987]{Kohn1987}
 Kohn, R. and Ansley, C. (1987).
 \newblock {A new algorithm for spline smoothing based on smoothing a stochastic
@@ -121,6 +127,11 @@ Prescott, W.~H. (1976).
   from survey data}.
 \newblock {\em Bulletin of the Seismological Society of America},
   66(6):1847--1853.
+
+\bibitem[Rasmussen and Williams, 2006]{Rasmussen2006}
+Rasmussen, C.~E. and Williams, C. K.~I. (2006).
+\newblock {\em {Gaussian processes for machine learning}}.
+\newblock The MIT Press.
 
 \bibitem[Sandwell and Wessel, 2016]{Sandwell2016}
 Sandwell, D.~T. and Wessel, P. (2016).
@@ -202,7 +213,7 @@ Wright, G.~B. and Fornberg, B. (2006).
 \bibitem[Wyatt, 1982]{Wyatt1982}
 Wyatt, F. (1982).
 \newblock {Displacement of Surface Monuments: Horizontal Motion}.
-\newblock {\em Journal of Geophysical Research}, 87:979--989.
+\newblock {\em Journal of Geophysical Research}, 87(B2):979--989.
 
 \bibitem[Wyatt, 1989]{Wyatt1989}
 Wyatt, F.~K. (1989).

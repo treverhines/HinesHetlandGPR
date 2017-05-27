@@ -125,12 +125,18 @@ x, \ \ \ x > 0 \\
 \end{cases}
 \end{equation}
 
-They are positive definite for a finite dimensional space and are finitely differentiable.  If the length-scale is sufficiently small then we can take advantage of the sparsity of the covariance matrices in Section X. This turns out to significantly increase scale of the problems which can be addressed in this analysis.
+We next consider the covariance function which describes a first-order Gauss-Markov (FOGM) process. A FOGM process is a solution to the stochastic differential equation
+\begin{equation}
+\dot{u}(x) + \alpha u(x) = \beta w(x), \ \ \ x \in \mathbb{R}^1
+\end{equation}
+where $w(x)$ is white noise with unit variance. The solution is a Gaussian process with zero mean and covariance
+% This needs to be scaled to match my work
+\begin{equation}\label{eq:FOGM}
+C(x,x') = \frac{\beta^2}{2\alpha}\exp\left(-\alpha|x - x'|\right), 
+\end{equation}
+Realizations of a FOGM process do not possess continuous derivativess. The FOGM model has been used to describe temporally correlated noise in GNSS data \citep[e.g.,][]{Langbein2008}.
 
-FOGM solves the differential equation .... Has been used by Langbein.
-
-Valid in ND
-
+We next consider Brownian motion which is equivalent to FOGM under the condition that $\alpha=0$ and $u(0) = 0$.
 Brownian Motion is the solution to the differential equation .... Has been used by Langbein to describe noise
 Valid in 1D
 

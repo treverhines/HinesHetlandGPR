@@ -12,6 +12,11 @@ Beavan, J. and Haines, J. (2001).
   Pacific-Australian plate boundary zone through New Zealand}.
 \newblock {\em Journal of Geophysical Research}, 106(B1):741--770.
 
+\bibitem[Blewitt and Lavall{\'{e}}e, 2002]{Blewitt2002}
+Blewitt, G. and Lavall{\'{e}}e, D. (2002).
+\newblock {Effect of annual signals on geodetic velocity}.
+\newblock {\em Journal of Geophysical Research}, 107(B7):2145----.
+
 \bibitem[Burgette et~al., 2009]{Burgette2009}
 Burgette, R.~J., Weldon, R.~J., and Schmidt, D.~A. (2009).
 \newblock {Interseismic uplift rates for western Oregon and along-strike
@@ -33,6 +38,12 @@ Cressie, N. (1993).
 Dragert, G., Wang, K., and James, T.~S. (2001).
 \newblock {A silent slip event on the deeper Cascadia subduction interface.}
 \newblock {\em Science}, 292:1525--1528.
+
+\bibitem[El-Fiky and Kato, 1999]{El-Fiky1999}
+El-Fiky, G.~S. and Kato, T. (1999).
+\newblock {Continuous distribution of the horizontal strain in the Tohoku
+  district, Japan, predicted by least-squares collocation}.
+\newblock {\em Journal of Geodynamics}, 27(2):213--236.
 
 \bibitem[Feigl et~al., 1990]{Feigl1990}
 Feigl, K.~L., King, R.~W., and Jordan, T.~H. (1990).
@@ -75,6 +86,12 @@ Gladwin, M.~T., Gwyther, R.~L., Hart, R., Francis, M., and Johnston, M. J.~S.
 \newblock {\em Journal of Geophysical Research: Solid Earth},
   92(B8):7981--7988.
 
+\bibitem[Hines and Hetland, 2016]{Hines2016}
+Hines, T.~T. and Hetland, E.~A. (2016).
+\newblock {Rapid and simultaneous estimation of fault slip and heterogeneous
+  lithospheric viscosity from post-seismic deformation}.
+\newblock {\em Geophysical Journal International}, 204(1):569--582.
+
 \bibitem[Holt and Shcherbenko, 2013]{Holt2013}
 Holt, W.~E. and Shcherbenko, G. (2013).
 \newblock {Toward a Continuous Monitoring of the Horizontal Displacement
@@ -101,6 +118,29 @@ Kohn, R. and Ansley, C. (1987).
 \newblock {\em SIAM journal on scientific and statistical computing},
   8(1):33--48.
 
+\bibitem[Langbein, 2004]{Langbein2004}
+Langbein, J. (2004).
+\newblock {Noise in two-color electronic distance meter measurements
+  revisited}.
+\newblock {\em Journal of Geophysical Research: Solid Earth}, 109(4):1--16.
+
+\bibitem[Langbein, 2008]{Langbein2008}
+Langbein, J. (2008).
+\newblock {Noise in GPS displacement measurements from Southern California and
+  Southern Nevada}.
+\newblock {\em Journal of Geophysical Research: Solid Earth}, 113(5):1--12.
+
+\bibitem[Langbein and Johnson, 1997]{Langbein1997}
+Langbein, J. and Johnson, H. (1997).
+\newblock {Correlated errors in geodetic time series: Implications for
+  time-dependent deformation}.
+\newblock {\em Journal of Geophysical Research}, 102(B1):591--603.
+
+\bibitem[Mackay, 1998]{Mackay1998}
+Mackay, D. J.~C. (1998).
+\newblock {Introduction to Gaussian processes}.
+\newblock {\em Neural Networks and Machine Learning}, 168(1996):133--165.
+
 \bibitem[McCaffrey et~al., 2013]{McCaffrey2013}
 McCaffrey, R., King, R.~W., Payne, S.~J., and Lancaster, M. (2013).
 \newblock {Active tectonics of northwestern U.S. inferred from GPS-derived
@@ -113,6 +153,12 @@ McCaffrey, R., Qamar, A.~I., King, R.~W., Wells, R., Khazaradze, G., Williams,
 \newblock {Fault locking, block rotation and crustal deformation in the Pacific
   Northwest}.
 \newblock {\em Geophysical Journal International}, 169(3):1315--1340.
+
+\bibitem[McGuire and Segall, 2003]{McGuire2003}
+McGuire, J.~J. and Segall, P. (2003).
+\newblock {Imaging of aseismic fault slip transients recorded by dense geodetic
+  networks}.
+\newblock {\em Geophysical Journal International}, 155:778--788.
 
 \bibitem[Murray and Lisowski, 2000]{Murray2000}
 Murray, M.~H. and Lisowski, M. (2000).
@@ -158,6 +204,11 @@ Schmidt, D.~A. and Gao, H. (2010).
 \newblock {Source parameters and time-dependent slip distributions of slow slip
   events on the Cascadia subduction zone from 1998 to 2008}.
 \newblock {\em Journal of Geophysical Research: Solid Earth}, 115(4):1--13.
+
+\bibitem[Segall and Mathews, 1997]{Segall1997}
+Segall, P. and Mathews, M. (1997).
+\newblock {Time dependent inversion of geodetic data}.
+\newblock {\em Journal of Geophysical Research}, 102(B10):22391--22409.
 
 \bibitem[Shen et~al., 2015]{Shen2015}
 Shen, Z., Wang, M., Zeng, Y., and Wang, F. (2015).

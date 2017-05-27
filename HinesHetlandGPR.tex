@@ -104,17 +104,17 @@ C_{u}(x,t;x',t') = X(x,x')T(t,t').
 The appropriate choice for $X$ and $T$ may vary depending on the geophysical signal we are trying to describe (e.g. postseismic deformation or deformation from slow slip events), and we discuss this matter in the next section.  
 
 \subsection{Spatial and temporal covariance functions}
-In this section, we list several covariance functions which are considered in this paper or could be of use in future studies. For see \citet{Rasmussen2006} for additional information.   
+In this section, we list several covariance functions which are considered in this paper or could be of use in future studies.
 
 The squared exponential covariance function,
 \begin{equation}\label{eq:SE}
 C(x,x') = \alpha^2 \exp\left(\frac{-||x - x'||_2^2}{2 \beta^2}\right),
 \end{equation}
-is commonly used in Kriging \citep[e.g,][]{Cressie1992} and Gaussian process regression \citep[e.g.,][]{Rasmussen2006}.  The squared exponential is a valid (i.e. positive definite) covariance function for any number of spatial dimensions, and it describes an isotropic Gaussian processes with realizations that are infinitely differentiable.  \citet{Kato1998} demonstrated that eq. (\ref{eq:SE}) is an appropriate covariance model for describing long-term tectonic strain rates.  
+is commonly used in Kriging \citep[e.g,][]{Cressie1992} and Gaussian process regression \citep[e.g.,][]{Rasmussen2006}.  The squared exponential is a valid (i.e. positive definite) covariance function for any number of spatial dimensions, and it describes an isotropic (i.e. $C(x,x')$ can be expressed as $\hat{C}(||x - x'||_2)$) Gaussian processes with realizations that are infinitely differentiable.  \citet{Kato1998} and \cite{El-Fiky1999} demonstrated that eq. (\ref{eq:SE}) is an appropriate covariance model for describing long-term tectonic strain rates for Japan.  
 
 The Wendland class of covariance functions \citep{Wendland2005} are positive definite in $\mathbb{R}^d$, and they describes an isotropic Gaussian process with realizations that can be differentiated $k$ times. The form of the covariance function depends on the choice of $d$ and $k$. Wendland covariance functions have compact support, which is a particularly useful property because we can exploit the sparsity of the the corresponding covariance matrices. In this study we use Wendland covariance functions to describe the temporal component of transient displacements. Therefore, we only require that $d=1$ and $k=1$. The corresponding Wendland covariance function is 
 \begin{equation}\label{eq:Wendland}
-C(x,x') = \alpha^2\left(1 - \frac{|x - x'|}{\beta}\right)^3_+ \left(\frac{3|x - x'|}{\beta} + 1\right), \ \ \ x \in \mathbb{R}^1,
+C(x,x') = \alpha^2\left(1 - \frac{|x - x'|}{\beta}\right)^3_+ \left(\frac{3|x - x'|}{\beta} + 1\right), \ \ \ x,x' \in \mathbb{R}^1,
 \end{equation}
 where
 \begin{equation}
@@ -125,19 +125,33 @@ x, \ \ \ x > 0 \\
 \end{cases}
 \end{equation}
 
-They are positive definite for a finite dimensional space and are finitely differentiable.  If the length-scale is sufficiently small then we can take advantage of the sparsity of the covariance matrices in Section X. This turns out to significantly increase scale of the problems which can be addressed in this analysis.
+We next consider the covariance function which describes a first-order Gauss-Markov (FOGM) process. A FOGM process is a solution to the stochastic differential equation
+\begin{equation}
+\dot{u}(x) + \alpha u(x) = \beta w(x), \ \ \ x,x' \in \mathbb{R}^1,
+\end{equation}
+where $w(x)$ is white noise with unit variance.  The solution is a Gaussian process with zero mean and covariance
+% This needs to be scaled to match my work
+\begin{equation}\label{eq:FOGM}
+C(x,x') = \frac{\beta^2}{2\alpha}\exp\left(-\alpha|x - x'|\right), \ \ \ x,x' \in \mathbb{R}^1. 
+\end{equation}
+FOGM processes are isotropic and realizations are not differentiable.  The FOGM model has been used to describe temporally correlated noise in EDM data \citep{Langbein2004} and GNSS data \citep[e.g.,][]{Langbein2008}. 
 
-FOGM solves the differential equation .... Has been used by Langbein.
+One last covariance function which is worth mentioning, even though we do not use it in this paper, is the periodic covariance function \citep{Mackay1998}, 
+\begin{equation}\label{eq:Periodic}
+C(x,x') = \alpha^2 \exp\left(\frac{-\sin(\frac{\pi}{\lambda} |x - x'|)^2}{2 \beta^2} \right), \ \ \ x,x' \in \mathbb{R}^1.
+\end{equation}
+The periodic covariance function describes an isotropic Gaussian process with realizations that have period $\lambda$.  The length-scale of features within each period is controlled by $\beta$. In terms of GNSS data, a periodic Gaussian process can be used to describe seasonal deformation. The more common method of treating seasonal deformation is to model it as a linear combination of annual and semi-annual sinusoids \citep[e.g.,][]{Blewitt2002}. We believe there is potential to use periodic Gaussian processes to explore the statistical properties of seasonal signals; however, that is outside the scope of this paper.   
 
-Valid in ND
-
-Brownian Motion is the solution to the differential equation .... Has been used by Langbein to describe noise
-Valid in 1D
-
-Integrated Brownian motion solves ... . It has been used by Segall to describe slip, Ohatani, Murray, 
-Valid in 1D
-
-We also want to give notable mention to the Periodic covariance function
+Brownian motion and integrated Brownian motion are two Gaussian processes which are frequently used in the geodetic literature.  Brownian motion, which has zero mean and covariance function
+\begin{equation}\label{eq:BM}
+C(x,x') =\alpha^2 \min(x,x'), \ \ \ x,x' \in \mathbb{R}^1 \ \mathrm{and} \ \ x,x' \geq 0, 
+\end{equation} 
+is commonly used to describe noise resulting from the instability of geodetic monuments \citep[e.g.,][]{Wyatt1982,Wyatt1989,Langbein1997}. Integrated Brownian motion, which has zero mean and covariance function
+\begin{align}\label{eq:IBM}
+C(x,x') &= \int_0^x \int_0^{x'} \alpha^2 \min(u,u') \,du'\,du \\
+        &= \frac{\alpha^2}{2}\min(x,x')^2 \left(\max(x,x') - \frac{1}{3}\min(x,x')\right), \ \ \ x,x' \in \mathbb{R}^1 \ \mathrm{and} \ \ x,x' \geq 0,
+\end{align}
+has been used as a nonparametric model for the time dependence of geophysical signals \citep[e.g.,][]{Segall1997,McGuire2003,Ohtani2010,Hines2016}. It should be noted that Brownian motion and integrated Brownian motion have a reference time at which the Gaussian process is exactly zero. For some geophysical signals, such as postseismic deformation, it is reasonable to have such a reference time. On the other hand, if there is no sense of a start time for the geophysical process, then Brownian motion or integrated Brownian motion may not be appropriate, and one of the isoptropic Gaussian processes described above should be used.        
 
 
 \subsection{Constraining displacements and strain with GNSS data}

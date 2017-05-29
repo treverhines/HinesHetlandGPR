@@ -51,7 +51,8 @@
 % - REML
 % - Numerical notes
 %   - partition inverse and solve with CHOLMOD
-%
+% - outlier detection
+
 % APPLICATION TO CASCADIA SSE
 % - SSE background
 % - REML results
@@ -270,6 +271,26 @@ C_u(\bm{y},z') \\
 \end{array}
 \right].
 \end{equation}
+
+The posterior transients displacements, $\hat{\bm{u}}$, are found by evaluating eq. (\ref{eq:PosteriorMean3}) and (\ref{eq:PosteriorCov3}) for each displacement component. We differentiate the Gaussian process $\hat{\bm{u}}$ (see \cite{Abrahamsen1997}) to form an estimate of transient strain rate, $\dot{\bm{\epsilon}}$, which is itself a spatially and temporally continuous Gaussian process. The component of the transient strain rate tensor, $\dot{\epsilon}_{ij}$, are given by
+\begin{equation}\label{eq:StrainRate}
+\dot{\epsilon}_{ij}(z) = \frac{1}{2} \frac{\partial}{\partial t} \left(
+                                     \frac{\partial \hat{u}_i(z)}{\partial x_j} +  
+                                     \frac{\partial \hat{u}_j(z)}{\partial x_i}\right).
+\end{equation}
+Component $\dot{\epsilon}_{ij}$ of the strain rate tensor is distributed as $\mathcal{N}(\mu_{\dot{\epsilon}_{ij}},C_{\dot{\epsilon}_{ij}})$, where
+\begin{equation}\label{eq:StrainMean}
+\mu_{\dot{\epsilon}_{ij}}(z) = \frac{1}{2}\frac{\partial}{\partial t}\left(
+                               \frac{\partial \mu_{\hat{u}_i}(z)}{\partial x_j} + 
+                               \frac{\partial \mu_{\hat{u}_j}(z)}{\partial x_i} \right)
+\end{equation} 
+and  
+\begin{equation}\label{eq:StrainCov}
+C_{\dot{\epsilon}_{ij}}(z,z') = \frac{1}{4} \frac{\partial^2}{\partial t \, \partial t'}\left(
+                           \frac{\partial^2 C_{\hat{u}_i}(z,z')}{\partial x_j \, \partial x'_j} + 
+                           \frac{\partial^2 C_{\hat{u}_j}(z,z')}{\partial x_i \, \partial x'_i} \right).
+\end{equation} 
+
 which allows us to evaluate the limit  evaluate the limit 
 and we consider the GNSS observations $\bm{d}_*$ to be a realization of $\bm{d}$. Furthermore, we The random vector $\bm{d}$ is distributed as $\bm{d} \sim \mathcal{N}(\bar{\bm{d}},\bm{C_d})$, where 
 \begin{equation}

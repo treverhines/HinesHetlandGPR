@@ -93,22 +93,36 @@ We begin this paper by summarizing the RBF-FD scheme and explaining how we const
 
 \section{Method}\label{sec:Method}
 
-In this section, we describe how GNSS displacement observations are used to identify transient crustal strain rates, which we denote as $\dot{\bm{\varepsilon}}(x,t)$. We consider $\dot{\bm{\varepsilon}}$ to be spatially and temporally coherent deviations from the steady rate of strain accumulation from plate tectonics. We determine $\dot{\bm{\varepsilon}}$ by first identifying transient displacements, $\bm{u}(x,t)$, which we then spatially and temporally differentiate.  As we will show in Section X, estimates of $\dot{\bm{\varepsilon}}$ turn out to be more effective at illuminating geophysical signal than estimates of $\bm{u}$ or $\dot{\bm{u}}$.  We make a prior assumption that each component of $\mathbf{u}$ is a three-dimensional (two spatial dimensions and time) Gaussian process,
+In this section, we describe how GNSS displacement observations are used to identify transient crustal strain rates, which we denote as $\dot{\bm{\varepsilon}}(z)$, where $z$ is the ordered pair $(x,t)$, $x$ are spatial coordinates in $\mathbb{R}^2$, and $t$ is time. We consider $\dot{\bm{\varepsilon}}$ to be spatially and temporally coherent deviations from the steady rate of strain accumulation from plate tectonics. We determine $\dot{\bm{\varepsilon}}$ by first identifying transient displacements, $\bm{u}(z)$, which we then spatially and temporally differentiate.  As we will show in Section X, estimates of $\dot{\bm{\varepsilon}}$ turn out to be more effective at illuminating geophysical signal than estimates of $\bm{u}$ or $\dot{\bm{u}}$.  We make a prior assumption that each component of $\bm{u}$ is a Gaussian process,
 \begin{equation}\label{eq:TransientDeformation}
-u_i(x,t) \sim \mathcal{N}\left(0,C_{u_i}\right),
+u_i(z) \sim \mathcal{N}\left(0,C_{u_i}\right),
 \end{equation}
-where $C_{u_i}\left((x,t),(x',t')\right)$ is a covariance function indicating how we expect $u_i(x,t)$ to covary with $u_i(x',t')$. For simplicity, we treat each component of displacement independently and ignore any potential covariance. We then drop the component subscripts with the understanding that the same analysis is being repeated to estimate the east, north, and vertical components of $\bm{u}$. We further assume that $C_u$ can be separated into positive definite spatial and temporal functions as 
+where $C_{u_i}(z,z')$ is a covariance function indicating how we expect $u_i(z)$ to covary with $u_i(z')$. For simplicity, we treat each component of displacement independently and ignore any potential covariance. We then drop the component subscripts with the understanding that the same analysis is being repeated to estimate the east, north, and vertical components of $\bm{u}$. We further assume that $C_u$ can be separated into positive definite spatial and temporal functions as 
 \begin{equation}\label{eq:TransientCovariance}
 C_{u}\left((x,t),(x',t')\right) = X(x,x')T(t,t').
 \end{equation}  
 The appropriate choice for $X$ and $T$ may vary depending on the geophysical signal we are trying to describe (e.g. postseismic deformation or deformation from slow slip events), and we discuss this matter in the next section.  
 
-We constrain $u$ with GNSS data, which records $u$ as well as other physical and non-physical processes which we are not interested in. We describe GNSS observations at position $x_i$ and time $t_j$ as a realization of the random variable 
+We constrain $u$ with GNSS data, which records $u$ as well as other physical and non-physical processes which we are not interested in. We describe GNSS observations at position $x_i$ and time $t$ as a realization of the random variable 
 \begin{align}\label{eq:Data}
-d_{ij} = &u(x_i,t_j) + \epsilon(x_i,t_j) + m_{1i} + m_{2i} t_j + \\
-         &m_{3i}\sin(2 \pi t_j) + m_{4i}\cos(2 \pi t_j) + m_{5i}\sin(4 \pi t_j) + m_{6i}\cos(4 \pi t_j), 
+\begin{split}
+d_{i}(t) = &u(x_i,t) + \epsilon(x_i,t) + a_{i} + b_{i}t + \\
+         &c_{i}\sin(2 \pi t) + q_{i}\cos(2 \pi t) + r_{i}\sin(4 \pi t) + s_{i}\cos(4 \pi t), 
+\end{split}
 \end{align}
-where $m_1i$ is an offset that is unique for each GNSS monument, $m_2i$ is the steady rate of tectonic deformation at $x_i$, the sinusoids describe seasonal deformation (using units of years for $t_j$), and $\epsilon$ is a Gaussian process for noise that cannot be described parametrically. $\epsilon$ can consist of white noise, temporally correlated noise describing benchmark wobble \citep[e.g.,][]{Wyatt1982,Wyatt1989}, or spatially correlated noise describing common mode error \citep[e.g.,][]{Wdowinski1997}.  For now, we describe $\epsilon$ generally as $\epsilon \sim \mathcal{N}(0,C_\epsilon)$. We consider the coefficients $m_{kj}$, to be uncorrelated random variables with a diffuse prior. Of course, the tectonic deformation, $b_i$, is in reality spatially correlated and we could invoke tectonic model to form a prior on $b_i$. However, in our application to Cascadia, we will be using displacement time series which are long enough to sufficiently constrain $b_i$ for each station and there is no need to incorporate a prior. Likewise, the seasonal coefficients may be spatially correlated as suggested by Langbein2008?. It may be worth exploring and exploiting such a correlation in a future study.       
+where $a_{i}$ is an offset that is unique for each GNSS monument, $b_{i}$ is the steady rate of tectonic deformation at $x_i$, the sinusoids describe seasonal deformation (using units of years for $t$), and $\epsilon$ is a Gaussian process for noise that cannot be described parametrically.  $\epsilon$ can consist of white noise, temporally correlated noise describing, for example, benchmark wobble \citep[e.g.,][]{Wyatt1982,Wyatt1989}, and/or spatially correlated noise describing, for example, common mode error \citep[e.g.,][]{Wdowinski1997}.  For now, we describe $\epsilon$ generally as $\epsilon \sim \mathcal{N}(0,C_\epsilon)$. We consider the six coefficients in eq. (\ref{eq:Data}) to be uncorrelated random variables distributed as $\mathcal{N}(0,\lambda^2)$ in the limit as $\lambda \to \infty$ (i.e., the coefficients have diffuse priors). Of course, the tectonic deformation, $b_{i}$, is in reality spatially correlated and we could invoke tectonic model to form a prior on $b_{i}$. However, in our application to Cascadia, we will be using displacement time series which are long enough to sufficiently constrain $b_{i}$ for each station and there is no need to incorporate a prior. Likewise, the seasonal coefficients may be spatially correlated as suggested by Langbein2008?. It may be worth exploring and exploiting such a correlation in a future study. 
+
+Let $\bm{y}$ be the set of $(x_i, t)$ pairs describing where and when each of the $n$ GNSS observations have been made. Furthermore, let $\bm{a}$ be the vector of coefficients from eq. (\ref{eq:Data}) for each of the $m$ GNSS monuments, and let $\bm{P}$ be the $n \times 6m$ matrix of corresponding basis functions evaluated at each point in $\bm{y}$. The $n$ GNSS observations, $\bm{d}_*$, are a realization of the random vector
+\begin{equation}
+\bm{d} = u(\bm{y}) + \epsilon(\bm{y}) + \bm{P}\bm{a},
+\end{equation}
+which is distributed as $\mathcal{N}(\bm{0},\bm{C_d})$, where
+\begin{equation}\label{eq:Cd}
+\bm{C_d} = C_u(\bm{y},\bm{y}) + C_\epsilon(\bm{y},\bm{y}) + 
+           \lambda^2\bm{P}\bm{P}^T.
+\end{equation}
+It should be understood that the notation $f(\bm{x})$ and $f(\bm{x},\bm{y})$ is used as shorthand for $[f(x_i)]_{x_i \in \bm{x}}$ and $[f(x_i,y_j)]_{(x_i,y_j) \in \bm{x} \times \bm{y}}$, respectively. In section X, we describe how the observations $\bm{d}_*$ are used to constrain transient displacements $u$ and then for estimates of transient strain rates.
+
 
 
 \subsection{Spatial and temporal covariance functions}
@@ -162,16 +176,109 @@ C(x,x') &= \int_0^x \int_0^{x'} \alpha^2 \min(u,u') \,du'\,du \\
 has been used as a nonparametric model for the time dependence of geophysical signals \citep[e.g.,][]{Segall1997,McGuire2003,Ohtani2010,Hines2016}. It should be noted that Brownian motion and integrated Brownian motion have a reference time at which the Gaussian process is exactly zero. For some geophysical signals, such as postseismic deformation, it is reasonable to have such a reference time. On the other hand, if there is no sense of a start time for the geophysical process, then Brownian motion or integrated Brownian motion may not be appropriate, and one of the isoptropic Gaussian processes described above should be used.        
 
 \subsection{Conditioning}
-Assuming that a covariance function and corresponding hyperparameters for $X$, $T$, and $C_d$ have been chosen, 
-
-In this section we describe how to condition the prior for transient displacements, $u$, with GNSS observations. We will assume that a appropriate covariance functions and corresponding hyperparameters for $X$, $T$, and $C_d$ have already been chosen.  Let $\mathbf{y}$ be the set of all $(x_i, t_j)$ pairs where a GNSS observation has been made, and let $\mathbf{d} = [d_{ij}]^T_{(x_i,t_j) \in \mathbf{y}}$. The random vector $\mathbf{d}$ is distributed as $\mathbf{d} \sim \mathcal{N}(\bar{\mathbf{d}},\mathbf{C_d})$, where 
+In this section we describe how to condition the prior for transient displacements, $u$, with GNSS observations, $\bm{d}_*$, to form a posterior estimate of transient displacements, $\hat{u} = u | \bm{d}_*$. We will assume that an appropriate covariance functions and corresponding hyperparameters for $X$, $T$, and $C_\epsilon$ have already been chosen. If $\lambda$ is kept finite, then we can follow \citet{Rasmussen2006} to find that $\hat{u}$ is distributed as $\mathcal{N}(\mu_{\hat{u}},C_{\hat{u}})$, where
+\begin{equation}\label{eq:PosteriorMean}
+\mu_{\hat{u}}(z) = C_u(z,\bm{y})\bm{C_d}^{-1}\bm{d}_*
+\end{equation}    
+and
+\begin{equation}\label{eq:PosteriorCov}
+C_{\hat{u}}(z,z') = C_u(z,\bm{y})\bm{C_d}^{-1}C_u(\bm{y},z').
+\end{equation}
+However, we are interested in the limit as $\lambda \to \infty$, and the form for eq. (\ref{eq:PosteriorMean}) and eq. (\ref{eq:PosteriorCov}) is not suitable for evaluating this limit. We can use the partitioned matrix inversion identity \citep[e.g.,][]{Press2007} to rewrite eq. (\ref{eq:PosteriorMean}) and eq. (\ref{eq:PosteriorCov}) as
+ \begin{equation}\label{eq:PosteriorMean2}
+\mu_{\hat{u}}(z) =
+\left[ 
+\begin{array}{cc}
+C_u(z,\bm{y}) & \bm{0} \\
+\end{array}
+\right]
+\left[
+\begin{array}{cc}
+C_u(\bm{y},\bm{y}) + C_\epsilon(\bm{y},\bm{y}) & \bm{P} \\
+\bm{P}^T  & -\lambda^{-2} \bm{I} \\
+\end{array}
+\right]^{-1}
+\left[
+\begin{array}{c}
+\bm{d}_* \\
+\bm{0} \\
+\end{array}
+\right]
+\end{equation}    
+and
+\begin{equation}\label{eq:PosteriorCov2}
+C_{\hat{u}}(z,z') = 
+C_u(z,z') - 
+\left[ 
+\begin{array}{cc}
+C_u(z,\bm{y}) & \bm{0} \\
+\end{array}
+\right]
+\left[
+\begin{array}{cc}
+C_u(\bm{y},\bm{y}) + C_\epsilon(\bm{y},\bm{y}) & \bm{P} \\
+\bm{P}^T  & -\lambda^{-2} \bm{I} \\
+\end{array}
+\right]^{-1}
+\left[
+\begin{array}{c}
+C_u(\bm{y},z') \\
+\bm{0} \\
+\end{array}
+\right].
+\end{equation}
+Taking the limit as $\lambda \to \infty$, we get the solution for the mean and covariance of $\hat{u}$,
+ \begin{equation}\label{eq:PosteriorMean3}
+\mu_{\hat{u}}(z) =
+\left[ 
+\begin{array}{cc}
+C_u(z,\bm{y}) & \bm{0} \\
+\end{array}
+\right]
+\left[
+\begin{array}{cc}
+C_u(\bm{y},\bm{y}) + C_\epsilon(\bm{y},\bm{y}) & \bm{P} \\
+\bm{P}^T  & \bm{0} \\
+\end{array}
+\right]^{-1}
+\left[
+\begin{array}{c}
+\bm{d}_* \\
+\bm{0} \\
+\end{array}
+\right]
+\end{equation}    
+and
+\begin{equation}\label{eq:PosteriorCov3}
+C_{\hat{u}}(z,z') = 
+C_u(z,z') - 
+\left[ 
+\begin{array}{cc}
+C_u(z,\bm{y}) & \bm{0} \\
+\end{array}
+\right]
+\left[
+\begin{array}{cc}
+C_u(\bm{y},\bm{y}) + C_\epsilon(\bm{y},\bm{y}) & \bm{P} \\
+\bm{P}^T  & \bm{0} \\
+\end{array}
+\right]^{-1}
+\left[
+\begin{array}{c}
+C_u(\bm{y},z') \\
+\bm{0} \\
+\end{array}
+\right].
+\end{equation}
+which allows us to evaluate the limit  evaluate the limit 
+and we consider the GNSS observations $\bm{d}_*$ to be a realization of $\bm{d}$. Furthermore, we The random vector $\bm{d}$ is distributed as $\bm{d} \sim \mathcal{N}(\bar{\bm{d}},\bm{C_d})$, where 
 \begin{equation}
-\mathbf{d}
+\bm{d}
 \end{equation}
 
 
 
-We consider the column vector of GNSS observations, $\mathbf{d}_*$, to be realizations of $d_{ij}$ at the positions and times in $\mathbf{y}$ (i.e, $\mathbf{d}_* = [d_{ij}(\omega_*)]^T_{(x_i,t_j) \in \mathbf{y}}$). We want to find the posterior estimate of transient displacements, $u | \mathbf{d}_*$, which incorporates our prior and the GNSS observations.
+We consider the column vector of GNSS observations, $\bm{d}_*$, to be realizations of $d_{ij}$ at the positions and times in $\bm{y}$ (i.e, $\bm{d}_* = [d_{ij}(\omega_*)]^T_{(x_i,t_j) \in \bm{y}}$). We want to find the posterior estimate of transient displacements, $u | \bm{d}_*$, which incorporates our prior and the GNSS observations.
 
         
 Once we have chosen covariance functions and corresponding hyperparameters for $X$, $T$, and $C_d$, we then condition our prior Gaussian process, $u$, with the observations $d_*$ to form a posterior estimate of transient displacements, $u|d_*$. $d_*$ is a realization of the 

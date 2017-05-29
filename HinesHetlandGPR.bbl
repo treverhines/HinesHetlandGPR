@@ -180,6 +180,11 @@ Prescott, W.~H. (1976).
 \newblock {\em Bulletin of the Seismological Society of America},
   66(6):1847--1853.
 
+\bibitem[Press et~al., 2007]{Press2007}
+Press, W.~H., Flannery, B.~P., Teukolsky, S.~A., and Vetterling, W.~T. (2007).
+\newblock {\em {Numerical Recipes: The Art of Scientific Computing}}.
+\newblock Cambridge University Press, Cambridge, 3 edition.
+
 \bibitem[Rasmussen and Williams, 2006]{Rasmussen2006}
 Rasmussen, C.~E. and Williams, C. K.~I. (2006).
 \newblock {\em {Gaussian processes for machine learning}}.

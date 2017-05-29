@@ -12,11 +12,6 @@ Beavan, J. and Haines, J. (2001).
   Pacific-Australian plate boundary zone through New Zealand}.
 \newblock {\em Journal of Geophysical Research}, 106(B1):741--770.
 
-\bibitem[Blewitt and Lavall{\'{e}}e, 2002]{Blewitt2002}
-Blewitt, G. and Lavall{\'{e}}e, D. (2002).
-\newblock {Effect of annual signals on geodetic velocity}.
-\newblock {\em Journal of Geophysical Research}, 107(B7):2145----.
-
 \bibitem[Burgette et~al., 2009]{Burgette2009}
 Burgette, R.~J., Weldon, R.~J., and Schmidt, D.~A. (2009).
 \newblock {Interseismic uplift rates for western Oregon and along-strike
@@ -33,6 +28,12 @@ Cecil, T., Qian, J., and Osher, S. (2004).
 Cressie, N. (1993).
 \newblock {\em {Statistics for Spatial Data}}.
 \newblock John Wiley {\&} Sons, New York, rev. edition.
+
+\bibitem[Dong et~al., 2002]{Dong2002}
+Dong, D., Fang, P., Bock, Y., Cheng, M.~K., and Miyazaki, S. (2002).
+\newblock {Anatomy of apparent seasonal variations from GPS-derived site
+  position time series}.
+\newblock {\em J. Geophys. Res.}, 107(B4):2075.
 
 \bibitem[Dragert et~al., 2001]{Dragert2001}
 Dragert, G., Wang, K., and James, T.~S. (2001).

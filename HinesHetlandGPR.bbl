@@ -17,6 +17,12 @@ Beavan, J. and Haines, J. (2001).
   Pacific-Australian plate boundary zone through New Zealand}.
 \newblock {\em Journal of Geophysical Research}, 106(B1):741--770.
 
+\bibitem[Blewitt et~al., 2016]{Blewitt2016}
+Blewitt, G., Kreemer, C., Hammond, W.~C., and Gazeaux, J. (2016).
+\newblock {MIDAS robust trend estimator for accurate GPS station velocities
+  without step detection}.
+\newblock {\em Journal of Geophysical Research : Solid Earth}, 121:2054--2068.
+
 \bibitem[Burgette et~al., 2009]{Burgette2009}
 Burgette, R.~J., Weldon, R.~J., and Schmidt, D.~A. (2009).
 \newblock {Interseismic uplift rates for western Oregon and along-strike
@@ -74,16 +80,16 @@ Fl{\"{u}}ck, P., Hyndman, R.~D., and Wang, K. (1997).
   subduction zone}.
 \newblock {\em Journal of Geophysical Research}, 102(B9):20539--20550.
 
-\bibitem[Fornberg and Flyer, 2015]{Fornberg2015}
-Fornberg, B. and Flyer, N. (2015).
-\newblock {\em {A Primer on Radial Basis Functions with Applications to the
-  Geosciences}}.
-\newblock Society for Industrial and Applied Mathematics, Philadelphia.
-
 \bibitem[Frank, 1966]{Frank1966}
 Frank, C.~F. (1966).
 \newblock {Deduction of earth strains from survey data}.
 \newblock {\em Bulletin of the Seismological Society of America}, 56(1):35--42.
+
+\bibitem[Gibbs, 2011]{Gibbs2011}
+Gibbs, B.~P. (2011).
+\newblock {\em {Advanced Kalman Filtering, Least-Squares and Modeling: A
+  Practical Handbook}}.
+\newblock John Wiley {\&} Sons, Hoboken, NJ.
 
 \bibitem[Gladwin et~al., 1987]{Gladwin1987}
 Gladwin, M.~T., Gwyther, R.~L., Hart, R., Francis, M., and Johnston, M. J.~S.

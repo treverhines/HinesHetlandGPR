@@ -93,7 +93,6 @@ The method proposed in this paper has numerous advantages which set it apart fro
 We begin this paper by summarizing the RBF-FD scheme and explaining how we construct differentiation matrices for scattered data. We then introduce the RBF-FD filter, which is used to smooth the observed geodetic data prior to differentiation.  We provide two real world demonstraitions of our method for calculating strain rates.  First we calculate the long term strain rates in Southern California from the CMM3 velocity data set \citep{Shen2011}, and we verify that our results are consistent with other studies. We then calculate time dependent strain rates in Cascadia from the GPS data provided by UNAVCO.  In Cascadia, we analyze strain resulting from slow slip events and compare it to the long term tectonic strain accumulation. Slow slip events are found to produce compression in the Olympic Peninsula, which is in addition to the compression resulting from tectonic loading.  Further south in Oregon, the slow slip events tend to release the compressional strain that is accumulated tectonically.  While similar conclusions have been drawn from fault slip inversions for slow slip events, it is important to recognize that slip inversion are the product of inverting an ill-conditioned matrix making it difficult to determine whether slip inferences are real or just an artifact of the inversion.  The strain rates presented in this paper are more direct observations and can be interpretted with a higher degree of confidence. 
 
 \section{Method}\label{sec:Method}
-
 In this section, we describe how GNSS displacement observations are used to identify transient crustal strain rates, which we denote as $\dot{\bm{\varepsilon}}(z)$, where $z$ is the ordered pair $(x,t)$, $x$ are spatial coordinates in $\mathbb{R}^2$, and $t$ is time. We consider $\dot{\bm{\varepsilon}}$ to be spatially and temporally coherent deviations from the steady rate of strain accumulation from plate tectonics. We determine $\dot{\bm{\varepsilon}}$ by first identifying transient displacements, $\bm{u}(z)$, which we then spatially and temporally differentiate.  As we will show in Section X, estimates of $\dot{\bm{\varepsilon}}$ turn out to be more effective at illuminating geophysical signal than estimates of $\bm{u}$ or $\dot{\bm{u}}$.  We make a prior assumption that each component of $\bm{u}$ is a Gaussian process,
 \begin{equation}\label{eq:TransientDeformation}
 u_i(z) \sim \mathcal{N}\left(0,C_{u_i}\right),
@@ -111,9 +110,9 @@ d_{i}(t) = &u(x_i,t) + \epsilon(x_i,t) + a_{i} + b_{i}t + \\
          &c_{i}\sin(2 \pi t) + q_{i}\cos(2 \pi t) + r_{i}\sin(4 \pi t) + s_{i}\cos(4 \pi t), 
 \end{split}
 \end{align}
-where $a_{i}$ is an offset that is unique for each GNSS monument, $b_{i}$ is the steady rate of tectonic deformation at $x_i$, the sinusoids describe seasonal deformation (using units of years for $t$), and $\epsilon$ is a Gaussian process for noise that cannot be described parametrically.  $\epsilon$ can consist of white noise, temporally correlated noise describing, for example, benchmark wobble \citep[e.g.,][]{Wyatt1982,Wyatt1989}, and/or spatially correlated noise describing, for example, common mode error \citep[e.g.,][]{Wdowinski1997}.  For now, we describe $\epsilon$ generally as $\epsilon \sim \mathcal{N}(0,C_\epsilon)$. We consider the six coefficients in eq. (\ref{eq:Data}) to be uncorrelated random variables distributed as $\mathcal{N}(0,\lambda^2)$ in the limit as $\lambda \to \infty$ (i.e., the coefficients have diffuse priors). Of course, the tectonic deformation, $b_{i}$, is in reality spatially correlated and we could invoke tectonic model to form a prior on $b_{i}$. However, in our application to Cascadia, we will be using displacement time series which are long enough to sufficiently constrain $b_{i}$ for each station and there is no need to incorporate a prior. Likewise, the seasonal coefficients may be spatially correlated as suggested by Langbein2008?. It may be worth exploring and exploiting such a correlation in a future study. 
+where $a_{i}$ is an offset that is unique for each GNSS monument, $b_{i}$ is the steady rate of tectonic deformation at $x_i$, the sinusoids describe seasonal deformation (using units of years for $t$), and $\epsilon$ is a Gaussian process for noise that cannot be described parametrically. For example, $\epsilon$ can consist of white noise, temporally correlated noise describing benchmark wobble \citep[e.g.,][]{Wyatt1982,Wyatt1989}, and/or spatially correlated noise describing common mode error \citep[e.g.,][]{Wdowinski1997}. For now, $\epsilon$ will simply be described as $\epsilon \sim \mathcal{N}(0,C_\epsilon)$. We consider the six coefficients in eq. (\ref{eq:Data}) to be uncorrelated random variables distributed as $\mathcal{N}(0,\lambda^2)$ in the limit as $\lambda \to \infty$ (i.e., the coefficients have diffuse priors). Of course, the tectonic deformation, $b_{i}$, is spatially correlated and we could invoke a tectonic model to form a prior on $b_{i}$. However, in our application to Cascadia, we will be using displacement time series which are long enough to sufficiently constrain $b_{i}$ for each station, and there is no need to incorporate a prior. Likewise, the seasonal coefficients may be spatially correlated \citep{Langbein2008}, and it may be worth exploring and exploiting such a correlation in a future study. 
 
-Let $\bm{y}$ be the set of $(x_i, t)$ pairs describing where and when each of the $n$ GNSS observations have been made. Furthermore, let $\bm{a}$ be the vector of coefficients from eq. (\ref{eq:Data}) for each of the $m$ GNSS monuments, and let $\bm{P}$ be the $n \times 6m$ matrix of corresponding basis functions evaluated at each point in $\bm{y}$. The $n$ GNSS observations, $\bm{d}_*$, are a realization of the random vector
+We now consider the column vector of $n$ GNSS observations, $\bm{d}_*$. Let $\bm{y}$ be the set of $(x_i, t)$ pairs describing where and when each of the GNSS observations have been made. Furthermore, let $\bm{a}$ be the vector of coefficients from eq. (\ref{eq:Data}) for each of the $m$ GNSS monuments, and let $\bm{P}$ be the $n \times 6m$ matrix of corresponding basis functions evaluated at each point in $\bm{y}$. The observations $\bm{d}_*$ are then a realization of the random vector
 \begin{equation}
 \bm{d} = u(\bm{y}) + \epsilon(\bm{y}) + \bm{P}\bm{a},
 \end{equation}
@@ -122,9 +121,9 @@ which is distributed as $\mathcal{N}(\bm{0},\bm{C_d})$, where
 \bm{C_d} = C_u(\bm{y},\bm{y}) + C_\epsilon(\bm{y},\bm{y}) + 
            \lambda^2\bm{P}\bm{P}^T.
 \end{equation}
-It should be understood that the notation $f(\bm{x})$ and $f(\bm{x},\bm{y})$ is shorthand for $[f(x_i)]_{x_i \in \bm{x}}$ and $[f(x_i,y_j)]_{(x_i,y_j) \in \bm{x} \times \bm{y}}$, respectively. In section X, we describe how the observations $\bm{d}_*$ are used to constrain transient displacements $u$ and then for estimates of transient strain rates.
+It should be understood that the notation $f(\bm{x})$ and $f(\bm{x},\bm{y})$ is shorthand for $[f(x_i)]_{x_i \in \bm{x}}$ and $[f(x_i,y_j)]_{(x_i,y_j) \in \bm{x} \times \bm{y}}$, respectively. 
 
-We now describe how to condition the prior for transient displacements, $u$, with GNSS observations, $\bm{d}_*$, to form a posterior estimate of transient displacements, $\hat{u} = u | \bm{d}_*$. We will assume that an appropriate covariance functions and corresponding hyperparameters for $X$, $T$, and $C_\epsilon$ have already been chosen. If $\lambda$ is kept finite, then we can follow \citet{Rasmussen2006} to find that $\hat{u}$ is distributed as $\mathcal{N}(\mu_{\hat{u}},C_{\hat{u}})$, where
+We now describe how to condition the prior for each component of transient displacements, $u$, with $\bm{d}_*$ to form a posterior estimate of transient displacements, $\hat{u} = u | \bm{d}_*$. We will assume that an appropriate covariance functions and corresponding hyperparameters for $X$, $T$, and $C_\epsilon$ have already been chosen. If $\lambda$ is kept finite, then we can follow \citet{Rasmussen2006} to find that $\hat{u}$ is distributed as $\mathcal{N}(\mu_{\hat{u}},C_{\hat{u}})$, where
 \begin{equation}\label{eq:PosteriorMean}
 \mu_{\hat{u}}(z) = C_u(z,\bm{y})\bm{C_d}^{-1}\bm{d}_*
 \end{equation}    
@@ -219,7 +218,7 @@ C_u(\bm{y},z') \\
 \right].
 \end{equation}
 
-The posterior transients displacements, $\hat{\bm{u}}$, are found by evaluating eq. (\ref{eq:PosteriorMean3}) and (\ref{eq:PosteriorCov3}) for each displacement component. We differentiate the Gaussian process $\hat{\bm{u}}$ (see \cite{Abrahamsen1997}) to form an estimate of transient strain rate, $\dot{\bm{\epsilon}}$, which is itself a spatially and temporally continuous Gaussian process. The component of the transient strain rate tensor, $\dot{\epsilon}_{ij}$, are given by
+The posterior transients displacements, $\hat{\bm{u}}$, are found by evaluating eq. (\ref{eq:PosteriorMean3}) and (\ref{eq:PosteriorCov3}) for each displacement component. We differentiate the Gaussian process $\hat{\bm{u}}$ (see \cite{Abrahamsen1997}) to form an estimate of transient strain rate, $\dot{\bm{\epsilon}}$, which is itself a spatially and temporally continuous Gaussian process. The components of the transient strain rate tensor, $\dot{\epsilon}_{ij}$, are given by
 \begin{equation}\label{eq:StrainRate}
 \dot{\epsilon}_{ij}(z) = \frac{1}{2} \frac{\partial}{\partial t} \left(
                                      \frac{\partial \hat{u}_i(z)}{\partial x_j} +  
@@ -237,6 +236,49 @@ C_{\dot{\epsilon}_{ij}}(z,z') = \frac{1}{4} \frac{\partial^2}{\partial t \, \par
                            \frac{\partial^2 C_{\hat{u}_i}(z,z')}{\partial x_j \, \partial x'_j} + 
                            \frac{\partial^2 C_{\hat{u}_j}(z,z')}{\partial x_i \, \partial x'_i} \right).
 \end{equation} 
+
+\subsection{Outlier detection}
+In our formulation for estimating transient strain rates, we have assumed that noise in the data vector is normally distributed. This is not an appropriate assumption for GNSS displacement time series which are prone to more outliers than would be predicted for normally distributed noise. It follows that proposed methods for analyzing GNSS timeseries should be robust against outliers \citep[e.g.,][]{Blewitt2016}. In order to make our estimates of transient strain more robust, we automatically identify and remove outliers in the GNSS data as a pre-processing step. Our strategy for identifying outliers is based on the data editing algorithms described in \citet{Gibbs2011}. In essence, outliers are considered to be observations which are abnormally inconsistent with $\bm{d}$. This algorithm is particularly effective because $\bm{d}$ has a spatial and temporal dependence, which allows us to identify anomalous observations which may not be apparent by inspection of timeseries alone.          
+
+We now describe the data editing algorithm. Let $\Omega$ be the index set identifying non-outliers in $\bm{d}_*$,  which initially contains all $n$ indices.  
+
+We again treat $\bm{d}_*$ as a sample of $\bm{d}$ and we assume some prior covariance function for $u$. We let $\epsilon$ be uncorrelated noise which has standard deviation given by the formal data uncertainties, $\bm{\sigma}$. Outliers are considered to be the observations which are abnormally inconsistent with the Gaussian process $u(\bm{y}) + \bm{P}\bm{a}$. We identify outliers in an iterative algorithm that is based on the data editing algorithm described in \citet{Gibbs2011}, which we now describe.  
+
+Let $\Omega$ be the index set of non-outliers in $\bm{d}_*$, which we initiate with all $n$ indices. For each iteration we calculate the residual vector
+\begin{align}
+\bm{r} &= \frac{\bm{d}_* - \mathrm{E}\left[(u(\bm{y}) + \bm{P}\bm{a})|\tilde{\bm{d}}_* \right]}{\bm{\sigma}} \\
+       &= \frac{1}{\bm{\sigma}}\left(\bm{d}_*  - 
+\left[ 
+\begin{array}{cc}
+C_u(\bm{y},\tilde{\bm{y}}) & \bm{P} \\
+\end{array}
+\right]
+\left[
+\begin{array}{cc}
+C_u(\tilde{\bm{y}},\tilde{\bm{y}}) + \mathrm{diag}(\tilde{\bm{\sigma}}^2) & \tilde{\bm{P}} \\
+\tilde{\bm{P}}^T  & \bm{0} \\
+\end{array}
+\right]^{-1}
+\left[
+\begin{array}{c}
+\tilde{\bm{d}}_* \\
+\bm{0} \\
+\end{array}
+\right] 
+\right).
+\end{align}
+
+
+
+
+
+as an approximate realization of $\epsilon$.
+
+
+
+in addition to spatially and/or temporally correlated noise.
+
+  be Furthermore, we consider $\epsilon$ to be composed of uncorrelated noise with standard deviations given by the formal uncertainties on $\bm{d}_*$, $\bm{\sigma}$, as well as  as well as s composed of     
 
 \subsection{Spatial and temporal covariance functions}
 We must choose an appropriate Gaussian process describing transient displacements $u$ and GNSS noise $\epsilon$. We assume that $u$ and $\epsilon$ both have zero mean, which leaves for use to select a parameterization for the covariance functions $X$, $T$, and $C_d$.  In this section, we list the covariance functions which are considered in this paper and those which could be of use in future studies. In the following discussion $\alpha$ and $\beta$ are hyperparameters. There are numerous strategies for selecting these hyperparameters (see \citet{Cressie1992}) and we save a discussion on choosing the hyperparameters for Section X.

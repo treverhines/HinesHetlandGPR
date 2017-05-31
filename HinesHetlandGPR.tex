@@ -238,14 +238,10 @@ C_{\dot{\epsilon}_{ij}}(z,z') = \frac{1}{4} \frac{\partial^2}{\partial t \, \par
 \end{equation} 
 
 \subsection{Outlier detection}
-In our formulation for estimating transient strain rates, we have assumed that noise in the data vector is normally distributed. This is not an appropriate assumption for GNSS displacement time series which are prone to more outliers than would be predicted for normally distributed noise. It follows that proposed methods for analyzing GNSS timeseries should be robust against outliers \citep[e.g.,][]{Blewitt2016}. In order to make our estimates of transient strain more robust, we automatically identify and remove outliers in the GNSS data as a pre-processing step. Our strategy for identifying outliers is based on the data editing algorithms described in \citet{Gibbs2011}. In essence, outliers are considered to be observations which are abnormally inconsistent with $\bm{d}$. This algorithm is particularly effective because $\bm{d}$ has a spatial and temporal dependence, which allows us to identify anomalous observations which may not be apparent by inspection of timeseries alone.          
+In our formulation for estimating transient strain rates, we have assumed that noise in the data vector is normally distributed. This is not an appropriate assumption for GNSS displacement timeseries which are prone to more outliers than would be predicted for normally distributed noise. It follows that proposed methods for analyzing GNSS timeseries should be robust against outliers \citep[e.g.,][]{Blewitt2016}. In order to make our estimates of transient strain more robust, we automatically identify and remove outliers in the GNSS data as a pre-processing step.
 
-We now describe the data editing algorithm. Let $\Omega$ be the index set identifying non-outliers in $\bm{d}_*$,  which initially contains all $n$ indices.  
-
-We again treat $\bm{d}_*$ as a sample of $\bm{d}$ and we assume some prior covariance function for $u$. We let $\epsilon$ be uncorrelated noise which has standard deviation given by the formal data uncertainties, $\bm{\sigma}$. Outliers are considered to be the observations which are abnormally inconsistent with the Gaussian process $u(\bm{y}) + \bm{P}\bm{a}$. We identify outliers in an iterative algorithm that is based on the data editing algorithm described in \citet{Gibbs2011}, which we now describe.  
-
-Let $\Omega$ be the index set of non-outliers in $\bm{d}_*$, which we initiate with all $n$ indices. For each iteration we calculate the residual vector
-\begin{align}
+Our method for detecting outliers is based on the data editing algorithm described in \citet{Gibbs2011}.  We again treat $\bm{d}_*$ as a sample of $\bm{d}$, and we assume some prior covariance function for $u$. The choice for $u$ here does not need to be the same as that used in Section X, and a conservative approach would be to choose a $u$ that is more flexible (e.g., shorter characteristic length-scales and higher variance).  We let $\epsilon$ be uncorrelated noise which has standard deviation given by the formal data uncertainties, $\bm{\sigma}$. We consider outliers to be observations which are abnormally inconsistent with the random vector $u(\bm{y}) + \bm{P}\bm{a}$. With this criterion, we takes into account the spatial and temporal relationship between the data, allowing us to identify anomalous observations which may not be immediately apparent based on inspection of individual timeseries. To begin the algorithm, we let $\Omega$ be the index set of non-outliers in $\bm{d}_*$ and initiate it with all $n$ indices. This algorithm is iterative, and for each iteration we calculate the residual vector
+\begin{align}\label{eq:Residual}
 \bm{r} &= \frac{\bm{d}_* - \mathrm{E}\left[(u(\bm{y}) + \bm{P}\bm{a})|\tilde{\bm{d}}_* \right]}{\bm{\sigma}} \\
        &= \frac{1}{\bm{\sigma}}\left(\bm{d}_*  - 
 \left[ 
@@ -265,20 +261,17 @@ C_u(\tilde{\bm{y}},\tilde{\bm{y}}) + \mathrm{diag}(\tilde{\bm{\sigma}}^2) & \til
 \bm{0} \\
 \end{array}
 \right] 
-\right).
+\right),
 \end{align}
+where the tilde indicates that only elements corresponding to indices in $\Omega$ are retained (e.g., $\tilde{\bm{y}} = (y_i)_{i\in\Omega}$). We then update $\Omega$ to be
+\begin{equation}\label{eq:Update}
+\Omega = \{i : |r_i| < \lambda \tilde{\bm{r}}_{rms}\}
+\end{equation} 
+where $\tilde{\bm{r}}_{rms}$ is the root-mean-square of $\tilde{\bm{r}}$ and $\lambda$ is an outlier tolerance. We use $\lambda=4$ in this study, which seems to accurately identify outliers without unnecessarily decimating the data. Iterations continue until the new $\Omega$ is equal to the previous $\Omega$ (i.e., no new outliers are detected). 
+
+It should be noted that this algorithm does not identify jumps in GNSS time series, which are another common defect. Some, but not all, jumps can be automatically removed by parsing station logs and identifying dates of antenna changes. However, it is still necessary to manually inspect and remove jumps of unknown origin. That being said, this outlier detection algorithm significantly reduces the effort needed to manually clean GNSS data.       
 
 
-
-
-
-as an approximate realization of $\epsilon$.
-
-
-
-in addition to spatially and/or temporally correlated noise.
-
-  be Furthermore, we consider $\epsilon$ to be composed of uncorrelated noise with standard deviations given by the formal uncertainties on $\bm{d}_*$, $\bm{\sigma}$, as well as  as well as s composed of     
 
 \subsection{Spatial and temporal covariance functions}
 We must choose an appropriate Gaussian process describing transient displacements $u$ and GNSS noise $\epsilon$. We assume that $u$ and $\epsilon$ both have zero mean, which leaves for use to select a parameterization for the covariance functions $X$, $T$, and $C_d$.  In this section, we list the covariance functions which are considered in this paper and those which could be of use in future studies. In the following discussion $\alpha$ and $\beta$ are hyperparameters. There are numerous strategies for selecting these hyperparameters (see \citet{Cressie1992}) and we save a discussion on choosing the hyperparameters for Section X.

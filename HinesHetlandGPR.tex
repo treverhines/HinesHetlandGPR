@@ -224,7 +224,7 @@ The posterior transients displacements, $\hat{\bm{u}}$, are found by evaluating 
                                      \frac{\partial \hat{u}_i(z)}{\partial x_j} +  
                                      \frac{\partial \hat{u}_j(z)}{\partial x_i}\right).
 \end{equation}
-Component $\dot{\epsilon}_{ij}$ of the strain rate tensor is distributed as $\mathcal{N}(\mu_{\dot{\epsilon}_{ij}},C_{\dot{\epsilon}_{ij}})$, where
+which are distributed as $\mathcal{N}(\mu_{\dot{\epsilon}_{ij}},C_{\dot{\epsilon}_{ij}})$, where
 \begin{equation}\label{eq:StrainMean}
 \mu_{\dot{\epsilon}_{ij}}(z) = \frac{1}{2}\frac{\partial}{\partial t}\left(
                                \frac{\partial \mu_{\hat{u}_i}(z)}{\partial x_j} + 
@@ -240,7 +240,7 @@ C_{\dot{\epsilon}_{ij}}(z,z') = \frac{1}{4} \frac{\partial^2}{\partial t \, \par
 \subsection{Outlier detection}
 In our formulation for estimating transient strain rates, we have assumed that noise in the data vector is normally distributed. This is not an appropriate assumption for GNSS displacement timeseries which are prone to more outliers than would be predicted for normally distributed noise. It follows that proposed methods for analyzing GNSS timeseries should be robust against outliers \citep[e.g.,][]{Blewitt2016}. In order to make our estimates of transient strain more robust, we automatically identify and remove outliers in the GNSS data as a pre-processing step.
 
-Our method for detecting outliers is based on the data editing algorithm described in \citet{Gibbs2011}.  We again treat $\bm{d}_*$ as a sample of $\bm{d}$, and we assume some prior covariance function for $u$. The choice for $u$ here does not need to be the same as that used in Section X, and a conservative approach would be to choose a $u$ that is more flexible (e.g., shorter characteristic length-scales and higher variance).  We let $\epsilon$ be uncorrelated noise which has standard deviation given by the formal data uncertainties, $\bm{\sigma}$. We consider outliers to be observations which are abnormally inconsistent with the random vector $u(\bm{y}) + \bm{P}\bm{a}$. With this criterion, we takes into account the spatial and temporal relationship between the data, allowing us to identify anomalous observations which may not be immediately apparent based on inspection of individual timeseries. To begin the algorithm, we let $\Omega$ be the index set of non-outliers in $\bm{d}_*$ and initiate it with all $n$ indices. This algorithm is iterative, and for each iteration we calculate the residual vector
+Our method for detecting outliers is based on the data editing algorithm described in \citet{Gibbs2011}.  We again treat $\bm{d}_*$ as a sample of $\bm{d}$, and we assume some prior covariance function for $u$. The choice for $u$ here does not need to be the same as that used in Section X, and a conservative approach would be to choose a $u$ that is more flexible (e.g., shorter characteristic length-scales and higher variance).  We let $\epsilon$ be uncorrelated noise which has standard deviation given by the formal data uncertainties, $\bm{\sigma}$. We consider outliers to be observations which are abnormally inconsistent with the random vector $u(\bm{y}) + \bm{P}\bm{a}$.  With this criterion, we takes into account the spatial and temporal relationship between the data, allowing us to identify anomalous observations which may not be immediately apparent based on inspection of individual timeseries. To begin the algorithm, we let $\Omega$ be the index set of non-outliers in $\bm{d}_*$ and initiate it with all $n$ indices. This algorithm is iterative, and for each iteration we calculate the residual vector
 \begin{align}\label{eq:Residual}
 \bm{r} &= \frac{\bm{d}_* - \mathrm{E}\left[(u(\bm{y}) + \bm{P}\bm{a})|\tilde{\bm{d}}_* \right]}{\bm{\sigma}} \\
        &= \frac{1}{\bm{\sigma}}\left(\bm{d}_*  - 
@@ -265,7 +265,7 @@ C_u(\tilde{\bm{y}},\tilde{\bm{y}}) + \mathrm{diag}(\tilde{\bm{\sigma}}^2) & \til
 \end{align}
 where the tilde indicates that only elements corresponding to indices in $\Omega$ are retained (e.g., $\tilde{\bm{y}} = (y_i)_{i\in\Omega}$). We then update $\Omega$ to be
 \begin{equation}\label{eq:Update}
-\Omega = \{i : |r_i| < \lambda \tilde{\bm{r}}_{rms}\}
+\Omega = \{i : |r_i| < \eta \tilde{\bm{r}}_{rms}\}
 \end{equation} 
 where $\tilde{\bm{r}}_{rms}$ is the root-mean-square of $\tilde{\bm{r}}$ and $\lambda$ is an outlier tolerance. We use $\lambda=4$ in this study, which seems to accurately identify outliers without unnecessarily decimating the data. Iterations continue until the new $\Omega$ is equal to the previous $\Omega$ (i.e., no new outliers are detected). 
 
@@ -323,12 +323,36 @@ C(x,x') &= \int_0^x \int_0^{x'} \alpha^2 \min(u,u') \,du'\,du \\
 \end{align}
 has been used as a nonparametric model for the time dependence of geophysical signals \citep[e.g.,][]{Segall1997,McGuire2003,Ohtani2010,Hines2016}. It should be noted that Brownian motion and integrated Brownian motion have a reference time at which the Gaussian process is exactly zero. For some geophysical signals, such as postseismic deformation, it is reasonable to have such a reference time. On the other hand, if there is no sense of a start time for the geophysical process, then Brownian motion or integrated Brownian motion may not be appropriate, and one of the isoptropic Gaussian processes described above should be used.
 
-\subsection{Time Depenent Strain Rate in Cascadia}\label{sec:ApplicationsCascadia}
+\section{Application Cascadia Slow Slip Events}\label{sec:Cascadia}
+
+We demonstrate the method for estimating transient strain described in the previous section by applying it to GNSS data in Cascadia. We are mainly interested in identifying transient strain resulting from slow slip events (SSEs) \citep[e.g.,][]{Dragert2001}. We show that Gaussian processes are an effective tool for (1) detecting SSEs and (2) understanding how the strain from SSEs are contributing to the strain accumulated over the seismic cycle. Our primary motivation for detecting SSEs is because there have been several documented cases of SSEs triggering megathrust earthquakes \citep{Roeloffs2006}.  In Cascadia, there is less of a need to detect SSEs with GNSS data because the SSEs are associated with a spike in seismic tremor, which is actively monitored by the Pacific Northwest Seismic Network (PNSN) \citep{Wech2010}. However, SSEs have been observed in other subduction zones without any associated tremor \citep{Schwartz2007}, and so there is still utility in developing method for detecting SSEs with GNSS data. Furthermore, by comparing our estimated transient strain in Cascadia with the tremor catalog, we can verify the accuracy of method for detecting SSEs. 
+
+\subsection{Noise model}
+In this section we discuss our choice for the noise covariance function $C_\epsilon$. We will assume that the noise consists of uncorrelated noise with standard deviation given by the formal data uncertainties and potentially spatially and/or temporally correlated noise. There have been numerous studies on temporally correlated noise in GNSS data \citep[e.g.,]{Zhang1997,Mao1999,Williams2004,Langbein2008}. These studies have found some combination of Brownian motion or flicker noise best describes the temporally correlated noise in GNSS data. Brownian motion has also been used to describe error resulting from an unstable geodetic monument \citep[e.g.,][]{Wyatt1982,Wyatt1989}. We assume that temporally correlated noise can be described by a FOGM stochastic model, noting that the Brownian motion is a degenerate case of a FOGM process. 
+
+To determine the appropriate hyperparameters for the FOGM model, $\alpha$ and $\beta$, we first select 38 stations in in Washington and Oregon which are east of $121^\circ$ W, where we can reasonably expect no transient signal from SSEs (i.e. $u = 0$). We then find $\alpha$ and $\beta$ for each station timeseries with the Restricted Maximum Likelihood (REML) method \cite[e.g.,][]{Harville1974,Cressie1992} and Hines 2017. The REML method finds the hyperparameters which maximize the probability of drawing $\bm{d}_*$ from $\bm{d}$. We use the REML method over the maximum likelihood (ML) method \citep[e.g.,][]{Langbein1997} because the REML method properly accounts for the improper prior that we assigned to $\bm{a}$. The distribution of inferred $\alpha$ and $\beta$ are shown in Figure X. The amplitude of FOGM noise for the east and north components is notable low and are unimodally clustered around 0.5 mm/yr$^{0.5}$. The corresponding estimates of $\alpha$ tend to cluster around 0 yr$^{-1}$, which is the degenerate case where FOGM behaves likes Brownian motion.  The amplitude of FOGM noise for the vertical component is significantly larger with a median value of 13.8 mm/yr$^{0.5}$. The inferred values for alpha are higher for the vertical component with a median value of 1.87 yr$^{-1}$. In Figure X, we use the median values of $\alpha$ and $\beta$ to generate two random samples of FOGM noise. The samples span seven years and over these seven years the east and north samples drift by about 1 mm. In the context of detecting SSEs, which produce several mm's of surface displacement on the timescale of weeks to months, the estimated FOGM noise for the east and north component is negligible. In contrast, the estimated FOGM noise for the vertical component is significantly larger than the signal we would expect from SSEs. We suspect that the higher amplitude for the FOGM model in the vertical component is accommodating for deficiencies in our rather simple seasonal model. Based on this analysis, we henceforth ignore temporally correlated noise in the east and north component because of its low amplitude, and we do not estimate $u$ for vertical deformation because of the low signal to noise ratio.
+
+Another significant source of noise in GNSS data is common mode error \citep[e.g.,][]{Wdowinski1997}, which is noise that is highly spatially correlated. When not accounted for, common mode error manifests itself as spatially uniform undulations in $\hat{u}$. However, we are primarily interested in estimating strain which is insensitive to common mode error. We therefore do not include common mode error in our noise model. 
+
+Our noise is just white.           
+
+\subsection{Transient displacement model}
+
+model exhibits the same relationship  which can described  
+
+
+Both of which have clear implications for assessing seismic hazard.
+
+, which can have applications for seismic hazard assessment,Identifying strain resulting from ETS events serves two purposes: (1) ETS events have  events which are  were first discovered by \citet{Dragert2001}.   
+
+
+We demonstrate that Gaussian processes are effective tools for detecting transient strain by using them to detect Cascadia slow slip events.  
 
 BACKGROUND
 
 \citet{Dragert2001} first discovered slow slip events
 
+Explain strain concentration with this:
 Slow slip event depths from \citet{Dragert2001}, \citet{Wech2009}, \citet{Schmidt2010}, \citet{Bartlow2011} show slip concentrated at depths from 30 to 50 km detph.
  
 Interseismic locking depths from \citet{Fluck1997}, \citet{Murray2000}, \citet{McCaffrey2007} and \citet{McCaffrey2013}, \citet{Burgette2009}, \citet{schmalzle2014} are consistent with a full locking down to about 20 km.
@@ -336,9 +360,6 @@ Interseismic locking depths from \citet{Fluck1997}, \citet{Murray2000}, \citet{M
 %Studies which simultaneously looked at intersesimic and ets are \citet{Holtkamp2010} and \citet{Schmalzle2014}
 Studies which simultaneously modeled interseismic and ets are \citet{Holtkamp2010} and \citet{schmalzle2014}
 
-METHOD
-
-We use GPS displacement time series to make daily estimates of strain rates from 2010-01-01 to 2016-07-01 in the Pacific Northwest.  Our method consists of two distinct steps; we temporally smooth and differentiate the displacement time series for each station, and then we spatially smooth and differentiate the velocity field for each day.  We temporally smooth the GPS displacements with the method described in \ref{sec:Filter}, and we treat days with missing data as observations with infinite uncertainty. As noted above, this is effectively equivalent to fitting a smoothing spline to each time series, which can also be efficiently done with a Kalman filtering strategy \citep{Kohn1987}.  We chose a cutoff frequency of ZZZ, which is high enough to acurately describe deformation during a slow slip event.  Spatial smoothing is done with the RBF-FD filter and differentiation to get the strain rates was done with the RBF-FD scheme.  We picked a cutoff frequency of XXX for smoothing.
 
 \section{Discussion and Conclusion}\label{sec:Discussion}
 % discuss potential applications for slip models

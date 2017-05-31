@@ -98,6 +98,12 @@ Gladwin, M.~T., Gwyther, R.~L., Hart, R., Francis, M., and Johnston, M. J.~S.
 \newblock {\em Journal of Geophysical Research: Solid Earth},
   92(B8):7981--7988.
 
+\bibitem[Harville, 1974]{Harville1974}
+Harville, D.~A. (1974).
+\newblock {Bayesian Inference for Variance Components Using Only Error
+  Contrasts}.
+\newblock {\em Biometrika}, 61(2):383--385.
+
 \bibitem[Hines and Hetland, 2016]{Hines2016}
 Hines, T.~T. and Hetland, E.~A. (2016).
 \newblock {Rapid and simultaneous estimation of fault slip and heterogeneous
@@ -123,13 +129,6 @@ Kato, T., El-Fiky, G.~S., Oware, E.~N., and Miyazaki, S. (1998).
   array}.
 \newblock {\em Geophysical Research Letters}, 25(18):3445--3448.
 
-\bibitem[Kohn and Ansley, 1987]{Kohn1987}
-Kohn, R. and Ansley, C. (1987).
-\newblock {A new algorithm for spline smoothing based on smoothing a stochastic
-  process}.
-\newblock {\em SIAM journal on scientific and statistical computing},
-  8(1):33--48.
-
 \bibitem[Langbein, 2004]{Langbein2004}
 Langbein, J. (2004).
 \newblock {Noise in two-color electronic distance meter measurements
@@ -152,6 +151,11 @@ Langbein, J. and Johnson, H. (1997).
 Mackay, D. J.~C. (1998).
 \newblock {Introduction to Gaussian processes}.
 \newblock {\em Neural Networks and Machine Learning}, 168(1996):133--165.
+
+\bibitem[Mao et~al., 1999]{Mao1999}
+Mao, A., Harrison, G.~A., and Dixon, H. (1999).
+\newblock {Noise in GPS coordinate time series}.
+\newblock {\em Journal of Geophysical Research}, 104(B2):2797--2816.
 
 \bibitem[McCaffrey et~al., 2013]{McCaffrey2013}
 McCaffrey, R., King, R.~W., Payne, S.~J., and Lancaster, M. (2013).
@@ -201,6 +205,12 @@ Rasmussen, C.~E. and Williams, C. K.~I. (2006).
 \newblock {\em {Gaussian processes for machine learning}}.
 \newblock The MIT Press.
 
+\bibitem[Roeloffs, 2006]{Roeloffs2006}
+Roeloffs, E.~A. (2006).
+\newblock {Evidence for Aseismic Deformation Rate Changes Prior To
+  Earthquakes}.
+\newblock {\em Annual Review of Earth and Planetary Sciences}, 34(1):591--627.
+
 \bibitem[Sandwell and Wessel, 2016]{Sandwell2016}
 Sandwell, D.~T. and Wessel, P. (2016).
 \newblock {Interpolation of 2-D vector data using constraints from elasticity}.
@@ -221,6 +231,12 @@ Schmidt, D.~A. and Gao, H. (2010).
 \newblock {Source parameters and time-dependent slip distributions of slow slip
   events on the Cascadia subduction zone from 1998 to 2008}.
 \newblock {\em Journal of Geophysical Research: Solid Earth}, 115(4):1--13.
+
+\bibitem[Schwartz and Rokosky, 2007]{Schwartz2007}
+Schwartz, S.~Y. and Rokosky, J.~M. (2007).
+\newblock {Slow slip events and seismic tremor at circum-Pacific subduction
+  zones}.
+\newblock {\em Reviews of Geophysics}, 45:1--32.
 
 \bibitem[Segall and Mathews, 1997]{Segall1997}
 Segall, P. and Mathews, M. (1997).
@@ -272,6 +288,11 @@ Wdowinski, S., Zhang, J., Fang, P., and Genrich, J. (1997).
   induced by the 1992 Landers earthquake}.
 \newblock 102(97):57--70.
 
+\bibitem[Wech, 2010]{Wech2010}
+Wech, A.~G. (2010).
+\newblock {Interactive Tremor Monitoring}.
+\newblock {\em Seismological Research Letters}, 81(4):664 -- 669.
+
 \bibitem[Wech et~al., 2009]{Wech2009}
 Wech, A.~G., Creager, K.~C., and Melbourne, T.~I. (2009).
 \newblock {Seismic and geodetic constraints on Cascadia slow slip}.
@@ -280,6 +301,12 @@ Wech, A.~G., Creager, K.~C., and Melbourne, T.~I. (2009).
 \bibitem[Wendland, 2005]{Wendland2005}
 Wendland, H. (2005).
 \newblock {\em {Scattered data approximation}}.
+
+\bibitem[Williams et~al., 2004]{Williams2004}
+Williams, S. D.~P., Bock, Y., Fang, P., Jamason, P., Nikolaidis, R.~M.,
+  Prawirodirdjo, L., Miller, M., and Johnson, D.~J. (2004).
+\newblock {Error analysis of continuous GPS position time series}.
+\newblock {\em Journal of Geophysical Research: Solid Earth}, 109(B3).
 
 \bibitem[Wright and Fornberg, 2006]{Wright2006}
 Wright, G.~B. and Fornberg, B. (2006).
@@ -296,5 +323,12 @@ Wyatt, F. (1982).
 Wyatt, F.~K. (1989).
 \newblock {Displacement of surface monuments: Vertical motion}.
 \newblock {\em Journal of Geophysical Research}, 94(B2):1655--1664.
+
+\bibitem[Zhang et~al., 1997]{Zhang1997}
+Zhang, J., Bock, Y., Johnson, H., Fang, P., Williams, S., Genrich, J.,
+  Wdowinski, S., and Behr, J. (1997).
+\newblock {Southern California Permanent GPS Geodetic Array: Error analysis of
+  daily position estimates and site velocities}.
+\newblock {\em Journal of Geophysical Research}, 102(B8):18035--18055.
 
 \end{thebibliography}

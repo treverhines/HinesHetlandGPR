@@ -23,6 +23,11 @@ Blewitt, G., Kreemer, C., Hammond, W.~C., and Gazeaux, J. (2016).
   without step detection}.
 \newblock {\em Journal of Geophysical Research : Solid Earth}, 121:2054--2068.
 
+\bibitem[Brudzinski and Allen, 2007]{Brudzinski2007}
+Brudzinski, M.~R. and Allen, R.~M. (2007).
+\newblock {Segmentation in episodic tremor and slip all along Cascadia}.
+\newblock {\em Geology}, 35(10):907--910.
+
 \bibitem[Burgette et~al., 2009]{Burgette2009}
 Burgette, R.~J., Weldon, R.~J., and Schmidt, D.~A. (2009).
 \newblock {Interseismic uplift rates for western Oregon and along-strike
@@ -35,16 +40,23 @@ Cecil, T., Qian, J., and Osher, S. (2004).
   using radial basis functions}.
 \newblock {\em Journal of Computational Physics}, 196(1):327--347.
 
+\bibitem[Chen et~al., 2008]{Chen2008}
+Chen, Y., Davis, T.~a., and Hager, W.~W. (2008).
+\newblock {Algorithm 887 : CHOLMOD , Supernodal Sparse Cholesky Factorization
+  and Update/downdate}.
+\newblock {\em ACM Transactions on Mathematical Software}, 35(3):1--12.
+
 \bibitem[Cressie, 1993]{Cressie1992}
 Cressie, N. (1993).
 \newblock {\em {Statistics for Spatial Data}}.
 \newblock John Wiley {\&} Sons, New York, rev. edition.
 
-\bibitem[Dong et~al., 2002]{Dong2002}
-Dong, D., Fang, P., Bock, Y., Cheng, M.~K., and Miyazaki, S. (2002).
-\newblock {Anatomy of apparent seasonal variations from GPS-derived site
-  position time series}.
-\newblock {\em J. Geophys. Res.}, 107(B4):2075.
+\bibitem[Dong et~al., 2006]{Dong2006}
+Dong, D., Fang, P., Bock, Y., Webb, F., Prawirodirdjo, L., Kedar, S., and
+  Jamason, P. (2006).
+\newblock {Spatiotemporal filtering using principal component analysis and
+  Karhunen-Loeve expansion approaches for regional GPS network analysis}.
+\newblock {\em Journal of Geophysical Research: Solid Earth}, 111(3):1--16.
 
 \bibitem[Dragert et~al., 2001]{Dragert2001}
 Dragert, G., Wang, K., and James, T.~S. (2001).
@@ -104,6 +116,14 @@ Harville, D.~A. (1974).
   Contrasts}.
 \newblock {\em Biometrika}, 61(2):383--385.
 
+\bibitem[Herring et~al., 2016]{Herring2016}
+Herring, T.~A., Melbourne, T.~I., Murray, M.~H., Floyd, M.~A., Szeliga, W.~M.,
+  King, R.~W., Phillips, D.~A., Puskas, C.~M., Santillan, M., and Wang, L.
+  (2016).
+\newblock {Plate Boundary Observatory and related networks: GPS data analysis
+  methods and geodetic product}.
+\newblock {\em Reviews of Geophysics}, pages 1--50.
+
 \bibitem[Hines and Hetland, 2016]{Hines2016}
 Hines, T.~T. and Hetland, E.~A. (2016).
 \newblock {Rapid and simultaneous estimation of fault slip and heterogeneous
@@ -147,10 +167,11 @@ Langbein, J. and Johnson, H. (1997).
   time-dependent deformation}.
 \newblock {\em Journal of Geophysical Research}, 102(B1):591--603.
 
-\bibitem[Mackay, 1998]{Mackay1998}
-Mackay, D. J.~C. (1998).
-\newblock {Introduction to Gaussian processes}.
-\newblock {\em Neural Networks and Machine Learning}, 168(1996):133--165.
+\bibitem[Lisowski et~al., 2008]{Lisowski2008}
+Lisowski, M., Dzurisin, D., Denlinger, R.~P., and Iwatsubo, E.~Y. (2008).
+\newblock {Analysis of GPS-Measured Deformation Associated with the 2004 –
+  2006 Dome-Building Eruption of Mout St. Helens, Washington}.
+\newblock Technical Report September 1984.
 
 \bibitem[Mao et~al., 1999]{Mao1999}
 Mao, A., Harrison, G.~A., and Dixon, H. (1999).

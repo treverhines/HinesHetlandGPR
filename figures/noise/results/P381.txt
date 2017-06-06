@@ -1,0 +1,60 @@
+
+------------------ PYGEONS DATA INFORMATION ------------------
+
+file : stations/P381.h5
+units : m
+stations : 1
+times : 2558
+observations : 7658
+time range : 2010-01-01, 2017-01-01
+longitude range : -119.951803124, -119.951803124
+latitude range : 43.0017769885, 43.0017769885
+station names : P381
+
+--------------------------------------------------------------
+
+---------------- PYGEONS REML RUN INFORMATION ----------------
+
+input file : stations/P381.h5
+network :
+    model : 
+    parameter units : 
+    fixed parameters : 
+    initial east parameters : 
+    initial north parameters : 
+    initial vertical parameters : 
+station :
+    model : p0, p1, per, fogm
+    parameter units : mm/yr^0.5, yr^-1
+    fixed parameters : 
+    initial east parameters : 1.0000e+00, 1.0000e+00
+    initial north parameters : 1.0000e+00, 1.0000e+00
+    initial vertical parameters : 1.0000e+00, 1.0000e+00
+output file : results/P381.txt
+
+--------------------------------------------------------------
+
+-------------------- PYGEONS REML RESULTS --------------------
+
+input file : stations/P381.h5
+network :
+    model : 
+    parameter units : 
+    fixed parameters : 
+    optimal east parameters : 
+    optimal north parameters : 
+    optimal vertical parameters : 
+station :
+    model : p0 p1 per fogm
+    parameter units : mm/yr^0.5, yr^-1
+    fixed parameters : 
+    optimal east parameters : 8.6661e-01, 1.4519e-01
+    optimal north parameters : 3.1828e-01, 4.3798e-07
+    optimal vertical parameters : 1.0461e+01, 1.1539e+00
+log likelihood :
+    east : 14344.4178328
+    north : 13958.7274302
+    vertical : 10402.6344828
+output file : results/P381.txt
+
+--------------------------------------------------------------

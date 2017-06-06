@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import pygeons
+from matplotlib import colors
 
 def trend(u1,t1):
   idx = np.isfinite(u1)
@@ -17,10 +18,13 @@ xticks = [pygeons.mjd.mjd(i,'%Y-%m-%d') for i in xtick_dates]
 xtick_labels = ['2011-01-01','2012-01-01','2013-01-01','2014-01-01',' ','2016-01-01',' ']
 
 
-
+c1 = colors.to_rgb('C0')
+c1t = tuple(0.7 + 0.3*np.array(colors.to_rgb('C0')))
+c2 = colors.to_rgb('C1')
+c2t = tuple(0.7 + 0.3*np.array(colors.to_rgb('C1')))
 
 # plot raw data
-fig,ax = plt.subplots(figsize=(7,4))
+fig,ax = plt.subplots(figsize=(7,3.5))
 pygeons.plot.plot._setup_ts_ax([ax])
 ax.set_xticks(xticks)
 ax.set_xticklabels(xtick_labels)
@@ -39,8 +43,8 @@ u = 1000*data['east'][:,idx]
 us = 1000*data['east_std_dev'][:,idx]
 m = trend(u,t)
 u = u - m[0] - m[1]*t
-ax.errorbar(t,u,us,marker='None',linestyle='None',color=(1.0,0.7,0.7))
-ax.plot(t,u,'r.',ms=4.99)
+ax.errorbar(t,u,us,marker='None',linestyle='None',color=c2t)
+ax.plot(t,u,'.',ms=4.99,color=c2)
 
 data = pygeons.io.io.dict_from_hdf5('data.final.h5')
 idx = (data['id'] == 'SC03').nonzero()[0][0]
@@ -48,8 +52,8 @@ t = data['time']
 u = 1000*data['east'][:,idx]
 us = 1000*data['east_std_dev'][:,idx]
 u = u - m[0] - m[1]*t
-ax.errorbar(t,u,us,marker='None',linestyle='None',color=(0.7,0.7,0.7))
-ax.plot(t,u,'k.',ms=5.0)
+ax.errorbar(t,u,us,marker='None',linestyle='None',color=c1t)
+ax.plot(t,u,'.',ms=5.0,color=c1)
 
 ax.set_title('Station SC03 (%.2f$^\mathregular{\circ}$ W, %.2f$^\mathregular{\circ}$ N)' % 
                  (-lon,lat),fontsize=10)

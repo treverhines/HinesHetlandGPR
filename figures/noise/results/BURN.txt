@@ -1,0 +1,60 @@
+
+------------------ PYGEONS DATA INFORMATION ------------------
+
+file : stations/BURN.h5
+units : m
+stations : 1
+times : 2558
+observations : 7662
+time range : 2010-01-01, 2017-01-01
+longitude range : -117.843529546, -117.843529546
+latitude range : 42.7795015397, 42.7795015397
+station names : BURN
+
+--------------------------------------------------------------
+
+---------------- PYGEONS REML RUN INFORMATION ----------------
+
+input file : stations/BURN.h5
+network :
+    model : 
+    parameter units : 
+    fixed parameters : 
+    initial east parameters : 
+    initial north parameters : 
+    initial vertical parameters : 
+station :
+    model : p0, p1, per, fogm
+    parameter units : mm/yr^0.5, yr^-1
+    fixed parameters : 
+    initial east parameters : 1.0000e+00, 1.0000e+00
+    initial north parameters : 1.0000e+00, 1.0000e+00
+    initial vertical parameters : 1.0000e+00, 1.0000e+00
+output file : results/BURN.txt
+
+--------------------------------------------------------------
+
+-------------------- PYGEONS REML RESULTS --------------------
+
+input file : stations/BURN.h5
+network :
+    model : 
+    parameter units : 
+    fixed parameters : 
+    optimal east parameters : 
+    optimal north parameters : 
+    optimal vertical parameters : 
+station :
+    model : p0 p1 per fogm
+    parameter units : mm/yr^0.5, yr^-1
+    fixed parameters : 
+    optimal east parameters : 7.4308e-01, 4.1902e-01
+    optimal north parameters : 3.8912e-01, 1.6617e-02
+    optimal vertical parameters : 9.2415e+00, 9.4901e-01
+log likelihood :
+    east : 14198.2744767
+    north : 13770.5321152
+    vertical : 10247.9134153
+output file : results/BURN.txt
+
+--------------------------------------------------------------

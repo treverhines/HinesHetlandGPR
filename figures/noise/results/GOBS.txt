@@ -1,0 +1,60 @@
+
+------------------ PYGEONS DATA INFORMATION ------------------
+
+file : stations/GOBS.h5
+units : m
+stations : 1
+times : 2558
+observations : 7526
+time range : 2010-01-01, 2017-01-01
+longitude range : -120.814676343, -120.814676343
+latitude range : 45.8388187522, 45.8388187522
+station names : GOBS
+
+--------------------------------------------------------------
+
+---------------- PYGEONS REML RUN INFORMATION ----------------
+
+input file : stations/GOBS.h5
+network :
+    model : 
+    parameter units : 
+    fixed parameters : 
+    initial east parameters : 
+    initial north parameters : 
+    initial vertical parameters : 
+station :
+    model : p0, p1, per, fogm
+    parameter units : mm/yr^0.5, yr^-1
+    fixed parameters : 
+    initial east parameters : 1.0000e+00, 1.0000e+00
+    initial north parameters : 1.0000e+00, 1.0000e+00
+    initial vertical parameters : 1.0000e+00, 1.0000e+00
+output file : results/GOBS.txt
+
+--------------------------------------------------------------
+
+-------------------- PYGEONS REML RESULTS --------------------
+
+input file : stations/GOBS.h5
+network :
+    model : 
+    parameter units : 
+    fixed parameters : 
+    optimal east parameters : 
+    optimal north parameters : 
+    optimal vertical parameters : 
+station :
+    model : p0 p1 per fogm
+    parameter units : mm/yr^0.5, yr^-1
+    fixed parameters : 
+    optimal east parameters : 1.1390e+00, 4.9850e-02
+    optimal north parameters : 8.7064e-01, 1.4029e-06
+    optimal vertical parameters : 1.4735e+01, 2.5728e+00
+log likelihood :
+    east : 13842.6842238
+    north : 13516.7294715
+    vertical : 10108.3708663
+output file : results/GOBS.txt
+
+--------------------------------------------------------------

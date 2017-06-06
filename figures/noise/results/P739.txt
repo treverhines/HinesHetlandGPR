@@ -1,0 +1,60 @@
+
+------------------ PYGEONS DATA INFORMATION ------------------
+
+file : stations/P739.h5
+units : m
+stations : 1
+times : 2558
+observations : 7611
+time range : 2010-01-01, 2017-01-01
+longitude range : -117.725429845, -117.725429845
+latitude range : 42.0201999766, 42.0201999766
+station names : P739
+
+--------------------------------------------------------------
+
+---------------- PYGEONS REML RUN INFORMATION ----------------
+
+input file : stations/P739.h5
+network :
+    model : 
+    parameter units : 
+    fixed parameters : 
+    initial east parameters : 
+    initial north parameters : 
+    initial vertical parameters : 
+station :
+    model : p0, p1, per, fogm
+    parameter units : mm/yr^0.5, yr^-1
+    fixed parameters : 
+    initial east parameters : 1.0000e+00, 1.0000e+00
+    initial north parameters : 1.0000e+00, 1.0000e+00
+    initial vertical parameters : 1.0000e+00, 1.0000e+00
+output file : results/P739.txt
+
+--------------------------------------------------------------
+
+-------------------- PYGEONS REML RESULTS --------------------
+
+input file : stations/P739.h5
+network :
+    model : 
+    parameter units : 
+    fixed parameters : 
+    optimal east parameters : 
+    optimal north parameters : 
+    optimal vertical parameters : 
+station :
+    model : p0 p1 per fogm
+    parameter units : mm/yr^0.5, yr^-1
+    fixed parameters : 
+    optimal east parameters : 1.0213e+00, 1.1102e-01
+    optimal north parameters : 9.3728e-01, 1.2287e-01
+    optimal vertical parameters : 1.7368e+01, 2.8753e+00
+log likelihood :
+    east : 14257.8630347
+    north : 14000.3444613
+    vertical : 10270.6076755
+output file : results/P739.txt
+
+--------------------------------------------------------------

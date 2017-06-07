@@ -293,7 +293,25 @@ C_v(t,t') = \frac{\beta^2}{2\alpha}\exp\left(-\alpha|t - t'|\right).
 \end{equation}
 A FOGM process degenerates to Brownian motion under the condition that $\alpha = 0$ and $v(0) = 0$. 
 
-We use a set of 38 inland stations, shown in Figure X, to constrain the FOGM hyperparameters, $\alpha$ and $\beta$.  These stations are sufficiently far from the subduction zone that they are unlikely to contain transient signal, and thus we assume that $u$ is zero.  We clean the data for these stations by removing jumps at times of equipment changes, and we remove outliers that have been detected with the algorithm described in Section \ref{sec:Outlier}. We then find $\alpha$ and $\beta$ for each station timeseries with the Restricted Maximum Likelihood (REML) method \cite[e.g.,][]{Harville1974,Cressie1992} and Hines 2017. The REML method finds the hyperparameters which maximize the probability of drawing $\bm{d}_*$ from $\bm{d}$. We use the REML method over the maximum likelihood (ML) method \citep[e.g.,][]{Langbein1997} because the REML method properly accounts for the improper prior that we assigned to $\bm{a}$. The distribution of inferred $\alpha$ and $\beta$ are shown in Figure \ref{fig:NoiseParams}. The amplitude of FOGM noise for the east and north components is notable low and are clustered around 0.5 mm/yr$^{0.5}$. The corresponding estimates of $\alpha$ tend to cluster around 0 yr$^{-1}$, suggesting that Brownian motion would have also been an appropriate noise model.  The amplitude of FOGM noise for the vertical component is significantly larger with a median value of 13.8 mm/yr$^{0.5}$. The inferred values for alpha are higher for the vertical component with a median value of 1.87 yr$^{-1}$. In Figure X, we use the median values of $\alpha$ and $\beta$ to generate two random samples of FOGM noise. The samples span seven years and over these seven years the east and north samples drift by about 1 mm. In the context of detecting SSEs, which produce several mm's of surface displacement on the timescale of weeks, the estimated FOGM noise for the east and north component is negligible. In contrast, the estimated FOGM noise for the vertical component is significantly larger than the signal we would expect from SSEs. We suspect that the higher amplitude for the FOGM model in the vertical component is accommodating for deficiencies in our rather simple seasonal model. Based on this analysis, we henceforth ignore temporally correlated noise in the east and north component because of its low amplitude, and we do not estimate $u$ for vertical deformation because of the low signal to noise ratio.
+We use a set of 38 inland stations, shown in Figure X, to constrain the FOGM hyperparameters, $\alpha$ and $\beta$.  These stations are sufficiently far from the subduction zone that they are unlikely to contain transient signal.  We clean the data for these stations by removing jumps at times of equipment changes, and we remove outliers that have been detected with the algorithm described in Section \ref{sec:Outlier}. We then find $\alpha$ and $\beta$ for each station timeseries with the Restricted Maximum Likelihood (REML) method \cite[e.g.,][]{Harville1974,Cressie1992} and Hines 2017. The REML method finds the hyperparameters which maximize the expression
+\begin{equation}\label{eq:REML}
+\left(\frac{\left|\bm{P}^T\bm{P}\right|}
+           {(2\pi)^{n-m}
+            \left| \bm{\Sigma} \right| 
+            \left| \bm{P}^T\bm{\Sigma}\bm{P} \right|}\right)^{\frac{1}{2}} 
+e^{-\tfrac{1}{2}\mathbf{d}_*^T\mathbf{K}\mathbf{d}_*},
+\end{equation}
+where
+\begin{equation}
+\bm{\Sigma} = C_u(\bm{y},\bm{y}) + C_\epsilon(\bm{y},\bm{y}),
+\end{equation}
+\begin{equation}
+\bm{K} = \bm{\Sigma}^{-1} - 
+         \bm{\Sigma}^{-1}\bm{P}
+         \left(\bm{P}^T\bm{\Sigma}^{-1}\bm{P}\right)^{-1}
+         \bm{P}^T\bm{\Sigma}^{-1},
+\end{equation}
+and $m$ is the number of columns in $\bm{P}$. For this section, $\bm{d}_*$ is used to denote the displacement time series for just one station, and thus $m = 6$. We are also assuming $C_u$ is zero when estimating the noise hyperparameters for this section. \citet{Harville1974} showed that choosing the hyperparameters which maximize eq. (\ref{eq:REML}) is equivalent to chosing the hyperparameters which maximize the probability of drawing $\bm{d}_*$ from $\bm{d}$.  We use the REML method over the maximum likelihood (ML) method \citep[e.g.,][]{Langbein1997} because the REML method properly accounts for the improper prior that we assigned to $\bm{a}$. The distribution of inferred $\alpha$ and $\beta$ are shown in Figure \ref{fig:NoiseParams}. The amplitude of FOGM noise for the east and north components is notable low and are clustered around 0.5 mm/yr$^{0.5}$. The corresponding estimates of $\alpha$ tend to cluster around 0 yr$^{-1}$, suggesting that Brownian motion would have also been an appropriate noise model.  The amplitude of FOGM noise for the vertical component is significantly larger with a median value of 13.8 mm/yr$^{0.5}$. The inferred values for alpha are higher for the vertical component with a median value of 1.87 yr$^{-1}$. In Figure X, we use the median values of $\alpha$ and $\beta$ to generate two random samples of FOGM noise. The samples span seven years and over these seven years the east and north samples drift by about 1 mm. In the context of detecting SSEs, which produce several mm's of surface displacement on the timescale of weeks, the estimated FOGM noise for the east and north component is negligible. In contrast, the estimated FOGM noise for the vertical component is significantly larger than the signal we would expect from SSEs. We suspect that the higher amplitude for the FOGM model in the vertical component is accommodating for deficiencies in our rather simple seasonal model. Based on this analysis, we henceforth ignore temporally correlated noise in the east and north component because of its low amplitude, and we do not estimate $u$ for vertical deformation because of the low signal to noise ratio.
 
 \begin{figure*}
 \includegraphics{figures/noise/noise-params.pdf}
@@ -351,13 +369,13 @@ We next want to determine appropriate hyperparameters for $X$ and each of the th
 
 \begin{table}\label{tab:MaterialProperties}
 \begin{tabular} {l l l l l l}
-cov. function & direction & $\lambda$  & $\phi$   & $\theta$  & diff. REML \\ \hline
-SE-SE & east   & 92 $\pm$ 25 km  & 0.62 $\pm$ 0.11 mm  & 0.026 $\pm$ 0.011 yr  &  - \\
-SE-SE & north  & 91 $\pm$ 53 km  & 0.43 $\pm$ 0.05 mm  & 0.030 $\pm$ 0.017 yr  &  - \\
-SE-WEN & east   & 95 $\pm$ 30 km  & 0.66 $\pm$ 0.15 mm  & 0.093 $\pm$ 0.044 yr &  0.78 $\pm$ 0.87 \\
-SE-WEN & north  & 92 $\pm$ 57 km  & 0.46 $\pm$ 0.10 mm  & 0.116 $\pm$ 0.057 yr &  0.08 $\pm$ 0.58 \\
-SE-IBM & east   & 110 $\pm$ 130 km & 290 $\pm$ 420 mm/yr$^{0.5}$  & -          & -16.4 $\pm$ 7.8 \\
-SE-IBM & north  & 150 $\pm$ 560 km & 110 $\pm$ 250 mm/yr$^{0.5}$ & -           & -10.1 $\pm$ 2.3 \\
+$T$ & direction & $\lambda$  & $\phi$   & $\theta$  & diff. REML \\ \hline
+SE & east   & 92 $\pm$ 25 km  & 0.62 $\pm$ 0.11 mm  & 0.026 $\pm$ 0.011 yr  &  - \\
+SE & north  & 91 $\pm$ 53 km  & 0.43 $\pm$ 0.05 mm  & 0.030 $\pm$ 0.017 yr  &  - \\
+Wendland & east   & 95 $\pm$ 30 km  & 0.66 $\pm$ 0.15 mm  & 0.093 $\pm$ 0.044 yr &  0.78 $\pm$ 0.87 \\
+Wendland & north  & 92 $\pm$ 57 km  & 0.46 $\pm$ 0.10 mm  & 0.116 $\pm$ 0.057 yr &  0.08 $\pm$ 0.58 \\
+IBM & east   & 110 $\pm$ 130 km & 290 $\pm$ 420 mm/yr$^{0.5}$  & -          & -16.4 $\pm$ 7.8 \\
+IBM & north  & 150 $\pm$ 560 km & 110 $\pm$ 250 mm/yr$^{0.5}$ & -           & -10.1 $\pm$ 2.3 \\
 \end{tabular}
 \caption{Hyperparameters. The shown values are the medians and interquartile ranges.} 
 \end{table}

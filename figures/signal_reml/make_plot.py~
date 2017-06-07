@@ -96,6 +96,10 @@ vertical_p2 = params2['vertical']
 east_like = np.array(like['east']) - np.array(sese_like['east'])
 north_like = np.array(like['north']) - np.array(sese_like['north'])
 
+plt.hist(east_like,=50)
+#plt.hist(north_like)
+plt.show()
+
 msg += 'SE-WEN & east   & %.5g $\pm$ %.5g km  & %.5g $\pm$ %.5g mm  & %.5g $\pm$ %.5g yr & %.5g $\pm$ %.5g \\\\\n' % (
                                                                                       np.median(east_p2),iqr(east_p2),
                                                                                       np.median(east_p0),iqr(east_p0),

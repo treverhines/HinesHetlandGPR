@@ -61,7 +61,7 @@ vertical_p1 = params1['vertical']
 
 stats_box = {'facecolor':'w','alpha':0.8,'boxstyle':'round','edgecolor':'0.8'}
 
-fig,axs = plt.subplots(3,2,figsize=(7,4))
+fig,axs = plt.subplots(3,2,figsize=(7,6))
 
 axs[0][0].hist(east_p0,np.linspace(0.0,3.0,bins),color='C0',alpha=0.8)
 text = 'median : %.2f\nIQR : %.2f - %.2f' % ((np.median(east_p0),) + tuple(np.percentile(east_p0,[25,75])))

@@ -120,7 +120,7 @@ plt.savefig('noise-params.pdf',format='pdf')
 fig,ax = plt.subplots(3,1,figsize=(7,4),sharex=True)
 
 dt = 1.0/365.25
-time = np.arange(0.0,7.0,dt)
+time = np.arange(0.0,5.0,dt)
 
 gp = fogm(np.median(east_p0),np.median(east_p1),convert=False)
 sample = gp.sample(time[:,None],use_cholesky=True)
@@ -153,7 +153,7 @@ ax[2].grid(c='0.5',alpha=0.5)
 ax[2].set_xlabel('time [yr]',fontsize=10)
 ax[2].set_ylabel('vertical [mm]',fontsize=10)
 ax[2].tick_params(labelsize=10)
-ax[2].set_xlim((0.0,7.0))
+ax[2].set_xlim((0.0,5.0))
 fig.tight_layout()
 plt.savefig('noise-samples.pdf',format='pdf')
 

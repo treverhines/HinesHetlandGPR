@@ -4,9 +4,9 @@
 file : stations/P453.h5
 units : m
 stations : 1
-times : 2558
-observations : 7328
-time range : 2010-01-01, 2017-01-01
+times : 3057
+observations : 8428
+time range : 2009-01-01, 2017-05-15
 longitude range : -118.74545644, -118.74545644
 latitude range : 47.759133109, 47.759133109
 station names : P453
@@ -48,13 +48,13 @@ station :
     model : p0 p1 per fogm
     parameter units : mm/yr^0.5, yr^-1
     fixed parameters : 
-    optimal east parameters : 3.9191e-01, 3.1962e-01
-    optimal north parameters : 4.6847e-01, 7.1574e-07
-    optimal vertical parameters : 1.3658e+01, 2.0490e+00
+    optimal east parameters : 3.6548e-01, 1.6737e-01
+    optimal north parameters : 4.8290e-01, 2.4742e-06
+    optimal vertical parameters : 1.3950e+01, 2.3105e+00
 log likelihood :
-    east : 13729.2428984
-    north : 13130.963561
-    vertical : 9789.18243013
+    east : 15781.6939756
+    north : 15077.0370921
+    vertical : 11236.759142
 output file : results/P453.txt
 
 --------------------------------------------------------------

@@ -4,9 +4,9 @@
 file : stations/BURN.h5
 units : m
 stations : 1
-times : 2558
-observations : 7662
-time range : 2010-01-01, 2017-01-01
+times : 3057
+observations : 9158
+time range : 2009-01-01, 2017-05-15
 longitude range : -117.843529546, -117.843529546
 latitude range : 42.7795015397, 42.7795015397
 station names : BURN
@@ -48,13 +48,13 @@ station :
     model : p0 p1 per fogm
     parameter units : mm/yr^0.5, yr^-1
     fixed parameters : 
-    optimal east parameters : 7.4308e-01, 4.1902e-01
-    optimal north parameters : 3.8912e-01, 1.6617e-02
-    optimal vertical parameters : 9.2415e+00, 9.4901e-01
+    optimal east parameters : 1.1183e+00, 5.5964e-01
+    optimal north parameters : 7.3688e-01, 8.7136e-07
+    optimal vertical parameters : 9.1810e+00, 6.5475e-01
 log likelihood :
-    east : 14198.2744767
-    north : 13770.5321152
-    vertical : 10247.9134153
+    east : 16971.1183286
+    north : 16427.1232526
+    vertical : 12201.561444
 output file : results/BURN.txt
 
 --------------------------------------------------------------

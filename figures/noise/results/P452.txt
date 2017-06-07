@@ -4,9 +4,9 @@
 file : stations/P452.h5
 units : m
 stations : 1
-times : 2558
-observations : 7211
-time range : 2010-01-01, 2017-01-01
+times : 3057
+observations : 8672
+time range : 2009-01-01, 2017-05-15
 longitude range : -119.487282152, -119.487282152
 latitude range : 47.403549068, 47.403549068
 station names : P452
@@ -48,13 +48,13 @@ station :
     model : p0 p1 per fogm
     parameter units : mm/yr^0.5, yr^-1
     fixed parameters : 
-    optimal east parameters : 4.3010e-01, 1.8178e-02
-    optimal north parameters : 4.3860e-01, 1.0693e-06
-    optimal vertical parameters : 7.8531e+00, 6.9304e-01
+    optimal east parameters : 4.1090e-01, 3.1953e-06
+    optimal north parameters : 4.3648e-01, 1.0543e-07
+    optimal vertical parameters : 7.5026e+00, 4.8426e-01
 log likelihood :
-    east : 13104.199806
-    north : 12554.1326335
-    vertical : 9325.19741101
+    east : 15771.1075383
+    north : 15094.9645794
+    vertical : 11197.5544029
 output file : results/P452.txt
 
 --------------------------------------------------------------

@@ -4,9 +4,9 @@
 file : stations/P422.h5
 units : m
 stations : 1
-times : 2558
-observations : 7664
-time range : 2010-01-01, 2017-01-01
+times : 3057
+observations : 9163
+time range : 2009-01-01, 2017-05-15
 longitude range : -116.979683473, -116.979683473
 latitude range : 46.7978658703, 46.7978658703
 station names : P422
@@ -48,13 +48,13 @@ station :
     model : p0 p1 per fogm
     parameter units : mm/yr^0.5, yr^-1
     fixed parameters : 
-    optimal east parameters : 4.7107e-01, 2.2701e-01
-    optimal north parameters : 4.3284e-01, 8.6226e-03
-    optimal vertical parameters : 9.0777e+00, 1.0556e+00
+    optimal east parameters : 4.6016e-01, 2.1563e-01
+    optimal north parameters : 4.3420e-01, 5.1975e-02
+    optimal vertical parameters : 9.1016e+00, 7.6740e-01
 log likelihood :
-    east : 14193.7115853
-    north : 13574.7691522
-    vertical : 10058.3647655
+    east : 16972.3990553
+    north : 16220.571956
+    vertical : 11981.9213733
 output file : results/P422.txt
 
 --------------------------------------------------------------

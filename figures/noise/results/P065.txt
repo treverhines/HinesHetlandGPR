@@ -4,9 +4,9 @@
 file : stations/P065.h5
 units : m
 stations : 1
-times : 2558
-observations : 7044
-time range : 2010-01-01, 2017-01-01
+times : 3057
+observations : 8219
+time range : 2009-01-01, 2017-05-15
 longitude range : -120.933091824, -120.933091824
 latitude range : 46.8439600086, 46.8439600086
 station names : P065
@@ -48,13 +48,13 @@ station :
     model : p0 p1 per fogm
     parameter units : mm/yr^0.5, yr^-1
     fixed parameters : 
-    optimal east parameters : 8.9241e-01, 2.4450e-01
-    optimal north parameters : 7.2845e-01, 3.4285e-01
-    optimal vertical parameters : 1.9823e+01, 3.9503e+00
+    optimal east parameters : 8.1512e-01, 1.0023e-01
+    optimal north parameters : 7.0566e-01, 3.5709e-01
+    optimal vertical parameters : 2.1619e+01, 3.4773e+00
 log likelihood :
-    east : 12883.4949878
-    north : 12503.8307872
-    vertical : 9220.81665408
+    east : 15047.1678157
+    north : 14567.1119643
+    vertical : 10668.2643565
 output file : results/P065.txt
 
 --------------------------------------------------------------

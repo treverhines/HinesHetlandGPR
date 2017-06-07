@@ -4,9 +4,9 @@
 file : stations/LINH.h5
 units : m
 stations : 1
-times : 2558
-observations : 7324
-time range : 2010-01-01, 2017-01-01
+times : 3057
+observations : 8813
+time range : 2009-01-01, 2017-05-15
 longitude range : -120.538501437, -120.538501437
 latitude range : 47.0003356295, 47.0003356295
 station names : LINH
@@ -48,13 +48,13 @@ station :
     model : p0 p1 per fogm
     parameter units : mm/yr^0.5, yr^-1
     fixed parameters : 
-    optimal east parameters : 1.1897e+00, 3.4742e-01
-    optimal north parameters : 1.0132e+00, 2.7603e-01
-    optimal vertical parameters : 1.5123e+01, 1.6902e+00
+    optimal east parameters : 1.1910e+00, 1.8501e-01
+    optimal north parameters : 7.7744e-01, 1.3880e-01
+    optimal vertical parameters : 1.5629e+01, 1.2752e+00
 log likelihood :
-    east : 13365.3264307
-    north : 12561.4910319
-    vertical : 9530.00360386
+    east : 16016.3489279
+    north : 15186.8198946
+    vertical : 11395.3207664
 output file : results/LINH.txt
 
 --------------------------------------------------------------

@@ -4,9 +4,9 @@
 file : stations/P388.h5
 units : m
 stations : 1
-times : 2558
-observations : 7445
-time range : 2010-01-01, 2017-01-01
+times : 3057
+observations : 8976
+time range : 2009-01-01, 2017-05-15
 longitude range : -120.377610517, -120.377610517
 latitude range : 42.4687798769, 42.4687798769
 station names : P388
@@ -48,13 +48,13 @@ station :
     model : p0 p1 per fogm
     parameter units : mm/yr^0.5, yr^-1
     fixed parameters : 
-    optimal east parameters : 1.3940e+00, 7.3410e-01
-    optimal north parameters : 1.0293e+00, 6.1746e-01
-    optimal vertical parameters : 7.1186e+00, 5.5641e-01
+    optimal east parameters : 1.4065e+00, 8.7775e-01
+    optimal north parameters : 4.1146e-01, 8.9400e-02
+    optimal vertical parameters : 7.5829e+00, 4.4623e-01
 log likelihood :
-    east : 13304.2426646
-    north : 12963.0235682
-    vertical : 10085.6615128
+    east : 16052.0729295
+    north : 15578.2988887
+    vertical : 12004.5222256
 output file : results/P388.txt
 
 --------------------------------------------------------------

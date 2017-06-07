@@ -4,9 +4,9 @@
 file : stations/P372.h5
 units : m
 stations : 1
-times : 2558
-observations : 7585
-time range : 2010-01-01, 2017-01-01
+times : 3057
+observations : 9106
+time range : 2009-01-01, 2017-05-15
 longitude range : -117.251657338, -117.251657338
 latitude range : 45.4281378007, 45.4281378007
 station names : P372
@@ -48,13 +48,13 @@ station :
     model : p0 p1 per fogm
     parameter units : mm/yr^0.5, yr^-1
     fixed parameters : 
-    optimal east parameters : 4.2478e-01, 1.5833e-01
-    optimal north parameters : 4.5542e-01, 4.0975e-02
-    optimal vertical parameters : 1.6918e+01, 2.6908e+00
+    optimal east parameters : 3.8376e-01, 1.1057e-01
+    optimal north parameters : 5.0971e-01, 2.1407e-01
+    optimal vertical parameters : 1.7311e+01, 2.4325e+00
 log likelihood :
-    east : 13967.8783987
-    north : 13516.5479798
-    vertical : 10130.1113972
+    east : 16795.4150985
+    north : 16186.4845728
+    vertical : 12060.596252
 output file : results/P372.txt
 
 --------------------------------------------------------------

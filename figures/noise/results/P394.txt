@@ -4,9 +4,9 @@
 file : stations/P394.h5
 units : m
 stations : 1
-times : 2558
-observations : 7608
-time range : 2010-01-01, 2017-01-01
+times : 3057
+observations : 9114
+time range : 2009-01-01, 2017-05-15
 longitude range : -117.799637773, -117.799637773
 latitude range : 44.834881303, 44.834881303
 station names : P394
@@ -48,13 +48,13 @@ station :
     model : p0 p1 per fogm
     parameter units : mm/yr^0.5, yr^-1
     fixed parameters : 
-    optimal east parameters : 4.7747e-01, 4.7492e-02
-    optimal north parameters : 4.8777e-01, 2.3868e-01
-    optimal vertical parameters : 2.1541e+01, 4.5313e+00
+    optimal east parameters : 4.3141e-01, 5.2744e-06
+    optimal north parameters : 5.3719e-01, 4.7270e-01
+    optimal vertical parameters : 2.4354e+01, 4.7321e+00
 log likelihood :
-    east : 14272.8842714
-    north : 13867.1751497
-    vertical : 10206.915464
+    east : 17092.3780317
+    north : 16586.6626601
+    vertical : 12155.1803549
 output file : results/P394.txt
 
 --------------------------------------------------------------

@@ -4,9 +4,9 @@
 file : stations/P018.h5
 units : m
 stations : 1
-times : 2558
-observations : 7359
-time range : 2010-01-01, 2017-01-01
+times : 3057
+observations : 8733
+time range : 2009-01-01, 2017-05-15
 longitude range : -117.064557916, -117.064557916
 latitude range : 42.9817068595, 42.9817068595
 station names : P018
@@ -48,13 +48,13 @@ station :
     model : p0 p1 per fogm
     parameter units : mm/yr^0.5, yr^-1
     fixed parameters : 
-    optimal east parameters : 4.3168e-01, 1.2231e-01
-    optimal north parameters : 3.6686e-01, 5.8181e-01
-    optimal vertical parameters : 1.4477e+01, 2.2294e+00
+    optimal east parameters : 3.5820e-01, 4.6119e-07
+    optimal north parameters : 1.7247e-01, 2.5639e-02
+    optimal vertical parameters : 1.4814e+01, 1.8396e+00
 log likelihood :
-    east : 13943.2422647
-    north : 13536.6960127
-    vertical : 9981.899024
+    east : 16582.7280914
+    north : 16103.5553529
+    vertical : 11791.3050615
 output file : results/P018.txt
 
 --------------------------------------------------------------

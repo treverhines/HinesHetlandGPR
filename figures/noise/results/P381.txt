@@ -4,9 +4,9 @@
 file : stations/P381.h5
 units : m
 stations : 1
-times : 2558
-observations : 7658
-time range : 2010-01-01, 2017-01-01
+times : 3057
+observations : 9159
+time range : 2009-01-01, 2017-05-15
 longitude range : -119.951803124, -119.951803124
 latitude range : 43.0017769885, 43.0017769885
 station names : P381
@@ -48,13 +48,13 @@ station :
     model : p0 p1 per fogm
     parameter units : mm/yr^0.5, yr^-1
     fixed parameters : 
-    optimal east parameters : 8.6661e-01, 1.4519e-01
-    optimal north parameters : 3.1828e-01, 4.3798e-07
-    optimal vertical parameters : 1.0461e+01, 1.1539e+00
+    optimal east parameters : 7.5628e-01, 4.1060e-06
+    optimal north parameters : 2.8015e-01, 1.5005e-06
+    optimal vertical parameters : 1.2381e+01, 1.6290e+00
 log likelihood :
-    east : 14344.4178328
-    north : 13958.7274302
-    vertical : 10402.6344828
+    east : 17149.3630545
+    north : 16698.5827909
+    vertical : 12380.0571268
 output file : results/P381.txt
 
 --------------------------------------------------------------

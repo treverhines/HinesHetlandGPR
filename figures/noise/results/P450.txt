@@ -4,9 +4,9 @@
 file : stations/P450.h5
 units : m
 stations : 1
-times : 2558
-observations : 7134
-time range : 2010-01-01, 2017-01-01
+times : 3057
+observations : 8549
+time range : 2009-01-01, 2017-05-15
 longitude range : -119.544194229, -119.544194229
 latitude range : 45.9533352523, 45.9533352523
 station names : P450
@@ -48,13 +48,13 @@ station :
     model : p0 p1 per fogm
     parameter units : mm/yr^0.5, yr^-1
     fixed parameters : 
-    optimal east parameters : 6.1398e-01, 4.3159e-01
-    optimal north parameters : 4.9175e-01, 4.3664e-06
-    optimal vertical parameters : 1.4864e+01, 1.9832e+00
+    optimal east parameters : 4.9617e-01, 3.0688e-01
+    optimal north parameters : 5.1559e-01, 9.1708e-02
+    optimal vertical parameters : 1.4862e+01, 1.8110e+00
 log likelihood :
-    east : 13430.4577812
-    north : 12910.8193597
-    vertical : 9616.35364967
+    east : 16098.9553546
+    north : 15469.3872067
+    vertical : 11457.7770477
 output file : results/P450.txt
 
 --------------------------------------------------------------

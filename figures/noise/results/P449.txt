@@ -4,9 +4,9 @@
 file : stations/P449.h5
 units : m
 stations : 1
-times : 2558
-observations : 7665
-time range : 2010-01-01, 2017-01-01
+times : 3057
+observations : 9160
+time range : 2009-01-01, 2017-05-15
 longitude range : -119.630996578, -119.630996578
 latitude range : 46.2597925533, 46.2597925533
 station names : P449
@@ -48,13 +48,13 @@ station :
     model : p0 p1 per fogm
     parameter units : mm/yr^0.5, yr^-1
     fixed parameters : 
-    optimal east parameters : 3.4143e-01, 2.1983e-06
-    optimal north parameters : 4.0060e-01, 2.8336e-06
-    optimal vertical parameters : 1.3099e+01, 2.2263e+00
+    optimal east parameters : 3.1151e-01, 2.1676e-06
+    optimal north parameters : 3.6756e-01, 1.2286e-06
+    optimal vertical parameters : 1.3057e+01, 1.6932e+00
 log likelihood :
-    east : 14264.295774
-    north : 13588.6041411
-    vertical : 10132.7655157
+    east : 17058.3934393
+    north : 16253.743773
+    vertical : 12076.6011634
 output file : results/P449.txt
 
 --------------------------------------------------------------

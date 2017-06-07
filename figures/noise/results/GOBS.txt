@@ -4,9 +4,9 @@
 file : stations/GOBS.h5
 units : m
 stations : 1
-times : 2558
-observations : 7526
-time range : 2010-01-01, 2017-01-01
+times : 3057
+observations : 9007
+time range : 2009-01-01, 2017-05-15
 longitude range : -120.814676343, -120.814676343
 latitude range : 45.8388187522, 45.8388187522
 station names : GOBS
@@ -48,13 +48,13 @@ station :
     model : p0 p1 per fogm
     parameter units : mm/yr^0.5, yr^-1
     fixed parameters : 
-    optimal east parameters : 1.1390e+00, 4.9850e-02
-    optimal north parameters : 8.7064e-01, 1.4029e-06
-    optimal vertical parameters : 1.4735e+01, 2.5728e+00
+    optimal east parameters : 1.1213e+00, 3.1085e-02
+    optimal north parameters : 8.9286e-01, 4.3304e-02
+    optimal vertical parameters : 1.5915e+01, 2.4153e+00
 log likelihood :
-    east : 13842.6842238
-    north : 13516.7294715
-    vertical : 10108.3708663
+    east : 16545.7089223
+    north : 16174.5995198
+    vertical : 12033.3557803
 output file : results/GOBS.txt
 
 --------------------------------------------------------------

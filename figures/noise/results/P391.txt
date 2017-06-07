@@ -4,9 +4,9 @@
 file : stations/P391.h5
 units : m
 stations : 1
-times : 2558
-observations : 6961
-time range : 2010-01-01, 2017-01-01
+times : 3057
+observations : 7828
+time range : 2009-01-01, 2017-05-15
 longitude range : -118.4124733, -118.4124733
 latitude range : 42.254629551, 42.254629551
 station names : P391
@@ -48,13 +48,13 @@ station :
     model : p0 p1 per fogm
     parameter units : mm/yr^0.5, yr^-1
     fixed parameters : 
-    optimal east parameters : 4.2613e-01, 2.3908e-01
-    optimal north parameters : 3.8285e-01, 2.5188e-01
-    optimal vertical parameters : 8.4940e+00, 8.8619e-01
+    optimal east parameters : 5.0627e-01, 6.8095e-06
+    optimal north parameters : 4.8099e-01, 2.3233e-01
+    optimal vertical parameters : 8.8721e+00, 9.6453e-01
 log likelihood :
-    east : 12958.3498272
-    north : 12681.3076296
-    vertical : 9411.41726507
+    east : 14524.3266975
+    north : 14206.4122417
+    vertical : 10470.0988041
 output file : results/P391.txt
 
 --------------------------------------------------------------

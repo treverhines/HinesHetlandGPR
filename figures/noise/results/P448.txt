@@ -4,9 +4,9 @@
 file : stations/P448.h5
 units : m
 stations : 1
-times : 2558
-observations : 7662
-time range : 2010-01-01, 2017-01-01
+times : 3057
+observations : 9157
+time range : 2009-01-01, 2017-05-15
 longitude range : -120.005200237, -120.005200237
 latitude range : 45.9105787892, 45.9105787892
 station names : P448
@@ -48,13 +48,13 @@ station :
     model : p0 p1 per fogm
     parameter units : mm/yr^0.5, yr^-1
     fixed parameters : 
-    optimal east parameters : 5.3913e-01, 2.3620e-01
-    optimal north parameters : 4.4385e-01, 2.9352e-08
-    optimal vertical parameters : 9.0471e+00, 1.0353e+00
+    optimal east parameters : 4.5212e-01, 5.5117e-08
+    optimal north parameters : 4.3602e-01, 2.6801e-06
+    optimal vertical parameters : 9.9469e+00, 9.8428e-01
 log likelihood :
-    east : 14055.628337
-    north : 13433.8829819
-    vertical : 10015.0071561
+    east : 16807.9286618
+    north : 16072.7890625
+    vertical : 11940.7287794
 output file : results/P448.txt
 
 --------------------------------------------------------------

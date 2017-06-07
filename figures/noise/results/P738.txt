@@ -4,9 +4,9 @@
 file : stations/P738.h5
 units : m
 stations : 1
-times : 2558
-observations : 7001
-time range : 2010-01-01, 2017-01-01
+times : 3057
+observations : 8218
+time range : 2009-01-01, 2017-05-15
 longitude range : -119.658701434, -119.658701434
 latitude range : 42.5460813753, 42.5460813753
 station names : P738
@@ -48,13 +48,13 @@ station :
     model : p0 p1 per fogm
     parameter units : mm/yr^0.5, yr^-1
     fixed parameters : 
-    optimal east parameters : 1.8563e+00, 1.3042e+00
-    optimal north parameters : 6.0696e-01, 1.0090e+00
-    optimal vertical parameters : 7.7533e+00, 5.1379e-01
+    optimal east parameters : 1.4689e+00, 1.1937e+00
+    optimal north parameters : 4.7997e-01, 8.9047e-01
+    optimal vertical parameters : 7.4583e+00, 5.3419e-01
 log likelihood :
-    east : 12193.4576423
-    north : 12676.3180556
-    vertical : 9730.13209815
+    east : 14430.0607261
+    north : 14782.0892315
+    vertical : 11253.055134
 output file : results/P738.txt
 
 --------------------------------------------------------------

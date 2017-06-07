@@ -4,9 +4,9 @@
 file : stations/P020.h5
 units : m
 stations : 1
-times : 2558
-observations : 7591
-time range : 2010-01-01, 2017-01-01
+times : 3057
+observations : 9083
+time range : 2009-01-01, 2017-05-15
 longitude range : -118.565769864, -118.565769864
 latitude range : 47.0022088051, 47.0022088051
 station names : P020
@@ -48,13 +48,13 @@ station :
     model : p0 p1 per fogm
     parameter units : mm/yr^0.5, yr^-1
     fixed parameters : 
-    optimal east parameters : 3.4751e-01, 1.0821e-06
-    optimal north parameters : 3.3403e-01, 1.9801e-02
-    optimal vertical parameters : 1.1623e+01, 1.3544e+00
+    optimal east parameters : 3.0242e-01, 7.1611e-07
+    optimal north parameters : 3.6524e-01, 5.4079e-02
+    optimal vertical parameters : 1.1442e+01, 1.0706e+00
 log likelihood :
-    east : 14246.9929268
-    north : 13629.6008284
-    vertical : 10139.5354222
+    east : 17056.8770766
+    north : 16294.0593594
+    vertical : 12099.734289
 output file : results/P020.txt
 
 --------------------------------------------------------------

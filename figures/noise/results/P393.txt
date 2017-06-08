@@ -48,9 +48,9 @@ station :
     model : p0 p1 per fogm
     parameter units : mm/yr^0.5, yr^-1
     fixed parameters : 
-    optimal east parameters : 5.9671e-01, 4.7438e-01
-    optimal north parameters : 5.1083e-01, 5.4244e-01
-    optimal vertical parameters : 1.3919e+01, 1.5358e+00
+    optimal east parameters : 5.9672e-01, 2.9806e+00
+    optimal north parameters : 5.1084e-01, 3.4084e+00
+    optimal vertical parameters : 1.3918e+01, 9.6491e+00
 log likelihood :
     east : 16479.4477747
     north : 16125.6954507

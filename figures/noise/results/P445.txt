@@ -5,7 +5,7 @@ file : stations/P445.h5
 units : m
 stations : 1
 times : 3057
-observations : 9094
+observations : 9095
 time range : 2009-01-01, 2017-05-15
 longitude range : -120.672246053, -120.672246053
 latitude range : 45.5901233178, 45.5901233178
@@ -48,11 +48,11 @@ station :
     model : p0 p1 per fogm
     parameter units : mm/yr^0.5, yr^-1
     fixed parameters : 
-    optimal east parameters : 5.5377e-01, 8.3542e-02
-    optimal north parameters : 3.5258e-01, 5.7317e-02
-    optimal vertical parameters : 8.1169e+00, 4.2903e-01
+    optimal east parameters : 5.4248e-01, 4.2769e-01
+    optimal north parameters : 3.5257e-01, 3.6011e-01
+    optimal vertical parameters : 8.1169e+00, 2.6957e+00
 log likelihood :
-    east : 16916.4764661
+    east : 16919.7722784
     north : 16260.1360125
     vertical : 12103.4404598
 output file : results/P445.txt

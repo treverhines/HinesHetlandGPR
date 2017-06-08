@@ -103,33 +103,33 @@ C_{u}\left((x,t),(x',t')\right) = X(x,x')T(t,t'),
 \end{equation}  
 The appropriate choice for $X$ and $T$ may vary depending on the geophysical signal we are trying to describe (e.g. postseismic deformation or deformation from slow slip events), and we discuss this matter in the next section.  
 
-We constrain $u$ with GNSS data, which records $u$ as well as other physical and non-physical processes which we are not interested in. We describe GNSS observations at position $x_i$ and time $t$ as a realization of the random variable 
+We constrain $u$ with GNSS data, which records $u$ as well as other physical and non-physical processes which we are not interested in. We describe GNSS observations at position $x_i$ and time $t_j$ as a realization of the random variable 
 \begin{align}\label{eq:Data}
 \begin{split}
-d_{i}(t) = &u(x_i,t) + \epsilon(x_i,t) + a_{i} + b_{i}t + \\
-         &c_{i}\sin(2 \pi t) + q_{i}\cos(2 \pi t) + r_{i}\sin(4 \pi t) + s_{i}\cos(4 \pi t), 
+d_{ij} = &u(x_i,t_j) + \epsilon(x_i,t_j) + w_{ij} + a^{(1)}_i + a^{(2)}_it_j + \\
+         &a^{(3)}_i\sin(2 \pi t_j) + a^{(4)}_i\cos(2 \pi t_j) + a^{(5)}_i\sin(4 \pi t_j) + a^{(6)}_i\cos(4 \pi t_j), 
 \end{split}
 \end{align}
-where $a_{i}$ is an offset that is unique for each GNSS monument, $b_{i}$ is the steady rate of tectonic deformation at $x_i$, the sinusoids describe seasonal deformation (using units of years for $t$), and $\epsilon$ is a Gaussian process for noise that cannot be described parametrically. For example, $\epsilon$ can consist of white noise, temporally correlated noise describing benchmark wobble \citep[e.g.,][]{Wyatt1982,Wyatt1989}, and/or spatially correlated noise describing common mode error \citep[e.g.,][]{Wdowinski1997}. For now, $\epsilon$ will simply be described as $\epsilon \sim \mathcal{N}(0,C_\epsilon)$. We consider the six coefficients in eq. (\ref{eq:Data}) to be uncorrelated random variables distributed as $\mathcal{N}(0,\kappa^2)$ in the limit as $\kappa \to \infty$ (i.e., the coefficients have diffuse priors). Of course, the tectonic deformation, $b_{i}$, is spatially correlated and we could invoke a tectonic model to form a prior on $b_{i}$. However, in our application to Cascadia, we will be using displacement time series which are long enough to sufficiently constrain $b_{i}$ for each station, and there is no need to incorporate a prior. Likewise, the seasonal coefficients may be spatially correlated \citep{Langbein2008}, and it may be worth exploring and exploiting such a correlation in a future study. 
+where $a^{(1)}_{i}$ is an offset that is unique for each GNSS monument, $a^{(2)}_{i}$ is the steady rate of tectonic deformation at $x_i$, and the sinusoids describe seasonal deformation (using units of years for $t$). We use $w_{ij}$ to denote normally distributed, uncorrelated noise. Correlated noise which does not have a parametric representation is denoted by $\epsilon$.  For example, $\epsilon$ can consist of temporally correlated noise describing benchmark wobble \citep[e.g.,][]{Wyatt1982,Wyatt1989}, and/or spatially correlated noise describing common mode error \citep[e.g.,][]{Wdowinski1997}. For now, we will only assume that $\epsilon \sim \mathcal{N}(0,C_\epsilon)$. We consider the six coefficients in eq. (\ref{eq:Data}) to be uncorrelated random variables distributed as $\mathcal{N}(0,\kappa^2)$ in the limit as $\kappa \to \infty$ (i.e., the coefficients have diffuse priors). Of course, the tectonic deformation, $a^{(2)}_{i}$, is spatially correlated and we could invoke a tectonic model to form a prior on $a^{(2)}_{i}$. However, in our application to Cascadia, we will be using displacement time series which are long enough to sufficiently constrain $a^{(2)}_{i}$ for each station, and there is no need to incorporate a prior. Likewise, the seasonal coefficients may be spatially correlated \citep{Langbein2008}, and it may be worth exploring and exploiting such a correlation in a future study. 
 
-We now consider the column vector of $n$ GNSS observations, $\bm{d}_*$. Let $\bm{y}$ be the set of $(x_i, t)$ pairs describing where and when each of the GNSS observations have been made. Furthermore, let $\bm{a}$ be the vector of coefficients from eq. (\ref{eq:Data}) for each of the $m$ GNSS monuments, and let $\bm{P}$ be the $n \times 6m$ matrix of corresponding basis functions evaluated at each point in $\bm{y}$. The observations $\bm{d}_*$ are then a realization of the random vector
+We now consider the column vector of $n$ GNSS observations, $\bm{d}_*$. Let $\bm{y}$ be the set of $(x_i, t_j)$ pairs describing where and when each of the GNSS observations have been made. Let $\bm{a}$ be the vector of coefficients from eq. (\ref{eq:Data}) for each of the $m$ GNSS stations. We use $\bm{P}$ to represent the $n \times 6m$ matrix of corresponding basis functions evaluated at each point in $\bm{y}$. We  also denote the vector of uncorrelated noise for each observation as $\bm{w}$, whose standard deviations are given by the formal data uncertainty $\bm{\sigma}$. The observations $\bm{d}_*$ can then be viewed as a realization of the random vector
 \begin{equation}
-\bm{d} = u(\bm{y}) + \epsilon(\bm{y}) + \bm{P}\bm{a},
+\bm{d} = u(\bm{y}) + \epsilon(\bm{y}) + \bm{w} + \bm{P}\bm{a},
 \end{equation}
-which is distributed as $\mathcal{N}(\bm{0},\bm{C_d})$, where
+which is distributed as $\mathcal{N}(\bm{0},\bm{\Sigma} + \kappa^2\bm{P}\bm{P}^T)$, where
 \begin{equation}\label{eq:Cd}
-\bm{C_d} = C_u(\bm{y},\bm{y}) + C_\epsilon(\bm{y},\bm{y}) + 
-           \kappa^2\bm{P}\bm{P}^T.
+\bm{\Sigma} = C_u(\bm{y},\bm{y}) + C_\epsilon(\bm{y},\bm{y}) + 
+              \mathrm{diag}\left(\bm{\sigma}^2\right).  
 \end{equation}
 It should be understood that the notation $f(\bm{x})$ and $f(\bm{x},\bm{y})$ is shorthand for $[f(x_i)]_{x_i \in \bm{x}}$ and $[f(x_i,y_j)]_{(x_i,y_j) \in \bm{x} \times \bm{y}}$, respectively. 
 
 We now describe how to condition the prior for each component of transient displacements, $u$, with $\bm{d}_*$ to form a posterior estimate of transient displacements, $\hat{u} = u | \bm{d}_*$. We will assume that an appropriate covariance functions and corresponding hyperparameters for $X$, $T$, and $C_\epsilon$ have already been chosen. If $\kappa$ is kept finite, then we can follow \citet{Rasmussen2006} to find that $\hat{u}$ is distributed as $\mathcal{N}(\mu_{\hat{u}},C_{\hat{u}})$, where
 \begin{equation}\label{eq:PosteriorMean}
-\mu_{\hat{u}}(z) = C_u(z,\bm{y})\bm{C_d}^{-1}\bm{d}_*
+\mu_{\hat{u}}(z) = C_u(z,\bm{y})\left(\bm{\Sigma} + \kappa^2\bm{P}\bm{P}^T\right)^{-1}\bm{d}_*
 \end{equation}    
 and
 \begin{equation}\label{eq:PosteriorCov}
-C_{\hat{u}}(z,z') = C_u(z,\bm{y})\bm{C_d}^{-1}C_u(\bm{y},z').
+C_{\hat{u}}(z,z') = C_u(z,z') - C_u(z,\bm{y})\left(\bm{\Sigma} + \kappa^2\bm{P}\bm{P}^T\right)^{-1}C_u(\bm{y},z').
 \end{equation}
 However, we are interested in the limit as $\kappa \to \infty$, and the form for eq. (\ref{eq:PosteriorMean}) and eq. (\ref{eq:PosteriorCov}) is not suitable for evaluating this limit. We can use the partitioned matrix inversion identity \citep[e.g.,][]{Press2007} to rewrite eq. (\ref{eq:PosteriorMean}) and eq. (\ref{eq:PosteriorCov}) as
  \begin{equation}\label{eq:PosteriorMean2}
@@ -141,7 +141,7 @@ C_u(z,\bm{y}) & \bm{0} \\
 \right]
 \left[
 \begin{array}{cc}
-C_u(\bm{y},\bm{y}) + C_\epsilon(\bm{y},\bm{y}) & \bm{P} \\
+\bm{\Sigma} & \bm{P} \\
 \bm{P}^T  & -\kappa^{-2} \bm{I} \\
 \end{array}
 \right]^{-1}
@@ -163,7 +163,7 @@ C_u(z,\bm{y}) & \bm{0} \\
 \right]
 \left[
 \begin{array}{cc}
-C_u(\bm{y},\bm{y}) + C_\epsilon(\bm{y},\bm{y}) & \bm{P} \\
+\bm{\Sigma} & \bm{P} \\
 \bm{P}^T  & -\kappa^{-2} \bm{I} \\
 \end{array}
 \right]^{-1}
@@ -184,7 +184,7 @@ C_u(z,\bm{y}) & \bm{0} \\
 \right]
 \left[
 \begin{array}{cc}
-C_u(\bm{y},\bm{y}) + C_\epsilon(\bm{y},\bm{y}) & \bm{P} \\
+\bm{\Sigma} & \bm{P} \\
 \bm{P}^T  & \bm{0} \\
 \end{array}
 \right]^{-1}
@@ -206,7 +206,7 @@ C_u(z,\bm{y}) & \bm{0} \\
 \right]
 \left[
 \begin{array}{cc}
-C_u(\bm{y},\bm{y}) + C_\epsilon(\bm{y},\bm{y}) & \bm{P} \\
+\bm{\Sigma} & \bm{P} \\
 \bm{P}^T  & \bm{0} \\
 \end{array}
 \right]^{-1}
@@ -240,7 +240,7 @@ C_{\dot{\epsilon}_{ij}}(z,z') = \frac{1}{4} \frac{\partial^2}{\partial t \, \par
 \subsection{Outlier detection}\label{sec:Outlier}
 In our formulation for estimating transient strain rates, we have assumed that noise in the data vector is normally distributed. This is not an appropriate assumption for GNSS displacement timeseries which are prone to more outliers than would be predicted for normally distributed noise. It follows that proposed methods for analyzing GNSS timeseries should be robust against outliers \citep[e.g.,][]{Blewitt2016}. In order to make our estimates of transient strain more robust, we automatically identify and remove outliers in the GNSS data as a pre-processing step.
 
-Our method for detecting outliers is based on the data editing algorithm described in \citet{Gibbs2011}. We calculate the residuals between the observations and a best fitting model, and data with residuals that are anomalously large are identified as outliers. We again treat $\bm{d}_*$ as a sample of $\bm{d}$. The best fitting model for $\bm{d}_*$ is considered to be the expected value of the random vector $u(\bm{y}) + \bm{P}\bm{a}$ after conditioning it with non-outlier observations. We let $\epsilon$ be uncorrelated noise which has standard deviation given by the formal data uncertainties, $\bm{\sigma}$.  We still consider $u$ to have a separable covariance function as in eq. (\ref{eq:TransientCovariance}), and the choice for $X$ and $T$ does not need to be the same as that used in Section X. Since outliers are determined based on how well a spatially and temporally dependent model fits the data, we are able to identify anomalous observations which may not be immediately apparent based on inspection of individual timeseries. 
+Our method for detecting outliers is based on the data editing algorithm described in \citet{Gibbs2011}. We calculate the residuals between the observations and a best fitting model, and data with residuals that are anomalously large are identified as outliers. We treat $\bm{d}_*$ as a sample of $\bm{d}$ and assume that there is no temporally correlated noise (i.e., $\epsilon = 0$).  The best fitting model for $\bm{d}_*$ is considered to be the expected value of the random vector $u(\bm{y}) + \bm{P}\bm{a}$ after conditioning it with non-outlier observations.  We still consider $u$ to have a separable covariance function as in eq. (\ref{eq:TransientCovariance}), and the choice for $X$ and $T$ does not need to be the same as that used in Section X. Since outliers are determined based on how well a spatially and temporally dependent model fits the data, we are able to identify anomalous observations which may not be immediately apparent based on inspection of individual timeseries. 
 
 To begin the algorithm, we let $\Omega$ be the index set of non-outliers in $\bm{d}_*$ and initiate it with all $n$ indices. This algorithm is iterative, and for each iteration we calculate the residual vector
 \begin{align}\label{eq:Residual}
@@ -283,35 +283,32 @@ In this study, we use GNSS data which has been made publicly available by the Un
 
 
 \subsection{Noise model}\label{sec:NoiseModel}
-In this section we discuss our choice for the noise covariance function $C_\epsilon$ which will be used when estimating transient strain. We will assume that the noise consists of an uncorrelated component with standard deviation given by the formal data uncertainties, $\bm{\sigma}$, and a spatially and/or temporally correlated component. There have been numerous studies on temporally correlated noise in GNSS data \citep[e.g.,][]{Zhang1997,Mao1999,Williams2004,Langbein2008}. In these studies, temporally correlated noise was described with some combination of Brownian motion, first-order Gauss-Markov (FOGM) processes, and/or flicker noise. There is some physical justification for using Brownian motion as a noise model because it accurately describes the power spectrum of motion resulting from instability in geodetic monuments \citep[e.g.,][]{Wyatt1982,Wyatt1989,Langbein1997}. We describe temporally correlated noise as a FOGM process, noting that Brownian motion is a degenerate case of a FOGM process. A FOGM process is a solution to the stochastic differential equation
+In this section we discuss our choice for the noise covariance function $C_\epsilon$ which will be used when estimating transient strain.  There have been numerous studies on temporally correlated noise in GNSS data \citep[e.g.,][]{Zhang1997,Mao1999,Williams2004,Langbein2008}. In these studies, temporally correlated noise was described with some combination of Brownian motion, first-order Gauss-Markov (FOGM) processes, and/or flicker noise. There is some physical justification for using Brownian motion as a noise model because it accurately describes the power spectrum of motion resulting from instability in geodetic monuments \citep[e.g.,][]{Wyatt1982,Wyatt1989,Langbein1997}. Here we describe the time dependence of $\epsilon$ as a FOGM process and consider $\epsilon$ to be spatially uncorrelated. A FOGM process is a solution to the stochastic differential equation
 \begin{equation}
-\dot{v}(t) + \alpha v(t) = \beta w(t),
+\dot{\epsilon}(t) + \alpha \epsilon(t) = \beta w(t),
 \end{equation}
-where $w(t)$ is white noise with unit variance. The solution is an isotropic Gaussian process with zero mean and covariance function
+where $w(t)$ is white noise with unit variance. The noise model is then a Gaussian process with zero mean and covariance function
 \begin{equation}\label{eq:FOGM}
-C_v(t,t') = \frac{\beta^2}{2\alpha}\exp\left(-\alpha|t - t'|\right). 
+C_\epsilon\left((x,t),(x',t')\right) = \frac{\beta^2}{2\alpha}\exp\left(-\alpha|t - t'|\right) \delta(||x - x'||_2). 
 \end{equation}
-A FOGM process degenerates to Brownian motion under the condition that $\alpha = 0$ and $v(0) = 0$. 
+Under the condition that $\alpha = 0$ and $v(0) = 0$, $\epsilon$ degenerates to the more commonly used Brownian motion noise model. 
 
-We use a set of 38 inland stations, shown in Figure X, to constrain the FOGM hyperparameters, $\alpha$ and $\beta$.  These stations are sufficiently far from the subduction zone that they are unlikely to contain transient signal.  We clean the data for these stations by removing jumps at times of equipment changes, and we remove outliers that have been detected with the algorithm described in Section \ref{sec:Outlier}. We then find $\alpha$ and $\beta$ for each station timeseries with the Restricted Maximum Likelihood (REML) method \cite[e.g.,][]{Harville1974,Cressie1992} and Hines 2017. The REML method finds the hyperparameters which maximize the expression
+We constrain the hyperparameters for $\epsilon$, $\alpha$ and $\beta$, with a set of 38 inland stations, which are shown in Figure X. These stations are sufficiently far from the subduction zone that they are unlikely to contain transient signal. We clean the data for these stations by removing jumps at times of equipment changes, and we remove outliers that have been detected with the algorithm described in Section \ref{sec:Outlier}. We then find $\alpha$ and $\beta$ for each station timeseries with the Restricted Maximum Likelihood (REML) method \cite[e.g.,][]{Harville1974,Cressie1992} and Hines 2017. The REML method finds the hyperparameters which maximize the expression
 \begin{equation}\label{eq:REML}
 \left(\frac{\left|\bm{P}^T\bm{P}\right|}
-           {(2\pi)^{n-m}
+           {(2\pi)^{n-6m}
             \left| \bm{\Sigma} \right| 
             \left| \bm{P}^T\bm{\Sigma}\bm{P} \right|}\right)^{\frac{1}{2}} 
 e^{-\tfrac{1}{2}\mathbf{d}_*^T\mathbf{K}\mathbf{d}_*},
 \end{equation}
 where
 \begin{equation}
-\bm{\Sigma} = C_u(\bm{y},\bm{y}) + C_\epsilon(\bm{y},\bm{y}),
-\end{equation}
-\begin{equation}
 \bm{K} = \bm{\Sigma}^{-1} - 
          \bm{\Sigma}^{-1}\bm{P}
          \left(\bm{P}^T\bm{\Sigma}^{-1}\bm{P}\right)^{-1}
-         \bm{P}^T\bm{\Sigma}^{-1},
+         \bm{P}^T\bm{\Sigma}^{-1}.
 \end{equation}
-and $m$ is the number of columns in $\bm{P}$. For this section, $\bm{d}_*$ is used to denote the displacement time series for just one station, and thus $m = 6$. We are also assuming $C_u$ is zero when estimating the noise hyperparameters for this section. \citet{Harville1974} showed that choosing the hyperparameters which maximize eq. (\ref{eq:REML}) is equivalent to chosing the hyperparameters which maximize the probability of drawing $\bm{d}_*$ from $\bm{d}$.  We use the REML method over the maximum likelihood (ML) method \citep[e.g.,][]{Langbein1997} because the REML method properly accounts for the improper prior that we assigned to $\bm{a}$. The distribution of inferred $\alpha$ and $\beta$ are shown in Figure \ref{fig:NoiseParams}. The amplitude of FOGM noise for the east and north components is notable low and are clustered around 0.5 mm/yr$^{0.5}$. The corresponding estimates of $\alpha$ tend to cluster around 0 yr$^{-1}$, suggesting that Brownian motion would have also been an appropriate noise model.  The amplitude of FOGM noise for the vertical component is significantly larger with a median value of 13.8 mm/yr$^{0.5}$. The inferred values for alpha are higher for the vertical component with a median value of 1.87 yr$^{-1}$. In Figure X, we use the median values of $\alpha$ and $\beta$ to generate two random samples of FOGM noise. The samples span seven years and over these seven years the east and north samples drift by about 1 mm. In the context of detecting SSEs, which produce several mm's of surface displacement on the timescale of weeks, the estimated FOGM noise for the east and north component is negligible. In contrast, the estimated FOGM noise for the vertical component is significantly larger than the signal we would expect from SSEs. We suspect that the higher amplitude for the FOGM model in the vertical component is accommodating for deficiencies in our rather simple seasonal model. Based on this analysis, we henceforth ignore temporally correlated noise in the east and north component because of its low amplitude, and we do not estimate $u$ for vertical deformation because of the low signal to noise ratio.
+For this section, $\bm{d}_*$ is used to denote the displacement time series for just one station, and thus $m = 1$. We are also assuming $C_u$ is zero when estimating the noise hyperparameters for this section. \citet{Harville1974} showed that choosing the hyperparameters which maximize eq. (\ref{eq:REML}) is equivalent to chosing the hyperparameters which maximize the probability of drawing $\bm{d}_*$ from $\bm{d}$.  We use the REML method over the maximum likelihood (ML) method \citep[e.g.,][]{Langbein1997} because the REML method properly accounts for the improper prior that we assigned to $\bm{a}$. The distribution of inferred $\alpha$ and $\beta$ are shown in Figure \ref{fig:NoiseParams}. The amplitude of FOGM noise for the east and north components is notable low and are clustered around 0.5 mm/yr$^{0.5}$. The corresponding estimates of $\alpha$ tend to cluster around 0 yr$^{-1}$, suggesting that Brownian motion would have also been an appropriate noise model.  The amplitude of FOGM noise for the vertical component is significantly larger with a median value of 13.8 mm/yr$^{0.5}$. The inferred values for alpha are higher for the vertical component with a median value of 1.87 yr$^{-1}$. In Figure X, we use the median values of $\alpha$ and $\beta$ to generate two random samples of FOGM noise. The samples span seven years and over these seven years the east and north samples drift by about 1 mm. In the context of detecting SSEs, which produce several mm's of surface displacement on the timescale of weeks, the estimated FOGM noise for the east and north component is negligible. In contrast, the estimated FOGM noise for the vertical component is significantly larger than the signal we would expect from SSEs. We suspect that the higher amplitude for the FOGM model in the vertical component is accommodating for deficiencies in our rather simple seasonal model. Based on this analysis, we henceforth ignore temporally correlated noise in the east and north component because of its low amplitude, and we do not estimate $u$ for vertical deformation because of the low signal to noise ratio.
 
 \begin{figure*}
 \includegraphics{figures/noise/noise-params.pdf}
@@ -328,7 +325,7 @@ and $m$ is the number of columns in $\bm{P}$. For this section, $\bm{d}_*$ is us
 
 Another significant source of noise in GNSS data is common mode error \citep[e.g.,][]{Wdowinski1997,Dong2006}, which is noise that is highly spatially correlated. When not accounted for, common mode error manifests itself as spatially uniform undulations in $\hat{u}$. However, we are primarily interested in estimating strain which is insensitive to common mode error. We therefore do not include common mode error in our noise model. 
 
-For our estimation of of transient strain resulting from SSEs, we then simply assume that $\epsilon$ consists of only uncorrelated noise with covariance $C_\epsilon(\bm{y},\bm{y}') = \mathrm{diag}(\sigma^2)$.            
+For these reasons, we henceforth make the simplifying assumption that temporally and spatially correlated noise is negligible and $\epsilon = 0$ for the easting and northing component of GNSS data.            
 
 \subsection{Transient displacement model}\label{sec:SignalModel}
 We next discuss our prior model for transient displacements, and, specifically, our choice for the covariance functions $X(x,x')$ and $T(t,t')$. For $X$, we use the squared exponential (SE) covariance function,
@@ -346,7 +343,7 @@ simply because the SE covariance function is versatile and commonly used for non
 T(t,t') &= \int_0^t \int_0^{t'} \phi^2 \min(\tau,\tau') \,d\tau'\,d\tau \\
         &= \frac{\phi^2}{2}\min(t,t')^2 \left(\max(t,t') - \frac{1}{3}\min(t,t')\right), \ \ \ t,t' \geq 0.
 \end{align}
-IBM has been used, in the context of Kalman filtering, as a non-parametric model for the time dependence of geophysical signals \citep[e.g.,][]{Segall1997,McGuire2003,Ohtani2010,Hines2016}. It should be noted that IBM has a reference time at which the Gaussian process is exactly zero. For some geophysical signals, such as postseismic deformation, it is appropriate to have this reference time. However, if we are interesting in detecting transient events, where there is no known start time, then the IBM model may not be appropriate and an isotropic Gaussian process should be preferred. Alternatively we can assume that the start date for the IBM process is long before the first data obvservation; however this can introduce numerical difficulties because the covariance matrix will become ill-conditioned. Third, we consider the Wendland class of covariance functions \citep{Wendland2005}. Wendland functions are positive definite in $\mathbb{R}^d$, and they describes an isotropic Gaussian process with realizations that can be differentiated $k$ times. The form of the covariance function depends on the choice of $d$ and $k$. Wendland covariance functions have compact support, which is a particularly useful property because we can exploit the sparsity of the the corresponding covariance matrices. To describe the temporal covariance of $u$, we only require that $d=1$ and $k=1$. The corresponding Wendland covariance function is 
+IBM has been used, in the context of Kalman filtering, as a non-parametric model for the time dependence of geophysical signals \citep[e.g.,][]{Segall1997,McGuire2003,Ohtani2010,Hines2016}. It should be emphasized $t=0$ is a reference time at which the Gaussian process is exactly zero.  For some geophysical signals, it is appropriate to have this reference time. For example, if we are trying to identify postseismic deformation then $t$ should be zero at the time of the earthquake.  However, if we are interesting in detecting transient events, where there is no known start time, then IBM may not be an appropriate prior and an isotropic Gaussian process should be preferred. In the following analysis, we make the quite arbitrary choice that $t$ is zero on the first epoch of $\bm{d}_*$.  Our third option for $T$ is the Wendland class of covariance functions \citep{Wendland2005}. Wendland functions are positive definite in $\mathbb{R}^d$, and they describes an isotropic Gaussian process with realizations that can be differentiated $k$ times. The form of the covariance function depends on the choice of $d$ and $k$. Wendland covariance functions have compact support, which is a particularly useful property because we can exploit the sparsity of the the corresponding covariance matrices. To describe the temporal covariance of $u$, we only require that $d=1$ and $k=1$. The corresponding Wendland covariance function is 
 \begin{equation}\label{eq:Wendland}
 T(t,t') = \phi^2\left(1 - \frac{|t - t'|}{\theta}\right)^3_+ \left(\frac{3|t - t'|}{\theta} + 1\right), 
 \end{equation}
@@ -359,7 +356,7 @@ t, \ \ \ t > 0 \\
 \end{cases}
 \end{equation}
 
-We next want to determine appropriate hyperparameters for $X$ and each of the three candidate functions for $T$. First, we again clean the GNSS datasets by removing offsets at times of equipment changes and removing outliers with the method describe in Section X. For the outlier detection algorithm, our prior model, $u$, is chosen to have a length-scale and time-scale which is able to approximately describe SSE displacements. We use the Squared Exponential covariance function for $X$ with $\beta = 100$ km, and we use the Wendland covariance function for $T$, due to its computational efficiency, with $\beta = 0.1$ yr$^{-1}$. The product of the two covariance functions is then scaled by $\alpha^2 = 1$ mm$^{2}$. The outlier detection algorithm is particularly effective at removing outliers for stations at high elevation, which can be adversely affected by ice or snow during the winter \citep{Lisowski2008}. As an example, Figure \ref{fig:Outliers} shows the outliers which were automatically detected for station SC03, which is located on Mount Olympus in Washington.  After cleaning the data, we divide it into subsets which are four months long and centered on the time of an SSE. The times of seven SSEs are determined using tremor records from \cite{Wech2010}. We find the optimal hyperparameters for $T$ and $X$ for each subset of data. The REML method is once again used to determine the hyperparameters for $T$ and $X$ which maximize the probability of drawing $\bm{d}_*$ from $\bm{d}$, where $\bm{d}_*$ now refers to a data subset. We chose to make each data subsets four months long because it is long enough to encompass the SSE, and it is short enough to still be computationally tractable. However, four months is too short to resolve the sinusoids in $\bm{d}$, and they are omitted from $\bm{d}$ for the REML analysis. The estimated hyperparameters for $u$ are summarized in Table X. When using SE or the Wendland function for $T$, the optimal hyperparameters appear have a unimodal distribution. When using IBM for $T$ there were several anomalously large inferences, hence the larger IQR.   
+We next want to determine appropriate hyperparameters for $X$ and each of the three candidate functions for $T$. First, we again clean the GNSS datasets by removing offsets at times of equipment changes and removing outliers with the method describe in Section \ref{sec:Outlier}. For the outlier detection algorithm, our prior model, $u$, is chosen to have a length-scale and time-scale which is able to approximately describe SSE displacements. We use the SE covariance function for $X$ with $\lambda = 100$ km, and we use the Wendland covariance function for $T$, due to its computational efficiency, with $\theta = 0.1$ yr and $\phi = 1$ mm. The outlier detection algorithm is particularly effective at removing outliers for stations at high elevation, which can be adversely affected by ice or snow during the winter \citep{Lisowski2008}. As an example, Figure \ref{fig:Outliers} shows the outliers which were automatically detected for station SC03, which is located on Mount Olympus in Washington.  After cleaning the data, we divide it into subsets which are four months long and centered on the time of an SSE. The times of seven SSEs are determined using tremor records from \cite{Wech2010}. We find the optimal hyperparameters for $T$ and $X$ for each subset of data. The REML method is once again used to determine the hyperparameters for $T$ and $X$ which maximize the probability of drawing $\bm{d}_*$ from $\bm{d}$, where $\bm{d}_*$ now refers to a data subset. We chose to make each data subsets four months long because it is long enough to encompass the SSE, and it is short enough to still be computationally tractable. However, four months is too short to resolve the sinusoids in $\bm{d}$, and they are omitted from $\bm{d}$ for the REML analysis. The estimated hyperparameters for $u$ are summarized in Table 1. When using SE or the Wendland function for $T$, the optimal hyperparameters appear have a unimodal distribution. When using IBM for $T$ there were several anomalously large inferences, hence the larger IQR.   
 
 \begin{figure*}
 \includegraphics{figures/outliers/outliers.pdf}
@@ -367,7 +364,7 @@ We next want to determine appropriate hyperparameters for $X$ and each of the th
 \label{fig:Outliers}
 \end{figure*}
 
-\begin{table}\label{tab:MaterialProperties}
+\begin{table}\label{tab:Parameters}
 \begin{tabular} {l l l l l l}
 $T$ & direction & $\lambda$  & $\phi$   & $\theta$  & diff. REML \\ \hline
 SE & east   & 92 $\pm$ 25 km  & 0.62 $\pm$ 0.11 mm  & 0.026 $\pm$ 0.011 yr  &  - \\

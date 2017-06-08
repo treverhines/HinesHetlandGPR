@@ -5,7 +5,7 @@ file : stations/P022.h5
 units : m
 stations : 1
 times : 3057
-observations : 9053
+observations : 9054
 time range : 2009-01-01, 2017-05-15
 longitude range : -118.013772796, -118.013772796
 latitude range : 45.2317862602, 45.2317862602
@@ -48,13 +48,13 @@ station :
     model : p0 p1 per fogm
     parameter units : mm/yr^0.5, yr^-1
     fixed parameters : 
-    optimal east parameters : 1.1146e+00, 8.7377e-01
-    optimal north parameters : 3.3940e-01, 7.7373e-02
-    optimal vertical parameters : 1.5890e+01, 2.4516e+00
+    optimal east parameters : 1.1146e+00, 5.4901e+00
+    optimal north parameters : 3.3943e-01, 4.8324e-01
+    optimal vertical parameters : 1.5890e+01, 1.5403e+01
 log likelihood :
     east : 16010.2469122
-    north : 15926.4101826
-    vertical : 11841.9188244
+    north : 15929.7721559
+    vertical : 11841.9188243
 output file : results/P022.txt
 
 --------------------------------------------------------------

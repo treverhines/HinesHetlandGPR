@@ -299,7 +299,7 @@ We constrain the hyperparameters for $\epsilon$, $\alpha$ and $\beta$, with a se
            {(2\pi)^{n-6m}
             \left| \bm{\Sigma} \right| 
             \left| \bm{P}^T\bm{\Sigma}\bm{P} \right|}\right)^{\frac{1}{2}} 
-e^{-\tfrac{1}{2}\mathbf{d}_*^T\mathbf{K}\mathbf{d}_*},
+e^{-\tfrac{1}{2}\bm{d}_*^T\bm{K}\bm{d}_*},
 \end{equation}
 where
 \begin{equation}
@@ -343,7 +343,7 @@ simply because the SE covariance function is versatile and commonly used for non
 T(t,t') &= \int_0^t \int_0^{t'} \phi^2 \min(\tau,\tau') \,d\tau'\,d\tau \\
         &= \frac{\phi^2}{2}\min(t,t')^2 \left(\max(t,t') - \frac{1}{3}\min(t,t')\right), \ \ \ t,t' \geq 0.
 \end{align}
-IBM has been used, in the context of Kalman filtering, as a non-parametric model for the time dependence of geophysical signals \citep[e.g.,][]{Segall1997,McGuire2003,Ohtani2010,Hines2016}. It should be emphasized $t=0$ is a reference time at which the Gaussian process is exactly zero.  For some geophysical signals, it is appropriate to have this reference time. For example, if we are trying to identify postseismic deformation then $t$ should be zero at the time of the earthquake.  However, if we are interesting in detecting transient events, where there is no known start time, then IBM may not be an appropriate prior and an isotropic Gaussian process should be preferred. In the following analysis, we make the quite arbitrary choice that $t$ is zero on the first epoch of $\bm{d}_*$.  Our third option for $T$ is the Wendland class of covariance functions \citep{Wendland2005}. Wendland functions are positive definite in $\mathbb{R}^d$, and they describes an isotropic Gaussian process with realizations that can be differentiated $k$ times. The form of the covariance function depends on the choice of $d$ and $k$. Wendland covariance functions have compact support, which is a particularly useful property because we can exploit the sparsity of the the corresponding covariance matrices. To describe the temporal covariance of $u$, we only require that $d=1$ and $k=1$. The corresponding Wendland covariance function is 
+IBM has been used, in the context of Kalman filtering, as a non-parametric model for the time dependence of geophysical signals \citep[e.g.,][]{Segall1997,McGuire2003,Ohtani2010,Hines2016}. It should be emphasized $t=0$ is a reference time at which the Gaussian process is exactly zero.  For some geophysical signals, it is appropriate to have this reference time. For example, if we are trying to identify postseismic deformation then $t$ should be zero at the time of the earthquake.  However, if we are interesting in detecting transient events, where there is no known start time, then IBM may not be an appropriate prior and an isotropic Gaussian process should be preferred. In the following analysis, we make the quite arbitrary choice that $t$ is zero on the first epoch of $\bm{d}_*$.  Our third option for $T$ is the Wendland class of covariance functions \citep{Wendland2005}. Wendland covariance functions have compact support and hence their corresponding covariance matrices will be sparse. In our analysis, we exploit this sparsity with the CHOLMOD software package \citep{Chen2008}.  Wendland functions are positive definite in $\mathbb{R}^d$, and they describes an isotropic Gaussian process with realizations that can be differentiated $k$ times. The form of the covariance function depends on the choice of $d$ and $k$. To describe the temporal covariance of $u$, we only require that $d=1$ and $k=1$. The corresponding Wendland covariance function is 
 \begin{equation}\label{eq:Wendland}
 T(t,t') = \phi^2\left(1 - \frac{|t - t'|}{\theta}\right)^3_+ \left(\frac{3|t - t'|}{\theta} + 1\right), 
 \end{equation}
@@ -366,18 +366,64 @@ We next want to determine appropriate hyperparameters for $X$ and each of the th
 
 \begin{table}\label{tab:Parameters}
 \begin{tabular} {l l l l l l}
-$T$ & direction & $\lambda$  & $\phi$   & $\theta$  & diff. REML \\ \hline
+$T$ & direction & $\lambda$  & $\phi$   & $\theta$  & diff. $\log$(REML) \\ \hline
 SE & east   & 92 $\pm$ 25 km  & 0.62 $\pm$ 0.11 mm  & 0.026 $\pm$ 0.011 yr  &  - \\
 SE & north  & 91 $\pm$ 53 km  & 0.43 $\pm$ 0.05 mm  & 0.030 $\pm$ 0.017 yr  &  - \\
 Wendland & east   & 95 $\pm$ 30 km  & 0.66 $\pm$ 0.15 mm  & 0.093 $\pm$ 0.044 yr &  0.78 $\pm$ 0.87 \\
 Wendland & north  & 92 $\pm$ 57 km  & 0.46 $\pm$ 0.10 mm  & 0.116 $\pm$ 0.057 yr &  0.08 $\pm$ 0.58 \\
-IBM & east   & 110 $\pm$ 130 km & 290 $\pm$ 420 mm/yr$^{0.5}$  & -          & -16.4 $\pm$ 7.8 \\
-IBM & north  & 150 $\pm$ 560 km & 110 $\pm$ 250 mm/yr$^{0.5}$ & -           & -10.1 $\pm$ 2.3 \\
+IBM & east   & 110 $\pm$ 130 km & 290 $\pm$ 420 mm/yr$^{1.5}$  & -          & -16.4 $\pm$ 7.8 \\
+IBM & north  & 150 $\pm$ 560 km & 110 $\pm$ 250 mm/yr$^{1.5}$ & -           & -10.1 $\pm$ 2.3 \\
 \end{tabular}
 \caption{Hyperparameters. The shown values are the medians and interquartile ranges.} 
 \end{table}
 
-We next want to identify which covariance function for $T$ best describes the SSEs. We could use the REML likelihoods to compare different models, similar to \citet{Langbein2004}. However, the maximum likelihoods do not vary by more than a factor of X between the models, which does not definitively identify the best model. We then compare the posterior estimates $\hat{u}$ for each model to the observations to see if any model is noticeably better at describing the data. We show $\hat{u}$ using the three different function for $T$ in Figure X. It is clear that neither model offer any distinct improvement over the others. For most stations $\hat{u}$ appears to accurately capture the deformation from SSEs; however, for some stations which are closer to Puget Sound such as X and X, the rate of deformation is underestimated by the best fitting model. We could have manually specified a prior. We choose the Wendland function to describe $T$ because evaluating $T$ will yield sparse covariance matrices. We utilize the sparsity of the covariance matrices with the sparse matrix library CHOLMOD \citep{Chen2008}, which significantly expands the amount of data which we are able to tractably analyze with the method described in Section X.   
+
+Next we identify which covariance function for $T$ best describes the SSEs. One approach is to compare the REML likelihood for each covariance function, similar to the analysis in \citet{Langbein2004}. In Table 1, we summarize how the log REML likelihoods for the Wendland and IBM covariance functions compare to the SE covariance function.  The tabulated values show the median and IQR differences in log REML likelihoods over each of the seven SSEs considered in this study. Negative values indicate that the observed data is less likely to have been sampled from the covariance function. Based on the differences in log REML likelihoods, the data is substantially more likely to come form the SE or Wendland covariance functions than from the IBM covariance function. The REML likelihoods do not definitively indicate whether the SE or Wendland covariance function is preferable. 
+
+As another test to determine the most appropriate covariance function for $T$, we compare the observations to the predicted displacements for each covariance function. let $\hat{\bm{d}} = \left(u(\bm{y}) + \bm{P}\bm{a}\right)|\bm{d}_*$ be the data prediction vector. It can be shown that $\bm{d}_*$ is normally distributed with mean 
+\begin{equation}\label{eq:DataPredMean}
+\bm{\mu}_{\hat{d}} =
+\left[ 
+\begin{array}{cc}
+C_u(\bm{y},\bm{y}) & \bm{P} \\
+\end{array}
+\right]
+\left[
+\begin{array}{cc}
+\bm{\Sigma} & \bm{P} \\
+\bm{P}^T  & \bm{0} \\
+\end{array}
+\right]^{-1}
+\left[
+\begin{array}{c}
+\bm{d}_* \\
+\bm{0} \\
+\end{array}
+\right]
+\end{equation}  
+and covariance
+\begin{equation}\label{eq:DataPredCov}
+\bm{C}_{\hat{\bm{d}}} = 
+C_u(\bm{y},\bm{y}) - 
+\left[ 
+\begin{array}{cc}
+C_u(\bm{y},\bm{y}) & \bm{P} \\
+\end{array}
+\right]
+\left[
+\begin{array}{cc}
+\bm{\Sigma} & \bm{P} \\
+\bm{P}^T  & \bm{0} \\
+\end{array}
+\right]^{-1}
+\left[
+\begin{array}{c}
+C_u(\bm{y},\bm{y}) \\
+\bm{P}^T \\
+\end{array}
+\right].
+\end{equation}
+We compute $\hat{\bm{d}}$ using SE, Wendland, and IBM covariance functions for $T$ and the median hyperparameters from Table 1. Figure 1 compares the easting component of $\bm{d}_*$ to $\hat{\bm{d}}$ for the Winter 2016 SSE.  For most stations, the data prediction vector appears to appropriately describe displacements throughout the SSE, regardless of the choice of $T$. The prediction for the IBM model contains slightly more high frequency, and perhaps spurious, features. The predictions for the Wendland and SE covariance functions are nearly indistinguishable. We ultimately settle on the Wendland covariance function for $T$. We choose the Wendland covariance function over the SE covariance function because of its computational advantages noted above.     
  
 \subsection{Transient Strain Rates} 
 Having established noise model and a prior for transient displacements, we use cleaned GNSS dataset described in Section \ref{sec:SignalModel} to calculate transient strain rates in the Puget Sound region from eq. (\ref{eq:StrainRate}). Our solution is shown in Figures X through X. Figures X through X show the estimates $\dot{\bm{\epsilon}}$ complete with uncertainties at select times over the course of the Winter 2016 SSE. Figure X, which shows strain rate at the height of the SSE, makes the implications of SSEs for seismic hazard clear.  The SSE causes compression in the Olympic Peninsula and extension in East of Puget Sound. The SSE are thus concentrating strain energy trench-ward, and pushing the subduction zone closer to failure. This is not novel insight because the same conclusions has been drawn from fault slip models which show that SSEs tend to be just at the transition between locked and decoupled. Slow slip event depths from \citet{Dragert2001}, \citet{Wech2009}, \citet{Schmidt2010}, \citet{Bartlow2011} show slip concentrated at depths from 30 to 50 km detph. What is novel is that our estimates of strain rate from SSEs are nonparametric and less likely to be biased by systematic errors such as errors in the fault model. Are uncertainties are also likely to be more conservative since we do not make any dubious assumptions. Thus we can be more confident in our assessment of how much strain is accumulating from SSEs.

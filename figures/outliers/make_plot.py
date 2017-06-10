@@ -43,8 +43,7 @@ u = 1000*data['east'][:,idx]
 us = 1000*data['east_std_dev'][:,idx]
 m = trend(u,t)
 u = u - m[0] - m[1]*t
-ax.errorbar(t,u,us,marker='None',linestyle='None',color=c2t)
-ax.plot(t,u,'.',ms=4.99,color=c2)
+ax.errorbar(t,u,us,marker='.',linestyle='None',color=c2,ecolor=c2t,ms=4.99)
 
 data = pygeons.io.io.dict_from_hdf5('data.final.h5')
 idx = (data['id'] == 'SC03').nonzero()[0][0]
@@ -52,8 +51,7 @@ t = data['time']
 u = 1000*data['east'][:,idx]
 us = 1000*data['east_std_dev'][:,idx]
 u = u - m[0] - m[1]*t
-ax.errorbar(t,u,us,marker='None',linestyle='None',color=c1t)
-ax.plot(t,u,'.',ms=5.0,color=c1)
+ax.errorbar(t,u,us,marker='.',linestyle='None',color=c1,ecolor=c1t,ms=5.0)
 
 ax.set_title('Station SC03 (%.2f$^\mathregular{\circ}$ W, %.2f$^\mathregular{\circ}$ N)' % 
                  (-lon,lat),fontsize=10)

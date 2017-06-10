@@ -280,8 +280,6 @@ Here we demonstrate that strain rates derived from GNSS data can also be an effe
 In this study, we use GNSS data which has been made publicly available by the University Navstar Consortium (UNAVCO) \citep{Herring2016} and can be found at www.unavco.org.  We limit the dataset to the stations and time ranges which are pertinent to seven of the most recent SSEs in the Puget Sound region; the earliest SSE began in the August 2010, and the most recent SSE began in the February of 2017. We consider these most recent SSEs because the station coverage is sufficiently dense for us to make well constrained inferences of optimal prior models.  The distribution of stations considered in this station is shown in Figure X. 
 
 
-
-
 \subsection{Noise model}\label{sec:NoiseModel}
 In this section we discuss our choice for the noise covariance function $C_\epsilon$ which will be used when estimating transient strain.  There have been numerous studies on temporally correlated noise in GNSS data \citep[e.g.,][]{Zhang1997,Mao1999,Williams2004,Langbein2008}. In these studies, temporally correlated noise was described with some combination of Brownian motion, first-order Gauss-Markov (FOGM) processes, and/or flicker noise. There is some physical justification for using Brownian motion as a noise model because it accurately describes the power spectrum of motion resulting from instability in geodetic monuments \citep[e.g.,][]{Wyatt1982,Wyatt1989,Langbein1997}. Here we describe the time dependence of $\epsilon$ as a FOGM process and consider $\epsilon$ to be spatially uncorrelated. A FOGM process is a solution to the stochastic differential equation
 \begin{equation}
@@ -380,7 +378,7 @@ IBM & north  & 150 $\pm$ 560 km & 110 $\pm$ 250 mm/yr$^{1.5}$ & -           & -1
 
 Next we identify which covariance function for $T$ best describes the SSEs. One approach is to compare the REML likelihood for each covariance function, similar to the analysis in \citet{Langbein2004}. In Table 1, we summarize how the log REML likelihoods for the Wendland and IBM covariance functions compare to the SE covariance function.  The tabulated values show the median and IQR differences in log REML likelihoods over each of the seven SSEs considered in this study. Negative values indicate that the observed data is less likely to have been sampled from the covariance function. Based on the differences in log REML likelihoods, the data is substantially more likely to come form the SE or Wendland covariance functions than from the IBM covariance function. The REML likelihoods do not definitively indicate whether the SE or Wendland covariance function is preferable. 
 
-As another test to determine the most appropriate covariance function for $T$, we compare the observations to the predicted displacements for each covariance function. let $\hat{\bm{d}} = \left(u(\bm{y}) + \bm{P}\bm{a}\right)|\bm{d}_*$ be the data prediction vector. It can be shown that $\bm{d}_*$ is normally distributed with mean 
+As another test to determine the most appropriate covariance function for $T$, we compare the observations to the predicted displacements for each covariance function. let $\hat{\bm{d}} = \left(u(\bm{y}) + \bm{P}\bm{a}\right)|\bm{d}_*$ be the data prediction vector. It can be shown that $\hat{\bm{d}}$ is normally distributed with mean 
 \begin{equation}\label{eq:DataPredMean}
 \bm{\mu}_{\hat{d}} =
 \left[ 
@@ -424,7 +422,13 @@ C_u(\bm{y},\bm{y}) \\
 \right].
 \end{equation}
 We compute $\hat{\bm{d}}$ using SE, Wendland, and IBM covariance functions for $T$ and the median hyperparameters from Table 1. Figure 1 compares the easting component of $\bm{d}_*$ to $\hat{\bm{d}}$ for the Winter 2016 SSE.  For most stations, the data prediction vector appears to appropriately describe displacements throughout the SSE, regardless of the choice of $T$. The prediction for the IBM model contains slightly more high frequency, and perhaps spurious, features. The predictions for the Wendland and SE covariance functions are nearly indistinguishable. We ultimately settle on the Wendland covariance function for $T$. We choose the Wendland covariance function over the SE covariance function because of its computational advantages noted above.     
- 
+
+\begin{figure*}
+\includegraphics{figures/signal_fit/signal-fit.pdf}
+\caption{Fit.}   
+\label{fig:Fit}
+\end{figure*}
+
 \subsection{Transient Strain Rates} 
 Having established noise model and a prior for transient displacements, we use cleaned GNSS dataset described in Section \ref{sec:SignalModel} to calculate transient strain rates in the Puget Sound region from eq. (\ref{eq:StrainRate}). Our solution is shown in Figures X through X. Figures X through X show the estimates $\dot{\bm{\epsilon}}$ complete with uncertainties at select times over the course of the Winter 2016 SSE. Figure X, which shows strain rate at the height of the SSE, makes the implications of SSEs for seismic hazard clear.  The SSE causes compression in the Olympic Peninsula and extension in East of Puget Sound. The SSE are thus concentrating strain energy trench-ward, and pushing the subduction zone closer to failure. This is not novel insight because the same conclusions has been drawn from fault slip models which show that SSEs tend to be just at the transition between locked and decoupled. Slow slip event depths from \citet{Dragert2001}, \citet{Wech2009}, \citet{Schmidt2010}, \citet{Bartlow2011} show slip concentrated at depths from 30 to 50 km detph. What is novel is that our estimates of strain rate from SSEs are nonparametric and less likely to be biased by systematic errors such as errors in the fault model. Are uncertainties are also likely to be more conservative since we do not make any dubious assumptions. Thus we can be more confident in our assessment of how much strain is accumulating from SSEs.
 

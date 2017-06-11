@@ -5,7 +5,7 @@ from matplotlib import colors
 
 xtick_dates = ['2015-11-01','2015-12-01','2016-01-01','2016-02-01','2016-03-01']
 xticks = [pygeons.mjd.mjd(i,'%Y-%m-%d') for i in xtick_dates]
-xtick_labels = ['','2015-12-01','2016-01-01','2016-02-01','']
+xtick_labels = ['2015-11-01','2015-12-01','2016-01-01','2016-02-01','2016-03-01']
 
 c0 = colors.to_rgb('C0')
 c0t = tuple(0.6 + 0.4*np.array(colors.to_rgb('C0')))

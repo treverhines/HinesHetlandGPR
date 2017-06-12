@@ -8,7 +8,7 @@ from matplotlib.text import Text
 from matplotlib.patches import Rectangle
 
 # PARAMETERS
-strain_scale = 30000.0
+strain_scale = 25000.0
 plot_date = '2016-01-01'
 
 def get_meridians_and_parallels(bm,ticks):
@@ -61,8 +61,8 @@ def setup_ax(bm,ax):
 bm = Basemap(projection='tmerc',
              resolution='i',
              lon_0 = -123.0,lat_0 = 45.0,
-             llcrnrlon = -126.0,llcrnrlat = 46.0,
-             urcrnrlon = -120.0,urcrnrlat = 50.0)
+             llcrnrlon = -125.7,llcrnrlat = 46.0,
+             urcrnrlon = -120.0,urcrnrlat = 49.8)
 
 
 fig,ax = plt.subplots(figsize=(6,6.0))
@@ -103,7 +103,7 @@ for xidx in range(len(x)):
                        linewidth=1.5,
                        vert=500,
                        zorder=2,
-                       snr_mask=True)
+                       snr_mask=False)
   for g in glyph: 
     ax.add_artist(g)
 

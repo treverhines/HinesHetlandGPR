@@ -9,12 +9,6 @@ xtick_labels = ['2015-11-01','2015-12-01','2016-01-01','2016-02-01','2016-03-01'
 
 c0 = colors.to_rgb('C0')
 c0t = tuple(0.6 + 0.4*np.array(colors.to_rgb('C0')))
-c1 = colors.to_rgb('C1')
-c1t = tuple(0.6 + 0.4*np.array(colors.to_rgb('C1')))
-c2 = colors.to_rgb('C2')
-c2t = tuple(0.6 + 0.4*np.array(colors.to_rgb('C2')))
-c3 = colors.to_rgb('C3')
-c3t = tuple(0.6 + 0.4*np.array(colors.to_rgb('C3')))
 
 fig,ax = plt.subplots(figsize=(7,3.5))
 pygeons.plot.plot._setup_ts_ax([ax])
@@ -44,8 +38,8 @@ lat = data['latitude'][idx]
 t = data['time']
 u = 1000*data['east'][:,idx]
 us = 1000*data['east_std_dev'][:,idx]
-ax.plot(t,u,'-',color=c1,zorder=2,lw=1.5,label='SE')
-ax.fill_between(t,u-us,u+us,color=c1,zorder=2,alpha=0.4)
+ax.plot(t,u,'-',color='C1',zorder=2,lw=1.5,label='SE')
+ax.fill_between(t,u-us,u+us,edgecolor='none',facecolor='C1',zorder=2,alpha=0.4)
 
 # WEN
 data = pygeons.io.io.dict_from_hdf5('data/wen12.per.fit.h5')
@@ -55,7 +49,7 @@ lat = data['latitude'][idx]
 t = data['time']
 u = 1000*data['east'][:,idx]
 us = 1000*data['east_std_dev'][:,idx]
-ax.plot(t,u,'-',color=c2,zorder=3,lw=1.5,label='Wendland')
+ax.plot(t,u,'-',color='C2',zorder=3,lw=1.5,label='Wendland')
 
 # IBM
 data = pygeons.io.io.dict_from_hdf5('data/ibm.per.fit.h5')
@@ -65,7 +59,7 @@ lat = data['latitude'][idx]
 t = data['time']
 u = 1000*data['east'][:,idx]
 us = 1000*data['east_std_dev'][:,idx]
-ax.plot(t,u,'-',color=c3,zorder=4,lw=1.5,label='IBM')
+ax.plot(t,u,'-',color='C3',zorder=4,lw=1.5,label='IBM')
 ax.legend(fontsize=10)
 plt.tight_layout()
 plt.savefig('signal-fit.pdf',format='pdf')

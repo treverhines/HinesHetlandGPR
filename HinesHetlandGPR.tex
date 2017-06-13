@@ -75,7 +75,6 @@
 
 
 \section{Introduction}\label{sec:Introduction}
-
 Crustal strain rates are fundamentally important quantities for assessing seismic hazard, since knowing where and how quickly strain is accumulating gives insight into where we can expect stored elastic energy to be released seismically.  It is then important to develop and improve upon methods for mapping strain in tectonically active regions because such maps could conceivably feed into seismic hazard models such as UCERF3 \citep{Field2014}. 
 
 Methods for estimating strain from geodetic data fall in one of two categories.  There are model-based approaches which assume that strain is the result of loading on faults which have a known geometry, and there are data-based approaches which make no assumptions about the source of deformation.  We will exclusively consider data-based approaches in this paper.  The classic and simplest method for estimating strain is to assume that the strain rate is constant in time and spatially uniform within subnetworks of the geodetic data.  Linear least squares is then used to find the components of the strain rate tensor for each subnetwork \citep[e.g][]{Frank1966,Prescott1976,Savage1986,Feigl1990,Murray2000}. Several algorithms have been developed to improve upon this procedure. \citet{Shen1996} and \citet{Shen2015} discuss an algorithm where, instead of using the immediately adjacent stations to calculate strain at a position, the strain is computed with a weighted average over the entire network where the weighting is smaller for more distant stations.  Another strategy is to fit a set of interpolating basis functions to the deformation field and then compute the strain from the analytical derivative of the interpolant \citep[e.g.][]{Beavan2001,Tape2009,Sandwell2016}.  
@@ -91,6 +90,8 @@ In this paper, we do not use the RBF-FD method to solve a partial differential e
 The method proposed in this paper has numerous advantages which set it apart from other methods for computing strain rates. The method is computationally efficient and stable (there is no inversion of an ill-conditioned matrix).  There are no hyper parameters or penalty parameters that need to be tuned for each application.  As opposed to interpolation strategies such as \citet{Beavan2001}, \citet{Tape2009}, or \citet{Ohtani2010}, our method assumes that velocities are locally rather than globally continuous, which allows us to easily handle discontinuities resulting from, for example, a creeping fault. 
 
 We begin this paper by summarizing the RBF-FD scheme and explaining how we construct differentiation matrices for scattered data. We then introduce the RBF-FD filter, which is used to smooth the observed geodetic data prior to differentiation.  We provide two real world demonstraitions of our method for calculating strain rates.  First we calculate the long term strain rates in Southern California from the CMM3 velocity data set \citep{Shen2011}, and we verify that our results are consistent with other studies. We then calculate time dependent strain rates in Cascadia from the GPS data provided by UNAVCO.  In Cascadia, we analyze strain resulting from slow slip events and compare it to the long term tectonic strain accumulation. Slow slip events are found to produce compression in the Olympic Peninsula, which is in addition to the compression resulting from tectonic loading.  Further south in Oregon, the slow slip events tend to release the compressional strain that is accumulated tectonically.  While similar conclusions have been drawn from fault slip inversions for slow slip events, it is important to recognize that slip inversion are the product of inverting an ill-conditioned matrix making it difficult to determine whether slip inferences are real or just an artifact of the inversion.  The strain rates presented in this paper are more direct observations and can be interpretted with a higher degree of confidence. 
+
+The Southern California Earthquake Center (SCEC) community has recently shown interest in developing methods for detecting transient signals. SCEC supported a transient detection exercise, where several research groups tested their transient detection methods with a synthetic GNSS dataset.  supported the transient Our motivation for detecting SSEs is, in part, because there have been several instances where SSEs immediately preceded megathrust earthquakes \citep{Roeloffs2006}. 
 
 \section{Method}\label{sec:Method}
 In this section, we describe how GNSS displacement observations are used to identify transient crustal strain rates, which we denote as $\dot{\bm{\varepsilon}}(z)$, where $z$ is the ordered pair $(x,t)$, $x$ are spatial coordinates in $\mathbb{R}^2$, and $t$ is time. We consider $\dot{\bm{\varepsilon}}$ to be spatially and temporally coherent deviations from the steady rate of strain accumulation from plate tectonics. We determine $\dot{\bm{\varepsilon}}$ by first identifying transient displacements, $\bm{u}(z)$, which we then spatially and temporally differentiate.  As we will show in Section X, estimates of $\dot{\bm{\varepsilon}}$ turn out to be more effective at illuminating geophysical signal than estimates of $\bm{u}$ or $\dot{\bm{u}}$.  We make a prior assumption that each component of $\bm{u}$ is a Gaussian process,
@@ -133,89 +134,61 @@ C_{\hat{u}}(z,z') = C_u(z,z') - C_u(z,\bm{y})\left(\bm{\Sigma} + \kappa^2\bm{P}\
 \end{equation}
 However, we are interested in the limit as $\kappa \to \infty$, and the form for eq. (\ref{eq:PosteriorMean}) and eq. (\ref{eq:PosteriorCov}) is not suitable for evaluating this limit. We can use the partitioned matrix inversion identity \citep[e.g.,][]{Press2007} to rewrite eq. (\ref{eq:PosteriorMean}) and eq. (\ref{eq:PosteriorCov}) as
  \begin{equation}\label{eq:PosteriorMean2}
-\mu_{\hat{u}}(z) =
-\left[ 
-\begin{array}{cc}
-C_u(z,\bm{y}) & \bm{0} \\
-\end{array}
-\right]
-\left[
-\begin{array}{cc}
-\bm{\Sigma} & \bm{P} \\
-\bm{P}^T  & -\kappa^{-2} \bm{I} \\
-\end{array}
-\right]^{-1}
-\left[
-\begin{array}{c}
-\bm{d}_* \\
-\bm{0} \\
-\end{array}
-\right]
+\mu_{\hat{u}}(z) = \left[\begin{array}{cc}
+                         C_u(z,\bm{y}) & \bm{0} \\
+                         \end{array}\right]
+                   \left[\begin{array}{cc}
+                         \bm{\Sigma} & \bm{P} \\
+                         \bm{P}^T  & -\kappa^{-2} \bm{I} \\
+                         \end{array}\right]^{-1}
+                   \left[\begin{array}{c}
+                         \bm{d}_* \\
+                         \bm{0} \\
+                         \end{array}\right]
 \end{equation}    
 and
 \begin{equation}\label{eq:PosteriorCov2}
-C_{\hat{u}}(z,z') = 
-C_u(z,z') - 
-\left[ 
-\begin{array}{cc}
-C_u(z,\bm{y}) & \bm{0} \\
-\end{array}
-\right]
-\left[
-\begin{array}{cc}
-\bm{\Sigma} & \bm{P} \\
-\bm{P}^T  & -\kappa^{-2} \bm{I} \\
-\end{array}
-\right]^{-1}
-\left[
-\begin{array}{c}
-C_u(\bm{y},z') \\
-\bm{0} \\
-\end{array}
-\right].
+C_{\hat{u}}(z,z') = C_u(z,z') - 
+                    \left[\begin{array}{cc}
+                          C_u(z,\bm{y}) & \bm{0} \\
+                          \end{array}\right]
+                    \left[\begin{array}{cc}
+                          \bm{\Sigma} & \bm{P} \\
+                          \bm{P}^T  & -\kappa^{-2} \bm{I} \\
+                          \end{array}\right]^{-1}
+                    \left[\begin{array}{c}
+                          C_u(\bm{y},z') \\
+                          \bm{0} \\
+                          \end{array}\right].
 \end{equation}
 Taking the limit as $\kappa \to \infty$, we get the solution for the mean and covariance of $\hat{u}$,
  \begin{equation}\label{eq:PosteriorMean3}
-\mu_{\hat{u}}(z) =
-\left[ 
-\begin{array}{cc}
-C_u(z,\bm{y}) & \bm{0} \\
-\end{array}
-\right]
-\left[
-\begin{array}{cc}
-\bm{\Sigma} & \bm{P} \\
-\bm{P}^T  & \bm{0} \\
-\end{array}
-\right]^{-1}
-\left[
-\begin{array}{c}
-\bm{d}_* \\
-\bm{0} \\
-\end{array}
-\right]
+\mu_{\hat{u}}(z) = \left[\begin{array}{cc}
+                         C_u(z,\bm{y}) & \bm{0} \\
+                         \end{array}\right]
+                   \left[\begin{array}{cc}
+                         \bm{\Sigma} & \bm{P} \\
+                         \bm{P}^T  & \bm{0} \\
+                         \end{array}\right]^{-1}
+                   \left[\begin{array}{c}
+                         \bm{d}_* \\
+                         \bm{0} \\
+                         \end{array}\right]
 \end{equation}    
 and
 \begin{equation}\label{eq:PosteriorCov3}
-C_{\hat{u}}(z,z') = 
-C_u(z,z') - 
-\left[ 
-\begin{array}{cc}
-C_u(z,\bm{y}) & \bm{0} \\
-\end{array}
-\right]
-\left[
-\begin{array}{cc}
-\bm{\Sigma} & \bm{P} \\
-\bm{P}^T  & \bm{0} \\
-\end{array}
-\right]^{-1}
-\left[
-\begin{array}{c}
-C_u(\bm{y},z') \\
-\bm{0} \\
-\end{array}
-\right].
+C_{\hat{u}}(z,z') = C_u(z,z') - 
+                    \left[\begin{array}{cc}
+                          C_u(z,\bm{y}) & \bm{0} \\
+                          \end{array}\right]
+                    \left[\begin{array}{cc}
+                          \bm{\Sigma} & \bm{P} \\
+                          \bm{P}^T  & \bm{0} \\
+                          \end{array}\right]^{-1}
+                    \left[\begin{array}{c}
+                          C_u(\bm{y},z') \\
+                          \bm{0} \\
+                          \end{array}\right].
 \end{equation}
 
 The posterior transients displacements, $\hat{\bm{u}}$, are found by evaluating eq. (\ref{eq:PosteriorMean3}) and (\ref{eq:PosteriorCov3}) for each displacement component. We differentiate the Gaussian process $\hat{\bm{u}}$ (see \cite{Abrahamsen1997}) to form an estimate of transient strain rate, $\dot{\bm{\epsilon}}$, which is itself a spatially and temporally continuous Gaussian process. The components of the transient strain rate tensor, $\dot{\epsilon}_{ij}$, are given by
@@ -233,8 +206,8 @@ which are distributed as $\mathcal{N}(\mu_{\dot{\epsilon}_{ij}},C_{\dot{\epsilon
 and  
 \begin{equation}\label{eq:StrainCov}
 C_{\dot{\epsilon}_{ij}}(z,z') = \frac{1}{4} \frac{\partial^2}{\partial t \, \partial t'}\left(
-                           \frac{\partial^2 C_{\hat{u}_i}(z,z')}{\partial x_j \, \partial x'_j} + 
-                           \frac{\partial^2 C_{\hat{u}_j}(z,z')}{\partial x_i \, \partial x'_i} \right).
+                                \frac{\partial^2 C_{\hat{u}_i}(z,z')}{\partial x_j \, \partial x'_j} + 
+                                \frac{\partial^2 C_{\hat{u}_j}(z,z')}{\partial x_i \, \partial x'_i} \right).
 \end{equation} 
 
 \subsection{Outlier detection}\label{sec:Outlier}
@@ -246,24 +219,17 @@ To begin the algorithm, we let $\Omega$ be the index set of non-outliers in $\bm
 \begin{align}\label{eq:Residual}
 \bm{r} &= \frac{\bm{d}_* - \mathrm{E}\left[(u(\bm{y}) + \bm{P}\bm{a})|\tilde{\bm{d}}_* \right]}{\bm{\sigma}} \\
        &= \frac{1}{\bm{\sigma}}\left(\bm{d}_*  - 
-\left[ 
-\begin{array}{cc}
-C_u(\bm{y},\tilde{\bm{y}}) & \bm{P} \\
-\end{array}
-\right]
-\left[
-\begin{array}{cc}
-C_u(\tilde{\bm{y}},\tilde{\bm{y}}) + \mathrm{diag}(\tilde{\bm{\sigma}}^2) & \tilde{\bm{P}} \\
-\tilde{\bm{P}}^T  & \bm{0} \\
-\end{array}
-\right]^{-1}
-\left[
-\begin{array}{c}
-\tilde{\bm{d}}_* \\
-\bm{0} \\
-\end{array}
-\right] 
-\right),
+          \left[\begin{array}{cc}
+                C_u(\bm{y},\tilde{\bm{y}}) & \bm{P} \\
+                \end{array}\right]
+          \left[\begin{array}{cc}
+                C_u(\tilde{\bm{y}},\tilde{\bm{y}}) + \mathrm{diag}(\tilde{\bm{\sigma}}^2) & \tilde{\bm{P}} \\
+                \tilde{\bm{P}}^T  & \bm{0} \\
+                \end{array}\right]^{-1}
+          \left[\begin{array}{c}
+                \tilde{\bm{d}}_* \\
+                \bm{0} \\
+                \end{array}\right]\right),
 \end{align}
 where the tilde indicates that only elements corresponding to indices in $\Omega$ are retained (e.g., $\tilde{\bm{y}} = \{y_i\}_{i\in\Omega}$). We then update $\Omega$ to be
 \begin{equation}\label{eq:Update}
@@ -274,30 +240,27 @@ where $\tilde{\bm{r}}_{rms}$ is the root-mean-square of $\tilde{\bm{r}}$ and $\e
 It should be noted that this algorithm does not identify jumps in GNSS time series, which are another common defect. Some, but not all, jumps can be automatically removed by parsing station logs and identifying dates of antenna changes. However, it is still necessary to manually inspect and remove jumps of unknown origin. That being said, this outlier detection algorithm significantly reduces the effort needed to manually clean GNSS data.       
 
 \section{Application Cascadia Slow Slip Events}\label{sec:Cascadia}
-In this section we estimate transient strain from GNSS data in Cascadia. We are mainly interested in identifying transient strain resulting from slow slip events (SSEs) \citep[e.g.,][]{Dragert2001}. We show that Gaussian processes are an effective tool for (1) detecting SSEs and (2) understanding how the strain from SSEs are contributing to the strain accumulated over the seismic cycle. Our motivation for detecting SSEs is, in part, because there have been several instances where SSEs immediately preceded megathrust earthquakes \citep{Roeloffs2006}.  In Cascadia, SSEs can be detected by monitoring for associated seismic tremor, which is actively being done by the Pacific Northwest Seismic Network (PNSN) \citep{Wech2010}. 
-Here we demonstrate that strain rates derived from GNSS data can also be an effective tool for detecting SSEs. Furthermore, estimated strain rates provide a clear picture of how SSEs transfer elastic strain energy through the crust, which is also important information for assessing seismic hazard. We envision that GNSS derived transient strain rates could be useful for monitoring subduction zones which have SSEs but no associated tremor \citep{Schwartz2007}.
+In this section we estimate transient strain from GNSS data in Cascadia. In particular, we are interested in identifying transient strain resulting from slow slip events (SSEs) \citep[e.g.,][]{Dragert2001}. Our results illuminate where elastic strain energy, which can eventually be released seismically, is accumulating during SSEs. The estimated strain rates also reveal how strain from SSEs contributes to strain accumulated over seismic cycles. We demonstrate that transient strain rates estimated with the method described above are an effective tool for detecting SSEs and potentially other geophysical signal in GNSS data.  In Cascadia, SSEs can be detected by monitoring for associated seismic tremor, which is actively being done by the Pacific Northwest Seismic Network (PNSN) \citep{Wech2010}. We verify that transient strain rates estimated with the method described above are indeed identifying strain from SSEs by comparing $\bm{\epsilon}$ to the tremor records.  We envision that GNSS derived transient strain rates could be useful for monitoring subduction zones which have SSEs but no associated tremor \citep{Schwartz2007}.
+
+We use publicly available continuous GNSS data from the University Navstar Consortium (UNAVCO) \citep{Herring2016}, which can be found at www.unavco.org. We limit the dataset to the stations and time ranges which are pertinent to seven of the most recent SSEs in the Puget Sound region; the earliest SSE began in the August 2010, and the most recent SSE began in the February of 2017. We consider these most recent SSEs because the station coverage is sufficiently dense for us to make well constrained inferences of optimal prior models.  The positions of GNSS stations used to constrain transient strain rates are shown in Figure \ref{fig:Context}.  
 
 \begin{figure*}
 \includegraphics{figures/context_map/context-map.pdf}
-\caption{Context map.}   
+\caption{Positions of continuous GNSS stations used to estimate transient strain rates. The colored regions indicates the density of detected seismic tremor as determined by \citep{Wech2010}. The red dots show the positions of GNSS stations mentioned in this paper. The magenta dot indicates the location of the strain rates shown in Figure \ref{fig:StrainTs} and \ref{fig:StrainMag}. The magenta circle demarcates the spatial extent of the tremors shown in Figure \ref{fig:StrainMag}}.    
 \label{fig:Context}
 \end{figure*}
 
-In this study, we use GNSS data which has been made publicly available by the University Navstar Consortium (UNAVCO) \citep{Herring2016} and can be found at www.unavco.org.  We limit the dataset to the stations and time ranges which are pertinent to seven of the most recent SSEs in the Puget Sound region; the earliest SSE began in the August 2010, and the most recent SSE began in the February of 2017. We consider these most recent SSEs because the station coverage is sufficiently dense for us to make well constrained inferences of optimal prior models.  The distribution of stations considered in this station is shown in Figure X. 
-
-
 \subsection{Noise model}\label{sec:NoiseModel}
-In this section we discuss our choice for the noise covariance function $C_\epsilon$ which will be used when estimating transient strain.  There have been numerous studies on temporally correlated noise in GNSS data \citep[e.g.,][]{Zhang1997,Mao1999,Williams2004,Langbein2008}. In these studies, temporally correlated noise was described with some combination of Brownian motion, first-order Gauss-Markov (FOGM) processes, and/or flicker noise. There is some physical justification for using Brownian motion as a noise model because it accurately describes the power spectrum of motion resulting from instability in geodetic monuments \citep[e.g.,][]{Wyatt1982,Wyatt1989,Langbein1997}. Here we describe the time dependence of $\epsilon$ as a FOGM process and consider $\epsilon$ to be spatially uncorrelated. A FOGM process is a solution to the stochastic differential equation
-\begin{equation}
+Before we determine the transient strain rates, we must establish a prior for the transient deformation, $u$, and the noise, $\epsilon$. In this section we discuss our choice for the noise covariance function $C_\epsilon$. There have been numerous studies on temporally correlated noise in GNSS data \citep[e.g.,][]{Zhang1997,Mao1999,Williams2004,Langbein2008}. In these studies, temporally correlated noise was described with some combination of Brownian motion (also referred to as a Weiner process or a random walk), a first-order Gauss-Markov (FOGM) process, and/or flicker noise. There is some physical justification for using Brownian motion as a noise model because it accurately describes the power spectrum of motion resulting from instability in geodetic monuments \citep[e.g.,][]{Wyatt1982,Wyatt1989,Langbein1997}. Here we describe the time dependence of $\epsilon$ as a FOGM process and consider $\epsilon$ to be spatially uncorrelated. A FOGM process is a solution to the stochastic differential equation
+\begin{equation}\label{eq:FOGMdef}
 \dot{\epsilon}(t) + \alpha \epsilon(t) = \beta w(t),
 \end{equation}
-where $w(t)$ is white noise with unit variance. The noise model is then a Gaussian process with zero mean and covariance function
+where $w(t)$ is white noise with unit variance. The FOGM process degenerates to the commonly used Brownian motion noise model under the condition that $\alpha=0$ and $\epsilon(0) = 0$, which is evident from the definition of Brownian motion \citep[e.g.,][]{Papoulis1991}. Our noise model which satisfies eq. (\ref{eq:FOGMdef}) is a Gaussian process with zero mean and covariance function
 \begin{equation}\label{eq:FOGM}
 C_\epsilon\left((x,t),(x',t')\right) = \frac{\beta^2}{2\alpha}\exp\left(-\alpha|t - t'|\right) \delta(||x - x'||_2). 
 \end{equation}
-Under the condition that $\alpha = 0$ and $v(0) = 0$, $\epsilon$ degenerates to the more commonly used Brownian motion noise model. 
 
-We constrain the hyperparameters for $\epsilon$, $\alpha$ and $\beta$, with a set of 38 inland stations, which are shown in Figure X. These stations are sufficiently far from the subduction zone that they are unlikely to contain transient signal. We clean the data for these stations by removing jumps at times of equipment changes, and we remove outliers that have been detected with the algorithm described in Section \ref{sec:Outlier}. We then find $\alpha$ and $\beta$ for each station timeseries with the Restricted Maximum Likelihood (REML) method \cite[e.g.,][]{Harville1974,Cressie1992} and Hines 2017. The REML method finds the hyperparameters which maximize the expression
+We constrain the hyperparameters for $\epsilon$, $\alpha$ and $\beta$, with a set of 38 continuous GNSS stations in Washington and Oregon which are east of 121$^\circ$ W.  These stations are sufficiently far from the subduction zone that they are unlikely to contain transient signal.  We clean the data for these stations by removing jumps at times of equipment changes, and we remove outliers that have been detected with the algorithm described in Section \ref{sec:Outlier}. We then find $\alpha$ and $\beta$ for each station timeseries with the Restricted Maximum Likelihood (REML) method \cite[e.g.,][]{Harville1974,Cressie1992}. The REML method finds the hyperparameters which maximize the expression
 \begin{equation}\label{eq:REML}
 \left(\frac{\left|\bm{P}^T\bm{P}\right|}
            {(2\pi)^{n-6m}
@@ -360,7 +323,7 @@ t, \ \ \ t > 0 \\
 \end{cases}
 \end{equation}
 
-We next want to determine appropriate hyperparameters for $X$ and each of the three candidate functions for $T$. First, we again clean the GNSS datasets by removing offsets at times of equipment changes and removing outliers with the method describe in Section \ref{sec:Outlier}. For the outlier detection algorithm, our prior model, $u$, is chosen to have a length-scale and time-scale which is able to approximately describe SSE displacements. We use the SE covariance function for $X$ with $\lambda = 100$ km, and we use the Wendland covariance function for $T$, due to its computational efficiency, with $\theta = 0.1$ yr and $\phi = 1$ mm. The outlier detection algorithm is particularly effective at removing outliers for stations at high elevation, which can be adversely affected by ice or snow during the winter \citep{Lisowski2008}. As an example, Figure \ref{fig:Outliers} shows the outliers which were automatically detected for station SC03, which is located on Mount Olympus in Washington.  After cleaning the data, we divide it into subsets which are four months long and centered on the time of an SSE. The times of seven SSEs are determined using tremor records from \cite{Wech2010}. We find the optimal hyperparameters for $T$ and $X$ for each subset of data. The REML method is once again used to determine the hyperparameters for $T$ and $X$ which maximize the probability of drawing $\bm{d}_*$ from $\bm{d}$, where $\bm{d}_*$ now refers to a data subset. We chose to make each data subsets four months long because it is long enough to encompass the SSE, and it is short enough to still be computationally tractable. However, four months is too short to resolve the sinusoids in $\bm{d}$, and they are omitted from $\bm{d}$ for the REML analysis. The estimated hyperparameters for $u$ are summarized in Table 1. When using SE or the Wendland function for $T$, the optimal hyperparameters appear have a unimodal distribution. When using IBM for $T$ there were several anomalously large inferences, hence the larger IQR.   
+We next want to determine appropriate hyperparameters for $X$ and each of the three candidate functions for $T$. First, we again clean the GNSS datasets by removing offsets at times of equipment changes and removing outliers with the method describe in Section \ref{sec:Outlier}. For the outlier detection algorithm, our prior model, $u$, is chosen to have a length-scale and time-scale which is able to approximately describe SSE displacements. We use the SE covariance function for $X$ with $\lambda = 100$ km, and we use the Wendland covariance function for $T$, due to its computational efficiency, with $\theta = 0.1$ yr and $\phi = 1$ mm. The outlier detection algorithm is particularly effective at removing outliers for stations at high elevation, which can be adversely affected by ice or snow during the winter \citep{Lisowski2008}. As an example, Figure \ref{fig:Outliers} shows the outliers which were automatically detected for station SC03, which is located on Mount Olympus in Washington.  After cleaning the data, we divide it into subsets which are four months long and centered on the time of an SSE. The times of seven SSEs are determined using tremor records from \cite{Wech2010}. We find the optimal hyperparameters for $T$ and $X$ for each subset of data. The REML method is once again used to determine the hyperparameters for $T$ and $X$ which maximize the probability of drawing $\bm{d}_*$ from $\bm{d}$, where $\bm{d}_*$ now refers to a data subset. We chose to make each data subsets four months long because it is long enough to encompass the SSE, and it is short enough to still be computationally tractable. However, four months is too short to resolve the sinusoids in $\bm{d}$, and they are omitted from $\bm{d}$ for the REML analysis. The estimated hyperparameters for $u$ are summarized in Table 1. Based on the interquartile ranges (IQR), the hyperparameters for the SE and Wendland model do not vary significantly between SSEs. This suggests that the median of estimated hyperparameters should be an appropriate prior model for all Cascadia SSEs. For the IBM model, there are several anomalously large values for $\lambda$ and $\phi$, which is they they have large IQRs.   
 
 \begin{figure*}
 \includegraphics{figures/outliers/outliers.pdf}
@@ -378,7 +341,8 @@ Wendland & north  & 92 $\pm$ 57 km  & 0.46 $\pm$ 0.10 mm  & 0.116 $\pm$ 0.057 yr
 IBM & east   & 110 $\pm$ 130 km & 290 $\pm$ 420 mm/yr$^{1.5}$  & -          & -16.4 $\pm$ 7.8 \\
 IBM & north  & 150 $\pm$ 560 km & 110 $\pm$ 250 mm/yr$^{1.5}$ & -           & -10.1 $\pm$ 2.3 \\
 \end{tabular}
-\caption{Hyperparameters. The shown values are the medians and interquartile ranges.} 
+\caption{Optimal hyperparameters for transient displacements determined with the REML method.  The temporal covariance function is indicated by the ``$T$'' column, and the spatial covariance function, $X$, is the squared exponential in all cases. The hyperparameters are estimated for each of the seven SSEs considered in this study, and the tabulated values indicate the median and interquartile ranges of estimates.   
+The ``diff $\log$(REML)'' column compares the log REML likelihood to the log REML likelihood for the SE model. Positive values indicate that observations are more consistent with the SE model.} 
 \end{table}
 
 
@@ -386,48 +350,34 @@ Next we identify which covariance function for $T$ best describes the SSEs. One 
 
 As another test to determine the most appropriate covariance function for $T$, we compare the observations to the predicted displacements for each covariance function. let $\hat{\bm{d}} = \left(u(\bm{y}) + \bm{P}\bm{a}\right)|\bm{d}_*$ be the data prediction vector. It can be shown that $\hat{\bm{d}}$ is normally distributed with mean 
 \begin{equation}\label{eq:DataPredMean}
-\bm{\mu}_{\hat{d}} =
-\left[ 
-\begin{array}{cc}
-C_u(\bm{y},\bm{y}) & \bm{P} \\
-\end{array}
-\right]
-\left[
-\begin{array}{cc}
-\bm{\Sigma} & \bm{P} \\
-\bm{P}^T  & \bm{0} \\
-\end{array}
-\right]^{-1}
-\left[
-\begin{array}{c}
-\bm{d}_* \\
-\bm{0} \\
-\end{array}
-\right]
+\bm{\mu}_{\hat{d}} = \left[\begin{array}{cc}
+                           C_u(\bm{y},\bm{y}) & \bm{P} \\
+                           \end{array}\right]
+                     \left[\begin{array}{cc}
+                           \bm{\Sigma} & \bm{P} \\
+                           \bm{P}^T  & \bm{0} \\
+                           \end{array}\right]^{-1}
+                     \left[\begin{array}{c}
+                           \bm{d}_* \\
+                           \bm{0} \\
+                           \end{array}\right]
 \end{equation}  
 and covariance
 \begin{equation}\label{eq:DataPredCov}
-\bm{C}_{\hat{\bm{d}}} = 
-C_u(\bm{y},\bm{y}) - 
-\left[ 
-\begin{array}{cc}
-C_u(\bm{y},\bm{y}) & \bm{P} \\
-\end{array}
-\right]
-\left[
-\begin{array}{cc}
-\bm{\Sigma} & \bm{P} \\
-\bm{P}^T  & \bm{0} \\
-\end{array}
-\right]^{-1}
-\left[
-\begin{array}{c}
-C_u(\bm{y},\bm{y}) \\
-\bm{P}^T \\
-\end{array}
-\right].
+\bm{C}_{\hat{\bm{d}}} = C_u(\bm{y},\bm{y}) - 
+                        \left[\begin{array}{cc}
+                              C_u(\bm{y},\bm{y}) & \bm{P} \\
+                              \end{array}\right]
+                        \left[\begin{array}{cc}
+                              \bm{\Sigma} & \bm{P} \\
+                              \bm{P}^T  & \bm{0} \\
+                              \end{array}\right]^{-1}
+                        \left[\begin{array}{c}
+                              C_u(\bm{y},\bm{y}) \\
+                              \bm{P}^T \\
+                              \end{array}\right].
 \end{equation}
-We compute $\hat{\bm{d}}$ using SE, Wendland, and IBM covariance functions for $T$ and the median hyperparameters from Table 1. Figure 1 compares the easting component of $\bm{d}_*$ to $\hat{\bm{d}}$ for the Winter 2016 SSE.  For most stations, the data prediction vector appears to appropriately describe displacements throughout the SSE, regardless of the choice of $T$. The prediction for the IBM model contains slightly more high frequency, and perhaps spurious, features. The predictions for the Wendland and SE covariance functions are nearly indistinguishable. We ultimately settle on the Wendland covariance function for $T$. We choose the Wendland covariance function over the SE covariance function because of its computational advantages noted above.     
+We compute $\hat{\bm{d}}$ using SE, Wendland, and IBM covariance functions for $T$ and the median hyperparameters from Table 1. Figure \ref{fig:Fit} compares the easting component of $\bm{d}_*$ to $\hat{\bm{d}}$ for the Winter 2016 SSE.  For most stations, the data prediction vector appears to appropriately describe displacements throughout the SSE, regardless of the choice of $T$. The prediction for the IBM model contains slightly more high frequency, and perhaps spurious, features. The predictions for the Wendland and SE covariance functions are nearly indistinguishable. We ultimately settle on the Wendland covariance function for $T$. We choose the Wendland covariance function over the SE covariance function because of its computational advantages noted above.     
 
 \begin{figure*}
 \includegraphics{figures/signal_fit/signal-fit.pdf}

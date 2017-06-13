@@ -345,10 +345,7 @@ IBM & north  & 150 $\pm$ 560 km & 110 $\pm$ 250 mm/yr$^{1.5}$ & -           & -1
 The ``diff $\log$(REML)'' column compares the log REML likelihood to the log REML likelihood for the SE model. Positive values indicate that observations are more consistent with the SE model.} 
 \end{table}
 
-
-Next we identify which covariance function for $T$ best describes the SSEs. One approach is to compare the REML likelihood for each covariance function, similar to the analysis in \citet{Langbein2004}. In Table 1, we summarize how the log REML likelihoods for the Wendland and IBM covariance functions compare to the SE covariance function.  The tabulated values show the median and IQR differences in log REML likelihoods over each of the seven SSEs considered in this study. Negative values indicate that the observed data is less likely to have been sampled from the covariance function. Based on the differences in log REML likelihoods, the data is substantially more likely to come form the SE or Wendland covariance functions than from the IBM covariance function. The REML likelihoods do not definitively indicate whether the SE or Wendland covariance function is preferable. 
-
-As another test to determine the most appropriate covariance function for $T$, we compare the observations to the predicted displacements for each covariance function. let $\hat{\bm{d}} = \left(u(\bm{y}) + \bm{P}\bm{a}\right)|\bm{d}_*$ be the data prediction vector. It can be shown that $\hat{\bm{d}}$ is normally distributed with mean 
+Next we identify which covariance function for $T$ best describes the SSEs. One approach is to compare the REML likelihood for each covariance function, similar to the analysis in \citet{Langbein2004}. In Table 1, we summarize how the log REML likelihoods for the Wendland and IBM covariance functions compare to the SE covariance function.  Based on the differences in log REML likelihoods, the data is substantially more likely to come form the SE or Wendland covariance functions than from the IBM covariance function. The REML likelihoods do not definitively indicate whether the SE or Wendland covariance function is preferable.  As another test to determine the most appropriate covariance function for $T$, we compare the observations to the predicted displacements for each covariance function. let $\hat{\bm{d}} = \left(u(\bm{y}) + \bm{P}\bm{a}\right)|\bm{d}_*$ be the data prediction vector. It can be shown that $\hat{\bm{d}}$ is normally distributed with mean 
 \begin{equation}\label{eq:DataPredMean}
 \bm{\mu}_{\hat{d}} = \left[\begin{array}{cc}
                            C_u(\bm{y},\bm{y}) & \bm{P} \\
@@ -377,7 +374,7 @@ and covariance
                               \bm{P}^T \\
                               \end{array}\right].
 \end{equation}
-We compute $\hat{\bm{d}}$ using SE, Wendland, and IBM covariance functions for $T$ and the median hyperparameters from Table 1. Figure \ref{fig:Fit} compares the easting component of $\bm{d}_*$ to $\hat{\bm{d}}$ for the Winter 2016 SSE.  For most stations, the data prediction vector appears to appropriately describe displacements throughout the SSE, regardless of the choice of $T$. The prediction for the IBM model contains slightly more high frequency, and perhaps spurious, features. The predictions for the Wendland and SE covariance functions are nearly indistinguishable. We ultimately settle on the Wendland covariance function for $T$. We choose the Wendland covariance function over the SE covariance function because of its computational advantages noted above.     
+We compute $\hat{\bm{d}}$ using SE, Wendland, and IBM covariance functions for $T$ and the median hyperparameters from Table 1. Figure \ref{fig:Fit} compares the easting component of $\bm{d}_*$ to $\hat{\bm{d}}$ for the Winter 2016 SSE.  For most stations, the data prediction vector appears to appropriately describe displacements throughout the SSE, regardless of the choice of $T$. The prediction for the IBM model contains slightly more high frequency, and perhaps spurious, features. The predictions for the Wendland and SE covariance functions are nearly indistinguishable. In our estimates of transient strain discussed in the next section, we ultimately settle on the Wendland covariance function for $T$ and use the median values from Table 1 for the hyperparameters. We choose the Wendland covariance function over the SE covariance function because of its computational advantages noted above.     
 
 \begin{figure*}
 \includegraphics{figures/signal_fit/signal-fit.pdf}
@@ -386,7 +383,7 @@ We compute $\hat{\bm{d}}$ using SE, Wendland, and IBM covariance functions for $
 \end{figure*}
 
 \subsection{Transient Strain Rates} 
-Having established noise model and a prior for transient displacements, we use cleaned GNSS dataset described in Section \ref{sec:SignalModel} to calculate transient strain rates in the Puget Sound region from eq. (\ref{eq:StrainRate}). Our solution is shown in Figures X through X. Figures X through X show the estimates $\dot{\bm{\epsilon}}$ complete with uncertainties at select times over the course of the Winter 2016 SSE. Figure X, which shows strain rate at the height of the SSE, makes the implications of SSEs for seismic hazard clear.  The SSE causes compression in the Olympic Peninsula and extension in East of Puget Sound. The SSE are thus concentrating strain energy trench-ward, and pushing the subduction zone closer to failure. This is not novel insight because the same conclusions has been drawn from fault slip models which show that SSEs tend to be just at the transition between locked and decoupled. Slow slip event depths from \citet{Dragert2001}, \citet{Wech2009}, \citet{Schmidt2010}, \citet{Bartlow2011} show slip concentrated at depths from 30 to 50 km detph. What is novel is that our estimates of strain rate from SSEs are nonparametric and less likely to be biased by systematic errors such as errors in the fault model. Are uncertainties are also likely to be more conservative since we do not make any dubious assumptions. Thus we can be more confident in our assessment of how much strain is accumulating from SSEs.
+Having established a noise model and a prior for transient displacements, we use the cleaned GNSS dataset described in Section \ref{sec:SignalModel} to calculate transient strain rates in the Puget Sound region.  We calculate transient strain rate on each day from January 1, 2010 to March 15, 2017. The strain rates are estimates on a grid of points spanning the study area. In Figure \ref{fig:StrainMap}, we show the transient strain rates on January 1, 2016, which coincides with the height of an SSE. We have included a video showing the map view of strain rates over time as supplementary material. The strain rates shown in Figure \ref{fig:StrainMap} are generally similar to the strain rates for the other six SSEs considered in this study.  The SSEs cause compression in the Olympic Peninsula and extension east of Puget Sound. For comparison, long-term strain rates indicate trench perpendicular compression throughout this study region \citep{Murray2000,McCaffrey2007,McCaffrey2013}.  The SSE are thus concentrating tectonically accumulated strain energy trench-ward, and pushing the subduction zone closer to failure. Similar conclusions have been drawn based on finite fault modeling \citep[e.g.,][]{Dragert2001,Wech2009,Schmidt2010,Bartlow2011}, which reveal that SSEs are occurring just below the portion of the subduction zone which is inferred to be locked.  Thus, the SSEs are concentrating strain up dip and pushing the locked fault closer to failure. A main difference between the strain inferred here and strain derived from finite fault models is that our estimated strain rates are not based on an assumed physical model. In contrast, finite fault models can be biased by errors in the assumed fault geometry or lithospheric rheology. Since our estimated strain rates lack such systematic errors, we can be more confident that our solution is unbiased and has meaningful uncertainties.  
 
 \begin{figure*}
 \includegraphics{figures/strain_map/strain-map.pdf}
@@ -394,7 +391,7 @@ Having established noise model and a prior for transient displacements, we use c
 \label{fig:StrainMap}
 \end{figure*}
 
-To demonstrate the effectiveness of our method for detecting SSEs, we show a timeseries of estimated strain components at the position indicated in figure X.  We also compare the strain rate magnitude and the frequency of tremors in this region.  The strain rate magnitudes have been normalized by its estimated uncertainty and so strain magnitudes less than ${\sim}$2 can be considered to be part of the background noise. The only time that the normalized strain rate magnitude exceeds 2 is when there is a corresponding peak in tremor.  We are able to accurately detect the seven SSEs in over this period in addition to the inter-SSE events such as the one at X.      
+In Figure \ref{fig:StrainTs} we show the time dependence of estimated transient strain rates at a position on the Olympic Peninsula, where strain rate magnitudes from SSEs are largest. To verify that the estimated strain rates are accurately identifying geophysical signal, we compare the strain rate magnitude to the frequency of seismic tremor (Figure \ref{fig:StrainMag}). The shown strain rate magnitude has been normalized by the estimated uncertainty, and it can be interpreted as a signal-to-noise ratio. Estimated strain rate magnitudes greater than ${\sim}3$ can then be interpreted as a detected transient event.  For each detected transient event there is a corresponding peak in seismic tremor. We are also able to clearly identify transient strain associated with a more subtle inter-SSE event in August 2014. In between SSEs the normalized strain rate magnitude is consistently between 0 and 2, indicating that no anomalous non-SSE events are being detected, at least at this location. 
 
 \begin{figure*}
 \includegraphics{figures/strain_ts/strain-ts.pdf}
@@ -407,32 +404,6 @@ To demonstrate the effectiveness of our method for detecting SSEs, we show a tim
 \caption{Strain magnitude time series.}   
 \label{fig:StrainMag}
 \end{figure*}
-
-A video can be found as supp material 
-
-made in ,  is accumulating to the trench perpendicular compression releases At the height of the SSE, the implications of    
-  
-model exhibits the same relationship  which can described  
-
-
-Both of which have clear implications for assessing seismic hazard.
-
-, which can have applications for seismic hazard assessment,Identifying strain resulting from ETS events serves two purposes: (1) ETS events have  events which are  were first discovered by \citet{Dragert2001}.   
-
-
-We demonstrate that Gaussian processes are effective tools for detecting transient strain by using them to detect Cascadia slow slip events.  
-
-BACKGROUND
-
-\citet{Dragert2001} first discovered slow slip events
-
-Explain strain concentration with this:
-
- 
-Interseismic locking depths from \citet{Fluck1997}, \citet{Murray2000}, \citet{McCaffrey2007} and \citet{McCaffrey2013}, \citet{Burgette2009}, \citet{schmalzle2014} are consistent with a full locking down to about 20 km.
-
-%Studies which simultaneously looked at intersesimic and ets are \citet{Holtkamp2010} and \citet{Schmalzle2014}
-Studies which simultaneously modeled interseismic and ets are \citet{Holtkamp2010} and \citet{schmalzle2014}
 
 
 \section{Discussion and Conclusion}\label{sec:Discussion}

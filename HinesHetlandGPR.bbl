@@ -80,6 +80,12 @@ Frank, C.~F. (1966).
 \newblock {Deduction of earth strains from survey data}.
 \newblock {\em Bulletin of the Seismological Society of America}, 56(1):35--42.
 
+\bibitem[Freed and Lin, 2001]{Freed2001}
+Freed, a.~M. and Lin, J. (2001).
+\newblock {Delayed triggering of the 1999 Hector Mine earthquake by
+  viscoelastic stress transfer.}
+\newblock {\em Nature}.
+
 \bibitem[Gibbs, 2011]{Gibbs2011}
 Gibbs, B.~P. (2011).
 \newblock {\em {Advanced Kalman Filtering, Least-Squares and Modeling: A
@@ -179,6 +185,12 @@ McGuire, J.~J. and Segall, P. (2003).
   networks}.
 \newblock {\em Geophysical Journal International}, 155:778--788.
 
+\bibitem[Meade and Hager, 2005]{Meade2005}
+Meade, B.~J. and Hager, B.~H. (2005).
+\newblock {Block models of crustal motion in southern California constrained by
+  GPS measurements}.
+\newblock {\em Journal of Geophysical Research: Solid Earth}, 110:1--19.
+
 \bibitem[Murray and Lisowski, 2000]{Murray2000}
 Murray, M.~H. and Lisowski, M. (2000).
 \newblock {Strain accumulation along the Cascadia subduction zone in western
@@ -190,6 +202,13 @@ Ohtani, R., McGuire, J.~J., and Segall, P. (2010).
 \newblock {Network strain filter: A new tool for monitoring and detecting
   transient deformation signals in GPS arrays}.
 \newblock {\em Journal of Geophysical Research: Solid Earth}, 115(12):1--17.
+
+\bibitem[Okada, 1992]{Okada1992}
+Okada, Y. (1992).
+\newblock {Internal deformation due to shear and tensile faults in a half
+  space}.
+\newblock {\em Bulletin of the Seismological Society of America},
+  82(2):1018--1040.
 
 \bibitem[Papoulis, 1991]{Papoulis1991}
 Papoulis, A. (1991).

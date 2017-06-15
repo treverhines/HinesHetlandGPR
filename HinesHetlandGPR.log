@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.8.24)  15 JUN 2017 14:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.8.24)  15 JUN 2017 19:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -190,18 +190,18 @@ LaTeX Info: Redefining \bm on input line 207.
 ) (./HinesHetlandGPR.aux)
 \openout1 = `HinesHetlandGPR.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -294,162 +294,150 @@ e
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 74.
+LaTeX Font Info:    Try loading font information for U+msa on input line 72.
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 74.
+LaTeX Font Info:    Try loading font information for U+msb on input line 72.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-
-Package natbib Warning: Citation `Fornberg2015' on page 2 undefined on input li
-ne 106.
-
-[2] [3] [4] <figures/context_map/context-map.pdf, id=30, 505.89pt x 397.485pt>
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]
+<figures/context_map/context-map.pdf, id=27, 505.89pt x 397.485pt>
 File: figures/context_map/context-map.pdf Graphic file (type pdf)
 
 <use figures/context_map/context-map.pdf>
 Package pdftex.def Info: figures/context_map/context-map.pdf used on input line
- 269.
+ 236.
 (pdftex.def)             Requested size: 505.88875pt x 397.48402pt.
+
+Overfull \hbox (22.19188pt too wide) in paragraph at lines 236--237
+[][] 
+ []
+
+[4] [5 <./figures/context_map/context-map.pdf>]
+<figures/noise/noise-params.pdf, id=75, 505.89pt x 433.62pt>
+File: figures/noise/noise-params.pdf Graphic file (type pdf)
+
+<use figures/noise/noise-params.pdf>
+Package pdftex.def Info: figures/noise/noise-params.pdf used on input line 269.
+
+(pdftex.def)             Requested size: 505.88875pt x 433.61894pt.
 
 Overfull \hbox (22.19188pt too wide) in paragraph at lines 269--270
 [][] 
  []
 
-[5] [6 <./figures/context_map/context-map.pdf>]
-<figures/noise/noise-params.pdf, id=78, 505.89pt x 433.62pt>
-File: figures/noise/noise-params.pdf Graphic file (type pdf)
-
-<use figures/noise/noise-params.pdf>
-Package pdftex.def Info: figures/noise/noise-params.pdf used on input line 302.
-
-(pdftex.def)             Requested size: 505.88875pt x 433.61894pt.
-
-Overfull \hbox (22.19188pt too wide) in paragraph at lines 302--303
-[][] 
- []
-
-<figures/noise/noise-samples.pdf, id=79, 505.89pt x 289.08pt>
+<figures/noise/noise-samples.pdf, id=76, 505.89pt x 289.08pt>
 File: figures/noise/noise-samples.pdf Graphic file (type pdf)
 
 <use figures/noise/noise-samples.pdf>
-Package pdftex.def Info: figures/noise/noise-samples.pdf used on input line 308
+Package pdftex.def Info: figures/noise/noise-samples.pdf used on input line 275
 .
 (pdftex.def)             Requested size: 505.88875pt x 289.07928pt.
 
-Overfull \hbox (22.19188pt too wide) in paragraph at lines 308--309
+Overfull \hbox (22.19188pt too wide) in paragraph at lines 275--276
 [][] 
  []
 
-[7] [8 <./figures/noise/noise-params.pdf>] [9 <./figures/noise/noise-samples.pd
-f>] <figures/outliers/outliers.pdf, id=166, 505.89pt x 252.945pt>
+[6] [7 <./figures/noise/noise-params.pdf>] [8 <./figures/noise/noise-samples.pd
+f>] <figures/outliers/outliers.pdf, id=163, 505.89pt x 252.945pt>
 File: figures/outliers/outliers.pdf Graphic file (type pdf)
 
 <use figures/outliers/outliers.pdf>
-Package pdftex.def Info: figures/outliers/outliers.pdf used on input line 350.
+Package pdftex.def Info: figures/outliers/outliers.pdf used on input line 314.
 (pdftex.def)             Requested size: 505.88875pt x 252.94438pt.
 
-Overfull \hbox (22.19188pt too wide) in paragraph at lines 350--351
+Overfull \hbox (22.19188pt too wide) in paragraph at lines 314--315
 [][] 
  []
 
-[10 <./figures/outliers/outliers.pdf>]
-<figures/signal_fit/signal-fit.pdf, id=212, 505.89pt x 252.945pt>
+[9 <./figures/outliers/outliers.pdf>]
+<figures/signal_fit/signal-fit.pdf, id=209, 505.89pt x 252.945pt>
 File: figures/signal_fit/signal-fit.pdf Graphic file (type pdf)
 
 <use figures/signal_fit/signal-fit.pdf>
-Package pdftex.def Info: figures/signal_fit/signal-fit.pdf used on input line 4
-01.
+Package pdftex.def Info: figures/signal_fit/signal-fit.pdf used on input line 3
+64.
 (pdftex.def)             Requested size: 505.88875pt x 252.94438pt.
 
-Overfull \hbox (22.19188pt too wide) in paragraph at lines 401--402
+Overfull \hbox (22.19188pt too wide) in paragraph at lines 364--365
 [][] 
  []
 
-[11 <./figures/signal_fit/signal-fit.pdf>]
-<figures/strain_map/strain-map.pdf, id=255, 433.62pt x 433.62pt>
+[10 <./figures/signal_fit/signal-fit.pdf>]
+<figures/strain_map/strain-map.pdf, id=252, 433.62pt x 433.62pt>
 File: figures/strain_map/strain-map.pdf Graphic file (type pdf)
 
 <use figures/strain_map/strain-map.pdf>
-Package pdftex.def Info: figures/strain_map/strain-map.pdf used on input line 4
-10.
+Package pdftex.def Info: figures/strain_map/strain-map.pdf used on input line 3
+73.
 (pdftex.def)             Requested size: 433.61894pt x 433.61894pt.
- [12 <./figures/strain_map/strain-map.pdf>] <figures/strain_ts/strain-ts.pdf, i
-d=291, 505.89pt x 361.35pt>
+ [11 <./figures/strain_map/strain-map.pdf>] <figures/strain_ts/strain-ts.pdf, i
+d=288, 505.89pt x 361.35pt>
 File: figures/strain_ts/strain-ts.pdf Graphic file (type pdf)
 
 <use figures/strain_ts/strain-ts.pdf>
-Package pdftex.def Info: figures/strain_ts/strain-ts.pdf used on input line 418
+Package pdftex.def Info: figures/strain_ts/strain-ts.pdf used on input line 381
 .
 (pdftex.def)             Requested size: 505.88875pt x 361.34912pt.
 
-Overfull \hbox (22.19188pt too wide) in paragraph at lines 418--419
+Overfull \hbox (22.19188pt too wide) in paragraph at lines 381--382
 [][] 
  []
 
-<figures/strain_ts/mag-ts.pdf, id=292, 505.89pt x 289.08pt>
+<figures/strain_ts/mag-ts.pdf, id=289, 505.89pt x 289.08pt>
 File: figures/strain_ts/mag-ts.pdf Graphic file (type pdf)
 
 <use figures/strain_ts/mag-ts.pdf>
-Package pdftex.def Info: figures/strain_ts/mag-ts.pdf used on input line 424.
+Package pdftex.def Info: figures/strain_ts/mag-ts.pdf used on input line 387.
 (pdftex.def)             Requested size: 505.88875pt x 289.07928pt.
 
-Overfull \hbox (22.19188pt too wide) in paragraph at lines 424--425
+Overfull \hbox (22.19188pt too wide) in paragraph at lines 387--388
 [][] 
  []
 
-[13 <./figures/strain_ts/strain-ts.pdf>] [14 <./figures/strain_ts/mag-ts.pdf>]
-(./HinesHetlandGPR.bbl [15]
-Missing character: There is no â in font cmr10!
-Missing character: There is no € in font cmr10!
-Missing character: There is no “ in font cmr10!
- [16]
+[12 <./figures/strain_ts/strain-ts.pdf>] [13 <./figures/strain_ts/mag-ts.pdf>]
+(./HinesHetlandGPR.bbl [14]
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no “ in font cmr10!
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no “ in font cmr10!
-)
-
-Package natbib Warning: There were undefined citations.
-
-[17] (./HinesHetlandGPR.aux) ) 
+ [15]) [16] (./HinesHetlandGPR.aux) ) 
 Here is how much of TeX's memory you used:
- 3767 strings out of 494910
- 51333 string characters out of 6179836
- 125346 words of memory out of 5000000
- 6979 multiletter control sequences out of 15000+600000
+ 3754 strings out of 494910
+ 51120 string characters out of 6179836
+ 125180 words of memory out of 5000000
+ 6966 multiletter control sequences out of 15000+600000
  16760 words of font info for 62 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 38i,17n,27p,2278b,297s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi1
-0.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/t
-exlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></usr/share/te
-xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/font
-s/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-sy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pf
-b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb
->
-Output written on HinesHetlandGPR.pdf (17 pages, 2367964 bytes).
+ 38i,17n,27p,2284b,297s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi
+5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+ti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msb
+m10.pfb>
+Output written on HinesHetlandGPR.pdf (16 pages, 2359988 bytes).
 PDF statistics:
- 433 PDF objects out of 1000 (max. 8388607)
- 144 compressed objects within 2 object streams
+ 430 PDF objects out of 1000 (max. 8388607)
+ 142 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  41 words of extra memory for PDF output out of 10000 (max. 10000000)
 

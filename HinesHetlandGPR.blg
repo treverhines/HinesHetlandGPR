@@ -3,50 +3,49 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: HinesHetlandGPR.aux
 The style file: apalike.bst
 Database file #1: mybib.bib
-Warning--I didn't find a database entry for "Fornberg2015"
 Warning--empty institution in Abrahamsen1997
 Warning--empty institution in Lisowski2008
 Warning--empty journal in Wdowinski1997
 Warning--empty publisher in Wendland2005
-You've used 60 entries,
+You've used 56 entries,
             1935 wiz_defined-function locations,
-            875 strings with 14514 characters,
-and the built_in function-call counts, 25247 in all, are:
-= -- 2490
-> -- 1109
-< -- 37
-+ -- 378
-- -- 378
-* -- 2314
-:= -- 4404
-add.period$ -- 179
-call.type$ -- 60
-change.case$ -- 487
-chr.to.int$ -- 60
-cite$ -- 64
-duplicate$ -- 843
-empty$ -- 1711
-format.name$ -- 474
-if$ -- 4827
+            845 strings with 13562 characters,
+and the built_in function-call counts, 23486 in all, are:
+= -- 2317
+> -- 1022
+< -- 36
++ -- 348
+- -- 348
+* -- 2144
+:= -- 4096
+add.period$ -- 167
+call.type$ -- 56
+change.case$ -- 452
+chr.to.int$ -- 56
+cite$ -- 60
+duplicate$ -- 787
+empty$ -- 1597
+format.name$ -- 438
+if$ -- 4494
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 64
-newline$ -- 302
-num.names$ -- 180
-pop$ -- 371
+missing$ -- 60
+newline$ -- 282
+num.names$ -- 168
+pop$ -- 345
 preamble$ -- 1
-purify$ -- 489
+purify$ -- 454
 quote$ -- 0
-skip$ -- 638
+skip$ -- 597
 stack$ -- 0
-substring$ -- 1964
-swap$ -- 68
+substring$ -- 1834
+swap$ -- 64
 text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 348
+type$ -- 324
 warning$ -- 4
-while$ -- 222
+while$ -- 206
 width$ -- 0
-write$ -- 777
-(There were 5 warnings)
+write$ -- 725
+(There were 4 warnings)

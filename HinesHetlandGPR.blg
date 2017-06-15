@@ -5,49 +5,48 @@ The style file: apalike.bst
 Database file #1: mybib.bib
 Warning--I didn't find a database entry for "Fornberg2015"
 Warning--empty institution in Abrahamsen1997
-Warning--empty journal in Bartlow2011
 Warning--empty institution in Lisowski2008
 Warning--empty journal in Wdowinski1997
 Warning--empty publisher in Wendland2005
-You've used 55 entries,
+You've used 57 entries,
             1935 wiz_defined-function locations,
-            848 strings with 13902 characters,
-and the built_in function-call counts, 23449 in all, are:
-= -- 2300
-> -- 1066
-< -- 31
-+ -- 366
-- -- 366
-* -- 2167
-:= -- 4095
-add.period$ -- 164
-call.type$ -- 55
-change.case$ -- 456
-chr.to.int$ -- 55
-cite$ -- 60
-duplicate$ -- 774
-empty$ -- 1571
-format.name$ -- 449
-if$ -- 4473
+            858 strings with 14123 characters,
+and the built_in function-call counts, 24183 in all, are:
+= -- 2381
+> -- 1076
+< -- 34
++ -- 368
+- -- 368
+* -- 2227
+:= -- 4217
+add.period$ -- 170
+call.type$ -- 57
+change.case$ -- 467
+chr.to.int$ -- 57
+cite$ -- 61
+duplicate$ -- 802
+empty$ -- 1633
+format.name$ -- 457
+if$ -- 4621
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 59
-newline$ -- 277
-num.names$ -- 165
-pop$ -- 356
+missing$ -- 61
+newline$ -- 287
+num.names$ -- 171
+pop$ -- 358
 preamble$ -- 1
-purify$ -- 458
+purify$ -- 469
 quote$ -- 0
-skip$ -- 582
+skip$ -- 605
 stack$ -- 0
-substring$ -- 1798
-swap$ -- 62
+substring$ -- 1881
+swap$ -- 65
 text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 318
-warning$ -- 5
-while$ -- 204
+type$ -- 330
+warning$ -- 4
+while$ -- 212
 width$ -- 0
-write$ -- 712
-(There were 6 warnings)
+write$ -- 739
+(There were 5 warnings)

@@ -5,12 +5,6 @@ Abrahamsen, P. (1997).
 \newblock {A review of Gaussian random fields and correlation functions}.
 \newblock Technical report.
 
-\bibitem[Bartlow et~al., 2011]{Bartlow2011}
-Bartlow, N.~M., Miyazaki, S., Bradley, A.~M., and Segall, P. (2011).
-\newblock {Space‐time correlation of slip and tremor during the 2009 Cascadia
-  slow slip event}.
-\newblock 38(L18309):1--6.
-
 \bibitem[Beavan and Haines, 2001]{Beavan2001}
 Beavan, J. and Haines, J. (2001).
 \newblock {Contemporary horizontal velocity and strain rate fields of the
@@ -51,6 +45,12 @@ Dong, D., Fang, P., Bock, Y., Webb, F., Prawirodirdjo, L., Kedar, S., and
 Dragert, G., Wang, K., and James, T.~S. (2001).
 \newblock {A silent slip event on the deeper Cascadia subduction interface.}
 \newblock {\em Science}, 292:1525--1528.
+
+\bibitem[Dragert and Wang, 2011]{Dragert2011}
+Dragert, H. and Wang, K. (2011).
+\newblock {Temporal evolution of an episodic tremor and slip event along the
+  northern Cascadia margin}.
+\newblock {\em Journal of Geophysical Research: Solid Earth}, 116(12):1--12.
 
 \bibitem[El-Fiky and Kato, 1999]{El-Fiky1999}
 El-Fiky, G.~S. and Kato, T. (1999).
@@ -150,6 +150,11 @@ Lisowski, M., Dzurisin, D., Denlinger, R.~P., and Iwatsubo, E.~Y. (2008).
   2006 Dome-Building Eruption of Mout St. Helens, Washington}.
 \newblock Technical Report September 1984.
 
+\bibitem[Mackay, 1998]{Mackay1998}
+Mackay, D. J.~C. (1998).
+\newblock {Introduction to Gaussian processes}.
+\newblock {\em Neural Networks and Machine Learning}, 168(1996):133--165.
+
 \bibitem[Mao et~al., 1999]{Mao1999}
 Mao, A., Harrison, G.~A., and Dixon, H. (1999).
 \newblock {Noise in GPS coordinate time series}.
@@ -213,6 +218,12 @@ Roeloffs, E.~A. (2006).
 \newblock {Evidence for Aseismic Deformation Rate Changes Prior To
   Earthquakes}.
 \newblock {\em Annual Review of Earth and Planetary Sciences}, 34(1):591--627.
+
+\bibitem[Rogers and Dragert, 2003]{Rogers2003}
+Rogers, G. and Dragert, H. (2003).
+\newblock {Episodic tremor and slip on the Cascadia subduction zone: the
+  chatter of silent slip.}
+\newblock {\em Science}, 300:1942--1943.
 
 \bibitem[Sandwell and Wessel, 2016]{Sandwell2016}
 Sandwell, D.~T. and Wessel, P. (2016).

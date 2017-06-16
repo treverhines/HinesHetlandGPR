@@ -7,70 +7,15 @@
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
 \usepackage{arydshln}
 \usepackage{bm}
+\usepackage{setspace}
 \title{Revealing Transient Strain in Geodetic Data with Gaussian Process Regression}
 \author{Trever T. Hines and Eric A. Hetland}
-
-% OUTLINE
-% INTRODUCTION
-
-% - How people have gone about estimating strain rates
-%   - Draw distinction between parametric and nonparametric methods
-%   - Draw distinction between model based and data based parametric methods 
-%   - Talk about Kato
-%
-% - Another, more challenging problem is how to calculate time-dependent strain
-%   - Time dependent strain rates could illuminate transient geophysical signals such as postseismic deformation, 
-%	  slow slip events, or volcanic deformation. 	  
-%	- Since numerous megathrust earthquakes were preceded by slow slip, it is important to detect these features.
-%	- We can also use estimates of transient strain to calibrate strain meters.	
-%	- People who have tackled this problem before include Ohtani and Holt.	
-%	- A major deficiency with these methods is that they are parametric giving poor uncertainties. Without good 
-%	  uncertainties we cannot objectively discern signal from noise and we cannot calibrate BSM.	
-% - Here we propose GPR and we tackle several two major difficulties	
-%   - The method is similar to an extension of Kato to the time domain. We address two debilitating difficulties that 
-%     arise. We also dont do that autocovariance bullshit.  Instead we use REML.  
-%	- outliers  
-%	- dense matrix
-%	
-% - GPR can be used for more than just estimating strain and it is a powerful geophysical tool. We can use it to quantify
-%   spatial noise in GPS data. (this should be a side blurb when talking about quantifying signal.   
-%
-% - We discuss the method, form prior with REML, and demonstrate utility in detecting SSE by comparing it to tremor.	  
-%
-% METHODS
-% - define model
-% - discuss known deficiencies with the model
-% - describe covariance as a time-space separable function 
-% - describe geophysically relevant gaussian processes. (include seasonal and spherical)
-% - REML for determining optimal hyperparameters
-% - conditioning the prior with observations
-% - differentiating the Gaussian process
-% - note on addition, subtraction, and scaling
-% - REML
-% - Numerical notes
-%   - partition inverse and solve with CHOLMOD
-% - outlier detection
-
-% APPLICATION TO CASCADIA SSE
-% - SSE background
-% - REML results
-%   - noise 
-%   - signal for IBM, SE, and WEN
-%   - Plot all covariances functions
-
-% - Strain results
-%   - map view plot
-%   - time series plot
-
-% CONCLUSION
-% - future work
-% - additional applications other than sse. Discuss potential use for noise modeling
-
 
 \begin{document}
 
 \maketitle
 
+\doublespacing
 
 \section{Introduction}\label{sec:Introduction}
 Crustal strain rates are fundamentally important quantities for assessing seismic hazard. Knowing where and how quickly strain is accumulating gives insight into where we can expect stored elastic energy to be released seismically. Consequently, secular crustal strain rates, which are estimated from GNSS data, have been used to constrain seismic hazard models such as UCERF3 \citep{Field2014}. Dense networks of continuous GNSS stations, such as the Plate Boundary Observatory (PBO), make it feasible to estimate transient crustal strain, which we consider to be any deviation from the secular strain rate.  Transient crustal strain can potentially illuminate geophysical signal that may not be immediately apparent from inspecting the GNSS displacement data. The ability to detect transient geophysical phenomena is also relevant for seismic hazard because there are instances of major earthquakes being triggered by slow slip events \citep{Roeloffs2006} and postseismic deformation \citep{Freed2001}. For these reasons, it is important to develop and improve upon methods for estimating crustal strain rates from GNSS data.

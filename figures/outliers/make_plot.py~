@@ -11,12 +11,9 @@ def trend(u1,t1):
   m = np.linalg.inv(G.T.dot(G)).dot(G.T).dot(u2)
   return m
   
-
-
-xtick_dates = ['2011-01-01','2012-01-01','2013-01-01','2014-01-01','2015-01-01','2016-01-01','2017-01-01']
+xtick_dates = ['2011-01-01','2012-01-01','2013-01-01','2014-01-01']
 xticks = [pygeons.mjd.mjd(i,'%Y-%m-%d') for i in xtick_dates]
-xtick_labels = ['2011-01-01','2012-01-01','2013-01-01','2014-01-01',' ','2016-01-01',' ']
-
+xtick_labels = ['2011-01-01','2012-01-01','2013-01-01','2014-01-01']
 
 c1 = colors.to_rgb('C0')
 c1t = tuple(0.6 + 0.4*np.array(colors.to_rgb('C0')))
@@ -24,7 +21,7 @@ c2 = colors.to_rgb('C1')
 c2t = tuple(0.6 + 0.4*np.array(colors.to_rgb('C1')))
 
 # plot raw data
-fig,ax = plt.subplots(figsize=(7,3.5))
+fig,ax = plt.subplots(figsize=(7,3.0))
 pygeons.plot.plot._setup_ts_ax([ax])
 ax.set_xticks(xticks)
 ax.set_xticklabels(xtick_labels)
@@ -52,8 +49,7 @@ u = 1000*data['east'][:,idx]
 us = 1000*data['east_std_dev'][:,idx]
 u = u - m[0] - m[1]*t
 ax.errorbar(t,u,us,marker='.',linestyle='None',color=c1,ecolor=c1t,ms=5.0)
-
-ax.set_title('Station SC03 (%.2f$^\mathregular{\circ}$ W, %.2f$^\mathregular{\circ}$ N)' % 
+ax.set_title('station SC03 (%.1f$^\mathregular{\circ}$W, %.1f$^\mathregular{\circ}$N)' % 
                  (-lon,lat),fontsize=10)
 ax.set_ylabel('displacement [mm]',fontsize=10)
 fig.tight_layout()

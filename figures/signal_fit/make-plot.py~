@@ -10,7 +10,7 @@ xtick_labels = ['2015-11-01','2015-12-01','2016-01-01','2016-02-01','2016-03-01'
 c0 = colors.to_rgb('C0')
 c0t = tuple(0.6 + 0.4*np.array(colors.to_rgb('C0')))
 
-fig,ax = plt.subplots(figsize=(7,3.5))
+fig,ax = plt.subplots(figsize=(7,3.0))
 pygeons.plot.plot._setup_ts_ax([ax])
 ax.set_xticks(xticks)
 ax.set_xticklabels(xtick_labels)
@@ -28,6 +28,10 @@ lat = data['latitude'][idx]
 t = data['time']
 u = 1000*data['east'][:,idx]
 us = 1000*data['east_std_dev'][:,idx]
+
+ax.set_title('station P436 (%.1f$^\mathregular{\circ}$W, %.1f$^\mathregular{\circ}$N)' %
+            (-lon,lat),fontsize=10)
+
 ax.errorbar(t,u,us,marker='.',linestyle='None',color=c0,ecolor=c0t,ms=5.0,zorder=1,label='observed')
 
 # SE

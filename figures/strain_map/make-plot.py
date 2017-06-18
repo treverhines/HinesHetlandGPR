@@ -146,7 +146,7 @@ rect = Rectangle([0.63,0.0],0.37,0.3,transform=ax.transAxes,zorder=3,
                  joinstyle='round', 
                  capstyle='round')
 ax.add_artist(rect)
-ax.legend()
+ax.set_title('January 1, 2016',fontsize=10)
 plt.tight_layout(pad=3.0)
 plt.savefig('strain-map.pdf',fmt='pdf')
 plt.show()

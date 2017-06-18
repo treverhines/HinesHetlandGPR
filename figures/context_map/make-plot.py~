@@ -80,20 +80,20 @@ ax.plot(x,y,'ko',ms=4,zorder=3)
 idx = np.nonzero(data['id'][...] == 'SC03')[0][0]
 stax,stay = x[idx],y[idx]
 ax.plot(stax,stay,'ro',ms=10,zorder=4)
-ax.text(stax-17000.0,stay-23000.0,'SC03',color='r')
+ax.text(stax-17000.0,stay-23000.0,'SC03',color='r',fontsize=10)
 idx = np.nonzero(data['id'][...] == 'P436')[0][0]
 stax,stay = x[idx],y[idx]
 ax.plot(stax,stay,'ro',ms=10,zorder=4)
-ax.text(stax-17000.0,stay-23000.0,'P436',color='r')
+ax.text(stax-17000.0,stay-23000.0,'P436',color='r',fontsize=10)
 # plot location of strain time series
 stax,stay = bm(-124.03,47.9)
 radius = 150000.0
-ax.plot(stax,stay,'mo',ms=10,zorder=4)
-art = Ellipse((stax,stay),2*radius,2*radius,fc='none',ls='--',ec='m',zorder=4)
+ax.plot(stax,stay,'C0o',ms=10,zorder=4)
+art = Ellipse((stax,stay),2*radius,2*radius,fc='none',ls='--',ec='C0',zorder=4)
 ax.add_artist(art)
 
 # PLOT TREMOR DENSITY
-N = 50
+N = 5
 xlim = ax.get_xlim()
 ylim = ax.get_ylim()
 xitp = np.linspace(xlim[0],xlim[1],N)
@@ -120,6 +120,7 @@ cmap = ListedColormap(colors)
 p = ax.imshow(u,cmap=cmap,zorder=2,extent=(xlim+ylim),origin='lower',
               interpolation='bicubic')
 cbar = transparent_colorbar(p,ax=ax)
+cbar.ax.tick_params(labelsize=10)
 cbar.set_label('tremors per km$\mathregular{^2}$ per year',fontsize=10)
 plt.tight_layout(pad=3.0)
 plt.savefig('context-map.pdf',fmt='pdf')

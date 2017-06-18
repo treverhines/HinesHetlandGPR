@@ -38,9 +38,6 @@ xidx = np.nonzero(fdx['id'][...] == station)[0][0]
 sta_lon = fdx['longitude'][xidx]
 sta_lat = fdx['latitude'][xidx]
 sta_x,sta_y = bm(sta_lon,sta_lat)
-print(sta_lon)
-print(sta_lat)
-
 # convert to microstrain/year
 dudx = fdx['east'][tidx,xidx] * 1.0e6 * 365.25
 dudx_std = fdx['east_std_dev'][tidx,xidx] * 1.0e6 * 365.25
@@ -63,21 +60,25 @@ mag_std = np.sqrt((exx_std*exx/mag)**2 + (eyy_std*eyy/mag)**2 + (exy_std*2*exy/m
 
 fig,axs = plt.subplots(3,1,sharex=True,figsize=(7,5))
 _setup_ts_ax(axs)
+axs[0].set_title('%.1f$^\mathregular{\circ}$W, %.1f$^\mathregular{\circ}$N' %
+                (-sta_lon,sta_lat),fontsize=10)
+            
 axs[0].plot(time,exx,'C0-',lw=1.5,zorder=2)
 axs[0].fill_between(time,exx-exx_std,exx+exx_std,edgecolor='none',facecolor='C0',alpha=0.4,zorder=2)
 axs[0].grid()
+axs[0].tick_params(labelsize=10)
 axs[0].set_ylabel('east normal\n[$\mathregular{\mu}$strain/yr]',fontsize=10)
 
 axs[1].plot(time,eyy,'C0-',lw=1.5,zorder=2)
 axs[1].fill_between(time,eyy-eyy_std,eyy+eyy_std,edgecolor='none',facecolor='C0',alpha=0.4,zorder=2)
 axs[1].grid()
+axs[1].tick_params(labelsize=10)
 axs[1].set_ylabel('north normal\n[$\mathregular{\mu}$strain/yr]',fontsize=10)
 
 axs[2].plot(time,exy,'C0-',lw=1.5,zorder=2)
 axs[2].fill_between(time,exy-exy_std,exy+exy_std,edgecolor='none',facecolor='C0',alpha=0.4,zorder=2)
 axs[2].grid()
 axs[2].set_ylabel('east-north shear\n[$\mathregular{\mu}$strain/yr]',fontsize=10)
-
 
 axs[2].set_xticks(xticks)
 axs[2].set_xticklabels(xtick_labels) 
@@ -89,9 +90,13 @@ plt.savefig('strain-ts.pdf',fmt='pdf')
 
 fig,axs = plt.subplots(2,1,sharex=True,figsize=(7,4))
 _setup_ts_ax(axs)
+axs[0].set_title('%.1f$^\mathregular{\circ}$W, %.1f$^\mathregular{\circ}$N' %
+                (-sta_lon,sta_lat),fontsize=10)
+                
 axs[0].fill_between(time,mag/mag_std,0,color='C0',zorder=2)
 axs[0].grid()
-axs[0].set_ylabel('normalized strain rate\nmagnitude',fontsize=10)
+axs[0].set_ylabel('signal-to-noise ratio',fontsize=10)
+axs[0].tick_params(labelsize=10)
 axs[0].set_ylim((0,8.5))
 
 # LOAD IN TREMORS

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.8.24)  17 JUN 2017 15:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.8.24)  17 JUN 2017 22:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -312,41 +312,41 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 18.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]
-<figures/context_map/context-map.pdf, id=27, 505.89pt x 397.485pt>
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4]
+<figures/context_map/context-map.pdf, id=32, 505.89pt x 397.485pt>
 File: figures/context_map/context-map.pdf Graphic file (type pdf)
 
 <use figures/context_map/context-map.pdf>
 Package pdftex.def Info: figures/context_map/context-map.pdf used on input line
- 183.
+ 195.
 (pdftex.def)             Requested size: 505.88875pt x 397.48402pt.
 
-Overfull \hbox (5.40475pt too wide) in paragraph at lines 183--184
+Overfull \hbox (5.40475pt too wide) in paragraph at lines 195--196
 [][] 
  []
 
-[4] [5 <./figures/context_map/context-map.pdf>]
-<figures/noise/noise-params.pdf, id=76, 505.89pt x 433.62pt>
+[5 <./figures/context_map/context-map.pdf>]
+<figures/noise/noise-params.pdf, id=77, 505.89pt x 433.62pt>
 File: figures/noise/noise-params.pdf Graphic file (type pdf)
 
 <use figures/noise/noise-params.pdf>
-Package pdftex.def Info: figures/noise/noise-params.pdf used on input line 216.
+Package pdftex.def Info: figures/noise/noise-params.pdf used on input line 228.
 
 (pdftex.def)             Requested size: 505.88875pt x 433.61894pt.
 
-Overfull \hbox (5.40475pt too wide) in paragraph at lines 216--217
+Overfull \hbox (5.40475pt too wide) in paragraph at lines 228--229
 [][] 
  []
 
-<figures/noise/noise-samples.pdf, id=77, 505.89pt x 289.08pt>
+<figures/noise/noise-samples.pdf, id=78, 505.89pt x 289.08pt>
 File: figures/noise/noise-samples.pdf Graphic file (type pdf)
 
 <use figures/noise/noise-samples.pdf>
-Package pdftex.def Info: figures/noise/noise-samples.pdf used on input line 222
+Package pdftex.def Info: figures/noise/noise-samples.pdf used on input line 234
 .
 (pdftex.def)             Requested size: 505.88875pt x 289.07928pt.
 
-Overfull \hbox (5.40475pt too wide) in paragraph at lines 222--223
+Overfull \hbox (5.40475pt too wide) in paragraph at lines 234--235
 [][] 
  []
 
@@ -355,10 +355,10 @@ f>] <figures/outliers/outliers.pdf, id=164, 505.89pt x 252.945pt>
 File: figures/outliers/outliers.pdf Graphic file (type pdf)
 
 <use figures/outliers/outliers.pdf>
-Package pdftex.def Info: figures/outliers/outliers.pdf used on input line 261.
+Package pdftex.def Info: figures/outliers/outliers.pdf used on input line 273.
 (pdftex.def)             Requested size: 505.88875pt x 252.94438pt.
 
-Overfull \hbox (5.40475pt too wide) in paragraph at lines 261--262
+Overfull \hbox (5.40475pt too wide) in paragraph at lines 273--274
 [][] 
  []
 
@@ -367,10 +367,10 @@ File: figures/signal_fit/signal-fit.pdf Graphic file (type pdf)
 
 <use figures/signal_fit/signal-fit.pdf>
 Package pdftex.def Info: figures/signal_fit/signal-fit.pdf used on input line 3
-11.
+25.
 (pdftex.def)             Requested size: 505.88875pt x 252.94438pt.
 
-Overfull \hbox (5.40475pt too wide) in paragraph at lines 311--312
+Overfull \hbox (5.40475pt too wide) in paragraph at lines 325--326
 [][] 
  []
 
@@ -380,18 +380,18 @@ File: figures/strain_map/strain-map.pdf Graphic file (type pdf)
 
 <use figures/strain_map/strain-map.pdf>
 Package pdftex.def Info: figures/strain_map/strain-map.pdf used on input line 3
-20.
+34.
 (pdftex.def)             Requested size: 433.61894pt x 433.61894pt.
 
 <figures/strain_ts/strain-ts.pdf, id=215, 505.89pt x 361.35pt>
 File: figures/strain_ts/strain-ts.pdf Graphic file (type pdf)
 
 <use figures/strain_ts/strain-ts.pdf>
-Package pdftex.def Info: figures/strain_ts/strain-ts.pdf used on input line 328
+Package pdftex.def Info: figures/strain_ts/strain-ts.pdf used on input line 342
 .
 (pdftex.def)             Requested size: 505.88875pt x 361.34912pt.
 
-Overfull \hbox (5.40475pt too wide) in paragraph at lines 328--329
+Overfull \hbox (5.40475pt too wide) in paragraph at lines 342--343
 [][] 
  []
 
@@ -399,10 +399,10 @@ Overfull \hbox (5.40475pt too wide) in paragraph at lines 328--329
 File: figures/strain_ts/mag-ts.pdf Graphic file (type pdf)
 
 <use figures/strain_ts/mag-ts.pdf>
-Package pdftex.def Info: figures/strain_ts/mag-ts.pdf used on input line 334.
+Package pdftex.def Info: figures/strain_ts/mag-ts.pdf used on input line 348.
 (pdftex.def)             Requested size: 505.88875pt x 289.07928pt.
 
-Overfull \hbox (5.40475pt too wide) in paragraph at lines 334--335
+Overfull \hbox (5.40475pt too wide) in paragraph at lines 348--349
 [][] 
  []
 
@@ -418,10 +418,10 @@ Missing character: There is no € in font cmr10!
 Missing character: There is no “ in font cmr10!
 ) [17] (./HinesHetlandGPR.aux) ) 
 Here is how much of TeX's memory you used:
- 3788 strings out of 494910
- 51675 string characters out of 6179836
- 125509 words of memory out of 5000000
- 6996 multiletter control sequences out of 15000+600000
+ 3793 strings out of 494910
+ 51747 string characters out of 6179836
+ 126566 words of memory out of 5000000
+ 7001 multiletter control sequences out of 15000+600000
  16760 words of font info for 62 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  38i,17n,27p,2425b,297s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -443,7 +443,7 @@ ts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
 cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.p
 fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></u
 sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on HinesHetlandGPR.pdf (17 pages, 2364819 bytes).
+Output written on HinesHetlandGPR.pdf (17 pages, 2366532 bytes).
 PDF statistics:
  437 PDF objects out of 1000 (max. 8388607)
  147 compressed objects within 2 object streams

@@ -7,11 +7,13 @@
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
 \usepackage{arydshln}
 \usepackage{bm}
+\usepackage{ulem}
 \usepackage{setspace}
 \title{Revealing Transient Strain in Geodetic Data with Gaussian Process Regression}
 \author{Trever T. Hines and Eric A. Hetland}
 
-\newcommand*{\du}[1]{\underline{\underline{#1}}}
+%\newcommand*{\du}[1]{\underline{\underline{#1}}}
+\newcommand*{\du}[1]{\uuline{#1}}
 
 \begin{document}
 
@@ -26,16 +28,16 @@ Most methods for estimating crustal strain rates from GNSS data assume some para
 
 The aforementioned studies are concerned with estimating secular strain rates. In recent years the Southern California Earthquake Center (SCEC) community has shown interest in developing methods for detecting transient strain. SCEC supported a transient detection exercise \citep{Lohman2013}, where several research groups tested their methods for detecting transient geophysical signals with a synthetic GNSS dataset. Among the methods tested were the Network Strain Filter (NSF) \citep{Ohtani2010} and the Network Inversion Filter (NIF) \citep{Segall1997}. the NSF uses a wavelet parameterization to  describe the spatial component of geophysical signal and the NIF, which is intended for imaging slow fault slip from geodetic data, uses the elastic dislocation Green's functions from \citet{Okada1992}. For the NSF and NIF, the time dependence of the geophysical signal is modeled as integrated Brownian motion. The method described in \citet{Holt2013} was also tested in the SCEC transient detection exercise, which calculates strain rates using a bi-cubic spatial parameterization of displacements between time epochs. \citet{Holt2013} defined a detection threshold based on the strain rate magnitude, and below we demonstrate that this is indeed an effective criterion for identifying geophysical signal. For the same reasons descibed above, the transient deformation and corresponding uncertainties estimated by these methods can be biased by the chosen spatial parameterization. It is then difficult to distinguish signal from noise with these methods, which limits their utility for transient detection.   
 
-Here we propose using Gaussian process regression (GPR) \citep{Rasmussen2006} to infer transient strain from GNSS data. GPR is a Bayesian, non-parametric method for inferring a continuous signal from scattered and potentially noisy data. GPR is ideal for synthesizing GNSS data into a spatially and temporally continuous representation of surface deformation, since GNSS stations are irregularly spaced and observation times may differ between stations. GPR is closely related to kriging \citep{Cressie1992} and least squares collocation \citep{Kato1998}, and it has recently gained popularity in the machine learning community. GPR is Bayesian in that we describe our prior understanding of the geophysical signal with a Gaussian process. A Gaussian process is a normally distributed, continuous, stochastic process that is fully defined in terms of a mean function and a positive-definite covariance function. For example, Brownian motion, $B(t)$, is a well known Gaussian process in $\mathbb{R}^1$ which has zero mean and covariance function $\mathrm{cov}(B(t),B(t')) = \min(t,t')$, where $t,t' \ge 0$. If no prior information is available for the geophysical signal, then maximum likelihood methods can be used to choose a prior Gaussian process which is most consistent with the observations.  We incorporate GNSS observations with the prior to form a posterior estimate of transient strain.  The posterior transient strain is also a Gaussian process, and we can use its distribution to confidently discern geophysical signal from noise. We use GPR to infer transient strain resulting from slow slip events (SSEs) in Cascadia. Our results demonstrate that GPR can be an effective tool for detecting SSEs and revealing the spatio-temporal evolution of crustal strain during SSEs. 
+Here we propose using Gaussian process regression (GPR) \citep{Rasmussen2006} to infer transient strain from GNSS data. GPR is a Bayesian, non-parametric method for inferring a continuous signal from scattered data. Since GNSS stations are irregularly spaced and observation times may differ between stations, GPR is an ideal tool for synthesizing GNSS data into a spatially and temporally continuous representation of surface deformation. GPR is closely related to kriging \citep{Cressie1992} and least squares collocation \citep{Kato1998}, and it has recently gained popularity in the machine learning community. GPR is Bayesian in that we describe our prior understanding of the geophysical signal with a Gaussian process. A Gaussian process is a normally distributed, continuous, stochastic process that is fully defined in terms of a mean function and a positive-definite covariance function. For example, Brownian motion, $B(t)$, is a well known Gaussian process in $\mathbb{R}^1$ which has zero mean and covariance function $\mathrm{cov}(B(t),B(t')) = \min(t,t')$, where $t,t' \ge 0$. If no prior information is available for the geophysical signal, then maximum likelihood methods can be used to choose a prior Gaussian process which is most consistent with the observations.  We incorporate GNSS observations with the prior to form a posterior estimate of transient strain.  The posterior transient strain is also a Gaussian process, and we can use its distribution to confidently discern geophysical signal from noise. Here we use GPR to infer transient strain resulting from slow slip events (SSEs) in Cascadia. Our results demonstrate that GPR can be an effective tool for detecting SSEs and revealing the spatio-temporal evolution of crustal strain during SSEs. 
 
 \section{Estimating Transient Strain Rates}\label{sec:Method}
-We seek a spatially and temporally dependent estimate of transient crustal strain rates, which we consider to be any deviation from the secular strain rates.  We denote transient crustal strain rates as $\dot{\du{\varepsilon}}(p)$, where $p$ represents the ordered pair $(\vec{x},t)$, $\vec{x}$ are spatial coordinates in $\mathbb{R}^2$, and $t$ is time. We determine $\dot{\du{\varepsilon}}(p)$ by spatially and temporally differentiating estimates of transient displacements, $\vec{u}(p)$.  As we discuss in Section \ref{sec:NoiseModel} and also as argued for in XXX, estimates of $\dot{\du{\varepsilon}}$ are more effective at illuminating geophysical signal than estimates of $\vec{u}(p)$. We make a prior assumption that each component of $\vec{u}$ is a Gaussian process,
+We seek a spatially and temporally dependent estimate of transient crustal strain rates, which we consider to be any deviation from the secular strain rates. Our attention is limited to horizontal strain rates in this study. We denote transient crustal strain rates as $\dot{\du{\varepsilon}}(p)$, where $p$ represents the ordered pair $(\vec{x},t)$, $\vec{x}$ are spatial coordinates in $\mathbb{R}^2$, and $t$ is time. We determine $\dot{\du{\varepsilon}}(p)$ by spatially and temporally differentiating estimates of transient displacements, $\vec{u}(p)$.  As we discuss in Section \ref{sec:NoiseModel} and also as argued for in XXX, estimates of $\dot{\du{\varepsilon}}$ are more effective at illuminating geophysical signal than estimates of $\vec{u}(p)$. We make a prior assumption that each component of $\vec{u}$ is a Gaussian process,
 \begin{equation}\label{eq:TransientDeformation}
 u_i(p) \sim \mathcal{N}\left(0,C_{u_i}\right),
 \end{equation}
-where $C_{u_i}(p,p')$ is a covariance function indicating how we expect $u_i(p)$ to covary with $u_i(p')$. For simplicity, we treat each component of displacement independently and ignore any potential covariance. We drop the component subscripts with the understanding that the same analysis is being repeated to estimate the east, north, and vertical components of $\vec{u}$. We assume that $C_u$ can be separated into positive definite spatial and temporal functions as 
+where $C_{u_i}(p,p')$ is a covariance function indicating how we expect $u_i(p)$ to covary with $u_i(p')$. For simplicity, we treat each component of displacement independently and ignore any potential covariance. We drop the component subscripts with the understanding that the same analysis is being repeated to estimate the easting and northing components of $\vec{u}$. We assume that $C_u$ can be separated into positive definite spatial and temporal functions as 
 \begin{equation}\label{eq:TransientCovariance}
-C_{u}\left((\vec{x},t),(\vec{x}',t')\right) = X(\vec{x},\vec{x}')T(t,t'),
+C_{u}\left((\vec{x},t),(\vec{x}',t')\right) = X(\vec{x},\vec{x}')T(t,t').
 \end{equation}  
 The appropriate choice for $X$ and $T$ may vary depending on the geophysical signal we are trying to describe (e.g. postseismic deformation or deformation from slow slip events), and we discuss this matter in Section \ref{sec:SignalModel}.  
 
@@ -59,7 +61,7 @@ which is distributed as $\mathcal{N}(\bm{0},\bm{\Sigma} + \kappa^2\bm{G}\bm{G}^T
 \end{equation}
 It should be understood that notation such as $u(\bm{P})$ and $C_u(\bm{P},\bm{P})$ represents the column vector $[u(P_i)]_{P_i \in \bm{P}}$ and the matrix $[C_u(P_i,P_j)]_{(P_i,P_j) \in \bm{P} \times \bm{P}}$, respectively. 
 
-The prior for each component of transient displacements is then conditioned with $\bm{d}_*$ to form a posterior estimate of transient displacements, $\hat{u} = u | \bm{d}_*$. We will assume that an appropriate covariance function and corresponding hyperparameters for $X$, $T$, and $C_\eta$ have already been chosen. If $\kappa$ is kept finite, then following \citet{Rasmussen2006} we find that $\hat{u}$ is distributed as $\mathcal{N}(\mu_{\hat{u}},C_{\hat{u}})$, where
+The prior for transient displacements is then conditioned with $\bm{d}_*$ to form a posterior estimate of transient displacements, $\hat{u} = u | \bm{d}_*$. We will assume that an appropriate covariance function and corresponding hyperparameters for $X$, $T$, and $C_\eta$ have already been chosen. We discuss how the covariance functions are chosen for our application to Cascadia in Sections \ref{sec:NoiseModel} and \ref{sec:SignalModel}.  If $\kappa$ is kept finite then, following \citet{Rasmussen2006}, we find that $\hat{u}$ is distributed as $\mathcal{N}(\mu_{\hat{u}},C_{\hat{u}})$, where
 \begin{equation}\label{eq:PosteriorMean}
 \mu_{\hat{u}}(p) = C_u(p,\bm{P})\left(\bm{\Sigma} + \kappa^2\bm{G}\bm{G}^T\right)^{-1}\bm{d}_*
 \end{equation}    
@@ -67,7 +69,7 @@ and
 \begin{equation}\label{eq:PosteriorCov}
 C_{\hat{u}}(p,p') = C_u(p,p') - C_u(p,\bm{P})\left(\bm{\Sigma} + \kappa^2\bm{G}\bm{G}^T\right)^{-1}C_u(\bm{P},p').
 \end{equation}
-However, we are interested in the limit as $\kappa \to \infty$, and the form for eq. (\ref{eq:PosteriorMean}) and eq. (\ref{eq:PosteriorCov}) is not suitable for evaluating this limit. We can use the partitioned matrix inversion identity \citep[e.g.,][]{Press2007} to rewrite eq. (\ref{eq:PosteriorMean}) and eq. (\ref{eq:PosteriorCov}) as
+However, we are interested in the limit as $\kappa \to \infty$, and the form for eq. (\ref{eq:PosteriorMean}) and eq. (\ref{eq:PosteriorCov}) is not suitable for evaluating this limit. We use the partitioned matrix inversion identity \citep[e.g.,][]{Press2007} to rewrite eq. (\ref{eq:PosteriorMean}) and eq. (\ref{eq:PosteriorCov}) as
  \begin{equation}\label{eq:PosteriorMean2}
 \mu_{\hat{u}}(p) = \left[\begin{array}{cc}
                          C_u(p,\bm{P}) & \bm{0} \\
@@ -126,7 +128,7 @@ C_{\hat{u}}(p,p') = C_u(p,p') -
                           \end{array}\right].
 \end{equation}
 
-We use eq. (\ref{eq:PosteriorMean3}) and (\ref{eq:PosteriorCov3}) to find the posterior east and north components of transient displacements. The posterior transient displacements are differentiated temporally and spatially to form an estimate of $\dot{\du{\varepsilon}}$. Using $\hat{u}_i$ to denote the posterior transient displacements along direction $i$ and $x_i$ to represent the components of $\vec{x}$, we can write the components of $\dot{\du{\varepsilon}}$ as 
+We use eq. (\ref{eq:PosteriorMean3}) and (\ref{eq:PosteriorCov3}) to find the posterior easting and northing components of transient displacements. The posterior transient displacements are differentiated temporally and spatially to form an estimate of $\dot{\du{\varepsilon}}$. Using $\hat{u}_i$ to denote the posterior transient displacements along direction $i$ and $x_i$ to represent the components of $\vec{x}$, we can write the components of $\dot{\du{\varepsilon}}$ as 
 \begin{equation}\label{eq:StrainRate}
 \dot{\varepsilon}_{ij}(p) = \frac{1}{2} \frac{\partial}{\partial t} \left(
                                         \frac{\partial \hat{u}_i(p)}{\partial x_j} +  
@@ -146,21 +148,23 @@ C_{\dot{\varepsilon}_{ij}}(p,p') = \frac{1}{4} \frac{\partial^2}{\partial t \, \
 \end{equation} 
 
 
-Our motivation for estimating transient strain rates is, in part, to detect geophysical phenomena. In Section \ref{sec:Results}, we show that strain resulting from SSEs is immediately visible from simply inspecting $\dot{\du{\varepsilon}}$. However, if our goal is to automatically detect geophysical events such as SSEs, then we need to define a signal-to-noise ratio, SNR, based on $\dot{\du{\varepsilon}}$. We consider the Frobenius norm of $\dot{\du{\varepsilon}}$, $||\dot{\du{\varepsilon}}||_\mathrm{F}$, which is also referred to as the second invariant of strain rate in the geodetic literature. We use $||\dot{\du{\varepsilon}}||_\mathrm{F}$ as a metric for the strain rate ``magnitude''. Noting that $||\dot{\du{\varepsilon}}||_\mathrm{F}$ is a random variable, we choose SNR to be the ratio of the estimated mean and standard deviation of $||\dot{\du{\varepsilon}}||_\mathrm{F}$. Using nonlinear error-propagation, we find SNR to be  
+Our motivation for estimating transient strain rates is, in part, to detect geophysical phenomena. In Section \ref{sec:Results}, we show that strain resulting from SSEs is immediately visible from simply inspecting $\dot{\du{\varepsilon}}$. However, if our goal is to automatically detect geophysical events such as SSEs, then we need to define a signal-to-noise ratio, SNR, based on $\dot{\du{\varepsilon}}$. We consider the Frobenius norm of $\dot{\du{\varepsilon}}$, $||\dot{\du{\varepsilon}}||_\mathrm{F}$, which is also referred to as the second invariant of strain rate in the geodetic literature. We use $||\dot{\du{\varepsilon}}||_\mathrm{F}$ as a metric for the strain rate ``magnitude''. Noting that $||\dot{\du{\varepsilon}}||_\mathrm{F}$ is a random variable, we choose SNR to be the ratio of the estimated mean and standard deviation of $||\dot{\du{\varepsilon}}||_\mathrm{F}$. Using nonlinear uncertainty propagation, we find SNR to be  
 \begin{equation}\label{eq:SNR}
-\mathrm{SNR}(p) = \sqrt{\frac{C_{\dot{\varepsilon}_\mathrm{nn}}(p,p)\mu_{\dot{\varepsilon}_\mathrm{nn}}(p)^2 + 
-               C_{\dot{\varepsilon}_\mathrm{ee}}(p,p)\mu_{\dot{\varepsilon}_\mathrm{ee}}(p)^2 + 
-               4C_{\dot{\varepsilon}_\mathrm{en}}(p,p)\mu_{\dot{\varepsilon}_\mathrm{en}}(p)^2}{
-               \mu_{\dot{\varepsilon}_\mathrm{nn}}(p)^2 +
-               \mu_{\dot{\varepsilon}_\mathrm{ee}}(p)^2 +
-               2\mu_{\dot{\varepsilon}_\mathrm{en}}(p)^2}},
+\mathrm{SNR}(p) = \frac{\mu_{\dot{\varepsilon}_\mathrm{nn}}(p)^2 +
+                        \mu_{\dot{\varepsilon}_\mathrm{ee}}(p)^2 +
+                        2\mu_{\dot{\varepsilon}_\mathrm{en}}(p)^2}
+                       {\big(C_{\dot{\varepsilon}_\mathrm{nn}}(p,p)\mu_{\dot{\varepsilon}_\mathrm{nn}}(p)^2 + 
+                              C_{\dot{\varepsilon}_\mathrm{ee}}(p,p)\mu_{\dot{\varepsilon}_\mathrm{ee}}(p)^2 + 
+                              4C_{\dot{\varepsilon}_\mathrm{en}}(p,p)\mu_{\dot{\varepsilon}_\mathrm{en}}(p)^2
+                        \big)^{\frac{1}{2}}}
+,
 \end{equation}
-where the subscripts ``n'' and ``e'' denote north and east, respectively.  
+where the subscripts ``n'' and ``e'' denote north and east, respectively. For simplicity, we have ignored covariances between the strain rate components in eq. (\ref{eq:SNR}), even though they are non-zero.  
 
 \section{Outlier detection}\label{sec:Outlier}
-In our formulation for estimating transient strain rates, we have assumed that noise in the data vector is normally distributed. This is not an appropriate assumption for GNSS displacement time series which are prone to more outliers than would be predicted for normally distributed noise. It follows that proposed methods for analyzing GNSS time series should be robust against outliers \citep[e.g.,][]{Blewitt2016}. In order to make our estimates of transient strain more robust, we automatically identify and remove outliers in the GNSS data as a pre-processing step.
+In our formulation for estimating transient strain rates, we have assumed that noise in the data vector is normally distributed. This is not an appropriate assumption for GNSS data which are prone to more outliers than would be predicted for normally distributed noise. It follows that proposed methods for analyzing GNSS data should be robust against outliers \citep[e.g.,][]{Blewitt2016}. In order to make our estimates of transient strain more robust, we automatically identify and remove outliers in the GNSS data as a pre-processing step.
 
-Our method for detecting outliers is based on the data editing algorithm described in \citet{Gibbs2011}. We calculate the residuals between the observations and a best fitting model, and data with residuals that are anomalously large are identified as outliers. We treat $\bm{d}_*$ as a sample of $\bm{d}$ and assume that there is no temporally correlated noise (i.e., $\eta(p) = 0$).  The best fitting model for $\bm{d}_*$ is considered to be the expected value of the random vector $u(\bm{P}) + \bm{G}\bm{a}$ after conditioning it with non-outlier observations.  We still consider $u$ to have a separable covariance function as in eq. (\ref{eq:TransientCovariance}), and the choice for $X$ and $T$ does not need to be the same as that used in Section \ref{sec:Method}. Since outliers are determined based on how well a spatially and temporally dependent model fits the data, we are able to identify anomalous observations which may not be immediately apparent based on inspection of individual time series. 
+Our method for detecting outliers is based on the data editing algorithm described in \citet{Gibbs2011}. We calculate the residuals between the observations and a best fitting model, and data with residuals that are anomalously large are identified as outliers. We treat $\bm{d}_*$ as a sample of $\bm{d}$ and assume that there is no correlated noise (i.e., $\eta(p) = 0$).  The best fitting model for $\bm{d}_*$ is considered to be the expected value of the random vector $u(\bm{P}) + \bm{G}\bm{a}$ after conditioning it with non-outlier observations.  We still consider $u$ to have a separable covariance function as in eq. (\ref{eq:TransientCovariance}), and the choice for $X$ and $T$ does not need to be the same as that used in Section \ref{sec:Method}. Since outliers are determined based on how well a spatially and temporally dependent model fits the data, we are able to identify anomalous observations which may not be immediately apparent based on inspection of individual time series. 
 
 To begin the algorithm, we let $\bm{\Omega}$ be the index set of non-outliers in $\bm{d}_*$ and initiate it with all $n$ indices. This algorithm is iterative, and for each iteration we calculate the residual vector
 \begin{align}\label{eq:Residual}
@@ -180,7 +184,7 @@ To begin the algorithm, we let $\bm{\Omega}$ be the index set of non-outliers in
 \end{align}
 where the tilde indicates that only elements corresponding to indices in $\bm{\Omega}$ are retained (e.g., $\tilde{\bm{P}} = \{P_i\}_{i\in\bm{\Omega}}$). We then update $\bm{\Omega}$ to be
 \begin{equation}\label{eq:Update}
-\bm{\Omega} = \{i : |r_i| < \lambda \cdot \mathrm{RMS}\}, \ \ \ r_i \in \bm{r}
+\bm{\Omega} = \{i : |r_i| < \lambda \cdot \mathrm{RMS}\}, \ \ \ r_i \in \bm{r},
 \end{equation} 
 where RMS is the root-mean-square of $\tilde{\bm{r}}$ and $\lambda$ is an outlier tolerance. We use $\lambda=4$ in this study, which in our experience accurately identifies outliers without unnecessarily decimating the data. Iterations continue until the new $\bm{\Omega}$ is equal to the previous $\bm{\Omega}$. 
 
@@ -271,7 +275,7 @@ We next determine appropriate hyperparameters for $X$ and each of the three cand
 
 \begin{figure*}
 \includegraphics{figures/outliers/outliers.pdf}
-\caption{Detrended easting component of GNSS displacement data for station SC03, which is located on Mount Olympus in Washington. The orange markers indicate outliers which were automatically detected using the algorithm from Section \ref{sec:Outlier}. The error bars show one standard deviation uncertainties. Note that outliers tend be observed in the winter, suggesting that they related to snow and ice accumulation.}   
+\caption{Detrended easting component of GNSS displacement data for station SC03, which is located on Mount Olympus in Washington. The orange markers indicate outliers which were automatically detected using the algorithm from Section \ref{sec:Outlier}. The error bars show one standard deviation uncertainties. Note that outliers tend be observed in the winter, suggesting that they were caused by snow or ice.}   
 \label{fig:Outliers}
 \end{figure*}
 

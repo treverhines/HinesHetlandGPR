@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.8.24)  18 JUN 2017 13:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.8.24)  18 JUN 2017 17:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -424,22 +424,21 @@ Overfull \hbox (5.40475pt too wide) in paragraph at lines 352--353
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no “ in font cmr10!
-
-Underfull \hbox (badness 10000) in paragraph at lines 225--228
+ [16]
+Underfull \hbox (badness 10000) in paragraph at lines 237--240
 []\OT1/cmr/m/n/10 Press, W. H., Flan-nery, B. P., Teukol-sky, S. A., and Vet-te
 r-ling, W. T. (2007).
  []
 
-[16]
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no “ in font cmr10!
 ) [17] (./HinesHetlandGPR.aux) ) 
 Here is how much of TeX's memory you used:
- 3871 strings out of 494910
- 52501 string characters out of 6179836
- 128436 words of memory out of 5000000
- 7075 multiletter control sequences out of 15000+600000
+ 3877 strings out of 494910
+ 52609 string characters out of 6179836
+ 128502 words of memory out of 5000000
+ 7081 multiletter control sequences out of 15000+600000
  16520 words of font info for 62 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  38i,17n,27p,2425b,297s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -461,7 +460,7 @@ ts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
 cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.p
 fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pf
 b>
-Output written on HinesHetlandGPR.pdf (17 pages, 2351399 bytes).
+Output written on HinesHetlandGPR.pdf (17 pages, 2351830 bytes).
 PDF statistics:
  454 PDF objects out of 1000 (max. 8388607)
  144 compressed objects within 2 object streams

@@ -23,6 +23,12 @@ Cressie, N. (1993).
 \newblock {\em {Statistics for Spatial Data}}.
 \newblock John Wiley {\&} Sons, New York, rev. edition.
 
+\bibitem[Dong et~al., 2002]{Dong2002}
+Dong, D., Fang, P., Bock, Y., Cheng, M.~K., and Miyazaki, S. (2002).
+\newblock {Anatomy of apparent seasonal variations from GPS-derived site
+  position time series}.
+\newblock {\em J. Geophys. Res.}, 107(B4):2075.
+
 \bibitem[Dong et~al., 2006]{Dong2006}
 Dong, D., Fang, P., Bock, Y., Webb, F., Prawirodirdjo, L., Kedar, S., and
   Jamason, P. (2006).
@@ -189,6 +195,12 @@ Meade, B.~J. and Hager, B.~H. (2005).
 \newblock {Block models of crustal motion in southern California constrained by
   GPS measurements}.
 \newblock {\em Journal of Geophysical Research: Solid Earth}, 110:1--19.
+
+\bibitem[Miyazaki et~al., 2003]{Miyazaki2003}
+Miyazaki, S., McGuire, J.~J., and Segall, P. (2003).
+\newblock {A transient subduction zone slip episode in southwest Japan observed
+  by the nationwide GPS array}.
+\newblock {\em Journal of Geophysical Research}, 108(B2):1--15.
 
 \bibitem[Murray and Lisowski, 2000]{Murray2000}
 Murray, M.~H. and Lisowski, M. (2000).

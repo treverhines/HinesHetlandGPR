@@ -70,11 +70,6 @@ Field, E.~H., Arrowsmith, R.~J., Biasi, G.~P., Bird, P., Dawson, T.~E., Felzer,
 \newblock {\em Bulletin of the Seismological Society of America},
   104(3):1122--1180.
 
-\bibitem[Frank, 1966]{Frank1966}
-Frank, C.~F. (1966).
-\newblock {Deduction of earth strains from survey data}.
-\newblock {\em Bulletin of the Seismological Society of America}, 56(1):35--42.
-
 \bibitem[Freed and Lin, 2001]{Freed2001}
 Freed, a.~M. and Lin, J. (2001).
 \newblock {Delayed triggering of the 1999 Hector Mine earthquake by
@@ -226,13 +221,6 @@ Papoulis, A. (1991).
 \newblock {\em {Probability, Random Variables, and Stochastic Processes}}.
 \newblock McGraw-Hill, New York, 3 edition.
 
-\bibitem[Prescott, 1976]{Prescott1976}
-Prescott, W.~H. (1976).
-\newblock {An extension of Frank's method for obtaining crustal shear strains
-  from survey data}.
-\newblock {\em Bulletin of the Seismological Society of America},
-  66(6):1847--1853.
-
 \bibitem[Press et~al., 2007]{Press2007}
 Press, W.~H., Flannery, B.~P., Teukolsky, S.~A., and Vetterling, W.~T. (2007).
 \newblock {\em {Numerical Recipes: The Art of Scientific Computing}}.
@@ -259,11 +247,6 @@ Rogers, G. and Dragert, H. (2003).
 Sandwell, D.~T. and Wessel, P. (2016).
 \newblock {Interpolation of 2-D vector data using constraints from elasticity}.
 \newblock {\em Geophysical Research Letters}, pages 1--7.
-
-\bibitem[Savage et~al., 1986]{Savage1986}
-Savage, J.~C., Prescott, W.~H., and Gu, G. (1986).
-\newblock {Strain accumulation in southern California, 1973–1984}.
-\newblock {\em Journal of Geophysical Research}, 91(B7):7455--7473.
 
 \bibitem[Schmidt and Gao, 2010]{Schmidt2010}
 Schmidt, D.~A. and Gao, H. (2010).

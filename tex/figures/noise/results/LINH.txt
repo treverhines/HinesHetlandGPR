@@ -1,0 +1,60 @@
+
+------------------ PYGEONS DATA INFORMATION ------------------
+
+file : stations/LINH.h5
+units : m
+stations : 1
+times : 3057
+observations : 8828
+time range : 2009-01-01, 2017-05-15
+longitude range : -120.538501437, -120.538501437
+latitude range : 47.0003356295, 47.0003356295
+station names : LINH
+
+--------------------------------------------------------------
+
+---------------- PYGEONS REML RUN INFORMATION ----------------
+
+input file : stations/LINH.h5
+network :
+    model : 
+    parameter units : 
+    fixed parameters : 
+    initial east parameters : 
+    initial north parameters : 
+    initial vertical parameters : 
+station :
+    model : p0, p1, per, fogm
+    parameter units : mm/yr^0.5, yr^-1
+    fixed parameters : 
+    initial east parameters : 1.0000e+00, 1.0000e+00
+    initial north parameters : 1.0000e+00, 1.0000e+00
+    initial vertical parameters : 1.0000e+00, 1.0000e+00
+output file : results/LINH.txt
+
+--------------------------------------------------------------
+
+-------------------- PYGEONS REML RESULTS --------------------
+
+input file : stations/LINH.h5
+network :
+    model : 
+    parameter units : 
+    fixed parameters : 
+    optimal east parameters : 
+    optimal north parameters : 
+    optimal vertical parameters : 
+station :
+    model : p0 p1 per fogm
+    parameter units : mm/yr^0.5, yr^-1
+    fixed parameters : 
+    optimal east parameters : 1.1947e+00, 1.1772e+00
+    optimal north parameters : 7.7472e-01, 8.6380e-01
+    optimal vertical parameters : 1.5612e+01, 7.9075e+00
+log likelihood :
+    east : 16033.7281934
+    north : 15191.6676032
+    vertical : 11430.7955957
+output file : results/LINH.txt
+
+--------------------------------------------------------------

@@ -1,0 +1,60 @@
+
+------------------ PYGEONS DATA INFORMATION ------------------
+
+file : stations/P433.h5
+units : m
+stations : 1
+times : 3057
+observations : 7804
+time range : 2009-01-01, 2017-05-15
+longitude range : -119.872011598, -119.872011598
+latitude range : 44.5325224862, 44.5325224862
+station names : P433
+
+--------------------------------------------------------------
+
+---------------- PYGEONS REML RUN INFORMATION ----------------
+
+input file : stations/P433.h5
+network :
+    model : 
+    parameter units : 
+    fixed parameters : 
+    initial east parameters : 
+    initial north parameters : 
+    initial vertical parameters : 
+station :
+    model : p0, p1, per, fogm
+    parameter units : mm/yr^0.5, yr^-1
+    fixed parameters : 
+    initial east parameters : 1.0000e+00, 1.0000e+00
+    initial north parameters : 1.0000e+00, 1.0000e+00
+    initial vertical parameters : 1.0000e+00, 1.0000e+00
+output file : results/P433.txt
+
+--------------------------------------------------------------
+
+-------------------- PYGEONS REML RESULTS --------------------
+
+input file : stations/P433.h5
+network :
+    model : 
+    parameter units : 
+    fixed parameters : 
+    optimal east parameters : 
+    optimal north parameters : 
+    optimal vertical parameters : 
+station :
+    model : p0 p1 per fogm
+    parameter units : mm/yr^0.5, yr^-1
+    fixed parameters : 
+    optimal east parameters : 3.9266e-01, 9.2698e-06
+    optimal north parameters : 3.5451e-01, 2.0251e-07
+    optimal vertical parameters : 5.6679e+00, 1.2787e-01
+log likelihood :
+    east : 14250.9528479
+    north : 13337.7270534
+    vertical : 10179.0287577
+output file : results/P433.txt
+
+--------------------------------------------------------------

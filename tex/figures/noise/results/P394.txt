@@ -1,0 +1,60 @@
+
+------------------ PYGEONS DATA INFORMATION ------------------
+
+file : stations/P394.h5
+units : m
+stations : 1
+times : 3057
+observations : 9115
+time range : 2009-01-01, 2017-05-15
+longitude range : -117.799637773, -117.799637773
+latitude range : 44.834881303, 44.834881303
+station names : P394
+
+--------------------------------------------------------------
+
+---------------- PYGEONS REML RUN INFORMATION ----------------
+
+input file : stations/P394.h5
+network :
+    model : 
+    parameter units : 
+    fixed parameters : 
+    initial east parameters : 
+    initial north parameters : 
+    initial vertical parameters : 
+station :
+    model : p0, p1, per, fogm
+    parameter units : mm/yr^0.5, yr^-1
+    fixed parameters : 
+    initial east parameters : 1.0000e+00, 1.0000e+00
+    initial north parameters : 1.0000e+00, 1.0000e+00
+    initial vertical parameters : 1.0000e+00, 1.0000e+00
+output file : results/P394.txt
+
+--------------------------------------------------------------
+
+-------------------- PYGEONS REML RESULTS --------------------
+
+input file : stations/P394.h5
+network :
+    model : 
+    parameter units : 
+    fixed parameters : 
+    optimal east parameters : 
+    optimal north parameters : 
+    optimal vertical parameters : 
+station :
+    model : p0 p1 per fogm
+    parameter units : mm/yr^0.5, yr^-1
+    fixed parameters : 
+    optimal east parameters : 4.3249e-01, 1.1739e-05
+    optimal north parameters : 5.3718e-01, 2.9700e+00
+    optimal vertical parameters : 2.4354e+01, 2.9733e+01
+log likelihood :
+    east : 17096.0984055
+    north : 16586.6626601
+    vertical : 12155.1803549
+output file : results/P394.txt
+
+--------------------------------------------------------------

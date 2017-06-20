@@ -1,47 +1,50 @@
 This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: hines_hetland_2017_gji.aux
-I found no \bibdata command---while reading file hines_hetland_2017_gji.aux
-I found no \bibstyle command---while reading file hines_hetland_2017_gji.aux
-You've used 6 entries,
-            0 wiz_defined-function locations,
-            89 strings with 530 characters,
-and the built_in function-call counts, 0 in all, are:
-= -- 0
-> -- 0
-< -- 0
-+ -- 0
-- -- 0
-* -- 0
-:= -- 0
-add.period$ -- 0
-call.type$ -- 0
-change.case$ -- 0
-chr.to.int$ -- 0
-cite$ -- 0
-duplicate$ -- 0
-empty$ -- 0
-format.name$ -- 0
-if$ -- 0
-int.to.chr$ -- 0
-int.to.str$ -- 0
-missing$ -- 0
-newline$ -- 0
-num.names$ -- 0
-pop$ -- 0
-preamble$ -- 0
-purify$ -- 0
+The style file: gji.bst
+Database file #1: mybib.bib
+Warning--empty institution in Lisowski2008
+Warning--empty journal in Wdowinski1997
+Warning--empty publisher in Wendland2005
+You've used 54 entries,
+            2773 wiz_defined-function locations,
+            1347 strings with 17993 characters,
+and the built_in function-call counts, 25866 in all, are:
+= -- 2194
+> -- 1734
+< -- 36
++ -- 585
+- -- 531
+* -- 2869
+:= -- 4152
+add.period$ -- 108
+call.type$ -- 54
+change.case$ -- 338
+chr.to.int$ -- 63
+cite$ -- 165
+duplicate$ -- 942
+empty$ -- 1678
+format.name$ -- 621
+if$ -- 4941
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 58
+newline$ -- 220
+num.names$ -- 216
+pop$ -- 410
+preamble$ -- 1
+purify$ -- 285
 quote$ -- 0
-skip$ -- 0
+skip$ -- 772
 stack$ -- 0
-substring$ -- 0
-swap$ -- 0
-text.length$ -- 0
+substring$ -- 1251
+swap$ -- 267
+text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 0
-warning$ -- 0
-while$ -- 0
+type$ -- 471
+warning$ -- 3
+while$ -- 253
 width$ -- 0
-write$ -- 0
-(There were 2 error messages)
+write$ -- 643
+(There were 3 warnings)

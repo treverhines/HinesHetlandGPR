@@ -266,7 +266,7 @@ where
 
 Another significant source of noise in GNSS data is common mode error \citep[e.g.,][]{Wdowinski1997,Dong2006}, which is noise that is highly spatially correlated. When not accounted for, common mode error manifests as spatially uniform undulations in estimated transient displacements. However, estimated transient strain rates are insensitive to common mode error. We therefore do not include common mode error in our noise model. We then make the simplifying assumption that $\eta(p) = 0$ for the easting and northing component of GNSS data.  
 
-\subsection{Transient displacement model}\label{sec:SignalModel}
+\subsection{Prior model}\label{sec:SignalModel}
 We next establish our prior model for transient displacements. Specifically, we discuss our choice for the covariance functions $X(\vec{x},\vec{x}')$ and $T(t,t')$. For $X$, we use the squared exponential (SE) covariance function,
 \begin{equation}\label{eq:SE}
 X(\vec{x},\vec{x}') = \exp\left(\frac{-||\vec{x} - \vec{x}'||_2^2}{2 \ell^2}\right).

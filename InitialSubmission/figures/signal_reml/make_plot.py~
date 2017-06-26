@@ -96,7 +96,7 @@ vertical_p2 = params2['vertical']
 east_like = np.array(like['east']) - np.array(sese_like['east'])
 north_like = np.array(like['north']) - np.array(sese_like['north'])
 
-plt.hist(east_like,=50)
+plt.hist(east_like,50)
 #plt.hist(north_like)
 plt.show()
 

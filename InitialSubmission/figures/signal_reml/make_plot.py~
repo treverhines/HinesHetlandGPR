@@ -55,13 +55,13 @@ msg += 'SE-SE & north  & %.5g $\pm$ %.5g km  & %.5g $\pm$ %.5g mm  & %.5g $\pm$ 
                                                                                        np.median(north_p0),iqr(north_p0),
                                                                                        np.median(north_p1),iqr(north_p1))
 #####################################################################
-files = os.listdir('se-wen-results')
+files = os.listdir('se-wen11-results')
 like = {'east':[],'north':[],'vertical':[]}
 params0 = {'east':[],'north':[],'vertical':[]}
 params1 = {'east':[],'north':[],'vertical':[]}
 params2 = {'east':[],'north':[],'vertical':[]}
 for f in files:
-  buff = open('se-wen-results/%s' % f,'r')
+  buff = open('se-wen11-results/%s' % f,'r')
   content = buff.read()
   buff.close()
   content = content[content.find('REML RESULTS'):]

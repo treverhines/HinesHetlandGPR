@@ -1,0 +1,60 @@
+
+------------------ PYGEONS DATA INFORMATION ------------------
+
+file : stations/DRAO.h5
+units : m
+stations : 1
+times : 3057
+observations : 8992
+time range : 2009-01-01, 2017-05-15
+longitude range : -119.624982644, -119.624982644
+latitude range : 49.3226188802, 49.3226188802
+station names : DRAO
+
+--------------------------------------------------------------
+
+---------------- PYGEONS REML RUN INFORMATION ----------------
+
+input file : stations/DRAO.h5
+network :
+    model : 
+    parameter units : 
+    fixed parameters : 
+    initial east parameters : 
+    initial north parameters : 
+    initial vertical parameters : 
+station :
+    model : p0, p1, per, fogm
+    parameter units : mm/yr^0.5, yr^-1
+    fixed parameters : 
+    initial east parameters : 1.0000e+00, 1.0000e+00
+    initial north parameters : 1.0000e+00, 1.0000e+00
+    initial vertical parameters : 1.0000e+00, 1.0000e+00
+output file : results/DRAO.txt
+
+--------------------------------------------------------------
+
+-------------------- PYGEONS REML RESULTS --------------------
+
+input file : stations/DRAO.h5
+network :
+    model : 
+    parameter units : 
+    fixed parameters : 
+    optimal east parameters : 
+    optimal north parameters : 
+    optimal vertical parameters : 
+station :
+    model : p0 p1 per fogm
+    parameter units : mm/yr^0.5, yr^-1
+    fixed parameters : 
+    optimal east parameters : 7.6566e-01, 1.3548e-05
+    optimal north parameters : 9.2961e-01, 3.2319e+00
+    optimal vertical parameters : 3.5821e+01, 3.9207e+01
+log likelihood :
+    east : 16711.128348
+    north : 16083.0598919
+    vertical : 11978.6381057
+output file : results/DRAO.txt
+
+--------------------------------------------------------------

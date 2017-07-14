@@ -1,0 +1,60 @@
+
+------------------ PYGEONS DATA INFORMATION ------------------
+
+file : stations/SC00.h5
+units : m
+stations : 1
+times : 3057
+observations : 8524
+time range : 2009-01-01, 2017-05-15
+longitude range : -120.724609648, -120.724609648
+latitude range : 46.9509248272, 46.9509248272
+station names : SC00
+
+--------------------------------------------------------------
+
+---------------- PYGEONS REML RUN INFORMATION ----------------
+
+input file : stations/SC00.h5
+network :
+    model : 
+    parameter units : 
+    fixed parameters : 
+    initial east parameters : 
+    initial north parameters : 
+    initial vertical parameters : 
+station :
+    model : p0, p1, per, fogm
+    parameter units : mm/yr^0.5, yr^-1
+    fixed parameters : 
+    initial east parameters : 1.0000e+00, 1.0000e+00
+    initial north parameters : 1.0000e+00, 1.0000e+00
+    initial vertical parameters : 1.0000e+00, 1.0000e+00
+output file : results/SC00.txt
+
+--------------------------------------------------------------
+
+-------------------- PYGEONS REML RESULTS --------------------
+
+input file : stations/SC00.h5
+network :
+    model : 
+    parameter units : 
+    fixed parameters : 
+    optimal east parameters : 
+    optimal north parameters : 
+    optimal vertical parameters : 
+station :
+    model : p0 p1 per fogm
+    parameter units : mm/yr^0.5, yr^-1
+    fixed parameters : 
+    optimal east parameters : 1.4570e+00, 1.8345e-05
+    optimal north parameters : 7.4394e-01, 1.9388e+00
+    optimal vertical parameters : 6.6462e+00, 2.1673e+00
+log likelihood :
+    east : 15275.2146626
+    north : 14971.1294598
+    vertical : 11177.8338512
+output file : results/SC00.txt
+
+--------------------------------------------------------------

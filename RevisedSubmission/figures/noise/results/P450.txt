@@ -1,0 +1,60 @@
+
+------------------ PYGEONS DATA INFORMATION ------------------
+
+file : stations/P450.h5
+units : m
+stations : 1
+times : 3057
+observations : 8584
+time range : 2009-01-01, 2017-05-15
+longitude range : -119.544194229, -119.544194229
+latitude range : 45.9533352523, 45.9533352523
+station names : P450
+
+--------------------------------------------------------------
+
+---------------- PYGEONS REML RUN INFORMATION ----------------
+
+input file : stations/P450.h5
+network :
+    model : 
+    parameter units : 
+    fixed parameters : 
+    initial east parameters : 
+    initial north parameters : 
+    initial vertical parameters : 
+station :
+    model : p0, p1, per, fogm
+    parameter units : mm/yr^0.5, yr^-1
+    fixed parameters : 
+    initial east parameters : 1.0000e+00, 1.0000e+00
+    initial north parameters : 1.0000e+00, 1.0000e+00
+    initial vertical parameters : 1.0000e+00, 1.0000e+00
+output file : results/P450.txt
+
+--------------------------------------------------------------
+
+-------------------- PYGEONS REML RESULTS --------------------
+
+input file : stations/P450.h5
+network :
+    model : 
+    parameter units : 
+    fixed parameters : 
+    optimal east parameters : 
+    optimal north parameters : 
+    optimal vertical parameters : 
+station :
+    model : p0 p1 per fogm
+    parameter units : mm/yr^0.5, yr^-1
+    fixed parameters : 
+    optimal east parameters : 4.8721e-01, 1.8274e+00
+    optimal north parameters : 5.1112e-01, 5.5651e-01
+    optimal vertical parameters : 1.4818e+01, 1.1322e+01
+log likelihood :
+    east : 16154.482303
+    north : 15534.4669207
+    vertical : 11511.8561421
+output file : results/P450.txt
+
+--------------------------------------------------------------

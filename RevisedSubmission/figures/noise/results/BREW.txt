@@ -1,0 +1,60 @@
+
+------------------ PYGEONS DATA INFORMATION ------------------
+
+file : stations/BREW.h5
+units : m
+stations : 1
+times : 3057
+observations : 9089
+time range : 2009-01-01, 2017-05-15
+longitude range : -119.682633996, -119.682633996
+latitude range : 48.1315239613, 48.1315239613
+station names : BREW
+
+--------------------------------------------------------------
+
+---------------- PYGEONS REML RUN INFORMATION ----------------
+
+input file : stations/BREW.h5
+network :
+    model : 
+    parameter units : 
+    fixed parameters : 
+    initial east parameters : 
+    initial north parameters : 
+    initial vertical parameters : 
+station :
+    model : p0, p1, per, fogm
+    parameter units : mm/yr^0.5, yr^-1
+    fixed parameters : 
+    initial east parameters : 1.0000e+00, 1.0000e+00
+    initial north parameters : 1.0000e+00, 1.0000e+00
+    initial vertical parameters : 1.0000e+00, 1.0000e+00
+output file : results/BREW.txt
+
+--------------------------------------------------------------
+
+-------------------- PYGEONS REML RESULTS --------------------
+
+input file : stations/BREW.h5
+network :
+    model : 
+    parameter units : 
+    fixed parameters : 
+    optimal east parameters : 
+    optimal north parameters : 
+    optimal vertical parameters : 
+station :
+    model : p0 p1 per fogm
+    parameter units : mm/yr^0.5, yr^-1
+    fixed parameters : 
+    optimal east parameters : 5.1366e-01, 1.3354e+00
+    optimal north parameters : 3.9948e-01, 3.5128e-06
+    optimal vertical parameters : 2.0307e+01, 1.4991e+01
+log likelihood :
+    east : 17051.8966692
+    north : 16354.2216995
+    vertical : 11995.2816852
+output file : results/BREW.txt
+
+--------------------------------------------------------------

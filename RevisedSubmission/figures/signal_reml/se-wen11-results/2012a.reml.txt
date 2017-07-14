@@ -1,0 +1,73 @@
+
+------------------ PYGEONS DATA INFORMATION ------------------
+
+file : sse/2012a/data.h5
+units : m
+stations : 94
+times : 123
+observations : 30892
+time range : 2012-08-01, 2012-12-01
+longitude range : -125.541641065, -120.005200237
+latitude range : 45.5379932138, 49.2948104293
+station names : ALBH, BAMF, BLYN, CHWK, CPXX, CSHQ, CSHR
+                GOBS, KELS, KTBW, LINH, LKCP, NANO, NEAH
+                P064, P065, P397, P398, P399, P400, P401
+                P402, P403, P405, P407, P408, P409, P410
+                P411, P413, P414, P415, P416, P417, P418
+                P419, P420, P421, P423, P424, P425, P426
+                P429, P430, P431, P432, P434, P435, P436
+                P437, P438, P439, P440, P441, P442, P443
+                P444, P445, P446, P448, P687, P688, P689
+                P690, P691, P692, P693, P694, P695, P696
+                P697, P698, P699, P700, P701, P702, P703
+                P704, P705, P792, P815, P816, PABH, PCOL
+                PUPU, SC00, SC02, SC03, SC04, SEAT, SEDR
+                TPW2, TWHL, UCLU
+
+--------------------------------------------------------------
+
+---------------- PYGEONS REML RUN INFORMATION ----------------
+
+input file : sse/2012a/data.h5
+network :
+    model : wen11-se
+    parameter units : mm, yr, km
+    fixed parameters : 
+    initial east parameters : 1.0000e+00, 1.0000e-01, 1.0000e+02
+    initial north parameters : 1.0000e+00, 1.0000e-01, 1.0000e+02
+    initial vertical parameters : 1.0000e+00, 1.0000e-01, 1.0000e+02
+station :
+    model : linear
+    parameter units : 
+    fixed parameters : 
+    initial east parameters : 
+    initial north parameters : 
+    initial vertical parameters : 
+output file : sse/2012a/data.reml.txt
+
+--------------------------------------------------------------
+
+-------------------- PYGEONS REML RESULTS --------------------
+
+input file : sse/2012a/data.h5
+network :
+    model : wen11-se
+    parameter units : mm, yr, km
+    fixed parameters : 
+    optimal east parameters : 2.0806e+00, 8.4372e-02, 1.7792e+02
+    optimal north parameters : 4.1648e-01, 1.1236e-01, 8.6614e+01
+    optimal vertical parameters : 2.5179e+00, 1.0302e-02, inf
+station :
+    model : linear
+    parameter units : 
+    fixed parameters : 
+    optimal east parameters : 
+    optimal north parameters : 
+    optimal vertical parameters : 
+log likelihood :
+    east : 55037.6304747
+    north : 52735.050708
+    vertical : 41378.6366445
+output file : sse/2012a/data.reml.txt
+
+--------------------------------------------------------------

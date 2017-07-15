@@ -1,4 +1,4 @@
-\begin{thebibliography}{55}
+\begin{thebibliography}{58}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 
 \bibitem[Beavan \& Haines(2001)]{Beavan2001}
@@ -89,6 +89,13 @@ Gladwin, M.~T., Gwyther, R.~L., Hart, R., Francis, M., \& Johnston, M. J.~S.,
 \newblock {Borehole tensor strain measurements in California}, {\it Journal of
   Geophysical Research: Solid Earth\/}, {\bf 92}(B8), 7981--7988.
 
+\bibitem[Hart et~al.(1996)Hart, Gladwin, Gwyther, Agnew, \& Wyatt]{Hart1996}
+Hart, R. H.~G., Gladwin, M.~T., Gwyther, R.~L., Agnew, D.~C., \& Wyatt, F.~K.,
+  1996.
+\newblock {Tidal calibration of borehole strain meters: Removing the effects of
+  small-scale inhomogeneity}, {\it Journal of Geophysical Research\/}, {\bf
+  101}(96).
+
 \bibitem[Harville(1974)]{Harville1974}
 Harville, D.~A., 1974.
 \newblock {Bayesian Inference for Variance Components Using Only Error
@@ -112,6 +119,11 @@ Hines, T.~T. \& Hetland, E.~A., 2016.
 Hines, T.~T. \& Hetland, E.~A., 2017.
 \newblock {Unbiased characterization of noise in geodetic data}, {\it submitted
   to Journal of Geodesy\/}.
+
+\bibitem[Hodgkinson et~al.(2013)Hodgkinson, Agnew, \& Roeloffs]{Hodgkinson2013}
+Hodgkinson, K., Agnew, D., \& Roeloffs, E., 2013.
+\newblock {Working With Strainmeter Data}, {\it Eos, Transactions American
+  Geophysical Union\/}, {\bf 94}(9), 91--91.
 
 \bibitem[Holt \& Shcherbenko(2013)]{Holt2013}
 Holt, W.~E. \& Shcherbenko, G., 2013.
@@ -233,6 +245,12 @@ Press, W.~H., Flannery, B.~P., Teukolsky, S.~A., \& Vetterling, W.~T., 2007.
 \bibitem[Rasmussen \& Williams(2006)]{Rasmussen2006}
 Rasmussen, C.~E. \& Williams, C. K.~I., 2006.
 \newblock {\it {Gaussian processes for machine learning}\/}, The MIT Press.
+
+\bibitem[Roeloffs(2010)]{Roeloffs2010}
+Roeloffs, E., 2010.
+\newblock {Tidal calibration of Plate Boundary Observatory borehole
+  strainmeters: Roles of vertical and shear coupling}, {\it Journal of
+  Geophysical Research: Solid Earth\/}, {\bf 115}(6), 1--25.
 
 \bibitem[Roeloffs(2006)]{Roeloffs2006}
 Roeloffs, E.~A., 2006.

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.8.24)  15 JUL 2017 17:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.8.24)  17 JUL 2017 15:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -375,48 +375,47 @@ File: figures/strain_map/strain-map.pdf Graphic file (type pdf)
 
 <use figures/strain_map/strain-map.pdf>
 Package pdftex.def Info: figures/strain_map/strain-map.pdf used on input line 3
-60.
+62.
 (pdftex.def)             Requested size: 433.61894pt x 433.61894pt.
 
-<figures/strain_ts/strain-ts.pdf, id=282, 505.89pt x 361.35pt>
+Underfull \vbox (badness 1242) has occurred while \output is active []
+
+ [17 <./figures/strain_map/strain-map.pdf>]
+<figures/strain_ts/strain-ts.pdf, id=320, 505.89pt x 361.35pt>
 File: figures/strain_ts/strain-ts.pdf Graphic file (type pdf)
 
 <use figures/strain_ts/strain-ts.pdf>
-Package pdftex.def Info: figures/strain_ts/strain-ts.pdf used on input line 368
+Package pdftex.def Info: figures/strain_ts/strain-ts.pdf used on input line 370
 .
 (pdftex.def)             Requested size: 505.88875pt x 361.34912pt.
 
-Overfull \hbox (62.02576pt too wide) in paragraph at lines 368--369
+Overfull \hbox (62.02576pt too wide) in paragraph at lines 370--371
  [][] 
  []
 
-<figures/strain_ts/mag-ts.pdf, id=283, 505.89pt x 289.08pt>
+<figures/strain_ts/mag-ts.pdf, id=321, 505.89pt x 289.08pt>
 File: figures/strain_ts/mag-ts.pdf Graphic file (type pdf)
 
 <use figures/strain_ts/mag-ts.pdf>
-Package pdftex.def Info: figures/strain_ts/mag-ts.pdf used on input line 374.
+Package pdftex.def Info: figures/strain_ts/mag-ts.pdf used on input line 376.
 (pdftex.def)             Requested size: 505.88875pt x 289.07928pt.
 
-Overfull \hbox (62.02576pt too wide) in paragraph at lines 374--375
+Overfull \hbox (62.02576pt too wide) in paragraph at lines 376--377
  [][] 
  []
 
-[17]
-Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [18 <./figures/strain_map/strain-map.pdf>] [19 <./figures/strain_ts/strain-ts.
-pdf>]
-[20 <./figures/strain_ts/mag-ts.pdf>]
-Overfull \hbox (77.70125pt too wide) in paragraph at lines 396--397
+Underfull \vbox (badness 6380) has occurred while \output is active []
+
+ [18 <./figures/strain_ts/strain-ts.pdf>] [19 <./figures/strain_ts/mag-ts.pdf>]
+ [20]
+Overfull \hbox (77.70125pt too wide) in paragraph at lines 400--401
 \OT1/ptm/m/n/10.95 (Py-GeoNS). Py-GeoNS is dis-tributed un-der the MIT Li-cense
  and can be found at www.github.com/treverhines/PyGeoNS. 
  []
 
-(./hines_hetland_2017_gji.bbl
-Underfull \vbox (badness 1946) has occurred while \output is active []
-
- [21]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+[21] (./hines_hetland_2017_gji.bbl
+Underfull \vbox (badness 1960) has occurred while \output is active []
 
  [22]
 Missing character: There is no â in font ptmr7t!
@@ -437,7 +436,7 @@ Here is how much of TeX's memory you used:
  6523 multiletter control sequences out of 15000+600000
  38073 words of font info for 93 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 38i,20n,24p,2402b,381s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,20n,24p,2402b,373s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/d
 vips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
 cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10
@@ -457,7 +456,7 @@ share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/s
 hare/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/te
 xmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/
 type1/urw/times/utmri8a.pfb>
-Output written on hines_hetland_2017_gji.pdf (25 pages, 2363010 bytes).
+Output written on hines_hetland_2017_gji.pdf (25 pages, 2363224 bytes).
 PDF statistics:
  485 PDF objects out of 1000 (max. 8388607)
  166 compressed objects within 2 object streams

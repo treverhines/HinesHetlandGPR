@@ -76,15 +76,28 @@ lon = data['longitude'][...]
 lat = data['latitude'][...]
 x,y = bm(lon,lat)
 ax.plot(x,y,'ko',ms=4,zorder=3)
-# Show locations for SC03 and P436
+# Show locations for SC03, SC02, P436, and ALBH
 idx = np.nonzero(data['id'][...] == 'SC03')[0][0]
 stax,stay = x[idx],y[idx]
 ax.plot(stax,stay,'ro',ms=10,zorder=4)
 ax.text(stax-17000.0,stay-23000.0,'SC03',color='r',fontsize=10)
+
+idx = np.nonzero(data['id'][...] == 'SC02')[0][0]
+stax,stay = x[idx],y[idx]
+ax.plot(stax,stay,'ro',ms=10,zorder=4)
+ax.text(stax-17000.0,stay-23000.0,'SC02',color='r',fontsize=10)
+
 idx = np.nonzero(data['id'][...] == 'P436')[0][0]
 stax,stay = x[idx],y[idx]
 ax.plot(stax,stay,'ro',ms=10,zorder=4)
 ax.text(stax-17000.0,stay-23000.0,'P436',color='r',fontsize=10)
+
+idx = np.nonzero(data['id'][...] == 'ALBH')[0][0]
+stax,stay = x[idx],y[idx]
+ax.plot(stax,stay,'ro',ms=10,zorder=4)
+ax.text(stax-17000.0,stay-23000.0,'ALBH',color='r',fontsize=10)
+
+
 # plot location of strain time series
 stax,stay = bm(-124.03,47.9)
 radius = 150000.0

@@ -1,6 +1,12 @@
 \begin{thebibliography}{58}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 
+\bibitem[Acheson(1975)]{Acheson1975}
+Acheson, D.~T., 1975.
+\newblock {Data editing - subroutine editq}, Tech. rep., US Department of
+  Commerce, National Oceanic and Atmospheric Administration, Environmental Data
+  Service.
+
 \bibitem[Beavan \& Haines(2001)]{Beavan2001}
 Beavan, J. \& Haines, J., 2001.
 \newblock {Contemporary horizontal velocity and strain rate fields of the
@@ -38,16 +44,16 @@ Dong, D., Fang, P., Bock, Y., Webb, F., Prawirodirdjo, L., Kedar, S., \&
   Karhunen-Loeve expansion approaches for regional GPS network analysis}, {\it
   Journal of Geophysical Research: Solid Earth\/}, {\bf 111}(3), 1--16.
 
-\bibitem[Dragert et~al.(2001)Dragert, Wang, \& James]{Dragert2001}
-Dragert, G., Wang, K., \& James, T.~S., 2001.
-\newblock {A silent slip event on the deeper Cascadia subduction interface.},
-  {\it Science\/}, {\bf 292}, 1525--1528.
-
 \bibitem[Dragert \& Wang(2011)]{Dragert2011}
 Dragert, H. \& Wang, K., 2011.
 \newblock {Temporal evolution of an episodic tremor and slip event along the
   northern Cascadia margin}, {\it Journal of Geophysical Research: Solid
   Earth\/}, {\bf 116}(12), 1--12.
+
+\bibitem[Dragert et~al.(2001)Dragert, Wang, \& James]{Dragert2001}
+Dragert, H., Wang, K., \& James, T.~S., 2001.
+\newblock {A silent slip event on the deeper Cascadia subduction interface.},
+  {\it Science\/}, {\bf 292}, 1525--1528.
 
 \bibitem[El-Fiky \& Kato(1998)]{El-Fiky1999}
 El-Fiky, G.~S. \& Kato, T., 1998.
@@ -76,11 +82,6 @@ Field, E.~H., Arrowsmith, R.~J., Biasi, G.~P., Bird, P., Dawson, T.~E., Felzer,
 Freed, a.~M. \& Lin, J., 2001.
 \newblock {Delayed triggering of the 1999 Hector Mine earthquake by
   viscoelastic stress transfer.}, {\it Nature\/}.
-
-\bibitem[Gibbs(2011)]{Gibbs2011}
-Gibbs, B.~P., 2011.
-\newblock {\it {Advanced Kalman Filtering, Least-Squares and Modeling: A
-  Practical Handbook}\/}, John Wiley {\&} Sons, Hoboken, NJ.
 
 \bibitem[Gladwin et~al.(1987)Gladwin, Gwyther, Hart, Francis, \&
   Johnston]{Gladwin1987}

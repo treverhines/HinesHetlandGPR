@@ -52,9 +52,9 @@
 \newlabel{eq:PosteriorCov3}{{10}{6}}
 \newlabel{eq:StrainRate}{{11}{6}}
 \newlabel{eq:StrainMean}{{12}{6}}
-\newlabel{eq:StrainCov}{{13}{6}}
 \citation{Blewitt2016}
 \citation{Acheson1975}
+\newlabel{eq:StrainCov}{{13}{7}}
 \newlabel{eq:SNR}{{14}{7}}
 \@writefile{toc}{\contentsline {section}{\numberline {3}Outlier detection}{7}}
 \newlabel{sec:Outlier}{{3}{7}}
@@ -62,6 +62,10 @@
 \citation{Rogers2003}
 \citation{Wech2010}
 \citation{Herring2016}
+\newlabel{eq:Residual}{{15}{8}}
+\newlabel{eq:Update}{{17}{8}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Application to Pacific Northwest Slow Slip Events}{8}}
+\newlabel{sec:Cascadia}{{4}{8}}
 \citation{Wech2010}
 \citation{Wech2010}
 \citation{Zhang1997}
@@ -70,10 +74,6 @@
 \citation{Langbein2008}
 \citation{Wyatt1982}
 \citation{Wyatt1989}
-\newlabel{eq:Residual}{{15}{8}}
-\newlabel{eq:Update}{{17}{8}}
-\@writefile{toc}{\contentsline {section}{\numberline {4}Application to Pacific Northwest Slow Slip Events}{8}}
-\newlabel{sec:Cascadia}{{4}{8}}
 \@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Positions of continuous GNSS stations used to estimate transient strain rates. The colored regions indicate the distribution of seismic tremor as determined by \citet  {Wech2010}. The red dots show the positions of GNSS stations mentioned in this paper. The blue dot indicates the location of the transient strain rates shown in Figure 7\hbox {} and the signal-to-noise ratio shown in Figure 8\hbox {}. The blue dashed circle demarcates the spatial extent of the tremors shown in Figure 8\hbox {}.}}{9}}
 \newlabel{fig:Context}{{1}{9}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Noise model}{9}}
@@ -96,18 +96,18 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Prior model}{11}}
 \newlabel{sec:SignalModel}{{4.2}{11}}
 \newlabel{eq:SE}{{22}{11}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Distribution of estimated FOGM hyperparameters (eq. 19\hbox {}). Hyperparameters are estimated with the REML method for 38 stations in the Pacific Northwest that are east of $121^\circ $W. ``IQR'' is the interquartile range.}}{12}}
+\newlabel{fig:NoiseParams}{{2}{12}}
+\newlabel{eq:TimeSE}{{23}{12}}
 \citation{Segall1997}
 \citation{McGuire2003}
 \citation{Ohtani2010}
 \citation{Hines2016a}
 \citation{Wendland2005}
 \citation{Chen2008}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Distribution of estimated FOGM hyperparameters (eq. 19\hbox {}). Hyperparameters are estimated with the REML method for 38 stations in the Pacific Northwest that are east of $121^\circ $W. ``IQR'' is the interquartile range.}}{12}}
-\newlabel{fig:NoiseParams}{{2}{12}}
-\newlabel{eq:TimeSE}{{23}{12}}
-\newlabel{eq:IBM}{{24}{12}}
 \@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Two FOGM noise samples for each component. The FOGM hyperparameters have been set to the median values from Figure 2\hbox {}.}}{13}}
 \newlabel{fig:NoiseSamples}{{3}{13}}
+\newlabel{eq:IBM}{{24}{13}}
 \citation{Lisowski2008}
 \citation{Wech2010}
 \citation{Langbein2004}
@@ -132,8 +132,6 @@
 \newlabel{fig:StrainMap}{{6}{18}}
 \@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Three components of the transient horizontal strain rate tensor estimated at the position shown in Figure 1\hbox {}. The shaded regions indicate one standard deviation uncertainty.}}{19}}
 \newlabel{fig:StrainTs}{{7}{19}}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Discussion}{19}}
-\newlabel{sec:Discussion}{{5}{19}}
 \citation{Dragert2011}
 \citation{Hart1996}
 \citation{Roeloffs2010}
@@ -142,6 +140,8 @@
 \citation{Gladwin1987}
 \@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces (top) Signal-to-noise ratio (eq. 14\hbox {}) at the position shown in Figure 1\hbox {}. (bottom) Frequency of tremors in the region shown in Figure 1\hbox {}.}}{20}}
 \newlabel{fig:StrainMag}{{8}{20}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Discussion}{20}}
+\newlabel{sec:Discussion}{{5}{20}}
 \citation{Miyazaki2003}
 \citation{Mackay1998}
 \citation{Press2007}

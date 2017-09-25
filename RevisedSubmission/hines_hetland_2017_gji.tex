@@ -79,7 +79,7 @@ which is distributed as $\mathcal{N}(\mitbf{0},\mitbf{\Sigma} + \kappa^2\mitbf{G
 \end{equation}
 It should be understood that notation such as $u_i(\mitbf{P})$ and $C_{u_i}(\mitbf{P},\mitbf{P})$ represents the column vector $[u_i(p)]_{p \in \mitbf{P}}$ and the matrix $[C_{u_i}(p,p')]_{(p,p') \in \mitbf{P} \times \mitbf{P}}$, respectively. 
 
-We combine the prior on transient displacements with GNSS displacement data to form a posterior estimate of transient displacements. We ignore any covariances between the easting and northing components, which reduces the computational complexity of our analysis because we can determine each component of the posterior independently. However, we are inherently assuming that the principle components of transient displacements and the noise processes are aligned with the cardinal directions, which is admittedly an arbitrary assumption. We then form each component of the posterior, denoted as $\hat{u}_i$, by conditioning $u_i$ with $\mitbf{d}^*_i$. That is to say $\hat{u}_i = u_i | \mitbf{d}^*_i$. If $\kappa$ is kept finite then, from \citet[sec. 2.2]{Rasmussen2006}, we find that $\hat{u}_i$ is distributed as $\mathcal{N}(\mu_{\hat{u}_i},C_{\hat{u}_i})$, where
+We combine the prior on transient displacements with GNSS displacement data to form a posterior estimate of transient displacements. We ignore any covariances between the easting and northing components, which reduces the computational complexity of our analysis because we can determine each component of the posterior independently. However, we are inherently assuming that the principle components of transient displacements and the noise processes are aligned with the cardinal directions, which is admittedly an arbitrary assumption. We then form each component of the posterior, denoted as $\hat{u}_i$, by updating $u_i$ with the fact that $\mitbf{d}^*_i$ has been drawn from the random vector $\mitbf{d}_i$. That is to say $\hat{u}_i = u_i |\mitbf{d}^*_i$. If $\kappa$ is kept finite then, from \citet[sec. 2.2]{Rasmussen2006}, we find that $\hat{u}_i$ is distributed as $\mathcal{N}(\mu_{\hat{u}_i},C_{\hat{u}_i})$, where
 \begin{equation}\label{eq:PosteriorMean}
 \mu_{\hat{u}_i}(p) = C_{u_i}(p,\mitbf{P})\left(\mitbf{\Sigma} + \kappa^2\mitbf{G}\mitbf{G}^T\right)^{-1}\mitbf{d}^*_i
 \end{equation}    
@@ -145,7 +145,7 @@ C_{\hat{u}_i}(p,p') = C_{u_i}(p,p') -
                           \mitbf{0} \\
                           \end{array}\right].
 \end{equation}
-To ensure that the inverse matrices in eqs. (\ref{eq:PosteriorMean3}) and (\ref{eq:PosteriorCov3}) exist, each column in $\mitbf{G}$ must be linearly independent and there must be at least as many observations as basis functions ($n \geq 6m$).  
+To ensure that the inverse matrices in eqs. (\ref{eq:PosteriorMean3}) and (\ref{eq:PosteriorCov3}) exist, each column in $\mitbf{G}$ must be linearly independent. This condition tends to be violated when there are too few observations at a station. In that case, a singular value decomposition can be used to remove linearly dependent components from $\mitbf{G}$.   
  
 Now that we have a posterior estimate of transient displacements, we can write the components of $\dot\varepsilon$ as 
 \begin{equation}\label{eq:StrainRate}
@@ -153,7 +153,7 @@ Now that we have a posterior estimate of transient displacements, we can write t
                                         \frac{\partial \hat{u}_i(p)}{\partial x_j} +  
                                         \frac{\partial \hat{u}_j(p)}{\partial x_i}\right).
 \end{equation}
-The components of $\dot\varepsilon$ are stochastic processes that are obtained from differentiating, adding, and scaling the Gaussian processes $\hat{u}_\mathrm{e}$ and $\hat{u}_\mathrm{n}$. To give a more intuitive interpretation of $\dot\varepsilon_{ij}$, we can consider realizations of $\dot{\varepsilon}_{ij}$ to be realizations of $\hat{u}_i$ and $\hat{u}_j$ that have undergone the operations from eq. (\ref{eq:StrainRate}). Since the operations from eq. (\ref{eq:StrainRate}) are linear, we know that $\dot\varepsilon_{ij}$ is also a Gaussian process. From \citet[sec. 10.2]{Papoulis1991}, we find that $\dot{\varepsilon}_{ij}$ has a mean function
+The components of $\dot\varepsilon$ are stochastic processes, and we can consider realizations of $\dot{\varepsilon}_{ij}$ to be realizations of $\hat{u}_i$ and $\hat{u}_j$ that have undergone the operations from eq. (\ref{eq:StrainRate}). Since the operations from eq. (\ref{eq:StrainRate}) are linear, we know that $\dot\varepsilon_{ij}$ is also a Gaussian process. From \citet[sec. 10.2]{Papoulis1991}, we find that $\dot{\varepsilon}_{ij}$ has a mean function
 \begin{equation}\label{eq:StrainMean}
 \mu_{\dot\varepsilon_{ij}}(p) = \frac{1}{2}\frac{\partial}{\partial t}\left(
                                   \frac{\partial \mu_{\hat{u}_i}(p)}{\partial x_j} + 

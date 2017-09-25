@@ -58,7 +58,7 @@ We seek a spatially and temporally dependent estimate of transient strain rates.
 \begin{equation}\label{eq:TransientCovariance}
 C_{u_i}\left((\vec{x},t),(\vec{x}',t')\right) = X_i(\vec{x},\vec{x}')T_i(t,t').
 \end{equation}  
-As long as the functions $X_i$ and $T_i$ are positive definite, $C_{u_i}$ is guaranteed to also be positive definite and thus a valid covariance function \citep[sec. 4.2.4]{Rasmussen2006}. The appropriate choice for $X_i$ and $T_i$ may vary depending on the geophysical signal we are trying to describe, and we discuss this matter in Section \ref{sec:SignalModel}. 
+As long as the functions $X_i$ and $T_i$ are positive definite, $C_{u_i}$ is guaranteed to also be positive definite and thus a valid covariance function \citep[sec. 4.2.4]{Rasmussen2006}. In order to compute transient strain rates from transient displacements, it is also necessary that the derivatives $\partial^2 X_i(\vec{x},\vec{x}')/ \partial x_j \partial x_j'$ and $\partial^2 T_i(t,t') / \partial t \partial t'$ exist everywhere. The appropriate choice for $X_i$ and $T_i$ may vary depending on the geophysical signal we are trying to describe, and we discuss this matter in Section \ref{sec:SignalModel}. 
 
 GNSS data records transient displacements as well as other physical and non-physical processes that we are not interested in. We first consider component $i$ of a single GNSS displacement observation made at station $j$, which is located at $\vec{x}^{(j)}$, and time $t$. We describe this observation as a realization of the random variable 
 \begin{align}\label{eq:Data}
@@ -145,15 +145,17 @@ C_{\hat{u}_i}(p,p') = C_{u_i}(p,p') -
                           \mitbf{0} \\
                           \end{array}\right].
 \end{equation}
-To ensure that the inverse matrices in eqs. (\ref{eq:PosteriorMean3}) and (\ref{eq:PosteriorCov3}) exist, each column in $\mitbf{G}$ must be linearly independent. This condition tends to be violated when there are too few observations at a station. I, $\mitbf{G}$ can be replaced with a  
+To ensure that the inverse matrices in eqs. (\ref{eq:PosteriorMean3}) and (\ref{eq:PosteriorCov3}) exist, each column in $\mitbf{G}$ must be linearly independent. This condition tends to be violated when there are too few observations at a station. In that case, a singular value decomposition can be used to remove linearly dependent components from $\mitbf{G}$.   
  
-Now that we have a posterior estimate of transient displacements, we can write the components of $\dot\varepsilon$ as 
+We now have a posterior estimate of transient displacements that can be evaluated at any $p$. Provided that the mean and covariance functions are continuous, 
+
+We can write the components of $\dot\varepsilon$ as 
 \begin{equation}\label{eq:StrainRate}
 \dot\varepsilon_{ij}(p) = \frac{1}{2} \frac{\partial}{\partial t} \left(
                                         \frac{\partial \hat{u}_i(p)}{\partial x_j} +  
                                         \frac{\partial \hat{u}_j(p)}{\partial x_i}\right).
 \end{equation}
-The components of $\dot\varepsilon$ are stochastic processes that are obtained from differentiating, adding, and scaling the Gaussian processes $\hat{u}_\mathrm{e}$ and $\hat{u}_\mathrm{n}$. To give a more intuitive interpretation of $\dot\varepsilon_{ij}$, we can consider realizations of $\dot{\varepsilon}_{ij}$ to be realizations of $\hat{u}_i$ and $\hat{u}_j$ that have undergone the operations from eq. (\ref{eq:StrainRate}). Since the operations from eq. (\ref{eq:StrainRate}) are linear, we know that $\dot\varepsilon_{ij}$ is also a Gaussian process. From \citet[sec. 10.2]{Papoulis1991}, we find that $\dot{\varepsilon}_{ij}$ has a mean function
+The components of $\dot\varepsilon$ are stochastic processes, and we can consider realizations of $\dot{\varepsilon}_{ij}$ to be realizations of $\hat{u}_i$ and $\hat{u}_j$ that have undergone the operations from eq. (\ref{eq:StrainRate}). Since the operations from eq. (\ref{eq:StrainRate}) are linear, we know that $\dot\varepsilon_{ij}$ is also a Gaussian process. From \citet[sec. 10.2]{Papoulis1991}, we find that $\dot{\varepsilon}_{ij}$ has a mean function
 \begin{equation}\label{eq:StrainMean}
 \mu_{\dot\varepsilon_{ij}}(p) = \frac{1}{2}\frac{\partial}{\partial t}\left(
                                   \frac{\partial \mu_{\hat{u}_i}(p)}{\partial x_j} + 

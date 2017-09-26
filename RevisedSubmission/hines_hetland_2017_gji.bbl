@@ -7,6 +7,11 @@ Acheson, D.~T., 1975.
   Commerce, National Oceanic and Atmospheric Administration, Environmental Data
   Service.
 
+\bibitem[Adler(1981)]{Adler1981}
+Adler, R.~J., 1981.
+\newblock {\it {The Geometry of Random Fields}\/}, John Wiley {\&} Sons,
+  Chichester.
+
 \bibitem[Beavan \& Haines(2001)]{Beavan2001}
 Beavan, J. \& Haines, J., 2001.
 \newblock {Contemporary horizontal velocity and strain rate fields of the
@@ -231,11 +236,6 @@ Okada, Y., 1992.
 \newblock {Internal deformation due to shear and tensile faults in a half
   space}, {\it Bulletin of the Seismological Society of America\/}, {\bf
   82}(2), 1018--1040.
-
-\bibitem[Papoulis(1991)]{Papoulis1991}
-Papoulis, A., 1991.
-\newblock {\it {Probability, Random Variables, and Stochastic Processes}\/},
-  McGraw-Hill, New York, 3rd edn.
 
 \bibitem[Press et~al.(2007)Press, Flannery, Teukolsky, \&
   Vetterling]{Press2007}

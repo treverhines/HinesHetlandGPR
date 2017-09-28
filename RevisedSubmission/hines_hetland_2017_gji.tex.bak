@@ -153,7 +153,7 @@ The posterior transient displacements are spatially and temporally continuous, a
                                         \frac{\partial \hat{u}_i(p)}{\partial x_j} +  
                                         \frac{\partial \hat{u}_j(p)}{\partial x_i}\right).
 \end{equation}
-Since eq. (\ref{eq:StrainRate}) is a linear operation on the Gaussian processes $u_i$ and $u_j$, we know that $\dot\varepsilon_{ij}$ is also a Gaussian process. The mean and covariance functions for $\dot{\varepsilon}_{ij}$ are given by
+Since eq. (\ref{eq:StrainRate}) is a linear operation on the Gaussian processes $\hat{u}_i$ and $\hat{u}_j$, we know that $\dot\varepsilon_{ij}$ is also a Gaussian process. The mean and covariance functions for $\dot{\varepsilon}_{ij}$ are given by
 \begin{equation}\label{eq:StrainMean}
 \mu_{\dot\varepsilon_{ij}}(p) = \frac{1}{2}\frac{\partial}{\partial t}\left(
                                   \frac{\partial \mu_{\hat{u}_i}(p)}{\partial x_j} + 
@@ -166,41 +166,38 @@ C_{\dot\varepsilon_{ij}}(p,p') = \frac{1}{4} \frac{\partial^2}{\partial t \, \pa
                                    \frac{\partial^2 C_{\hat{u}_j}(p,p')}{\partial x_i \, \partial x'_i} \right),
 \end{equation} 
 respectively.
-
-Our motivation for estimating transient strain rates is, in part, to detect geophysical phenomena. As we will see, geophysical signal can be easily identified by visually inspecting the solution for transient strain rates. However, if we want to detect geophysical phenomena automatically, then we need to define a detection criterion. We use a signal-to-noise ratio, SNR, that is based on the Frobenius norm of $\dot\varepsilon$, $||\dot\varepsilon||_\mathrm{F} = \left(\dot\varepsilon_{\mathrm{ee}}^2 + \dot\varepsilon_{\mathrm{nn}}^2 + 2\dot\varepsilon_{\mathrm{en}}^2\right)^{\frac{1}{2}}$, for our detection criterion. In the geodetic literature, $||\dot{\varepsilon}||_\mathrm{F}$ is often used as a metric for the strain rate ``magnitude", and it is sometimes referred to as the second invariant of strain rate. Noting that $||\dot\varepsilon||_\mathrm{F}$ is a random variable, we take SNR to be the ratio of the estimated mean and standard deviation of $||\dot\varepsilon||_\mathrm{F}$. An estimate of the mean is found by evaluating $||\dot\varepsilon||_\mathrm{F}$ at the mean of $\dot\varepsilon$, 
+\subsection{Transient detection criterion}\label{sec:TransientDetection}
+Our motivation for estimating transient strain rates is, in part, to detect geophysical phenomena. As we will see, geophysical signal can be easily identified by visually inspecting the solution for $\dot\varepsilon$ from eqs. (\ref{eq:StrainMean}) and (\ref{eq:StrainCov}). However, if we want to detect geophysical phenomena automatically, then we need to define a detection criterion. We use a signal-to-noise ratio, SNR, that is based on the Frobenius norm of $\dot\varepsilon$, $||\dot\varepsilon||_\mathrm{F} = \left(\dot\varepsilon_{\mathrm{ee}}^2 + \dot\varepsilon_{\mathrm{nn}}^2 + 2\dot\varepsilon_{\mathrm{en}}^2\right)^{\frac{1}{2}}$, for our detection criterion. In the geodetic literature, $||\dot{\varepsilon}||_\mathrm{F}$ is often used as a metric for the strain rate ``magnitude", and it is sometimes referred to as the second invariant of strain rate. Noting that $||\dot\varepsilon||_\mathrm{F}$ is a random variable, we take SNR to be the ratio of the estimated mean and standard deviation of $||\dot\varepsilon||_\mathrm{F}$. An estimate of the mean is found by evaluating $||\dot\varepsilon||_\mathrm{F}$ at the mean of $\dot\varepsilon$, 
 \begin{align}
-\mu_{||\dot\varepsilon||_\mathrm{F}} &\approx \left. ||\dot\varepsilon||_F \right|_{\dot\varepsilon = \mu_{\dot\varepsilon}} \\
-                                     &= \left(\mu_{\dot\varepsilon_\mathrm{nn}}^2 + 
-                                              \mu_{\dot\varepsilon_\mathrm{ee}}^2 + 
+\mu_{||\dot\varepsilon||_\mathrm{F}} &\approx ||\dot\varepsilon||_F \big|_{\dot\varepsilon = \mu_{\dot\varepsilon}} \\
+                                     &= \left(\mu_{\dot\varepsilon_\mathrm{ee}}^2 + 
+                                              \mu_{\dot\varepsilon_\mathrm{nn}}^2 + 
                                               2\mu_{\dot\varepsilon_\mathrm{en}}^2
                                      \right)^\frac{1}{2},
 \end{align}
-and we use nonlinear uncertainty propagation to estimate the standard deviation of $||\dot\varepsilon||_\mathrm{F}$,
+and we use nonlinear uncertainty propagation to estimate the standard deviation,
 \begin{equation}
-\sigma^2_{||\dot\varepsilon||_\mathrm{F}} \approx
-\left(\left. \frac{\partial ||\dot\varepsilon||_\mathrm{F}}{\partial \dot\varepsilon_\mathrm{nn}}\right|_{\dot\varepsilon = \mu_{\dot\varepsilon}} \right)^2 \sigma^2_{\varepsilon_\mathrm{nn}} +
-\left(\left. \frac{\partial ||\dot\varepsilon||_\mathrm{F}}{\partial \dot\varepsilon_\mathrm{ee}}\right|_{\dot\varepsilon = \mu_{\dot\varepsilon}} \right)^2 \sigma^2_{\varepsilon_\mathrm{ee}} +
-\left(\left. \frac{\partial ||\dot\varepsilon||_\mathrm{F}}{\partial \dot\varepsilon_\mathrm{en}}\right|_{\dot\varepsilon = \mu_{\dot\varepsilon}} \right)^2 \sigma^2_{\varepsilon_\mathrm{en}},
+\sigma_{||\dot\varepsilon||_\mathrm{F}} \approx
+\left(\left(\left. \frac{\partial ||\dot\varepsilon||_\mathrm{F}}{\partial \dot\varepsilon_\mathrm{ee}}\right|_{\dot\varepsilon = \mu_{\dot\varepsilon}} \right)^2 \sigma^2_{\dot\varepsilon_\mathrm{ee}} +
+\left(\left. \frac{\partial ||\dot\varepsilon||_\mathrm{F}}{\partial \dot\varepsilon_\mathrm{nn}}\right|_{\dot\varepsilon = \mu_{\dot\varepsilon}} \right)^2 \sigma^2_{\dot\varepsilon_\mathrm{nn}} +
+\left(\left. \frac{\partial ||\dot\varepsilon||_\mathrm{F}}{\partial \dot\varepsilon_\mathrm{en}}\right|_{\dot\varepsilon = \mu_{\dot\varepsilon}} \right)^2 \sigma^2_{\dot\varepsilon_\mathrm{en}}
+\right)^\frac{1}{2},
 \end{equation}
-where the variances $\sigma^2_{\varepsilon_{ij}}(p) = C_{\varepsilon_{ij}}(p,p)$. 
- by evaluating it at $\dot\varepsilon_{ij} = \mu_{\dot\varepsilon_{ij}}$. point $p$ is approximately $(\mu_{\dot\varepsilon_\mathrm{nn}}(p) + \mu_{\dot\varepsilon_\mathrm{ee}}(p) + 2\mu_{\dot\varepsilon_\mathrm{en}}(p))$. Using nonlinear uncertainty propagation, the standard deviation of $||\dot\varepsilon||$ is approximated as 
-
-can be found with nonlinear uncertainty propagation, 
-
- Using nonlinear uncertainty propagation, we find SNR to be  
-\begin{equation}\label{eq:SNR}
-\mathrm{SNR}(p) = \frac{\mu_{\dot\varepsilon_\mathrm{nn}}(p)^2 +
-                        \mu_{\dot\varepsilon_\mathrm{ee}}(p)^2 +
+where $\sigma^2_{\dot\varepsilon_{ij}}(p) = C_{\dot\varepsilon_{ij}}(p,p)$. After some calculations, we find SNR to be
+\begin{align}\label{eq:SNR}
+\mathrm{SNR}(p) &= \frac{\mu_{||\dot\varepsilon||_\mathrm{F}}(p)}{\sigma_{||\dot\varepsilon||_\mathrm{F}}(p)} \\
+                &= \frac{\mu_{\dot\varepsilon_\mathrm{ee}}(p)^2 +
+                        \mu_{\dot\varepsilon_\mathrm{nn}}(p)^2 +
                         2\mu_{\dot\varepsilon_\mathrm{en}}(p)^2}
-                       {\big(C_{\dot\varepsilon_\mathrm{nn}}(p,p)\mu_{\dot\varepsilon_\mathrm{nn}}(p)^2 + 
-                              C_{\dot\varepsilon_\mathrm{ee}}(p,p)\mu_{\dot\varepsilon_\mathrm{ee}}(p)^2 + 
-                              4C_{\dot\varepsilon_\mathrm{en}}(p,p)\mu_{\dot\varepsilon_\mathrm{en}}(p)^2
+                       {\big(\sigma^2_{\dot\varepsilon_\mathrm{ee}}(p)\mu_{\dot\varepsilon_\mathrm{ee}}(p)^2 + 
+                             \sigma^2_{\dot\varepsilon_\mathrm{nn}}(p)\mu_{\dot\varepsilon_\mathrm{nn}}(p)^2 + 
+                              4\sigma^2_{\dot\varepsilon_\mathrm{en}}(p)\mu_{\dot\varepsilon_\mathrm{en}}(p)^2
                         \big)^{\frac{1}{2}}}
-,
-\end{equation}
-For simplicity, we have ignored covariances between the transient strain rate components in eq. (\ref{eq:SNR}), even though they are non-zero.  
+.
+\end{align}
+We explicitly show that SNR is a function of $p$ to emphasize that it identifies the position and time of anomalous deformation. We can reasonably suspect that some transient geophysical phenomena is occurring wherever and whenever SNR is larger than ${\sim}3$.  
 
-\section{Outlier detection}\label{sec:Outlier}
+\subsection{Outlier detection}\label{sec:Outlier}
 In our formulation for estimating transient strain rates, we have assumed that noise in the data vector is normally distributed. This is not an appropriate assumption for GNSS data, which often have more outliers than would be predicted for normally distributed noise. It follows that proposed methods for analyzing GNSS data should be robust against outliers \citep[e.g.,][]{Blewitt2016}. In order to make our estimates of transient strain more robust, we automatically identify and remove outliers in the GNSS data as a pre-processing step.
 
 Our method for detecting outliers is based on the data editing algorithm described in \citet{Acheson1975}. We identify outliers by using the residuals between the observations, $\mitbf{d}_*$, and a best fitting model. Data with residuals that are anomalously large are flagged as outliers. We treat $\mitbf{d}_*$ as a sample of $\mitbf{d}$, but we ignore any correlated noise (i.e., $\eta(p) = 0$).  The best fitting model for $\mitbf{d}_*$ is then considered to be the expected value of the random vector $u(\mitbf{P}) + \mitbf{G}\mitbf{a}$ after conditioning it with non-outlier observations.  We still consider $u$ to have a separable covariance function as in eq. (\ref{eq:TransientCovariance}), and the choice for $X$ and $T$ does not need to be the same as that used in Section \ref{sec:Method}. We only desire that $u$ is sufficiently flexible to describe any signal that cannot be described by the linear trend or seasonal sinusoids in $\mitbf{G}$. Since outliers are determined based on how well a spatially and temporally dependent model fits the data, we are able to identify anomalous observations which may not be immediately apparent from inspecting individual time series. 

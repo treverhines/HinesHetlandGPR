@@ -1,4 +1,4 @@
-\begin{thebibliography}{58}
+\begin{thebibliography}{61}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 
 \bibitem[Acheson(1975)]{Acheson1975}
@@ -24,6 +24,11 @@ Blewitt, G., Kreemer, C., Hammond, W.~C., \& Gazeaux, J., 2016.
 \newblock {MIDAS robust trend estimator for accurate GPS station velocities
   without step detection}, {\it Journal of Geophysical Research : Solid
   Earth\/}, {\bf 121}, 2054--2068.
+
+\bibitem[Bos et~al.(2013)Bos, Fernandes, Williams, \& Bastos]{Bos2013}
+Bos, M.~S., Fernandes, R. M.~S., Williams, S. D.~P., \& Bastos, L., 2013.
+\newblock {Fast error analysis of continuous GNSS observations with missing
+  data}, {\it Journal of Geodesy\/}, {\bf 87}(4), 351--360.
 
 \bibitem[Chen et~al.(2008)Chen, Davis, \& Hager]{Chen2008}
 Chen, Y., Davis, T.~a., \& Hager, W.~W., 2008.
@@ -95,6 +100,12 @@ Gladwin, M.~T., Gwyther, R.~L., Hart, R., Francis, M., \& Johnston, M. J.~S.,
 \newblock {Borehole tensor strain measurements in California}, {\it Journal of
   Geophysical Research: Solid Earth\/}, {\bf 92}(B8), 7981--7988.
 
+\bibitem[Hammond et~al.(2016)Hammond, Blewitt, \& Kreemer]{Hammond2016}
+Hammond, W.~C., Blewitt, G., \& Kreemer, C., 2016.
+\newblock {GPS imaging of vertical land motion in California and Nevada:
+  Implications for Sierra Nevada uplift}, {\it Journal of Geophysical Research
+  : Solid Earth\/}.
+
 \bibitem[Hart et~al.(1996)Hart, Gladwin, Gwyther, Agnew, \& Wyatt]{Hart1996}
 Hart, R. H.~G., Gladwin, M.~T., Gwyther, R.~L., Agnew, D.~C., \& Wyatt, F.~K.,
   1996.
@@ -137,6 +148,15 @@ Holt, W.~E. \& Shcherbenko, G., 2013.
   Gradient Tensor Field in Southern California Using cGPS Observations from
   Plate Boundary Observatory (PBO)}, {\it Seismological Research Letters\/},
   {\bf 84}(3), 455--467.
+
+\bibitem[Johansson et~al.(2002)Johansson, Davis, Scherneck, Milne, Vermeer,
+  Mitrovica, Bennett, Jonsson, Elgered, Elo, \& Koivula]{Johansson2002}
+Johansson, J.~M., Davis, J.~L., Scherneck, H., Milne, G.~A., Vermeer, M.,
+  Mitrovica, J.~X., Bennett, R.~A., Jonsson, B., Elgered, G., Elo, P., \&
+  Koivula, H., 2002.
+\newblock {Continuous GPS measurements of postglacial adjustment in
+  Fennoscandia 1. Geodetic results}, {\it Journal of Geophysical Research\/},
+  {\bf 107}.
 
 \bibitem[Kato et~al.(1998)Kato, El-Fiky, Oware, \& Miyazaki]{Kato1998}
 Kato, T., El-Fiky, G.~S., Oware, E.~N., \& Miyazaki, S., 1998.

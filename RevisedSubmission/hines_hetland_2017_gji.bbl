@@ -1,4 +1,4 @@
-\begin{thebibliography}{61}
+\begin{thebibliography}{62}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 
 \bibitem[Acheson(1975)]{Acheson1975}
@@ -316,6 +316,11 @@ Shen, Z.~K., Jackson, D.~D., Ge, B.~X., \& Bob, X.~G., 1996.
 Tape, C., Mus{\'{e}}, P., Simons, M., Dong, D., \& Webb, F., 2009.
 \newblock {Multiscale estimation of GPS velocity fields}, {\it Geophysical
   Journal International\/}, {\bf 179}(2), 945--971.
+
+\bibitem[von Mises(1964)]{VonMises1964}
+von Mises, R., 1964.
+\newblock {\it {Mathematical Theory of Probability and Statistics}\/}, Academic
+  Press, New York.
 
 \bibitem[Wdowinski et~al.(1997)Wdowinski, Zhang, Fang, \&
   Genrich]{Wdowinski1997}

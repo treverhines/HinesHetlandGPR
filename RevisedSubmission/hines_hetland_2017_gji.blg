@@ -6,45 +6,45 @@ Database file #1: mybib.bib
 Warning--empty institution in Lisowski2008
 Warning--empty journal in Wdowinski1997
 Warning--empty publisher in Wendland2005
-You've used 61 entries,
+You've used 62 entries,
             2773 wiz_defined-function locations,
-            1385 strings with 19190 characters,
-and the built_in function-call counts, 29093 in all, are:
-= -- 2452
-> -- 1992
-< -- 38
-+ -- 673
-- -- 612
-* -- 3226
-:= -- 4699
-add.period$ -- 122
-call.type$ -- 61
-change.case$ -- 387
-chr.to.int$ -- 70
-cite$ -- 186
-duplicate$ -- 1059
-empty$ -- 1864
-format.name$ -- 707
-if$ -- 5543
+            1392 strings with 19304 characters,
+and the built_in function-call counts, 29365 in all, are:
+= -- 2471
+> -- 2002
+< -- 39
++ -- 677
+- -- 615
+* -- 3248
+:= -- 4745
+add.period$ -- 124
+call.type$ -- 62
+change.case$ -- 390
+chr.to.int$ -- 71
+cite$ -- 189
+duplicate$ -- 1074
+empty$ -- 1892
+format.name$ -- 711
+if$ -- 5597
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 64
-newline$ -- 248
-num.names$ -- 244
-pop$ -- 471
+missing$ -- 66
+newline$ -- 252
+num.names$ -- 248
+pop$ -- 479
 preamble$ -- 1
-purify$ -- 326
+purify$ -- 329
 quote$ -- 0
-skip$ -- 867
+skip$ -- 877
 stack$ -- 0
-substring$ -- 1341
-swap$ -- 292
+substring$ -- 1344
+swap$ -- 294
 text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 534
+type$ -- 540
 warning$ -- 3
-while$ -- 280
+while$ -- 283
 width$ -- 0
-write$ -- 726
+write$ -- 737
 (There were 3 warnings)

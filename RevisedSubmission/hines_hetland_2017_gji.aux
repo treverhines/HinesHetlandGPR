@@ -40,7 +40,7 @@
 \citation{Wdowinski1997}
 \citation{Dong2002}
 \citation{Langbein2008}
-\citation{Rasmussen2006}
+\citation{VonMises1964}
 \newlabel{eq:Data}{{2}{5}}
 \newlabel{eq:DataVec}{{3}{5}}
 \newlabel{eq:Cd}{{4}{5}}
@@ -56,7 +56,7 @@
 \newlabel{eq:StrainCov}{{13}{7}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Transient detection criterion}{7}}
 \newlabel{sec:TransientDetection}{{2.1}{7}}
-\newlabel{eq:SNR}{{17}{7}}
+\newlabel{eq:SNR}{{16}{7}}
 \citation{Blewitt2016}
 \citation{Hammond2016}
 \citation{Johansson2002}
@@ -67,8 +67,8 @@
 \citation{Blewitt2016}
 \citation{Blewitt2016}
 \citation{Acheson1975}
-\newlabel{eq:Residual}{{20}{9}}
-\newlabel{eq:Update}{{22}{9}}
+\newlabel{eq:Residual}{{19}{9}}
+\newlabel{eq:Update}{{21}{9}}
 \citation{Dragert2001}
 \citation{Rogers2003}
 \citation{Wech2010}
@@ -85,31 +85,30 @@
 \newlabel{sec:Cascadia}{{3}{10}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Noise model}{10}}
 \newlabel{sec:NoiseModel}{{3.1}{10}}
-\newlabel{eq:FOGMdef}{{23}{10}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Positions of continuous GNSS stations used to estimate transient strain rates. The colored regions indicate the distribution of seismic tremor as determined by \citet  {Wech2010}. The red dots show the positions of GNSS stations mentioned in this paper. The blue dot indicates the location of the transient strain rates shown in Figure 7\hbox {} and the signal-to-noise ratio shown in Figure 8\hbox {}. The blue dashed circle demarcates the spatial extent of the tremors shown in Figure 8\hbox {}.}}{11}}
+\newlabel{fig:Context}{{1}{11}}
+\newlabel{eq:FOGMdef}{{22}{11}}
 \citation{Harville1974}
 \citation{Cressie1992}
 \citation{Hines2017}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Positions of continuous GNSS stations used to estimate transient strain rates. The colored regions indicate the distribution of seismic tremor as determined by \citet  {Wech2010}. The red dots show the positions of GNSS stations mentioned in this paper. The blue dot indicates the location of the transient strain rates shown in Figure 7\hbox {} and the signal-to-noise ratio shown in Figure 8\hbox {}. The blue dashed circle demarcates the spatial extent of the tremors shown in Figure 8\hbox {}.}}{11}}
-\newlabel{fig:Context}{{1}{11}}
-\newlabel{eq:FOGM}{{24}{11}}
 \citation{Harville1974}
 \citation{Langbein1997}
 \citation{Hines2017}
+\newlabel{eq:FOGM}{{23}{12}}
+\newlabel{eq:REML}{{24}{12}}
 \citation{Wdowinski1997}
 \citation{Dong2006}
-\newlabel{eq:REML}{{25}{12}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Distribution of estimated FOGM hyperparameters (eq. 24\hbox {}). Hyperparameters are estimated with the REML method for 38 stations in the Pacific Northwest that are east of $121^\circ $W. ``IQR'' is the interquartile range.}}{13}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Distribution of estimated FOGM hyperparameters (eq. 23\hbox {}). Hyperparameters are estimated with the REML method for 38 stations in the Pacific Northwest that are east of $121^\circ $W. ``IQR'' is the interquartile range.}}{13}}
 \newlabel{fig:NoiseParams}{{2}{13}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Prior model}{13}}
-\newlabel{sec:SignalModel}{{3.2}{13}}
 \citation{Cressie1992}
 \citation{Rasmussen2006}
 \citation{Kato1998}
 \citation{El-Fiky1999}
 \@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Two FOGM noise samples for each component. The FOGM hyperparameters have been set to the median values from Figure 2\hbox {}.}}{14}}
 \newlabel{fig:NoiseSamples}{{3}{14}}
-\newlabel{eq:SE}{{27}{14}}
-\newlabel{eq:TimeSE}{{28}{14}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Prior model}{14}}
+\newlabel{sec:SignalModel}{{3.2}{14}}
+\newlabel{eq:SE}{{26}{14}}
 \citation{Segall1997}
 \citation{McGuire2003}
 \citation{Ohtani2010}
@@ -118,15 +117,16 @@
 \citation{Chen2008}
 \citation{Lisowski2008}
 \citation{Wech2010}
-\newlabel{eq:IBM}{{29}{15}}
-\newlabel{eq:Wendland}{{31}{15}}
+\newlabel{eq:TimeSE}{{27}{15}}
+\newlabel{eq:IBM}{{28}{15}}
+\newlabel{eq:Wendland}{{30}{15}}
 \citation{Langbein2004}
 \@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Detrended easting component of displacements at station SC03, which is located on Mount Olympus in Washington. The orange markers indicate outliers that were automatically detected using the algorithm from Section 2.2\hbox {}. The error bars show one standard deviation uncertainties. Note that outliers tend be observed in the winter, suggesting that they were caused by snow or ice.}}{16}}
 \newlabel{fig:Outliers}{{4}{16}}
 \newlabel{tab:Parameters}{{3.2}{17}}
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Optimal hyperparameters for the prior on transient displacements determined with the REML method. The temporal covariance function is indicated by the ``$T$'' column. The SE, IBM, and Wendland covariance functions are defined in eqs. (28\hbox {}), (29\hbox {}), and (31\hbox {}), respectively. The spatial covariance function, $X$, is the squared exponential (eq. 27\hbox {}) in all cases. The hyperparameters are estimated for each of the seven SSEs considered in this study, and the tabulated values indicate the median and interquartile ranges of estimates. The ``diff $\qopname  \relax o{log}$(REML)'' column compares the log REML likelihood to the log REML likelihood when using the SE covariance function for $T$. Negative values indicate that observations are more consistent with the SE covariance function.}}{17}}
-\newlabel{eq:DataPredMean}{{33}{17}}
-\newlabel{eq:DataPredCov}{{34}{17}}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Optimal hyperparameters for the prior on transient displacements determined with the REML method. The temporal covariance function is indicated by the ``$T$'' column. The SE, IBM, and Wendland covariance functions are defined in eqs. (27\hbox {}), (28\hbox {}), and (30\hbox {}), respectively. The spatial covariance function, $X$, is the squared exponential (eq. 26\hbox {}) in all cases. The hyperparameters are estimated for each of the seven SSEs considered in this study, and the tabulated values indicate the median and interquartile ranges of estimates. The ``diff $\qopname  \relax o{log}$(REML)'' column compares the log REML likelihood to the log REML likelihood when using the SE covariance function for $T$. Negative values indicate that observations are more consistent with the SE covariance function.}}{17}}
+\newlabel{eq:DataPredMean}{{32}{17}}
+\newlabel{eq:DataPredCov}{{33}{17}}
 \citation{Dragert2001}
 \citation{Wech2009}
 \citation{Schmidt2010}
@@ -151,10 +151,10 @@
 \newlabel{fig:StrainTs}{{7}{21}}
 \citation{Miyazaki2003}
 \citation{Mackay1998}
-\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces (top) Signal-to-noise ratio (eq. 17\hbox {}) at the position shown in Figure 1\hbox {}. (bottom) Frequency of tremors in the region shown in Figure 1\hbox {}.}}{22}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces (top) Signal-to-noise ratio (eq. 16\hbox {}) at the position shown in Figure 1\hbox {}. (bottom) Frequency of tremors in the region shown in Figure 1\hbox {}.}}{22}}
 \newlabel{fig:StrainMag}{{8}{22}}
 \citation{Press2007}
-\newlabel{eq:Periodic}{{35}{23}}
+\newlabel{eq:Periodic}{{34}{23}}
 \@writefile{toc}{\contentsline {section}{\numberline {5}Conclusion}{23}}
 \newlabel{sec:Conclusion}{{5}{23}}
 \bibstyle{gji}
@@ -213,11 +213,12 @@
 \bibcite{Shen2015}{{51}{2015}{{Shen et~al.}}{{Shen, Wang, Zeng, \& Wang}}}
 \bibcite{Shen1996}{{52}{1996}{{Shen et~al.}}{{Shen, Jackson, Ge, \& Bob}}}
 \bibcite{Tape2009}{{53}{2009}{{Tape et~al.}}{{Tape, Mus{\'{e}}, Simons, Dong, \& Webb}}}
-\bibcite{Wdowinski1997}{{54}{1997}{{Wdowinski et~al.}}{{Wdowinski, Zhang, Fang, \& Genrich}}}
-\bibcite{Wech2010}{{55}{2010}{{Wech}}{{}}}
-\bibcite{Wech2009}{{56}{2009}{{Wech et~al.}}{{Wech, Creager, \& Melbourne}}}
-\bibcite{Wendland2005}{{57}{2005}{{Wendland}}{{}}}
-\bibcite{Williams2004}{{58}{2004}{{Williams et~al.}}{{Williams, Bock, Fang, Jamason, Nikolaidis, Prawirodirdjo, Miller, \& Johnson}}}
-\bibcite{Wyatt1982}{{59}{1982}{{Wyatt}}{{}}}
-\bibcite{Wyatt1989}{{60}{1989}{{Wyatt}}{{}}}
-\bibcite{Zhang1997}{{61}{1997}{{Zhang et~al.}}{{Zhang, Bock, Johnson, Fang, Williams, Genrich, Wdowinski, \& Behr}}}
+\bibcite{VonMises1964}{{54}{1964}{{von Mises}}{{}}}
+\bibcite{Wdowinski1997}{{55}{1997}{{Wdowinski et~al.}}{{Wdowinski, Zhang, Fang, \& Genrich}}}
+\bibcite{Wech2010}{{56}{2010}{{Wech}}{{}}}
+\bibcite{Wech2009}{{57}{2009}{{Wech et~al.}}{{Wech, Creager, \& Melbourne}}}
+\bibcite{Wendland2005}{{58}{2005}{{Wendland}}{{}}}
+\bibcite{Williams2004}{{59}{2004}{{Williams et~al.}}{{Williams, Bock, Fang, Jamason, Nikolaidis, Prawirodirdjo, Miller, \& Johnson}}}
+\bibcite{Wyatt1982}{{60}{1982}{{Wyatt}}{{}}}
+\bibcite{Wyatt1989}{{61}{1989}{{Wyatt}}{{}}}
+\bibcite{Zhang1997}{{62}{1997}{{Zhang et~al.}}{{Zhang, Bock, Johnson, Fang, Williams, Genrich, Wdowinski, \& Behr}}}

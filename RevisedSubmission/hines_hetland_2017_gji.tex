@@ -79,7 +79,7 @@ which is distributed as $\mathcal{N}(\mitbf{0},\mitbf{\Sigma} + \kappa^2\mitbf{G
 \end{equation}
 It should be understood that notation such as $u_i(\mitbf{P})$ and $C_{u_i}(\mitbf{P},\mitbf{P})$ represents the column vector $[u_i(p)]_{p \in \mitbf{P}}$ and the matrix $[C_{u_i}(p,p')]_{(p,p') \in \mitbf{P} \times \mitbf{P}}$, respectively. 
 
-We combine the prior on transient displacements with GNSS displacement data to form a posterior estimate of transient displacements. We ignore any covariances between the easting and northing components, which reduces the computational complexity of our analysis because we can determine each component of the posterior independently. However, we are inherently assuming that the principle components of transient displacements and the noise processes are aligned with the cardinal directions, which is admittedly an arbitrary assumption. We then form each component of the posterior, denoted as $\hat{u}_i$, by conditioning $u_i$ with the fact that $\mitbf{d}^*_i$ has been realized from the random vector $\mitbf{d}_i$. That is to say $\hat{u}_i = u_i |(\mitbf{d}_i = \mitbf{d}^*_i)$. From \citet[sec. 8.9]{VonMises1964}, we find that $\hat{u}_i$ is distributed as $\mathcal{N}(\mu_{\hat{u}_i},C_{\hat{u}_i})$, where
+We combine the prior on transient displacements with GNSS displacement data to form a posterior estimate of transient displacements. We ignore any covariances between the easting and northing components, which reduces the computational complexity of our analysis because we can determine each component of the posterior independently. However, we are inherently assuming that the principle components of transient displacements and the noise processes are aligned with the cardinal directions, which is admittedly an arbitrary assumption. We then form each component of the posterior, denoted as $\hat{u}_i$, by conditioning $u_i$ with the fact that $\mitbf{d}^*_i$ has been realized from the random vector $\mitbf{d}_i$. That is to say $\hat{u}_i = u_i |(\mitbf{d}_i = \mitbf{d}^*_i)$. A general solution for $\hat{u}_i$ is derived in \citet[sec. 8.9]{VonMises1964}, where we find that $\hat{u}_i$ is distributed as $\mathcal{N}(\mu_{\hat{u}_i},C_{\hat{u}_i})$ with mean function
 \begin{align}\label{eq:PosteriorMean}
 \mu_{\hat{u}_i}(p) &= \mathrm{E}\left[u_i(p)\right] + 
                       \mathrm{Cov}\left[u_i(p),\mitbf{d}_i\right] 
@@ -87,7 +87,7 @@ We combine the prior on transient displacements with GNSS displacement data to f
                       \left(\mitbf{d}^*_i - \mathrm{E}\left[\mitbf{d}_i\right]\right)\nonumber \\
                    &= C_{u_i}(p,\mitbf{P})\left(\mitbf{\Sigma} + \kappa^2\mitbf{G}\mitbf{G}^T\right)^{-1}\mitbf{d}^*_i
 \end{align}    
-and
+and covariance function
 \begin{align}\label{eq:PosteriorCov}
 C_{\hat{u}_i}(p,p') &= \mathrm{Cov}\left[u_i(p),u_i(p')\right] - 
                        \mathrm{Cov}\left[u_i(p),\mitbf{d}_i\right] 

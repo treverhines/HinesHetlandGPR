@@ -1,11 +1,5 @@
-\begin{thebibliography}{62}
+\begin{thebibliography}{61}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
-
-\bibitem[Acheson(1975)]{Acheson1975}
-Acheson, D.~T., 1975.
-\newblock {Data editing - subroutine editq}, Tech. rep., US Department of
-  Commerce, National Oceanic and Atmospheric Administration, Environmental Data
-  Service.
 
 \bibitem[Adler(1981)]{Adler1981}
 Adler, R.~J., 1981.

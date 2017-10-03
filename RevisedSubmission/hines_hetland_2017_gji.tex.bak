@@ -95,7 +95,7 @@ C_{\hat{u}_i}(p,p') &= \mathrm{Cov}\left[u_i(p),u_i(p')\right] -
                        \mathrm{Cov}\left[\mitbf{d}_i,u_i(p')\right]\nonumber \\
                     &= C_{u_i}(p,p') - C_{u_i}(p,\mitbf{P})\left(\mitbf{\Sigma} + \kappa^2\mitbf{G}\mitbf{G}^T\right)^{-1}C_{u_i}(\mitbf{P},p').
 \end{align}
-However, we are interested in the limit as $\kappa \to \infty$, and the form for eq. (\ref{eq:PosteriorMean}) and eq. (\ref{eq:PosteriorCov}) is not suitable for evaluating this limit. We use a partitioned matrix inversion identity \citep[sec. 2.7.4]{Press2007} to rewrite eq. (\ref{eq:PosteriorMean}) and eq. (\ref{eq:PosteriorCov}) as
+However, we are interested in the limit as $\kappa \to \infty$, and the form for eqs. (\ref{eq:PosteriorMean}) and (\ref{eq:PosteriorCov}) is not suitable for evaluating this limit. We use a partitioned matrix inversion identity \citep[sec. 2.7.4]{Press2007} to rewrite eqs. (\ref{eq:PosteriorMean}) and (\ref{eq:PosteriorCov}) as
  \begin{equation}\label{eq:PosteriorMean2}
 \mu_{\hat{u}_i}(p) = \left[\begin{array}{cc}
                          C_{u_i}(p,\mitbf{P}) & \mitbf{0} \\
@@ -206,58 +206,41 @@ where $\sigma^2_{\dot\varepsilon_{ij}}(p) = C_{\dot\varepsilon_{ij}}(p,p)$. Afte
 We explicitly show that SNR is a function of $p$ to emphasize that it identifies the position and time of anomalous deformation. We can reasonably suspect that some transient geophysical phenomena is occurring wherever and whenever SNR is larger than ${\sim}3$.  
 
 \subsection{Outlier detection}\label{sec:Outlier}
-In deriving our formulation for transient strain rates, we have assumed that noise in the data vector is normally distributed. This is not an appropriate assumption for GNSS data, which often have more outliers than would be predicted for normally distributed noise. Methods for analyzing GNSS data should either be robust against outliers or should involve a preprocessing step in which outliers are detected and removed. Examples of the former include the MIDAS method for estimating secular velocities \citep{Blewitt2016} and the GPS Imaging method for detecting spatially coherent features \citep{Hammond2016}.  In this study, we identify and remove outliers as a preprocessing step before estimating $\dot\varepsilon$. Outliers are identified based on the residuals for a model that best fits the observed data. Observations with residuals that exceed some threshold are removed. This strategy is commonly used to detect outliers in GNSS data, where the residuals are typically computed by estimating and removing a linear trend and seasonal terms for each time series \citep[e.g.,][]{Johansson2002,Dong2006,Bos2013}. The outlier detection method used here is different from this more standard approach because the model we fit to the data additionally consists of a spatially and temporally correlated Gaussian process. With this more complex model, we are able to detect outliers that are spatially or temporally anomalous.      
+In deriving our formulation for transient strain rates, we have assumed that noise in the data vector is normally distributed. This is not an appropriate assumption for GNSS data, which often have more outliers than would be predicted for normally distributed noise. Methods for analyzing GNSS data should either be robust against outliers or should involve a preprocessing step in which outliers are detected and removed. Examples of the former include the MIDAS method for estimating secular velocities \citep{Blewitt2016} and the GPS Imaging method for detecting spatially coherent features \citep{Hammond2016}.  In this study, we identify and remove outliers as a preprocessing step before estimating $\dot\varepsilon$. Outliers are identified based on the residuals for a model that best fits the observed data. Observations with residuals that exceed some threshold are removed. This strategy is commonly used to detect outliers in GNSS data, where the residuals are typically computed by estimating and removing a linear trend and seasonal terms for each time series \citep[e.g.,][]{Johansson2002,Dong2006,Bos2013}. The outlier detection method used here is different from this more standard approach because the model we fit to the data additionally consists of a spatially and temporally correlated Gaussian process, $v \sim \mathcal{N}(0,C_v)$. We use $v$ to explain any coherent features in the data that cannot be explained by the linear trend and sinusoids. With this more complex model, we are able to detect outliers that are spatially or temporally anomalous. 
 
-
-For the outlier detection method used in this study, the residuals are determined by removing a best fitting spatially and temporally dependent model from the GNSS data. That model that we want to fit to the $n$ GNSS observations, $\mitbf{d}^*$, consists of the linear trend and sinusoids from eq. (\ref{eq:DataVec}), $\mitbf{G}\mitbf{m}$, and a Gaussian process, $v(\mitbf{P})$, that is used to describe any spatially and temporally correlated features in the GNSS data. We now consider $\mitbf{d}^*$ to be a realization of the random vector
+To describe our outlier detection algorithm in detail, we let $\mitbf{d}^*$ denote all $n$ GNSS displacement observations for a single component (note that we dropped the component subscripts since outliers are detected for the easting and northing components independently). Our goal is to find the index set of non-outliers in $\mitbf{d}^*$, which we denote as $\mitbf{\Omega}$. For notational ease, we use a tilde to indicate that an array only contains elements corresponding to $\mitbf{\Omega}$ (e.g., the vector of non-outlier observations is denoted $\tilde{\mitbf{d}}^* = [d_i^*]_{i \in \mitbf{\Omega}}$). We now consider $\mitbf{d}^*$ to be a realization of the random vector
 \begin{equation}
 \mitbf{d} = \mitbf{G}\mitbf{m} + v(\mitbf{P}) + \mitbf{w},
-\end{equation}   
-where $\mitbf{w}$ is a vector of uncorrelated Gaussian noise distributed as $\mitbf{w} = \mathcal{N}\left(0,\mathrm{diag}(\mitbf{\sigma}^2)\right)$, and $\mitbf{\sigma} = [\sigma_1, \sigma_2, ..., \sigma_n]$ are the data uncertainties. The residual vector, $\mitbf{r} = [r_1,r_2,...,r_n]$, is the difference between $\mitbf{d}^*$, and the mean of the $\mitbf{G}\mitbf{m} + v(\mitbf{P})$ conditioned on $\mitbf{d} = \mitbf{d}^*$.
-
-This best fitting model is found using Gaussian process regression, where the model consists of a parametric and 
-
-We again use Gaussian process regression to find the best fitting model, which consists of parametric and non-parametric 
-
-We now describe column vector of $n$ GNSS observations $\mitbf{d}*$ to be a   
-
-With this approach, outliers are considered to by any observation that is spatially or temporally anomalous. 
-
-approach for identifying outliers differs     
-
-is involving fitting a model to , in principle, similar to 
-
-   
-
-Methods for analyzing GNSS data should either be robust against outliers or a outliers , such as the MIDAS method for estimating secular velocities \citep{Blewitt2016}, or   
-
-It follows that proposed methods for analyzing GNSS data should be robust against outliers \citep[e.g.,][]{Blewitt2016}. In order to make our estimates of transient strain more robust, we automatically identify and remove outliers in the GNSS data as a pre-processing step.
-
-Our method for detecting outliers is based on the data editing algorithm described in \citet{Acheson1975}. We identify outliers by using the residuals between the observations, $\mitbf{d}_*$, and a best fitting model. Data with residuals that are anomalously large are flagged as outliers. We treat $\mitbf{d}_*$ as a sample of $\mitbf{d}$, but we ignore any correlated noise (i.e., $\eta(p) = 0$).  The best fitting model for $\mitbf{d}_*$ is then considered to be the expected value of the random vector $u(\mitbf{P}) + \mitbf{G}\mitbf{a}$ after conditioning it with non-outlier observations.  We still consider $u$ to have a separable covariance function as in eq. (\ref{eq:TransientCovariance}), and the choice for $X$ and $T$ does not need to be the same as that used in Section \ref{sec:Method}. We only desire that $u$ is sufficiently flexible to describe any signal that cannot be described by the linear trend or seasonal sinusoids in $\mitbf{G}$. Since outliers are determined based on how well a spatially and temporally dependent model fits the data, we are able to identify anomalous observations which may not be immediately apparent from inspecting individual time series. 
-
-To begin the algorithm, we let $\mitbf{\Omega}$ be the index set of non-outliers in $\mitbf{d}_*$ and initiate it with all $n$ indices. This algorithm is iterative, and for each iteration we calculate the residual vector
-\begin{align}\label{eq:Residual}
-\mitbf{r} &= \frac{\mitbf{d}_* - \mathrm{E}\left[(u(\mitbf{P}) + \mitbf{G}\mitbf{a})|\tilde{\mitbf{d}}_* \right]}{\mitbf{\sigma}} \\
-       &= \frac{1}{\mitbf{\sigma}}\left(\mitbf{d}_*  - 
-          \left[\begin{array}{cc}
-                C_u(\mitbf{P},\tilde{\mitbf{P}}) & \mitbf{G} \\
-                \end{array}\right]
-          \left[\begin{array}{cc}
-                C_u(\tilde{\mitbf{P}},\tilde{\mitbf{P}}) + \mathrm{diag}(\tilde{\mitbf{\sigma}}^2) & \tilde{\mitbf{G}} \\
-                \tilde{\mitbf{G}}^T  & \mitbf{0} \\
-                \end{array}\right]^{-1}
-          \left[\begin{array}{c}
-                \tilde{\mitbf{d}}_* \\
-                \mitbf{0} \\
-                \end{array}\right]\right),
-\end{align}
-where the tilde indicates that only elements corresponding to indices in $\mitbf{\Omega}$ are retained (e.g., $\tilde{\mitbf{P}} = \{P_i\}_{i\in\mitbf{\Omega}}$). We then update $\mitbf{\Omega}$ to be
+\end{equation}
+where $\mitbf{G}$ and $\mitbf{m}$ are the same as in eq. (\ref{eq:DataVec}), and $\mitbf{w}$ is a vector of uncorrelated noise with assumed known standard deviations $\mitbf{\sigma} = [\sigma_1, \sigma_2, ..., \sigma_n]$. Our best fitting model for $\mitbf{d}^*$ is taken to be the mean of $\mitbf{G}\mitbf{m} + v(\mitbf{P})$ after it is conditioned with non-outlier observations. The residual vector is then
+\begin{equation}\label{eq:Residual1}
+\mitbf{r} = \mitbf{d}^* - \mathrm{E}\left[\Big(\mitbf{G}\mitbf{m} + v(\mitbf{P})\Big) \Big| \Big(\tilde{\mitbf{d}} = \tilde{\mitbf{d}}^*\Big)\right].
+\end{equation}
+Following a similar procedure as above, we can write eq. (\ref{eq:Residual1}) as
+\begin{equation}\label{eq:Residual}
+\mitbf{r} = \mitbf{d}^*  - 
+            \left[\begin{array}{cc}
+                  C_v(\mitbf{P},\tilde{\mitbf{P}}) & \mitbf{G} \\
+                  \end{array}\right]
+            \left[\begin{array}{cc}
+                  C_v(\tilde{\mitbf{P}},\tilde{\mitbf{P}}) + \mathrm{diag}(\tilde{\mitbf{\sigma}}^2) & \tilde{\mitbf{G}} \\
+                  \tilde{\mitbf{G}}^T  & \mitbf{0} \\
+                  \end{array}\right]^{-1}
+            \left[\begin{array}{c}
+                  \tilde{\mitbf{d}}^* \\
+                  \mitbf{0} \\
+                  \end{array}\right].
+\end{equation}
+To start the algorithm, we let $\mitbf{\Omega}$ contain all $n$ indices, and we refine $\mitbf{\Omega}$ iteratively. For each iteration, we compute $\mitbf{r}$ with eq. (\ref{eq:Residual}) and then update $\mitbf{\Omega}$ to be
 \begin{equation}\label{eq:Update}
-\mitbf{\Omega} = \{i : |r_i| < \lambda \cdot \mathrm{RMS}\}, \ \ \ r_i \in \mitbf{r},
+\mitbf{\Omega} = \left\{i : \left|\frac{r_i}{\sigma_i}\right| < \lambda \cdot \mathrm{RMS}\right\},
 \end{equation} 
-where RMS is the root-mean-square of $\tilde{\mitbf{r}}$ and $\lambda$ is an outlier tolerance. We use $\lambda=4$ in this study, which in our experience accurately identifies outliers without unnecessarily decimating the data. Iterations continue until the new $\mitbf{\Omega}$ is equal to the previous $\mitbf{\Omega}$. 
+where RMS is the root-mean-square of $\tilde{\mitbf{r}}$ and $\lambda$ is an outlier tolerance. Iterations continue until the new $\mitbf{\Omega}$ is the same as the previous $\mitbf{\Omega}$.
+ 
+ 
+We use $\lambda=4$ in this study, which in our experience accurately identifies outliers without unnecessarily decimating the data. Iterations continue until the new $\mitbf{\Omega}$ is equal to the previous $\mitbf{\Omega}$. 
 
-It should be noted that this algorithm does not identify jumps in GNSS time series, which are another common issue. Some, but not all, jumps can be automatically removed by looking up the dates of equipment changes and earthquakes. However, it is still necessary to manually find and remove jumps of unknown origin. That being said, this outlier detection algorithm significantly reduces the effort needed to manually clean GNSS data.       
+It should be noted that this algorithm does not identify jumps in GNSS time series (cite Gazeaux 2013), which are another common issue. Some, but not all, jumps can be automatically removed by looking up the dates of equipment changes and earthquakes. However, it is still necessary to manually find and remove jumps of unknown origin. That being said, this outlier detection algorithm significantly reduces the effort needed to manually clean GNSS data.       
 
 \section{Application to Pacific Northwest Slow Slip Events}\label{sec:Cascadia}
 We use our method to estimate transient strain rates in the Pacific Northwest, and we are specifically interested in identifying strain resulting from SSEs \citep[e.g.,][]{Dragert2001}. In the Pacific Northwest, SSEs can be detected by monitoring for associated seismic tremor \citep{Rogers2003}, which is actively being done by the Pacific Northwest Seismic Network \citep{Wech2010}. We can thus compare the tremor records to the transient strain rates estimated with GPR to verify that we are indeed identifying strain from SSEs.  

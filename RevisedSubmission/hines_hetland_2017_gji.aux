@@ -64,11 +64,7 @@
 \citation{Bos2013}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Outlier detection}{8}}
 \newlabel{sec:Outlier}{{2.2}{8}}
-\citation{Blewitt2016}
-\citation{Blewitt2016}
-\citation{Acheson1975}
-\newlabel{eq:Residual}{{19}{9}}
-\newlabel{eq:Update}{{21}{9}}
+\newlabel{eq:Residual1}{{19}{8}}
 \citation{Dragert2001}
 \citation{Rogers2003}
 \citation{Wech2010}
@@ -81,64 +77,68 @@
 \citation{Langbein2008}
 \citation{Wyatt1982}
 \citation{Wyatt1989}
-\@writefile{toc}{\contentsline {section}{\numberline {3}Application to Pacific Northwest Slow Slip Events}{10}}
-\newlabel{sec:Cascadia}{{3}{10}}
+\newlabel{eq:Residual}{{20}{9}}
+\newlabel{eq:Update}{{21}{9}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Application to Pacific Northwest Slow Slip Events}{9}}
+\newlabel{sec:Cascadia}{{3}{9}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Positions of continuous GNSS stations used to estimate transient strain rates. The colored regions indicate the distribution of seismic tremor as determined by \citet  {Wech2010}. The red dots show the positions of GNSS stations mentioned in this paper. The blue dot indicates the location of the transient strain rates shown in Figure 7\hbox {} and the signal-to-noise ratio shown in Figure 8\hbox {}. The blue dashed circle demarcates the spatial extent of the tremors shown in Figure 8\hbox {}.}}{10}}
+\newlabel{fig:Context}{{1}{10}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Noise model}{10}}
 \newlabel{sec:NoiseModel}{{3.1}{10}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Positions of continuous GNSS stations used to estimate transient strain rates. The colored regions indicate the distribution of seismic tremor as determined by \citet  {Wech2010}. The red dots show the positions of GNSS stations mentioned in this paper. The blue dot indicates the location of the transient strain rates shown in Figure 7\hbox {} and the signal-to-noise ratio shown in Figure 8\hbox {}. The blue dashed circle demarcates the spatial extent of the tremors shown in Figure 8\hbox {}.}}{11}}
-\newlabel{fig:Context}{{1}{11}}
-\newlabel{eq:FOGMdef}{{22}{11}}
 \citation{Harville1974}
 \citation{Cressie1992}
 \citation{Hines2017}
 \citation{Harville1974}
 \citation{Langbein1997}
 \citation{Hines2017}
-\newlabel{eq:FOGM}{{23}{12}}
-\newlabel{eq:REML}{{24}{12}}
+\newlabel{eq:FOGMdef}{{22}{11}}
+\newlabel{eq:FOGM}{{23}{11}}
+\newlabel{eq:REML}{{24}{11}}
 \citation{Wdowinski1997}
 \citation{Dong2006}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Distribution of estimated FOGM hyperparameters (eq. 23\hbox {}). Hyperparameters are estimated with the REML method for 38 stations in the Pacific Northwest that are east of $121^\circ $W. ``IQR'' is the interquartile range.}}{13}}
-\newlabel{fig:NoiseParams}{{2}{13}}
 \citation{Cressie1992}
 \citation{Rasmussen2006}
 \citation{Kato1998}
 \citation{El-Fiky1999}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Two FOGM noise samples for each component. The FOGM hyperparameters have been set to the median values from Figure 2\hbox {}.}}{14}}
-\newlabel{fig:NoiseSamples}{{3}{14}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Prior model}{14}}
-\newlabel{sec:SignalModel}{{3.2}{14}}
-\newlabel{eq:SE}{{26}{14}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Prior model}{12}}
+\newlabel{sec:SignalModel}{{3.2}{12}}
+\newlabel{eq:SE}{{26}{12}}
 \citation{Segall1997}
 \citation{McGuire2003}
 \citation{Ohtani2010}
 \citation{Hines2016a}
 \citation{Wendland2005}
 \citation{Chen2008}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Distribution of estimated FOGM hyperparameters (eq. 23\hbox {}). Hyperparameters are estimated with the REML method for 38 stations in the Pacific Northwest that are east of $121^\circ $W. ``IQR'' is the interquartile range.}}{13}}
+\newlabel{fig:NoiseParams}{{2}{13}}
+\newlabel{eq:TimeSE}{{27}{13}}
+\newlabel{eq:IBM}{{28}{13}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Two FOGM noise samples for each component. The FOGM hyperparameters have been set to the median values from Figure 2\hbox {}.}}{14}}
+\newlabel{fig:NoiseSamples}{{3}{14}}
 \citation{Lisowski2008}
 \citation{Wech2010}
-\newlabel{eq:TimeSE}{{27}{15}}
-\newlabel{eq:IBM}{{28}{15}}
-\newlabel{eq:Wendland}{{30}{15}}
 \citation{Langbein2004}
+\newlabel{eq:Wendland}{{30}{15}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Detrended easting component of displacements at station SC03, which is located on Mount Olympus in Washington. The orange markers indicate outliers that were automatically detected using the algorithm from Section 2.2\hbox {}. The error bars show one standard deviation uncertainties. Note that outliers tend be observed in the winter, suggesting that they were caused by snow or ice.}}{16}}
 \newlabel{fig:Outliers}{{4}{16}}
-\newlabel{tab:Parameters}{{3.2}{17}}
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Optimal hyperparameters for the prior on transient displacements determined with the REML method. The temporal covariance function is indicated by the ``$T$'' column. The SE, IBM, and Wendland covariance functions are defined in eqs. (27\hbox {}), (28\hbox {}), and (30\hbox {}), respectively. The spatial covariance function, $X$, is the squared exponential (eq. 26\hbox {}) in all cases. The hyperparameters are estimated for each of the seven SSEs considered in this study, and the tabulated values indicate the median and interquartile ranges of estimates. The ``diff $\qopname  \relax o{log}$(REML)'' column compares the log REML likelihood to the log REML likelihood when using the SE covariance function for $T$. Negative values indicate that observations are more consistent with the SE covariance function.}}{17}}
-\newlabel{eq:DataPredMean}{{32}{17}}
-\newlabel{eq:DataPredCov}{{33}{17}}
+\newlabel{tab:Parameters}{{3.2}{16}}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Optimal hyperparameters for the prior on transient displacements determined with the REML method. The temporal covariance function is indicated by the ``$T$'' column. The SE, IBM, and Wendland covariance functions are defined in eqs. (27\hbox {}), (28\hbox {}), and (30\hbox {}), respectively. The spatial covariance function, $X$, is the squared exponential (eq. 26\hbox {}) in all cases. The hyperparameters are estimated for each of the seven SSEs considered in this study, and the tabulated values indicate the median and interquartile ranges of estimates. The ``diff $\qopname  \relax o{log}$(REML)'' column compares the log REML likelihood to the log REML likelihood when using the SE covariance function for $T$. Negative values indicate that observations are more consistent with the SE covariance function.}}{16}}
 \citation{Dragert2001}
 \citation{Wech2009}
 \citation{Schmidt2010}
 \citation{Murray2000}
 \citation{McCaffrey2007}
 \citation{McCaffrey2013}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Transient Strain Rates}{18}}
-\newlabel{sec:Results}{{3.3}{18}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Easting component of the observed displacements, $ \hbox {\mathversion  {bold}$d$}_*$, and predicted displacements, $\mathaccentV {hat}05E{ \hbox {\mathversion  {bold}$d$}}$, during an SSE at three stations where the SSE signal is strongest. The predicted displacements are shown for when $T$ is a squared exponential (SE), Wendland, and integrated Brownian motion (IBM) covariance function. The one standard deviation uncertainties are shown for the observations and the SE predictions. For clarity, uncertainties are not shown for the IBM and Wendland predictions, but they are nearly equivalent to the uncertainties for the SE predictions. The SE and Wendland predictions are practically indistinguishable.}}{19}}
-\newlabel{fig:Fit}{{5}{19}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Estimated transient strain rates during the Winter 2015-2016 SSE. Strain glyphs show the normal strain rate along each azimuth, where orange indicates compression and blue indicates extension. The shaded regions indicate one standard deviation uncertainties in the normal strain rates.}}{20}}
-\newlabel{fig:StrainMap}{{6}{20}}
+\newlabel{eq:DataPredMean}{{32}{17}}
+\newlabel{eq:DataPredCov}{{33}{17}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Transient Strain Rates}{17}}
+\newlabel{sec:Results}{{3.3}{17}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Easting component of the observed displacements, $ \hbox {\mathversion  {bold}$d$}_*$, and predicted displacements, $\mathaccentV {hat}05E{ \hbox {\mathversion  {bold}$d$}}$, during an SSE at three stations where the SSE signal is strongest. The predicted displacements are shown for when $T$ is a squared exponential (SE), Wendland, and integrated Brownian motion (IBM) covariance function. The one standard deviation uncertainties are shown for the observations and the SE predictions. For clarity, uncertainties are not shown for the IBM and Wendland predictions, but they are nearly equivalent to the uncertainties for the SE predictions. The SE and Wendland predictions are practically indistinguishable.}}{18}}
+\newlabel{fig:Fit}{{5}{18}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Estimated transient strain rates during the Winter 2015-2016 SSE. Strain glyphs show the normal strain rate along each azimuth, where orange indicates compression and blue indicates extension. The shaded regions indicate one standard deviation uncertainties in the normal strain rates.}}{19}}
+\newlabel{fig:StrainMap}{{6}{19}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Three components of the transient horizontal strain rate tensor estimated at the position shown in Figure 1\hbox {}. The shaded regions indicate one standard deviation uncertainty.}}{20}}
+\newlabel{fig:StrainTs}{{7}{20}}
 \@writefile{toc}{\contentsline {section}{\numberline {4}Discussion}{20}}
 \newlabel{sec:Discussion}{{4}{20}}
 \citation{Dragert2011}
@@ -147,78 +147,75 @@
 \citation{Hodgkinson2013}
 \citation{Roeloffs2010}
 \citation{Gladwin1987}
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Three components of the transient horizontal strain rate tensor estimated at the position shown in Figure 1\hbox {}. The shaded regions indicate one standard deviation uncertainty.}}{21}}
-\newlabel{fig:StrainTs}{{7}{21}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces (top) Signal-to-noise ratio (eq. 16\hbox {}) at the position shown in Figure 1\hbox {}. (bottom) Frequency of tremors in the region shown in Figure 1\hbox {}.}}{21}}
+\newlabel{fig:StrainMag}{{8}{21}}
 \citation{Miyazaki2003}
 \citation{Mackay1998}
-\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces (top) Signal-to-noise ratio (eq. 16\hbox {}) at the position shown in Figure 1\hbox {}. (bottom) Frequency of tremors in the region shown in Figure 1\hbox {}.}}{22}}
-\newlabel{fig:StrainMag}{{8}{22}}
 \citation{Press2007}
-\newlabel{eq:Periodic}{{34}{23}}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Conclusion}{23}}
-\newlabel{sec:Conclusion}{{5}{23}}
+\newlabel{eq:Periodic}{{34}{22}}
 \bibstyle{gji}
 \bibdata{mybib}
-\bibcite{Acheson1975}{{1}{1975}{{Acheson}}{{}}}
-\bibcite{Adler1981}{{2}{1981}{{Adler}}{{}}}
-\bibcite{Beavan2001}{{3}{2001}{{Beavan \& Haines}}{{}}}
-\bibcite{Blewitt2016}{{4}{2016}{{Blewitt et~al.}}{{Blewitt, Kreemer, Hammond, \& Gazeaux}}}
-\bibcite{Bos2013}{{5}{2013}{{Bos et~al.}}{{Bos, Fernandes, Williams, \& Bastos}}}
-\bibcite{Chen2008}{{6}{2008}{{Chen et~al.}}{{Chen, Davis, \& Hager}}}
-\bibcite{Cressie1992}{{7}{1993}{{Cressie}}{{}}}
-\bibcite{Dong2002}{{8}{2002}{{Dong et~al.}}{{Dong, Fang, Bock, Cheng, \& Miyazaki}}}
-\@writefile{toc}{\contentsline {section}{\numberline {6}Acknowledgements}{24}}
-\bibcite{Dong2006}{{9}{2006}{{Dong et~al.}}{{Dong, Fang, Bock, Webb, Prawirodirdjo, Kedar, \& Jamason}}}
-\bibcite{Dragert2011}{{10}{2011}{{Dragert \& Wang}}{{}}}
-\bibcite{Dragert2001}{{11}{2001}{{Dragert et~al.}}{{Dragert, Wang, \& James}}}
-\bibcite{El-Fiky1999}{{12}{1998}{{El-Fiky \& Kato}}{{}}}
-\bibcite{Feigl1990}{{13}{1990}{{Feigl et~al.}}{{Feigl, King, \& Jordan}}}
-\bibcite{Field2014}{{14}{2014}{{Field et~al.}}{{Field, Arrowsmith, Biasi, Bird, Dawson, Felzer, Jackson, Johnson, Jordan, Madden, Michael, Milner, Page, Parsons, Powers, Shaw, Thatcher, Weldon, \& Zeng}}}
-\bibcite{Freed2001}{{15}{2001}{{Freed \& Lin}}{{}}}
-\bibcite{Gladwin1987}{{16}{1987}{{Gladwin et~al.}}{{Gladwin, Gwyther, Hart, Francis, \& Johnston}}}
-\bibcite{Hammond2016}{{17}{2016}{{Hammond et~al.}}{{Hammond, Blewitt, \& Kreemer}}}
-\bibcite{Hart1996}{{18}{1996}{{Hart et~al.}}{{Hart, Gladwin, Gwyther, Agnew, \& Wyatt}}}
-\bibcite{Harville1974}{{19}{1974}{{Harville}}{{}}}
-\bibcite{Herring2016}{{20}{2016}{{Herring et~al.}}{{Herring, Melbourne, Murray, Floyd, Szeliga, King, Phillips, Puskas, Santillan, \& Wang}}}
-\bibcite{Hines2016a}{{21}{2016}{{Hines \& Hetland}}{{}}}
-\bibcite{Hines2017}{{22}{2017}{{Hines \& Hetland}}{{}}}
-\bibcite{Hodgkinson2013}{{23}{2013}{{Hodgkinson et~al.}}{{Hodgkinson, Agnew, \& Roeloffs}}}
-\bibcite{Holt2013}{{24}{2013}{{Holt \& Shcherbenko}}{{}}}
-\bibcite{Johansson2002}{{25}{2002}{{Johansson et~al.}}{{Johansson, Davis, Scherneck, Milne, Vermeer, Mitrovica, Bennett, Jonsson, Elgered, Elo, \& Koivula}}}
-\bibcite{Kato1998}{{26}{1998}{{Kato et~al.}}{{Kato, El-Fiky, Oware, \& Miyazaki}}}
-\bibcite{Langbein2004}{{27}{2004}{{Langbein}}{{}}}
-\bibcite{Langbein2008}{{28}{2008}{{Langbein}}{{}}}
-\bibcite{Langbein1997}{{29}{1997}{{Langbein \& Johnson}}{{}}}
-\bibcite{Lisowski2008}{{30}{2008}{{Lisowski et~al.}}{{Lisowski, Dzurisin, Denlinger, \& Iwatsubo}}}
-\bibcite{Lohman2013}{{31}{2013}{{Lohman \& Murray}}{{}}}
-\bibcite{Mackay1998}{{32}{1998}{{Mackay}}{{}}}
-\bibcite{Mao1999}{{33}{1999}{{Mao et~al.}}{{Mao, Harrison, \& Dixon}}}
-\bibcite{McCaffrey2007}{{34}{2007}{{McCaffrey et~al.}}{{McCaffrey, Qamar, King, Wells, Khazaradze, Williams, Stevens, Vollick, \& Zwick}}}
-\bibcite{McCaffrey2013}{{35}{2013}{{McCaffrey et~al.}}{{McCaffrey, King, Payne, \& Lancaster}}}
-\bibcite{McGuire2003}{{36}{2003}{{McGuire \& Segall}}{{}}}
-\bibcite{Meade2005}{{37}{2005}{{Meade \& Hager}}{{}}}
-\bibcite{Miyazaki2003}{{38}{2003}{{Miyazaki et~al.}}{{Miyazaki, McGuire, \& Segall}}}
-\bibcite{Moritz1978}{{39}{1978}{{Moritz}}{{}}}
-\bibcite{Murray2000}{{40}{2000}{{Murray \& Lisowski}}{{}}}
-\bibcite{Ohtani2010}{{41}{2010}{{Ohtani et~al.}}{{Ohtani, McGuire, \& Segall}}}
-\bibcite{Okada1992}{{42}{1992}{{Okada}}{{}}}
-\bibcite{Press2007}{{43}{2007}{{Press et~al.}}{{Press, Flannery, Teukolsky, \& Vetterling}}}
-\bibcite{Rasmussen2006}{{44}{2006}{{Rasmussen \& Williams}}{{}}}
-\bibcite{Roeloffs2010}{{45}{2010}{{Roeloffs}}{{}}}
-\bibcite{Roeloffs2006}{{46}{2006}{{Roeloffs}}{{}}}
-\bibcite{Rogers2003}{{47}{2003}{{Rogers \& Dragert}}{{}}}
-\bibcite{Sandwell2016}{{48}{2016}{{Sandwell \& Wessel}}{{}}}
-\bibcite{Schmidt2010}{{49}{2010}{{Schmidt \& Gao}}{{}}}
-\bibcite{Segall1997}{{50}{1997}{{Segall \& Mathews}}{{}}}
-\bibcite{Shen2015}{{51}{2015}{{Shen et~al.}}{{Shen, Wang, Zeng, \& Wang}}}
-\bibcite{Shen1996}{{52}{1996}{{Shen et~al.}}{{Shen, Jackson, Ge, \& Bob}}}
-\bibcite{Tape2009}{{53}{2009}{{Tape et~al.}}{{Tape, Mus{\'{e}}, Simons, Dong, \& Webb}}}
-\bibcite{VonMises1964}{{54}{1964}{{von Mises}}{{}}}
-\bibcite{Wdowinski1997}{{55}{1997}{{Wdowinski et~al.}}{{Wdowinski, Zhang, Fang, \& Genrich}}}
-\bibcite{Wech2010}{{56}{2010}{{Wech}}{{}}}
-\bibcite{Wech2009}{{57}{2009}{{Wech et~al.}}{{Wech, Creager, \& Melbourne}}}
-\bibcite{Wendland2005}{{58}{2005}{{Wendland}}{{}}}
-\bibcite{Williams2004}{{59}{2004}{{Williams et~al.}}{{Williams, Bock, Fang, Jamason, Nikolaidis, Prawirodirdjo, Miller, \& Johnson}}}
-\bibcite{Wyatt1982}{{60}{1982}{{Wyatt}}{{}}}
-\bibcite{Wyatt1989}{{61}{1989}{{Wyatt}}{{}}}
-\bibcite{Zhang1997}{{62}{1997}{{Zhang et~al.}}{{Zhang, Bock, Johnson, Fang, Williams, Genrich, Wdowinski, \& Behr}}}
+\bibcite{Adler1981}{{1}{1981}{{Adler}}{{}}}
+\bibcite{Beavan2001}{{2}{2001}{{Beavan \& Haines}}{{}}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Conclusion}{23}}
+\newlabel{sec:Conclusion}{{5}{23}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Acknowledgements}{23}}
+\bibcite{Blewitt2016}{{3}{2016}{{Blewitt et~al.}}{{Blewitt, Kreemer, Hammond, \& Gazeaux}}}
+\bibcite{Bos2013}{{4}{2013}{{Bos et~al.}}{{Bos, Fernandes, Williams, \& Bastos}}}
+\bibcite{Chen2008}{{5}{2008}{{Chen et~al.}}{{Chen, Davis, \& Hager}}}
+\bibcite{Cressie1992}{{6}{1993}{{Cressie}}{{}}}
+\bibcite{Dong2002}{{7}{2002}{{Dong et~al.}}{{Dong, Fang, Bock, Cheng, \& Miyazaki}}}
+\bibcite{Dong2006}{{8}{2006}{{Dong et~al.}}{{Dong, Fang, Bock, Webb, Prawirodirdjo, Kedar, \& Jamason}}}
+\bibcite{Dragert2011}{{9}{2011}{{Dragert \& Wang}}{{}}}
+\bibcite{Dragert2001}{{10}{2001}{{Dragert et~al.}}{{Dragert, Wang, \& James}}}
+\bibcite{El-Fiky1999}{{11}{1998}{{El-Fiky \& Kato}}{{}}}
+\bibcite{Feigl1990}{{12}{1990}{{Feigl et~al.}}{{Feigl, King, \& Jordan}}}
+\bibcite{Field2014}{{13}{2014}{{Field et~al.}}{{Field, Arrowsmith, Biasi, Bird, Dawson, Felzer, Jackson, Johnson, Jordan, Madden, Michael, Milner, Page, Parsons, Powers, Shaw, Thatcher, Weldon, \& Zeng}}}
+\bibcite{Freed2001}{{14}{2001}{{Freed \& Lin}}{{}}}
+\bibcite{Gladwin1987}{{15}{1987}{{Gladwin et~al.}}{{Gladwin, Gwyther, Hart, Francis, \& Johnston}}}
+\bibcite{Hammond2016}{{16}{2016}{{Hammond et~al.}}{{Hammond, Blewitt, \& Kreemer}}}
+\bibcite{Hart1996}{{17}{1996}{{Hart et~al.}}{{Hart, Gladwin, Gwyther, Agnew, \& Wyatt}}}
+\bibcite{Harville1974}{{18}{1974}{{Harville}}{{}}}
+\bibcite{Herring2016}{{19}{2016}{{Herring et~al.}}{{Herring, Melbourne, Murray, Floyd, Szeliga, King, Phillips, Puskas, Santillan, \& Wang}}}
+\bibcite{Hines2016a}{{20}{2016}{{Hines \& Hetland}}{{}}}
+\bibcite{Hines2017}{{21}{2017}{{Hines \& Hetland}}{{}}}
+\bibcite{Hodgkinson2013}{{22}{2013}{{Hodgkinson et~al.}}{{Hodgkinson, Agnew, \& Roeloffs}}}
+\bibcite{Holt2013}{{23}{2013}{{Holt \& Shcherbenko}}{{}}}
+\bibcite{Johansson2002}{{24}{2002}{{Johansson et~al.}}{{Johansson, Davis, Scherneck, Milne, Vermeer, Mitrovica, Bennett, Jonsson, Elgered, Elo, \& Koivula}}}
+\bibcite{Kato1998}{{25}{1998}{{Kato et~al.}}{{Kato, El-Fiky, Oware, \& Miyazaki}}}
+\bibcite{Langbein2004}{{26}{2004}{{Langbein}}{{}}}
+\bibcite{Langbein2008}{{27}{2008}{{Langbein}}{{}}}
+\bibcite{Langbein1997}{{28}{1997}{{Langbein \& Johnson}}{{}}}
+\bibcite{Lisowski2008}{{29}{2008}{{Lisowski et~al.}}{{Lisowski, Dzurisin, Denlinger, \& Iwatsubo}}}
+\bibcite{Lohman2013}{{30}{2013}{{Lohman \& Murray}}{{}}}
+\bibcite{Mackay1998}{{31}{1998}{{Mackay}}{{}}}
+\bibcite{Mao1999}{{32}{1999}{{Mao et~al.}}{{Mao, Harrison, \& Dixon}}}
+\bibcite{McCaffrey2007}{{33}{2007}{{McCaffrey et~al.}}{{McCaffrey, Qamar, King, Wells, Khazaradze, Williams, Stevens, Vollick, \& Zwick}}}
+\bibcite{McCaffrey2013}{{34}{2013}{{McCaffrey et~al.}}{{McCaffrey, King, Payne, \& Lancaster}}}
+\bibcite{McGuire2003}{{35}{2003}{{McGuire \& Segall}}{{}}}
+\bibcite{Meade2005}{{36}{2005}{{Meade \& Hager}}{{}}}
+\bibcite{Miyazaki2003}{{37}{2003}{{Miyazaki et~al.}}{{Miyazaki, McGuire, \& Segall}}}
+\bibcite{Moritz1978}{{38}{1978}{{Moritz}}{{}}}
+\bibcite{Murray2000}{{39}{2000}{{Murray \& Lisowski}}{{}}}
+\bibcite{Ohtani2010}{{40}{2010}{{Ohtani et~al.}}{{Ohtani, McGuire, \& Segall}}}
+\bibcite{Okada1992}{{41}{1992}{{Okada}}{{}}}
+\bibcite{Press2007}{{42}{2007}{{Press et~al.}}{{Press, Flannery, Teukolsky, \& Vetterling}}}
+\bibcite{Rasmussen2006}{{43}{2006}{{Rasmussen \& Williams}}{{}}}
+\bibcite{Roeloffs2010}{{44}{2010}{{Roeloffs}}{{}}}
+\bibcite{Roeloffs2006}{{45}{2006}{{Roeloffs}}{{}}}
+\bibcite{Rogers2003}{{46}{2003}{{Rogers \& Dragert}}{{}}}
+\bibcite{Sandwell2016}{{47}{2016}{{Sandwell \& Wessel}}{{}}}
+\bibcite{Schmidt2010}{{48}{2010}{{Schmidt \& Gao}}{{}}}
+\bibcite{Segall1997}{{49}{1997}{{Segall \& Mathews}}{{}}}
+\bibcite{Shen2015}{{50}{2015}{{Shen et~al.}}{{Shen, Wang, Zeng, \& Wang}}}
+\bibcite{Shen1996}{{51}{1996}{{Shen et~al.}}{{Shen, Jackson, Ge, \& Bob}}}
+\bibcite{Tape2009}{{52}{2009}{{Tape et~al.}}{{Tape, Mus{\'{e}}, Simons, Dong, \& Webb}}}
+\bibcite{VonMises1964}{{53}{1964}{{von Mises}}{{}}}
+\bibcite{Wdowinski1997}{{54}{1997}{{Wdowinski et~al.}}{{Wdowinski, Zhang, Fang, \& Genrich}}}
+\bibcite{Wech2010}{{55}{2010}{{Wech}}{{}}}
+\bibcite{Wech2009}{{56}{2009}{{Wech et~al.}}{{Wech, Creager, \& Melbourne}}}
+\bibcite{Wendland2005}{{57}{2005}{{Wendland}}{{}}}
+\bibcite{Williams2004}{{58}{2004}{{Williams et~al.}}{{Williams, Bock, Fang, Jamason, Nikolaidis, Prawirodirdjo, Miller, \& Johnson}}}
+\bibcite{Wyatt1982}{{59}{1982}{{Wyatt}}{{}}}
+\bibcite{Wyatt1989}{{60}{1989}{{Wyatt}}{{}}}
+\bibcite{Zhang1997}{{61}{1997}{{Zhang et~al.}}{{Zhang, Bock, Johnson, Fang, Williams, Genrich, Wdowinski, \& Behr}}}

@@ -231,7 +231,7 @@ Following a similar procedure as above, we can write eq. (\ref{eq:Residual1}) as
                   \mitbf{0} \\
                   \end{array}\right].
 \end{equation}
-To start the algorithm, we let $\mitbf{\Omega}$ contain all $n$ indices, and we refine $\mitbf{\Omega}$ iteratively. For each iteration, we compute $\mitbf{r}$ with eq. (\ref{eq:Residual}) and then update $\mitbf{\Omega}$ to be
+We start the algorithm by letting $\mitbf{\Omega}$ contain all $n$ indices, and we refine $\mitbf{\Omega}$ iteratively. For each iteration, we compute $\mitbf{r}$ with eq. (\ref{eq:Residual}) and then update $\mitbf{\Omega}$ to be
 \begin{equation}\label{eq:Update}
 \mitbf{\Omega} = \left\{i : \left|\frac{r_i}{\sigma_i}\right| < \lambda \cdot \mathrm{RMS}\right\},
 \end{equation} 

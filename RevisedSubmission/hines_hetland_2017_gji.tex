@@ -231,11 +231,11 @@ Following a similar procedure as above, we can write eq. (\ref{eq:Residual1}) as
                   \mitbf{0} \\
                   \end{array}\right].
 \end{equation}
-We start the algorithm by letting $\mitbf{\Omega}$ contain all $n$ indices, and we refine $\mitbf{\Omega}$ iteratively. For each iteration, we compute $\mitbf{r}$ with eq. (\ref{eq:Residual}) and then update $\mitbf{\Omega}$ to be
+We start the algorithm by letting $\mitbf{\Omega}$ contain all $n$ indices, and we refine $\mitbf{\Omega}$ iteratively. For each iteration, we compute $\mitbf{r}$ with eq. (\ref{eq:Residual}) and then update $\mitbf{\Omega}$ so that it contains the indices of $\mitbf{r}$ whose weighted values are less than $\lambda$ times the weighted root mean square of $\tilde{\mitbf{r}}$, 
 \begin{equation}\label{eq:Update}
-\mitbf{\Omega} = \left\{i : \left|\frac{r_i}{\sigma_i}\right| < \lambda \cdot \mathrm{RMS}\right\},
+\mitbf{\Omega} \leftarrow \left\{i : \left|\frac{r_i}{\sigma_i}\right| < \lambda \cdot \sqrt{\frac{1}{|\mitbf{\Omega}|} \sum_{j \in \mitbf{\Omega}} \frac{r_j^2}{\sigma_j^2}} \right\}.
 \end{equation} 
-where RMS is the root-mean-square of $\tilde{\mitbf{r}}$ and $\lambda$ is an outlier tolerance. Iterations continue until the new $\mitbf{\Omega}$ is the same as the previous $\mitbf{\Omega}$.
+Iterations continue until the new $\mitbf{\Omega}$ is the same as the previous $\mitbf{\Omega}$.
  
  
 We use $\lambda=4$ in this study, which in our experience accurately identifies outliers without unnecessarily decimating the data. Iterations continue until the new $\mitbf{\Omega}$ is equal to the previous $\mitbf{\Omega}$. 

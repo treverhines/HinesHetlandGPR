@@ -35,39 +35,44 @@
 \@writefile{toc}{\contentsline {section}{\numberline {2}Estimating Transient Strain Rates}{4}}
 \newlabel{sec:Method}{{2}{4}}
 \newlabel{eq:TransientCovariance}{{1}{4}}
+\newlabel{eq:ExampleCov}{{2}{4}}
 \citation{Wyatt1982}
 \citation{Wyatt1989}
 \citation{Wdowinski1997}
 \citation{Dong2002}
 \citation{Langbein2008}
+\newlabel{eq:Data}{{3}{5}}
 \citation{VonMises1964}
-\newlabel{eq:Data}{{2}{5}}
-\newlabel{eq:DataVec}{{3}{5}}
-\newlabel{eq:Cd}{{4}{5}}
 \citation{Press2007}
-\newlabel{eq:PosteriorMean}{{5}{6}}
-\newlabel{eq:PosteriorCov}{{6}{6}}
-\newlabel{eq:PosteriorMean2}{{7}{6}}
-\newlabel{eq:PosteriorCov2}{{8}{6}}
-\newlabel{eq:PosteriorMean3}{{9}{6}}
-\newlabel{eq:PosteriorCov3}{{10}{6}}
-\newlabel{eq:StrainRate}{{11}{7}}
-\newlabel{eq:StrainMean}{{12}{7}}
-\newlabel{eq:StrainCov}{{13}{7}}
+\newlabel{eq:DataVec}{{4}{6}}
+\newlabel{eq:Cd}{{5}{6}}
+\newlabel{eq:PosteriorMean}{{6}{6}}
+\newlabel{eq:PosteriorCov}{{7}{6}}
+\newlabel{eq:PosteriorMean2}{{8}{6}}
+\newlabel{eq:PosteriorCov2}{{9}{6}}
+\newlabel{eq:PosteriorMean3}{{10}{7}}
+\newlabel{eq:PosteriorCov3}{{11}{7}}
+\newlabel{eq:StrainRate}{{12}{7}}
+\newlabel{eq:StrainMean}{{13}{7}}
+\newlabel{eq:StrainCov}{{14}{7}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Transient detection criterion}{7}}
 \newlabel{sec:TransientDetection}{{2.1}{7}}
-\newlabel{eq:SNR}{{16}{7}}
 \citation{Blewitt2016}
 \citation{Hammond2016}
 \citation{Johansson2002}
 \citation{Dong2006}
 \citation{Bos2013}
+\newlabel{eq:SNR}{{17}{8}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Outlier detection}{8}}
 \newlabel{sec:Outlier}{{2.2}{8}}
-\newlabel{eq:Residual1}{{19}{8}}
 \citation{Dragert2001}
 \citation{Rogers2003}
 \citation{Wech2010}
+\newlabel{eq:Residual1}{{20}{9}}
+\newlabel{eq:Residual}{{21}{9}}
+\newlabel{eq:Update}{{22}{9}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Application to Pacific Northwest Slow Slip Events}{9}}
+\newlabel{sec:Cascadia}{{3}{9}}
 \citation{Herring2016}
 \citation{Wech2010}
 \citation{Wech2010}
@@ -77,89 +82,87 @@
 \citation{Langbein2008}
 \citation{Wyatt1982}
 \citation{Wyatt1989}
-\newlabel{eq:Residual}{{20}{9}}
-\newlabel{eq:Update}{{21}{9}}
-\@writefile{toc}{\contentsline {section}{\numberline {3}Application to Pacific Northwest Slow Slip Events}{9}}
-\newlabel{sec:Cascadia}{{3}{9}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Positions of continuous GNSS stations used to estimate transient strain rates. The colored regions indicate the distribution of seismic tremor as determined by \citet  {Wech2010}. The red dots show the positions of GNSS stations mentioned in this paper. The blue dot indicates the location of the transient strain rates shown in Figure 7\hbox {} and the signal-to-noise ratio shown in Figure 8\hbox {}. The blue dashed circle demarcates the spatial extent of the tremors shown in Figure 8\hbox {}.}}{10}}
-\newlabel{fig:Context}{{1}{10}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Noise model}{10}}
-\newlabel{sec:NoiseModel}{{3.1}{10}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Detrended easting component of displacements at station SC03, which is located on Mount Olympus in Washington. The orange markers indicate outliers that were automatically detected using the algorithm from Section 2.2\hbox {}. The error bars show one standard deviation uncertainties. Note that outliers tend be observed in the winter, suggesting that they were caused by snow or ice.}}{10}}
+\newlabel{fig:Outliers}{{1}{10}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Positions of continuous GNSS stations used to estimate transient strain rates. The colored regions indicate the distribution of seismic tremor as determined by \citet  {Wech2010}. The red dots show the positions of GNSS stations mentioned in this paper. The blue dot indicates the location of the transient strain rates shown in Figure 8\hbox {} and the signal-to-noise ratio shown in Figure 9\hbox {}. The blue dashed circle demarcates the spatial extent of the tremors shown in Figure 9\hbox {}.}}{11}}
+\newlabel{fig:Context}{{2}{11}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Noise model}{11}}
+\newlabel{sec:NoiseModel}{{3.1}{11}}
 \citation{Harville1974}
 \citation{Cressie1992}
 \citation{Hines2017}
 \citation{Harville1974}
 \citation{Langbein1997}
 \citation{Hines2017}
-\newlabel{eq:FOGMdef}{{22}{11}}
-\newlabel{eq:FOGM}{{23}{11}}
-\newlabel{eq:REML}{{24}{11}}
+\newlabel{eq:FOGMdef}{{23}{12}}
+\newlabel{eq:FOGM}{{24}{12}}
+\newlabel{eq:REML}{{25}{12}}
 \citation{Wdowinski1997}
 \citation{Dong2006}
 \citation{Cressie1992}
 \citation{Rasmussen2006}
 \citation{Kato1998}
 \citation{El-Fiky1999}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Prior model}{12}}
-\newlabel{sec:SignalModel}{{3.2}{12}}
-\newlabel{eq:SE}{{26}{12}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Prior model}{13}}
+\newlabel{sec:SignalModel}{{3.2}{13}}
+\newlabel{eq:SE}{{27}{13}}
 \citation{Segall1997}
 \citation{McGuire2003}
 \citation{Ohtani2010}
 \citation{Hines2016a}
 \citation{Wendland2005}
 \citation{Chen2008}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Distribution of estimated FOGM hyperparameters (eq. 23\hbox {}). Hyperparameters are estimated with the REML method for 38 stations in the Pacific Northwest that are east of $121^\circ $W. ``IQR'' is the interquartile range.}}{13}}
-\newlabel{fig:NoiseParams}{{2}{13}}
-\newlabel{eq:TimeSE}{{27}{13}}
-\newlabel{eq:IBM}{{28}{13}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Two FOGM noise samples for each component. The FOGM hyperparameters have been set to the median values from Figure 2\hbox {}.}}{14}}
-\newlabel{fig:NoiseSamples}{{3}{14}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Distribution of estimated FOGM hyperparameters (eq. 24\hbox {}). Hyperparameters are estimated with the REML method for 38 stations in the Pacific Northwest that are east of $121^\circ $W. ``IQR'' is the interquartile range.}}{14}}
+\newlabel{fig:NoiseParams}{{3}{14}}
+\newlabel{eq:TimeSE}{{28}{14}}
+\newlabel{eq:IBM}{{29}{14}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Two FOGM noise samples for each component. The FOGM hyperparameters have been set to the median values from Figure 3\hbox {}.}}{15}}
+\newlabel{fig:NoiseSamples}{{4}{15}}
 \citation{Lisowski2008}
 \citation{Wech2010}
 \citation{Langbein2004}
-\newlabel{eq:Wendland}{{30}{15}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Detrended easting component of displacements at station SC03, which is located on Mount Olympus in Washington. The orange markers indicate outliers that were automatically detected using the algorithm from Section 2.2\hbox {}. The error bars show one standard deviation uncertainties. Note that outliers tend be observed in the winter, suggesting that they were caused by snow or ice.}}{16}}
-\newlabel{fig:Outliers}{{4}{16}}
-\newlabel{tab:Parameters}{{3.2}{16}}
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Optimal hyperparameters for the prior on transient displacements determined with the REML method. The temporal covariance function is indicated by the ``$T$'' column. The SE, IBM, and Wendland covariance functions are defined in eqs. (27\hbox {}), (28\hbox {}), and (30\hbox {}), respectively. The spatial covariance function, $X$, is the squared exponential (eq. 26\hbox {}) in all cases. The hyperparameters are estimated for each of the seven SSEs considered in this study, and the tabulated values indicate the median and interquartile ranges of estimates. The ``diff $\qopname  \relax o{log}$(REML)'' column compares the log REML likelihood to the log REML likelihood when using the SE covariance function for $T$. Negative values indicate that observations are more consistent with the SE covariance function.}}{16}}
+\newlabel{eq:Wendland}{{31}{16}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Detrended easting component of displacements at station SC03, which is located on Mount Olympus in Washington. The orange markers indicate outliers that were automatically detected using the algorithm from Section 2.2\hbox {}. The error bars show one standard deviation uncertainties. Note that outliers tend be observed in the winter, suggesting that they were caused by snow or ice.}}{17}}
+\newlabel{fig:Outliers}{{5}{17}}
+\newlabel{tab:Parameters}{{3.2}{17}}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Optimal hyperparameters for the prior on transient displacements determined with the REML method. The temporal covariance function is indicated by the ``$T$'' column. The SE, IBM, and Wendland covariance functions are defined in eqs. (28\hbox {}), (29\hbox {}), and (31\hbox {}), respectively. The spatial covariance function, $X$, is the squared exponential (eq. 27\hbox {}) in all cases. The hyperparameters are estimated for each of the seven SSEs considered in this study, and the tabulated values indicate the median and interquartile ranges of estimates. The ``diff $\qopname  \relax o{log}$(REML)'' column compares the log REML likelihood to the log REML likelihood when using the SE covariance function for $T$. Negative values indicate that observations are more consistent with the SE covariance function.}}{17}}
 \citation{Dragert2001}
 \citation{Wech2009}
 \citation{Schmidt2010}
 \citation{Murray2000}
 \citation{McCaffrey2007}
 \citation{McCaffrey2013}
-\newlabel{eq:DataPredMean}{{32}{17}}
-\newlabel{eq:DataPredCov}{{33}{17}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Transient Strain Rates}{17}}
-\newlabel{sec:Results}{{3.3}{17}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Easting component of the observed displacements, $ \hbox {\mathversion  {bold}$d$}_*$, and predicted displacements, $\mathaccentV {hat}05E{ \hbox {\mathversion  {bold}$d$}}$, during an SSE at three stations where the SSE signal is strongest. The predicted displacements are shown for when $T$ is a squared exponential (SE), Wendland, and integrated Brownian motion (IBM) covariance function. The one standard deviation uncertainties are shown for the observations and the SE predictions. For clarity, uncertainties are not shown for the IBM and Wendland predictions, but they are nearly equivalent to the uncertainties for the SE predictions. The SE and Wendland predictions are practically indistinguishable.}}{18}}
-\newlabel{fig:Fit}{{5}{18}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Estimated transient strain rates during the Winter 2015-2016 SSE. Strain glyphs show the normal strain rate along each azimuth, where orange indicates compression and blue indicates extension. The shaded regions indicate one standard deviation uncertainties in the normal strain rates.}}{19}}
-\newlabel{fig:StrainMap}{{6}{19}}
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Three components of the transient horizontal strain rate tensor estimated at the position shown in Figure 1\hbox {}. The shaded regions indicate one standard deviation uncertainty.}}{20}}
-\newlabel{fig:StrainTs}{{7}{20}}
-\@writefile{toc}{\contentsline {section}{\numberline {4}Discussion}{20}}
-\newlabel{sec:Discussion}{{4}{20}}
+\newlabel{eq:DataPredMean}{{33}{18}}
+\newlabel{eq:DataPredCov}{{34}{18}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Transient Strain Rates}{18}}
+\newlabel{sec:Results}{{3.3}{18}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Easting component of the observed displacements, $ \hbox {\mathversion  {bold}$d$}_*$, and predicted displacements, $\mathaccentV {hat}05E{ \hbox {\mathversion  {bold}$d$}}$, during an SSE at three stations where the SSE signal is strongest. The predicted displacements are shown for when $T$ is a squared exponential (SE), Wendland, and integrated Brownian motion (IBM) covariance function. The one standard deviation uncertainties are shown for the observations and the SE predictions. For clarity, uncertainties are not shown for the IBM and Wendland predictions, but they are nearly equivalent to the uncertainties for the SE predictions. The SE and Wendland predictions are practically indistinguishable.}}{19}}
+\newlabel{fig:Fit}{{6}{19}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Estimated transient strain rates during the Winter 2015-2016 SSE. Strain glyphs show the normal strain rate along each azimuth, where orange indicates compression and blue indicates extension. The shaded regions indicate one standard deviation uncertainties in the normal strain rates.}}{20}}
+\newlabel{fig:StrainMap}{{7}{20}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Three components of the transient horizontal strain rate tensor estimated at the position shown in Figure 2\hbox {}. The shaded regions indicate one standard deviation uncertainty.}}{21}}
+\newlabel{fig:StrainTs}{{8}{21}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Discussion}{21}}
+\newlabel{sec:Discussion}{{4}{21}}
 \citation{Dragert2011}
 \citation{Hart1996}
 \citation{Roeloffs2010}
 \citation{Hodgkinson2013}
 \citation{Roeloffs2010}
 \citation{Gladwin1987}
-\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces (top) Signal-to-noise ratio (eq. 16\hbox {}) at the position shown in Figure 1\hbox {}. (bottom) Frequency of tremors in the region shown in Figure 1\hbox {}.}}{21}}
-\newlabel{fig:StrainMag}{{8}{21}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces (top) Signal-to-noise ratio (eq. 17\hbox {}) at the position shown in Figure 2\hbox {}. (bottom) Frequency of tremors in the region shown in Figure 2\hbox {}.}}{22}}
+\newlabel{fig:StrainMag}{{9}{22}}
 \citation{Miyazaki2003}
 \citation{Mackay1998}
 \citation{Press2007}
-\newlabel{eq:Periodic}{{34}{22}}
+\newlabel{eq:Periodic}{{35}{23}}
 \bibstyle{gji}
 \bibdata{mybib}
 \bibcite{Adler1981}{{1}{1981}{{Adler}}{{}}}
 \bibcite{Beavan2001}{{2}{2001}{{Beavan \& Haines}}{{}}}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Conclusion}{23}}
-\newlabel{sec:Conclusion}{{5}{23}}
-\@writefile{toc}{\contentsline {section}{\numberline {6}Acknowledgements}{23}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Conclusion}{24}}
+\newlabel{sec:Conclusion}{{5}{24}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Acknowledgements}{24}}
 \bibcite{Blewitt2016}{{3}{2016}{{Blewitt et~al.}}{{Blewitt, Kreemer, Hammond, \& Gazeaux}}}
 \bibcite{Bos2013}{{4}{2013}{{Bos et~al.}}{{Bos, Fernandes, Williams, \& Bastos}}}
 \bibcite{Chen2008}{{5}{2008}{{Chen et~al.}}{{Chen, Davis, \& Hager}}}

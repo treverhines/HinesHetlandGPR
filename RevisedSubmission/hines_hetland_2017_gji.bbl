@@ -1,5 +1,11 @@
-\begin{thebibliography}{61}
+\begin{thebibliography}{63}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+
+\bibitem[Acheson(1975)]{Acheson1975}
+Acheson, D.~T., 1975.
+\newblock {Data editing - subroutine editq}, Tech. rep., US Department of
+  Commerce, National Oceanic and Atmospheric Administration, Environmental Data
+  Service.
 
 \bibitem[Adler(1981)]{Adler1981}
 Adler, R.~J., 1981.
@@ -86,6 +92,15 @@ Field, E.~H., Arrowsmith, R.~J., Biasi, G.~P., Bird, P., Dawson, T.~E., Felzer,
 Freed, a.~M. \& Lin, J., 2001.
 \newblock {Delayed triggering of the 1999 Hector Mine earthquake by
   viscoelastic stress transfer.}, {\it Nature\/}.
+
+\bibitem[Gazeaux et~al.(2013)Gazeaux, Williams, King, Bos, Dach, Deo, Moore,
+  Ostini, Petrie, Roggero, Teferle, Olivares, \& Webb]{Gazeaux2013}
+Gazeaux, J., Williams, S., King, M., Bos, M., Dach, R., Deo, M., Moore, A.~W.,
+  Ostini, L., Petrie, E., Roggero, M., Teferle, F.~N., Olivares, G., \& Webb,
+  F.~H., 2013.
+\newblock {Detecting offsets in GPS time series: First results from the
+  detection of offsets in GPS experiment}, {\it Journal of Geophysical
+  Research: Solid Earth\/}, {\bf 118}(5), 2397--2407.
 
 \bibitem[Gladwin et~al.(1987)Gladwin, Gwyther, Hart, Francis, \&
   Johnston]{Gladwin1987}

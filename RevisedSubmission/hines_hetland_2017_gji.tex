@@ -419,7 +419,7 @@ Our outlier detection algorithm is loosely based on the data editing algorithm f
 \begin{equation}\label{eq:OutlierDataVec}
 \mitbf{d} = \mitbf{G}\mitbf{m} + v(\mitbf{P}) + \mitbf{w},
 \end{equation}
-where $\mitbf{G}$ and $\mitbf{m}$ are the same as in eq. (\ref{eq:DataVec}), $v$ is a Gaussian process distributed as $\mathcal{GP}(0,C_v)$, and $\mitbf{w}$ is a vector of uncorrelated noise with known standard deviations $\mitbf{\sigma} = [\sigma_1, \sigma_2, ..., \sigma_n]$. The Gaussian process $v$ is intended to describe transient features in the data that cannot be explained by the linear trend or seasonal terms in $\mitbf{G}$. We let the temporal covariance of $v$ be a squared exponential, and we let $v$ be spatially uncorrelated so that,
+where $\mitbf{G}$ and $\mitbf{m}$ are the same as in eq. (\ref{eq:DataVec}), $v$ is a Gaussian process distributed as $\mathcal{GP}(0,C_v)$, and $\mitbf{w}$ is a vector of uncorrelated Gaussian noise with known standard deviations $\mitbf{\sigma} = [\sigma_1, \sigma_2, ..., \sigma_n]$. The Gaussian process $v$ is intended to describe transient features in the data that cannot be explained by the linear trend or seasonal terms in $\mitbf{G}$. We let the temporal covariance of $v$ be a squared exponential, and we let $v$ be spatially uncorrelated so that,
 \begin{equation}
 C_v(p,p') = \phi^2\exp\left(\frac{-|t - t'|^2}{2\tau^2}\right) C_w(\vec{x},\vec{x}'),
 \end{equation}

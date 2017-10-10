@@ -415,7 +415,7 @@ This material is based upon work supported by the National Science Foundation un
 \appendix
 
 \section{Outlier detection algorithm}
-Our outlier detection algorithm is loosely based on the data editing algorithm from \citet{Acheson1975}. Let $\mitbf{d}^*$ denote all $n$ GNSS displacement observations for a single directional component, which have been made at positions and times $\mitbf{P}$.  We model $\mitbf{d}^*$ as a realization of the random vector 
+Our outlier detection algorithm is loosely based on the data editing algorithm from \citet{Acheson1975}. Let $\mitbf{d}^*$ denote all $n$ GNSS displacement observations for a single directional component, which have been made at positions and times $\mitbf{P}$.  We describe $\mitbf{d}^*$ as a realization of the random vector 
 \begin{equation}\label{eq:OutlierDataVec}
 \mitbf{d} = \mitbf{G}\mitbf{m} + v(\mitbf{P}) + \mitbf{w},
 \end{equation}
@@ -433,7 +433,7 @@ C_w(\vec{x},\vec{x}') =
 \end{equation}
 The spatial covariance of $v$ has little effect on the detected outliers, and so we have assumed that $v$ is spatially uncorrelated for simplicity. Based on our experience, $v$ can reasonably describe most transient features in the data when we set $\phi = 1$ mm and $\tau = 10$ days. 
 
-Our goal is to find the index set of non-outliers in $\mitbf{d}^*$, which we denote as $\mitbf{\Omega}$. We use a tilde to indicate that an array only contains elements corresponding to $\mitbf{\Omega}$ (e.g., the vector of non-outlier observations is denoted $\tilde{\mitbf{d}}^* = [d_i^*]_{i \in \mitbf{\Omega}}$). The outliers are identified iteratively, and we initiate $\mitbf{\Omega}$ with all $n$ indices. We consider outliers to be data that are inconsistent with eq. (\ref{eq:OutlierDataVec}), which we determine with the residual vector 
+Our goal is to find the index set of non-outliers in $\mitbf{d}^*$, which we denote as $\mitbf{\Omega}$. We use a tilde to indicate that an array only contains elements corresponding to $\mitbf{\Omega}$ (e.g., the vector of non-outlier observations is denoted $\tilde{\mitbf{d}}^* = [d_i^*]_{i \in \mitbf{\Omega}}$). The outliers are identified iteratively, and we initiate $\mitbf{\Omega}$ with all $n$ indices. We consider outliers to be data that are poorly explained by the model $\mitbf{G}\mitbf{m} + v(\mitbf{P})$, which is determine by the residual vector 
 \begin{align}\label{eq:Residual}
 \mitbf{r} &= \mitbf{d}^* - \mathrm{E}\left[\Big(\mitbf{G}\mitbf{m} + v(\mitbf{P})\Big) \Big| \Big(\tilde{\mitbf{d}} = \tilde{\mitbf{d}}^*\Big)\right] \\
           &= \mitbf{d}^*  - 

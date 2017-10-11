@@ -1,4 +1,4 @@
-\begin{thebibliography}{63}
+\begin{thebibliography}{64}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 
 \bibitem[Acheson(1975)]{Acheson1975}
@@ -126,6 +126,11 @@ Hart, R. H.~G., Gladwin, M.~T., Gwyther, R.~L., Agnew, D.~C., \& Wyatt, F.~K.,
 Harville, D.~A., 1974.
 \newblock {Bayesian Inference for Variance Components Using Only Error
   Contrasts}, {\it Biometrika\/}, {\bf 61}(2), 383--385.
+
+\bibitem[Hastie et~al.(2009)Hastie, Tibshirani, \& Friedman]{Hastie2009}
+Hastie, T., Tibshirani, R., \& Friedman, J., 2009.
+\newblock {\it {The Elements of Statistical Learning: Data Mining, Inference,
+  and Prediction}\/}, Springer-Verlag, 2nd edn.
 
 \bibitem[Herring et~al.(2016)Herring, Melbourne, Murray, Floyd, Szeliga, King,
   Phillips, Puskas, Santillan, \& Wang]{Herring2016}

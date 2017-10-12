@@ -455,11 +455,11 @@ Data with abnormally large residuals are identified as outliers. For each iterat
 \end{equation} 
 Iterations continue until the new $\mitbf{\Omega}$ is the same as the previous $\mitbf{\Omega}$. We use $\lambda=4$ in this study, which in our experience accurately identifies outliers without unnecessarily decimating the data.
 
-To demostrate this algorithm ...
+The outlier detection algorithm is demonstrated in Figure \ref{fig:Outliers}. In the demonstration we use the easting component of displacements at a single station, SC03, which is located on Mt. Olympus in Washington state. Station SC03 records anomalous observations during the winter, presumably because of snow and ice accumulation, and we want to remove these observations. The station also records periodic westward motion from slow slip events, and we want to keep this deformation intact. The detected outliers are shown in (Panel B). For comparison, we also show the detected outliers when we do not include the Gaussian process $v$ in our model for the data (Panel A). When $v$ is not included, real transient deformation resulting from slow slip events is erroneously identified as outliers. When $v$ is included, the identified outliers only consist of the anomalous deformation that lacks temporal continuity.          
 
 \begin{figure*}
 \includegraphics{figures/outliers_new/outliers.pdf}
-\caption{Detrended easting component of displacements at station SC03, which is located on Mount Olympus in Washington. The orange markers indicate outliers that were automatically detected using the algorithm from Section \ref{sec:Outlier}. The error bars show one standard deviation uncertainties. Note that outliers tend be observed in the winter, suggesting that they were caused by snow or ice.}   
+\caption{Outliers detected in the easting component of displacements at station SC03. The orange markers indicate detected outliers. The orange line is the best fit model to the data, which is used to compute the residual vector $\mitbf{r}$. The model being fit to the data in Panel A is $\mitbf{G}\mitbf{m}$, and the model in Panel B is $\mitbf{G}\mitbf{m} + v(\mitbf{P})$.} 
 \label{fig:Outliers}
 \end{figure*}
 

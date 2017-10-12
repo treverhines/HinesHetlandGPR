@@ -11,7 +11,7 @@ def trend(u1,t1):
   u2 = u1[idx]
   t2 = t1[idx]
   G = np.array([np.ones(t2.shape[0]),t2]).T
-  m = np.linalg.inv(G.T.dot(G)).dot(G.T).dot(u2)
+  m = np.linalg.pinv(G.T.dot(G)).dot(G.T).dot(u2)
   return m
   
 xtick_dates = ['2011-01-01','2012-01-01','2013-01-01','2014-01-01']
@@ -26,6 +26,21 @@ c2 = colors.to_rgb('C1')
 c2t = tuple(0.6 + 0.4*np.array(colors.to_rgb('C1')))
 
 # plot raw data
+
+data = pygeons.io.io.dict_from_hdf5('data-2017-05-17.h5')
+
+name = 'SC03'
+idx = (data['id'] == name).nonzero()[0][0]
+lon = data['longitude'][idx]
+lat = data['latitude'][idx]
+
+t = data['time']
+u = 1000*data['east'][:,idx]
+us = 1000*data['east_std_dev'][:,idx]
+
+# toss out times that are out of range or have missing data
+tidx = (t >= xmin) & (t <= xmax) & np.isfinite(u)
+
 fig,axs = plt.subplots(2,1,figsize=(7,4.5),sharex=True)
 pygeons.plot.plot._setup_ts_ax(axs)
 
@@ -43,22 +58,9 @@ axs[1].set_xlim((xmin,xmax))
 axs[1].set_ylim((-10.0,15.0))
 axs[1].grid()
 
-data = pygeons.io.io.dict_from_hdf5('data-2017-05-17.h5')
-idx = (data['id'] == 'SC03').nonzero()[0][0]
-lon = data['longitude'][idx]
-lat = data['latitude'][idx]
-
-t = data['time']
-u = 1000*data['east'][:,idx]
-us = 1000*data['east_std_dev'][:,idx]
-
-# toss out times that are out of range
-tidx = (t >= xmin) & (t <= xmax)
 t = t[tidx]
 u = u[tidx]
 us = us[tidx]
-
-print(t.shape)
 
 # detrend for viewing ease
 m = trend(u,t)
@@ -74,13 +76,14 @@ def basis(t):
                    np.cos(4*np.pi*t[:,0]/365.25)]).T
                    
 # parameters
-tol = 3.0
+tol = 2.5
 
 # using just basis functions
 gp = rbf.gauss.gpbfci(basis)
 
 # find outliers
 is_outlier = gp.outliers(t[:,None],u,us,tol=tol)
+
 # find the best fit with non-outliers
 fit = gp.condition(t[~is_outlier,None],
                    u[~is_outlier],
@@ -115,11 +118,13 @@ axs[1].errorbar(t[is_outlier],
                 marker='.',linestyle='None',color=c2,ecolor=c2t,ms=5.0,zorder=2)
 axs[1].plot(t,fit,'C1-',zorder=3)
 
-axs[0].set_title('station SC03 (%.1f$^\mathregular{\circ}$W, %.1f$^\mathregular{\circ}$N)' % 
-                 (-lon,lat),fontsize=10)
+axs[0].set_title('station %s (%.1f$^\mathregular{\circ}$W, %.1f$^\mathregular{\circ}$N)' % 
+                 (name,-lon,lat),fontsize=10)
 
 axs[0].set_ylabel('easting [mm]',fontsize=10)
 axs[1].set_ylabel('easting [mm]',fontsize=10)
 fig.tight_layout()
 plt.savefig('outliers.pdf',format='pdf')
 plt.show()
+
+ 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.24)  11 OCT 2017 21:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.24)  12 OCT 2017 07:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -440,11 +440,7 @@ Overfull \hbox (62.02576pt too wide) in paragraph at lines 461--462
  [][] 
  []
 
-(./hines_hetland_2017_gji.bbl
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [24]
-[25 <./figures/outliers_new/outliers.pdf>]
+(./hines_hetland_2017_gji.bbl [24] [25 <./figures/outliers_new/outliers.pdf>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [26]
@@ -489,7 +485,7 @@ ts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type
 1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1
 /urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr
 8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on hines_hetland_2017_gji.pdf (29 pages, 2492637 bytes).
+Output written on hines_hetland_2017_gji.pdf (29 pages, 2492719 bytes).
 PDF statistics:
  551 PDF objects out of 1000 (max. 8388607)
  180 compressed objects within 2 object streams

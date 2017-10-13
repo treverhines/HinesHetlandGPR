@@ -51,10 +51,12 @@ Most methods for estimating strain rates from GNSS data assume some parametric f
 
 The aforementioned studies are concerned with estimating secular strain rates. In recent years the Southern California Earthquake Center (SCEC) community has shown interest in developing methods for detecting transient strain. SCEC supported a transient detection exercise \citep{Lohman2013}, where several research groups tested their methods for detecting transient geophysical signal with a synthetic GNSS dataset. Among the methods tested were the Network Strain Filter (NSF) \citep{Ohtani2010} and the Network Inversion Filter (NIF) \citep{Segall1997}. The NSF uses a wavelet parameterization to  describe the spatial component of geophysical signal. The NIF, which is intended for imaging slow fault slip from geodetic data, uses the elastic dislocation Green's functions from \citet{Okada1992}. For the NSF and NIF, the time dependence of the geophysical signal is modeled as integrated Brownian motion. The method described in \citet{Holt2013} was also tested in the SCEC transient detection exercise, which calculates strain rates using a bi-cubic spatial parameterization of displacements between time epochs. \citet{Holt2013} defined a detection threshold based on the strain rate magnitude, and below we demonstrate that this is indeed an effective criterion for identifying geophysical signal. For the same reasons descibed above, the transient deformation and corresponding uncertainties estimated by these methods can be biased by the chosen spatial parameterization. It is then difficult to distinguish signal from noise with these methods, which limits their utility for transient detection.   
 
-Here we propose using Gaussian process regression (GPR) \citep{Rasmussen2006} to estimate transient strain from GNSS data. GPR is closely related to kriging \citep{Cressie1992} and least squares collocation \citep{Moritz1978}. The latter has been used by \citet{Kato1998} and \citet{El-Fiky1999} to estimate secular strain rates from GNSS data. GPR is a Bayesian, non-parametric method for inferring a continuous signal from scattered data. Since GNSS stations are irregularly spaced and observation times may differ between stations, GPR is an ideal tool for synthesizing discrete GNSS data into a spatially and temporally continuous representation of surface deformation. GPR is Bayesian in that we describe our prior understanding of the geophysical signal with a Gaussian process. A Gaussian process is a continuous stochastic process whose value at any collection of points can be described as a multivariate Gaussian random variable. Just as a multivariate Gaussian random variable is fully determined by a mean vector and a covariance matrix, a Gaussian process is fully determined by a mean function and a covariance function. For example, Brownian motion, $B(t)$, is a well known Gaussian process in $\mathbb{R}^1$ which has a mean function $\mathrm{E}[B(t)] = 0$ and a covariance function $\mathrm{Cov}\left[B(t),B(t')\right] = \min(t,t')$, where $t,t' \ge 0$. If there is no information available to help choose an appropriate prior Gaussian process, then maximum likelihood methods can be used to objectively choose one that is most consistent with the data. Once a prior is selected, we incorporate GNSS observations with the prior to form a posterior estimate of transient strain. The posterior transient strain is also a Gaussian process, and we can use its distribution to confidently discern geophysical signal from noise. We use GPR to infer strain resulting from SSEs in the Pacific Northwest, demonstrating that GPR is an effective tool for detecting transient geophysical processes. 
+Here we propose using Gaussian process regression (GPR) \citep{Rasmussen2006} to estimate transient strain from GNSS data. GPR is closely related to kriging \citep{Cressie1992} and least squares collocation \citep{Moritz1978}. The latter has been used by \citet{Kato1998} and \citet{El-Fiky1999} to estimate secular strain rates from GNSS data. GPR is a Bayesian, non-parametric method for inferring a continuous signal from scattered data. Since GNSS stations are irregularly spaced and observation times may differ between stations, GPR is an ideal tool for synthesizing discrete GNSS data into a spatially and temporally continuous representation of surface deformation. GPR is Bayesian in that we describe our prior understanding of the geophysical signal with a Gaussian process. A Gaussian process is a continuous stochastic process whose value at any collection of points can be described as a Gaussian random vector. Just as a Gaussian random vector is fully determined by a mean vector and a covariance matrix, a Gaussian process is fully determined by a mean function and a covariance function. For example, Brownian motion, $B(t)$, is a well known Gaussian process in $\mathbb{R}^1$ which has a mean function $\mathrm{E}[B(t)] = 0$ and a covariance function $\mathrm{Cov}\left[B(t),B(t')\right] = \min(t,t')$, where $t,t' \ge 0$. If there is no information available to help choose an appropriate prior Gaussian process, then maximum likelihood methods can be used to objectively choose one that is most consistent with the data. Once a prior is selected, we incorporate GNSS observations with the prior to form a posterior estimate of transient strain. The posterior transient strain is also a Gaussian process, and we can use its distribution to confidently discern geophysical signal from noise. We use GPR to infer strain resulting from SSEs in the Pacific Northwest, demonstrating that GPR is an effective tool for detecting transient geophysical processes. 
 
 \section{Estimating Transient Strain Rates}\label{sec:Method}
-We seek a spatially and temporally dependent estimate of transient strain rates. We consider transient strain rates to be any deviation from secular strain rates, and our attention is limited to horizontal strain rates. We denote transient strain rates as $\dot\varepsilon(p)$, where $p$ represents the ordered pair $(\vec{x},t)$, $\vec{x}$ are spatial coordinates, and $t$ is time. For simplicity, we assume that the study region is sufficiently small that $\vec{x}$ can be considered a point in a 2-D map projection that is aligned with the cardinal directions, $\vec{x} = (x_\mathrm{e},x_\mathrm{n})$. We determine $\dot\varepsilon$ by spatially and temporally differentiating estimates of transient displacements, $\vec{u}(p)$. Transient displacements have an easting and northing component, $\vec{u} = (u_\mathrm{e}, u_\mathrm{n})$, and we make a prior assumption that each component of $\vec{u}$ is a Gaussian process with zero mean and a generic covariance function $\mathrm{Cov}\left[u_i(p),u_i(p')\right] = C_{u_i}(p,p')$. Using a more concise notation, we describe each component of $\vec{u}$ as $u_i \sim \mathcal{GP}\left(0,C_{u_i}\right)$. The function $C_{u_i}$ must be positive definite, which means that the matrix $[C_{u_i}(p,p')]_{(p,p') \in \mitbf{P} \times \mitbf{P}}$ is positive definite for any set of points $\mitbf{P}$. We assume that $C_{u_i}$ can be separated into spatial and temporal functions as 
+We seek a spatially and temporally dependent estimate of transient strain rates. We consider transient strain rates to be any deviation from secular strain rates, and our attention is limited to horizontal strain rates. We denote transient strain rates as $\dot\varepsilon(p)$, where $p$ represents the ordered pair $(\vec{x},t)$, $\vec{x} = (x_\mathrm{e},x_\mathrm{n})$ are spatial coordinates, and $t$ is time. For simplicity, we assume that the study region is sufficiently small that $\vec{x}$ can be considered a point in a 2-D map projection that is aligned with the cardinal directions. We determine $\dot\varepsilon$ by spatially and temporally differentiating estimates of transient displacements, $\vec{u}(p) = (u_\mathrm{e},u_\mathrm{n})$. 
+
+We make a prior assumption that each component of $\vec{u}$ is a Gaussian process with zero mean and a generic covariance function $\mathrm{Cov}\left[u_i(p),u_i(p')\right] = C_{u_i}(p,p')$. Using a more concise notation, we describe each component of $\vec{u}$ as $u_i \sim \mathcal{GP}\left(0,C_{u_i}\right)$. The function $C_{u_i}$ must be positive definite, which means that the matrix $[C_{u_i}(p,p')]_{(p,p') \in \mitbf{P} \times \mitbf{P}}$ is positive definite for any set of points $\mitbf{P}$. We assume that $C_{u_i}$ can be separated into spatial and temporal functions as 
 \begin{equation}\label{eq:TransientCovariance}
 C_{u_i}(p,p') = C_{u_i}\left((\vec{x},t),(\vec{x}',t')\right) = \phi^2 X_i(\vec{x},\vec{x}')T_i(t,t'),
 \end{equation}   
@@ -64,11 +66,11 @@ X_i(\vec{x},\vec{x}') = \exp\left(\frac{-||\vec{x} - \vec{x}'||_2^2}{2\ell^2}\ri
 \end{equation}
 The parameters $\ell$ and $\tau$ control the length-scale and time-scale, respectively, of realizations of $u_i$. While the squared exponential function is a commonly used covariance function for GPR, it is not appropriate for every application. The appropriate choice for $X_i$ and $T_i$ may vary depending on the geophysical signal we are trying to describe. To keep this section sufficiently general, we hold off on specifying $X_i$ and $T_i$ until Section \ref{sec:SignalModel}, where we estimate transient strain from slow slip events in the Pacific Northwest. 
 
-GNSS data records transient displacements as well as other physical and non-physical processes that we are not interested in. We first consider component $i$ of a single GNSS displacement observation made at station $j$, which is located at $\vec{x}^{(j)}$, and time $t^{(k)}$. We describe this observation as a realization of the random variable 
+GNSS data records transient displacements as well as other physical and non-physical processes that we are not interested in. We first consider component $i$ of a single GNSS displacement observation made at station $j$, which is located at $\vec{x}^{(j)}$, and time $t^{(k)}$. We describe this observation, $d_i^{*(jk)}$, as a realization of the random variable 
 \begin{align}\label{eq:Data}
 \begin{split}
 d_i^{(jk)} = &u_i\left(\vec{x}^{(j)},t^{(k)}\right) + 
-              \eta_i\left(\vec{x}^{(j)},t^{(k)}\right) + 
+              \eta_i^{(jk)} + 
               a_i^{(j)} + b_i^{(j)}t^{(k)} + \\
              &c_i^{(j)}\sin\left(2 \pi t^{(k)}\right) +  
               e_i^{(j)}\cos\left(2 \pi t^{(k)}\right) + \\ 
@@ -76,25 +78,25 @@ d_i^{(jk)} = &u_i\left(\vec{x}^{(j)},t^{(k)}\right) +
               g_i^{(j)}\cos\left(4 \pi t^{(k)}\right), 
 \end{split}
 \end{align}
-where $a_i^{(j)}$ is an offset that is unique for each station, $b_i^{(j)}$ is the secular velocity at $\vec{x}^{(j)}$, and the sinusoids describe seasonal deformation (using units of years for $t^{(k)}$). We use $\eta_i$ to represent all the non-parametric noise processes. For example, $\eta_i$ can consist of uncorrelated white noise, temporally correlated noise describing benchmark wobble \citep[e.g.,][]{Wyatt1982,Wyatt1989}, and/or spatially correlated noise describing common mode error \citep[e.g.,][]{Wdowinski1997}. For now, we only make the assumption that $\eta_i$ is a Gaussian process distributed as $\eta_i \sim \mathcal{GP}(0,C_{\eta_i})$, and $C_{\eta_i}$ is a spatially and temporally dependent covariance function. We consider the coefficients in eq. (\ref{eq:Data}) to be uncorrelated random variables distributed as $\mathcal{N}(0,\kappa^2)$ in the limit as $\kappa \to \infty$ (i.e., the coefficients have diffuse priors). Of course, the secular velocities, $b_i^{(j)}$, are spatially correlated and we could invoke a tectonic model to form a prior on $b_i^{(j)}$. However, in our application to the Pacific Northwest, we will be using displacement time series which are long enough to sufficiently constrain $b_i^{(j)}$ for each station, avoiding the need to incorporate a prior. Likewise, seasonal deformation is spatially correlated \citep{Dong2002,Langbein2008}, and it may be worth exploring and exploiting such a correlation in a future study. 
-
-We move on to consider the column vector of $n$ GNSS displacement observations, $\mitbf{d}^*_i$, where the subscript indicates that we are still only considering component $i$ of displacements. The observations are made at $m$ stations, and the times and positions for each observation are described by the set $\mitbf{P}$. $\mitbf{d}^*_i$ can be considered a realization of the random vector $\mitbf{d}_i$, which is formed by evaluating eq. (\ref{eq:Data}) at each point in $\mitbf{P}$. To write out $\mitbf{d}_i$ explicitly, we let $\mitbf{G}$ be an $n \times 6m$ matrix consisting of the basis functions from eq. (\ref{eq:Data}) (i.e., the linear trends and sinusoids for each station) evaluated at each point in $\mitbf{P}$. The coefficients corresponding to each basis function are collected into the column vector $\mitbf{m}_i$. We can then write $\mitbf{d}_i$ as 
+where $\eta_i^{(jk)}$ describes noise, $a_i^{(j)}$ is an offset that is unique for each station, $b_i^{(j)}$ is the secular velocity at $\vec{x}^{(j)}$, and the sinusoids describe seasonal deformation (using units of years for $t^{(k)}$). We then consider the column vector of $n$ GNSS displacement observations, $\mitbf{d}^*_i$, where the subscript indicates that we are still only considering component $i$ of displacements. The observations are made at $m$ stations, and the times and positions for each observation are described by the set $\mitbf{P}$. $\mitbf{d}^*_i$ can be considered a realization of the random vector $\mitbf{d}_i$, which is formed by evaluating eq. (\ref{eq:Data}) at each point in $\mitbf{P}$. To write out $\mitbf{d}_i$ explicitly, we let $\mitbf{G}$ be an $n \times 6m$ matrix consisting of the basis functions from eq. (\ref{eq:Data}) (i.e., the linear trends and sinusoids for each station) evaluated at each point in $\mitbf{P}$. The coefficients corresponding to each basis function are collected into the column vector $\mitbf{m}_i$. The noise for all the observations are described by the column vector $\mitbf{\eta}_i$. We can then write $\mitbf{d}_i$ as 
 \begin{equation}\label{eq:DataVec}
-\mitbf{d}_i = u_i(\mitbf{P}) + \eta_i(\mitbf{P}) + \mitbf{G}\mitbf{m}_i,
+\mitbf{d}_i = u_i(\mitbf{P}) + \mitbf{\eta}_i + \mitbf{G}\mitbf{m}_i,
 \end{equation}
-which is distributed as $\mathcal{N}(\mitbf{0},\mitbf{\Sigma} + \kappa^2\mitbf{G}\mitbf{G}^T)$, where
-\begin{equation}\label{eq:Cd}
-\mitbf{\Sigma} = C_{u_i}(\mitbf{P},\mitbf{P}) + C_{\eta_i}(\mitbf{P},\mitbf{P}).  
-\end{equation}
-It should be understood that notation such as $u_i(\mitbf{P})$ and $C_{u_i}(\mitbf{P},\mitbf{P})$ represents the column vector $[u_i(p)]_{p \in \mitbf{P}}$ and the matrix $[C_{u_i}(p,p')]_{(p,p') \in \mitbf{P} \times \mitbf{P}}$, respectively. 
+where the notation $u_i(\mitbf{P})$ represents the column vector $[u_i(p)]_{p \in \mitbf{P}}$. 
 
-We combine the prior on transient displacements with GNSS displacement data to form a posterior estimate of transient displacements. We ignore any covariances between the easting and northing components, which reduces the computational complexity of our analysis because we can determine each component of the posterior independently. However, we are inherently assuming that the principle components of transient displacements and the noise processes are aligned with the cardinal directions, which is admittedly an arbitrary assumption. We then form each component of the posterior, denoted as $\hat{u}_i$, by conditioning $u_i$ with the fact that $\mitbf{d}^*_i$ has been realized from the random vector $\mitbf{d}_i$. That is to say $\hat{u}_i = u_i |(\mitbf{d}_i = \mitbf{d}^*_i)$. A general solution for $\hat{u}_i$ is derived in \citet[sec. 8.9]{VonMises1964}, where we find that $\hat{u}_i$ is distributed as $\mathcal{GP}(\mu_{\hat{u}_i},C_{\hat{u}_i})$ with mean function
+We assume a diffuse prior for the components of $\mitbf{m}_i$, that is to say $\mitbf{m}_i \sim \mathcal{N}(\mitbf{0},\kappa^2\mitbf{I})$ in the limit as $\kappa \to \infty$. Of course, the secular velocities, $b_i^{(j)}$, are spatially correlated and we could invoke a tectonic model to form a prior on $b_i^{(j)}$. However, in our application to the Pacific Northwest, we will be using displacement time series which are long enough to sufficiently constrain $b_i^{(j)}$ for each station, avoiding the need to incorporate a prior. Likewise, seasonal deformation is spatially correlated \citep{Dong2002,Langbein2008}, and it may be worth exploring and exploiting such a correlation in a future study. We assume that $\mitbf{\eta}_i$ is a spatially and/or temporally corelated random vector distributed as $\mathcal{N}(\mitbf{0},\mitbf{C}_{\eta_i})$. For example, $\mitbf{\eta}_i$ can be uncorrelated white noise, temporally correlated noise describing benchmark wobble \citep[e.g.,][]{Wyatt1982,Wyatt1989}, and/or spatially correlated noise describing common mode error \citep[e.g.,][]{Wdowinski1997}. The appropriate noise model may vary depending on the application, and we hold off on specifying the covariance matrix, $\mitbf{C}_{\eta_i}$, until Section \ref{sec:NoiseModel}. We are now able to write the distributed of $\mitbf{d}_i$ as 
+\begin{equation}\label{eq:DataDist}
+\mitbf{d}_i \sim \mathcal{N}\left(\mitbf{0}, C_{u_i}(\mitbf{P},\mitbf{P}) + \mitbf{C}_{\eta_i}  + \kappa^2\mitbf{G}\mitbf{G}^T \right),
+\end{equation}
+where $C_{u_i}(\mitbf{P},\mitbf{P})$ represents the matrix $[C_{u_i}(p,p')]_{(p,p') \in \mitbf{P} \times \mitbf{P}}$. 
+
+We form a posterior estimate of transient displacements, denoted as $\hat{u}_i$, by updating $u_i$ with the fact that $\mitbf{d}_i^*$ was realized from the random vector $\mitbf{d}_i$. That is to say $\hat{u}_i = u_i |(\mitbf{d}_i = \mitbf{d}^*_i)$. A general solution for $\hat{u}_i$ is derived in \citet[sec. 8.9]{VonMises1964}, where we find that $\hat{u}_i$ is distributed as $\mathcal{GP}(\mu_{\hat{u}_i},C_{\hat{u}_i})$ with mean function
 \begin{align}\label{eq:PosteriorMean}
 \mu_{\hat{u}_i}(p) &= \mathrm{E}\left[u_i(p)\right] + 
                       \mathrm{Cov}\left[u_i(p),\mitbf{d}_i\right] 
                       \mathrm{Cov}\left[\mitbf{d}_i\right]^{-1}
                       \left(\mitbf{d}^*_i - \mathrm{E}\left[\mitbf{d}_i\right]\right)\nonumber \\
-                   &= C_{u_i}(p,\mitbf{P})\left(\mitbf{\Sigma} + \kappa^2\mitbf{G}\mitbf{G}^T\right)^{-1}\mitbf{d}^*_i
+                   &= C_{u_i}(p,\mitbf{P})\left( C_{u_i}(\mitbf{P},\mitbf{P}) + \mitbf{C}_{\eta_i} + \kappa^2\mitbf{G}\mitbf{G}^T\right)^{-1}\mitbf{d}^*_i
 \end{align}    
 and covariance function
 \begin{align}\label{eq:PosteriorCov}
@@ -102,7 +104,7 @@ C_{\hat{u}_i}(p,p') &= \mathrm{Cov}\left[u_i(p),u_i(p')\right] -
                        \mathrm{Cov}\left[u_i(p),\mitbf{d}_i\right] 
                        \mathrm{Cov}\left[\mitbf{d}_i\right]^{-1}
                        \mathrm{Cov}\left[\mitbf{d}_i,u_i(p')\right]\nonumber \\
-                    &= C_{u_i}(p,p') - C_{u_i}(p,\mitbf{P})\left(\mitbf{\Sigma} + \kappa^2\mitbf{G}\mitbf{G}^T\right)^{-1}C_{u_i}(\mitbf{P},p').
+                    &= C_{u_i}(p,p') - C_{u_i}(p,\mitbf{P})\left( C_{u_i}(\mitbf{P},\mitbf{P}) + \mitbf{C}_{\eta_i} + \kappa^2\mitbf{G}\mitbf{G}^T \right)^{-1}C_{u_i}(\mitbf{P},p').
 \end{align}
 However, we are interested in the limit as $\kappa \to \infty$, and the form for eqs. (\ref{eq:PosteriorMean}) and (\ref{eq:PosteriorCov}) is not suitable for evaluating this limit. We use a partitioned matrix inversion identity \citep[sec. 2.7.4]{Press2007} to rewrite eqs. (\ref{eq:PosteriorMean}) and (\ref{eq:PosteriorCov}) as
  \begin{equation}\label{eq:PosteriorMean2}
@@ -110,7 +112,7 @@ However, we are interested in the limit as $\kappa \to \infty$, and the form for
                          C_{u_i}(p,\mitbf{P}) & \mitbf{0} \\
                          \end{array}\right]
                    \left[\begin{array}{cc}
-                         \mitbf{\Sigma} & \mitbf{G} \\
+                         C_{u_i}(\mitbf{P},\mitbf{P}) + \mitbf{C}_{\eta_i} & \mitbf{G} \\
                          \mitbf{G}^T  & -\kappa^{-2} \mitbf{I} \\
                          \end{array}\right]^{-1}
                    \left[\begin{array}{c}
@@ -125,7 +127,7 @@ C_{\hat{u}_i}(p,p') = C_{u_i}(p,p') -
                           C_{u_i}(p,\mitbf{P}) & \mitbf{0} \\
                           \end{array}\right]
                     \left[\begin{array}{cc}
-                          \mitbf{\Sigma} & \mitbf{G} \\
+                          C_{u_i}(\mitbf{P},\mitbf{P}) + \mitbf{C}_{\eta_i} & \mitbf{G} \\
                           \mitbf{G}^T  & -\kappa^{-2} \mitbf{I} \\
                           \end{array}\right]^{-1}
                     \left[\begin{array}{c}
@@ -139,7 +141,7 @@ Taking the limit as $\kappa \to \infty$, we get the solution for the mean and co
                          C_{u_i}(p,\mitbf{P}) & \mitbf{0} \\
                          \end{array}\right]
                    \left[\begin{array}{cc}
-                         \mitbf{\Sigma} & \mitbf{G} \\
+                         C_{u_i}(\mitbf{P},\mitbf{P}) + \mitbf{C}_{\eta_i} & \mitbf{G} \\
                          \mitbf{G}^T  & \mitbf{0} \\
                          \end{array}\right]^{-1}
                    \left[\begin{array}{c}
@@ -154,7 +156,7 @@ C_{\hat{u}_i}(p,p') = C_{u_i}(p,p') -
                           C_{u_i}(p,\mitbf{P}) & \mitbf{0} \\
                           \end{array}\right]
                     \left[\begin{array}{cc}
-                          \mitbf{\Sigma} & \mitbf{G} \\
+                          C_{u_i}(\mitbf{P},\mitbf{P}) + \mitbf{C}_{\eta_i} & \mitbf{G} \\
                           \mitbf{G}^T  & \mitbf{0} \\
                           \end{array}\right]^{-1}
                     \left[\begin{array}{c}
@@ -163,6 +165,8 @@ C_{\hat{u}_i}(p,p') = C_{u_i}(p,p') -
                           \end{array}\right].
 \end{equation}
 To ensure that the inverse matrices in eqs. (\ref{eq:PosteriorMean3}) and (\ref{eq:PosteriorCov3}) exist, each column in $\mitbf{G}$ must be linearly independent. This condition tends to be violated when there are too few observations at a station. In that case, a singular value decomposition can be used to remove linearly dependent components from $\mitbf{G}$.   
+
+It should be noted that we ignore any covariances between the easting and northing components, which reduces the computational complexity of our analysis because we can determine each component of the posterior independently. However, we are inherently assuming that the principle components of transient displacements and the noise processes are aligned with the cardinal directions, which is admittedly an arbitrary assumption. 
 
 The posterior transient displacements are spatially and temporally continuous, and we can use eqs. (\ref{eq:PosteriorMean3}) and (\ref{eq:PosteriorCov3}) to evaluate $\hat{u}_i$ at any $p$. Furthermore, $\hat{u}_i$ is spatially and temporally differentiable, allowing us to formulate $\dot\varepsilon$ at any $p$ that we may be interested in. The components of $\dot\varepsilon$ can be written as 
 \begin{equation}\label{eq:StrainRate}
@@ -421,17 +425,9 @@ Our outlier detection algorithm is loosely based on the data editing algorithm f
 \end{equation}
 where $\mitbf{G}$ and $\mitbf{m}$ are the same as in eq. (\ref{eq:DataVec}), $v$ is a Gaussian process distributed as $\mathcal{GP}(0,C_v)$, and $\mitbf{w}$ is a vector of uncorrelated Gaussian noise with known standard deviations $\mitbf{\sigma} = [\sigma_1, \sigma_2, ..., \sigma_n]$. The Gaussian process $v$ is intended to describe transient features in the data that cannot be explained by the linear trend or seasonal terms in $\mitbf{G}$. We let the temporal covariance of $v$ be a squared exponential, and we let $v$ be spatially uncorrelated so that,
 \begin{equation}
-C_v(p,p') = \phi^2\exp\left(\frac{-|t - t'|^2}{2\tau^2}\right) C_w(\vec{x},\vec{x}'),
+C_v(p,p') = \phi^2\exp\left(\frac{-|t - t'|^2}{2\tau^2}\right) \delta_{\vec{x},\vec{x}'},
 \end{equation}
-where 
-\begin{equation}\label{eq:WhiteCov}
-C_w(\vec{x},\vec{x}') = 
-\begin{cases}
-1, &\vec{x} = \vec{x}' \\
-0, &\vec{x} \neq \vec{x}'
-\end{cases}.
-\end{equation}
-The spatial covariance of $v$ has little effect on the detected outliers, and so we have assumed that $v$ is spatially uncorrelated for simplicity. Based on our experience, $v$ can reasonably describe most transient features in the data when we set $\phi = 1$ mm and $\tau = 10$ days. 
+where $\delta_{\vec{x},\vec{x}'} = 1$ if $\vec{x} = \vec{x}'$ and $0$ otherwise. The spatial covariance of $v$ has little effect on the detected outliers, and so we have assumed that $v$ is spatially uncorrelated for simplicity. Based on our experience, $v$ can reasonably describe most transient features in the data when we set $\phi = 1$ mm and $\tau = 10$ days. 
 
 Our goal is to find the index set of non-outliers in $\mitbf{d}^*$, which we denote as $\mitbf{\Omega}$. We use a tilde to indicate that an array only contains elements corresponding to $\mitbf{\Omega}$ (e.g., the vector of non-outlier observations is denoted $\tilde{\mitbf{d}}^* = [d_i^*]_{i \in \mitbf{\Omega}}$). The outliers are identified iteratively, and we initiate $\mitbf{\Omega}$ with all $n$ indices. We consider outliers to be data that are poorly explained by the model $\mitbf{G}\mitbf{m} + v(\mitbf{P})$, which is determine by the residual vector 
 \begin{align}\label{eq:Residual}

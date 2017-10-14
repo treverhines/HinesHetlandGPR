@@ -84,13 +84,13 @@ where $\eta_i^{(jk)}$ describes noise, $a_i^{(j)}$ is an offset that is unique f
 \end{equation}
 where the notation $u_i(\mitbf{P})$ represents the column vector $[u_i(p)]_{p \in \mitbf{P}}$. 
 
-We assume a diffuse prior for the components of $\mitbf{m}_i$, that is to say $\mitbf{m}_i \sim \mathcal{N}(\mitbf{0},\kappa^2\mitbf{I})$ in the limit as $\kappa \to \infty$. Of course, the secular velocities, $b_i^{(j)}$, are spatially correlated and we could invoke a tectonic model to form a prior on $b_i^{(j)}$. However, in our application to the Pacific Northwest, we will be using displacement time series which are long enough to sufficiently constrain $b_i^{(j)}$ for each station, avoiding the need to incorporate a prior. Likewise, seasonal deformation is spatially correlated \citep{Dong2002,Langbein2008}, and it may be worth exploring and exploiting such a correlation in a future study. We assume that $\mitbf{\eta}_i$ is a spatially and/or temporally corelated random vector distributed as $\mathcal{N}(\mitbf{0},\mitbf{C}_{\eta_i})$. For example, $\mitbf{\eta}_i$ can be uncorrelated white noise, temporally correlated noise describing benchmark wobble \citep[e.g.,][]{Wyatt1982,Wyatt1989}, and/or spatially correlated noise describing common mode error \citep[e.g.,][]{Wdowinski1997}. The appropriate noise model may vary depending on the application, and we hold off on specifying the covariance matrix, $\mitbf{C}_{\eta_i}$, until Section \ref{sec:NoiseModel}. We are now able to write the distributed of $\mitbf{d}_i$ as 
+We assume a diffuse prior for the components of $\mitbf{m}_i$, that is to say $\mitbf{m}_i \sim \mathcal{N}(\mitbf{0},\kappa^2\mitbf{I})$ in the limit as $\kappa \to \infty$. Of course, the secular velocities, $b_i^{(j)}$, are spatially correlated and we could invoke a tectonic model to form a prior on $b_i^{(j)}$. However, in our application to the Pacific Northwest, we will be using displacement time series which are long enough to sufficiently constrain $b_i^{(j)}$ for each station, avoiding the need to incorporate a prior. Likewise, seasonal deformation is spatially correlated \citep{Dong2002,Langbein2008}, and it may be worth exploring and exploiting such a correlation in a future study. We assume that $\mitbf{\eta}_i$ is a spatially and/or temporally correlated random vector distributed as $\mathcal{N}(\mitbf{0},\mitbf{C}_{\eta_i})$. For example, $\mitbf{\eta}_i$ can be uncorrelated white noise, temporally correlated noise describing benchmark wobble \citep[e.g.,][]{Wyatt1982,Wyatt1989}, and/or spatially correlated noise describing common mode error \citep[e.g.,][]{Wdowinski1997}. The appropriate noise model may vary depending on the application, and we hold off on specifying the covariance matrix, $\mitbf{C}_{\eta_i}$, until Section \ref{sec:NoiseModel}. We are now able to write the distribution of $\mitbf{d}_i$ as 
 \begin{equation}\label{eq:DataDist}
 \mitbf{d}_i \sim \mathcal{N}\left(\mitbf{0}, C_{u_i}(\mitbf{P},\mitbf{P}) + \mitbf{C}_{\eta_i}  + \kappa^2\mitbf{G}\mitbf{G}^T \right),
 \end{equation}
 where $C_{u_i}(\mitbf{P},\mitbf{P})$ represents the matrix $[C_{u_i}(p,p')]_{(p,p') \in \mitbf{P} \times \mitbf{P}}$. 
 
-We form a posterior estimate of transient displacements, denoted as $\hat{u}_i$, by updating $u_i$ with the fact that $\mitbf{d}_i^*$ was realized from the random vector $\mitbf{d}_i$. That is to say $\hat{u}_i = u_i |(\mitbf{d}_i = \mitbf{d}^*_i)$. A general solution for $\hat{u}_i$ is derived in \citet[sec. 8.9]{VonMises1964}, where we find that $\hat{u}_i$ is distributed as $\mathcal{GP}(\mu_{\hat{u}_i},C_{\hat{u}_i})$ with mean function
+We form a posterior estimate of transient displacements, denoted as $\hat{u}_i$, by updating $u_i$ with the fact that $\mitbf{d}_i^*$ was realized from the random vector $\mitbf{d}_i$, that is to say $\hat{u}_i = u_i |(\mitbf{d}_i = \mitbf{d}^*_i)$. A general solution for $\hat{u}_i$ is derived in \citet[sec. 8.9]{VonMises1964}, where we find that $\hat{u}_i$ is distributed as $\mathcal{GP}(\mu_{\hat{u}_i},C_{\hat{u}_i})$ with mean function
 \begin{align}\label{eq:PosteriorMean}
 \mu_{\hat{u}_i}(p) &= \mathrm{E}\left[u_i(p)\right] + 
                       \mathrm{Cov}\left[u_i(p),\mitbf{d}_i\right] 
@@ -111,40 +111,40 @@ However, we are interested in the limit as $\kappa \to \infty$, and the form for
 \mu_{\hat{u}_i}(p) = \left[\begin{array}{cc}
                          C_{u_i}(p,\mitbf{P}) & \mitbf{0} \\
                          \end{array}\right]
-                   \left[\begin{array}{cc}
+                     \left[\begin{array}{cc}
                          C_{u_i}(\mitbf{P},\mitbf{P}) + \mitbf{C}_{\eta_i} & \mitbf{G} \\
                          \mitbf{G}^T  & -\kappa^{-2} \mitbf{I} \\
                          \end{array}\right]^{-1}
-                   \left[\begin{array}{c}
+                     \left[\begin{array}{c}
                          \mitbf{d}^*_i \\
                          \mitbf{0} \\
                          \end{array}\right]
 \end{equation}    
 and
-\begin{equation}\label{eq:PosteriorCov2}
-C_{\hat{u}_i}(p,p') = C_{u_i}(p,p') - 
-                    \left[\begin{array}{cc}
+\begin{multline}\label{eq:PosteriorCov2}
+C_{\hat{u}_i}(p,p') = C_{u_i}(p,p') - \\ 
+                      \left[\begin{array}{cc}
                           C_{u_i}(p,\mitbf{P}) & \mitbf{0} \\
                           \end{array}\right]
-                    \left[\begin{array}{cc}
+                      \left[\begin{array}{cc}
                           C_{u_i}(\mitbf{P},\mitbf{P}) + \mitbf{C}_{\eta_i} & \mitbf{G} \\
                           \mitbf{G}^T  & -\kappa^{-2} \mitbf{I} \\
                           \end{array}\right]^{-1}
-                    \left[\begin{array}{c}
+                      \left[\begin{array}{c}
                           C_{u_i}(\mitbf{P},p') \\
                           \mitbf{0} \\
                           \end{array}\right].
-\end{equation}
+\end{multline}
 Taking the limit as $\kappa \to \infty$, we get the solution for the mean and covariance of $\hat{u}_i$,
  \begin{equation}\label{eq:PosteriorMean3}
 \mu_{\hat{u}_i}(p) = \left[\begin{array}{cc}
                          C_{u_i}(p,\mitbf{P}) & \mitbf{0} \\
                          \end{array}\right]
-                   \left[\begin{array}{cc}
+                     \left[\begin{array}{cc}
                          C_{u_i}(\mitbf{P},\mitbf{P}) + \mitbf{C}_{\eta_i} & \mitbf{G} \\
                          \mitbf{G}^T  & \mitbf{0} \\
                          \end{array}\right]^{-1}
-                   \left[\begin{array}{c}
+                     \left[\begin{array}{c}
                          \mitbf{d}^*_i \\
                          \mitbf{0} \\
                          \end{array}\right]
@@ -152,21 +152,21 @@ Taking the limit as $\kappa \to \infty$, we get the solution for the mean and co
 and
 \begin{equation}\label{eq:PosteriorCov3}
 C_{\hat{u}_i}(p,p') = C_{u_i}(p,p') - 
-                    \left[\begin{array}{cc}
+                      \left[\begin{array}{cc}
                           C_{u_i}(p,\mitbf{P}) & \mitbf{0} \\
                           \end{array}\right]
-                    \left[\begin{array}{cc}
+                      \left[\begin{array}{cc}
                           C_{u_i}(\mitbf{P},\mitbf{P}) + \mitbf{C}_{\eta_i} & \mitbf{G} \\
                           \mitbf{G}^T  & \mitbf{0} \\
                           \end{array}\right]^{-1}
-                    \left[\begin{array}{c}
+                      \left[\begin{array}{c}
                           C_{u_i}(\mitbf{P},p') \\
                           \mitbf{0} \\
                           \end{array}\right].
 \end{equation}
 To ensure that the inverse matrices in eqs. (\ref{eq:PosteriorMean3}) and (\ref{eq:PosteriorCov3}) exist, each column in $\mitbf{G}$ must be linearly independent. This condition tends to be violated when there are too few observations at a station. In that case, a singular value decomposition can be used to remove linearly dependent components from $\mitbf{G}$.   
 
-It should be noted that we ignore any covariances between the easting and northing components, which reduces the computational complexity of our analysis because we can determine each component of the posterior independently. However, we are inherently assuming that the principle components of transient displacements and the noise processes are aligned with the cardinal directions, which is admittedly an arbitrary assumption. 
+It should be noted that we have ignored any covariances between the easting and northing components of $\vec{u}$ and $\vec{\mitbf{d}}$. This simplification reduces the computational complexity of evaluating the posterior transient displacements because each component can be evaluated independently. However, we are inherently assuming that the principle axes describing the distribution of $\vec{u}(p)$ and $\vec{d}^{(jk)}$ are aligned with the cardinal directions, which is admittedly an arbitrary assumption. 
 
 The posterior transient displacements are spatially and temporally continuous, and we can use eqs. (\ref{eq:PosteriorMean3}) and (\ref{eq:PosteriorCov3}) to evaluate $\hat{u}_i$ at any $p$. Furthermore, $\hat{u}_i$ is spatially and temporally differentiable, allowing us to formulate $\dot\varepsilon$ at any $p$ that we may be interested in. The components of $\dot\varepsilon$ can be written as 
 \begin{equation}\label{eq:StrainRate}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.24)  13 OCT 2017 18:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.24)  14 OCT 2017 12:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -300,11 +300,10 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 1331) has occurred while \output is active []
 
  [5]
-[6]
-Underfull \vbox (badness 2469) has occurred while \output is active []
+Underfull \vbox (badness 8113) has occurred while \output is active []
 
- [7]
-[8] <figures/context_map/context-map.pdf, id=45, 505.89pt x 397.485pt>
+ [6]
+[7] [8] <figures/context_map/context-map.pdf, id=45, 505.89pt x 397.485pt>
 File: figures/context_map/context-map.pdf Graphic file (type pdf)
 
 <use figures/context_map/context-map.pdf>
@@ -344,12 +343,10 @@ Overfull \hbox (62.02576pt too wide) in paragraph at lines 275--276
  []
 
 
-Underfull \vbox (badness 6808) has occurred while \output is active []
+Underfull \vbox (badness 7326) has occurred while \output is active []
 
  [11]
-Underfull \vbox (badness 2261) has occurred while \output is active []
-
- [12 <./figures/noise/noise-params.pdf>]
+[12 <./figures/noise/noise-params.pdf>]
 Underfull \vbox (badness 4144) has occurred while \output is active []
 
  [13 <./figures/noise/noise-samples.pdf>]
@@ -486,7 +483,7 @@ ts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type
 1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1
 /urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr
 8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on hines_hetland_2017_gji.pdf (29 pages, 2492826 bytes).
+Output written on hines_hetland_2017_gji.pdf (29 pages, 2493357 bytes).
 PDF statistics:
  551 PDF objects out of 1000 (max. 8388607)
  180 compressed objects within 2 object streams

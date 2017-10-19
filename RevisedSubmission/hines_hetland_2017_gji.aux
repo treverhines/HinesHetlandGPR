@@ -32,15 +32,16 @@
 \citation{El-Fiky1999}
 \citation{Rasmussen2006}
 \citation{Adler1981}
+\citation{Papoulis1991}
 \@writefile{toc}{\contentsline {section}{\numberline {2}Estimating Transient Strain Rates}{4}}
 \newlabel{sec:Method}{{2}{4}}
 \newlabel{eq:TransientCovariance}{{1}{4}}
-\newlabel{eq:ExampleCov}{{2}{4}}
 \citation{Dong2002}
 \citation{Langbein2008}
 \citation{Wyatt1982}
 \citation{Wyatt1989}
 \citation{Wdowinski1997}
+\newlabel{eq:ExampleCov}{{2}{5}}
 \newlabel{eq:Data}{{3}{5}}
 \newlabel{eq:DataVec}{{4}{5}}
 \citation{VonMises1964}
@@ -50,7 +51,8 @@
 \newlabel{eq:PosteriorCov}{{7}{6}}
 \newlabel{eq:PosteriorMean2}{{8}{6}}
 \newlabel{eq:PosteriorCov2}{{9}{6}}
-\newlabel{eq:PosteriorMean3}{{10}{6}}
+\citation{Papoulis1991}
+\newlabel{eq:PosteriorMean3}{{10}{7}}
 \newlabel{eq:PosteriorCov3}{{11}{7}}
 \newlabel{eq:StrainRate}{{12}{7}}
 \newlabel{eq:StrainMean}{{13}{7}}
@@ -62,10 +64,10 @@
 \citation{Johansson2002}
 \citation{Dong2006}
 \citation{Bos2013}
-\citation{Gazeaux2013}
 \newlabel{eq:SNR}{{17}{8}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Outlier detection}{8}}
 \newlabel{sec:Outlier}{{2.2}{8}}
+\citation{Gazeaux2013}
 \citation{Dragert2001}
 \citation{Rogers2003}
 \citation{Wech2010}
@@ -82,31 +84,30 @@
 \newlabel{sec:Cascadia}{{3}{9}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Noise model}{9}}
 \newlabel{sec:NoiseModel}{{3.1}{9}}
-\newlabel{eq:FOGMdef}{{19}{9}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Positions of continuous GNSS stations used to estimate transient strain rates. The colored regions indicate the distribution of seismic tremor as determined by \citet  {Wech2010}. The red dots show the positions of GNSS stations mentioned in this paper. The blue dot indicates the location of the transient strain rates shown in Figure 7\hbox {} and the signal-to-noise ratio shown in Figure 8\hbox {}. The blue dashed circle demarcates the spatial extent of the tremors shown in Figure 8\hbox {}.}}{10}}
+\newlabel{fig:Context}{{1}{10}}
+\newlabel{eq:FOGMdef}{{19}{10}}
 \citation{Harville1974}
 \citation{Cressie1992}
 \citation{Hines2017}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Positions of continuous GNSS stations used to estimate transient strain rates. The colored regions indicate the distribution of seismic tremor as determined by \citet  {Wech2010}. The red dots show the positions of GNSS stations mentioned in this paper. The blue dot indicates the location of the transient strain rates shown in Figure 7\hbox {} and the signal-to-noise ratio shown in Figure 8\hbox {}. The blue dashed circle demarcates the spatial extent of the tremors shown in Figure 8\hbox {}.}}{10}}
-\newlabel{fig:Context}{{1}{10}}
-\newlabel{eq:FOGM}{{20}{10}}
 \citation{Harville1974}
 \citation{Langbein1997}
 \citation{Hines2017}
+\newlabel{eq:FOGM}{{20}{11}}
+\newlabel{eq:REML}{{21}{11}}
 \citation{Wdowinski1997}
 \citation{Dong2006}
-\newlabel{eq:REML}{{21}{11}}
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Distribution of estimated FOGM hyperparameters (eq. 20\hbox {}). Hyperparameters are estimated with the REML method for 38 stations in the Pacific Northwest that are east of $121^\circ $W. ``IQR'' is the interquartile range.}}{12}}
 \newlabel{fig:NoiseParams}{{2}{12}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Prior model}{12}}
-\newlabel{sec:SignalModel}{{3.2}{12}}
 \citation{Cressie1992}
 \citation{Rasmussen2006}
 \citation{Kato1998}
 \citation{El-Fiky1999}
 \@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Two FOGM noise samples for each component. The FOGM hyperparameters have been set to the median values from Figure 2\hbox {}.}}{13}}
 \newlabel{fig:NoiseSamples}{{3}{13}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Prior model}{13}}
+\newlabel{sec:SignalModel}{{3.2}{13}}
 \newlabel{eq:SE}{{23}{13}}
-\newlabel{eq:TimeSE}{{24}{13}}
 \citation{Segall1997}
 \citation{McGuire2003}
 \citation{Ohtani2010}
@@ -115,6 +116,7 @@
 \citation{Chen2008}
 \citation{Lisowski2008}
 \citation{Wech2010}
+\newlabel{eq:TimeSE}{{24}{14}}
 \newlabel{eq:IBM}{{25}{14}}
 \newlabel{eq:Wendland}{{27}{14}}
 \citation{Langbein2004}
@@ -161,18 +163,18 @@
 \bibstyle{gji}
 \bibdata{mybib}
 \bibcite{Acheson1975}{{1}{1975}{{Acheson}}{{}}}
-\bibcite{Adler1981}{{2}{1981}{{Adler}}{{}}}
 \newlabel{eq:Residual}{{\hbox {\relax \fontsize  {10.95}{11}\selectfont  \abovedisplayskip 8pt plus 1pt minus 1pt \belowdisplayskip \abovedisplayskip \abovedisplayshortskip 4pt plus 1pt \belowdisplayshortskip \abovedisplayshortskip \let \leftmargin \leftmargini \parsep \z@ \topsep 6pt plus 1pt minus 1pt \itemsep \z@ plus .1pt \leftmargin \leftmargini \parsep \z@ \topsep 6pt plus 1pt minus 1pt \itemsep \z@ plus .1pt A.3}}{24}}
 \newlabel{eq:Update}{{\hbox {\relax \fontsize  {10.95}{11}\selectfont  \abovedisplayskip 8pt plus 1pt minus 1pt \belowdisplayskip \abovedisplayskip \abovedisplayshortskip 4pt plus 1pt \belowdisplayshortskip \abovedisplayshortskip \let \leftmargin \leftmargini \parsep \z@ \topsep 6pt plus 1pt minus 1pt \itemsep \z@ plus .1pt \leftmargin \leftmargini \parsep \z@ \topsep 6pt plus 1pt minus 1pt \itemsep \z@ plus .1pt A.4}}{24}}
+\bibcite{Adler1981}{{2}{1981}{{Adler}}{{}}}
 \bibcite{Beavan2001}{{3}{2001}{{Beavan \& Haines}}{{}}}
 \bibcite{Blewitt2016}{{4}{2016}{{Blewitt et~al.}}{{Blewitt, Kreemer, Hammond, \& Gazeaux}}}
 \bibcite{Bos2013}{{5}{2013}{{Bos et~al.}}{{Bos, Fernandes, Williams, \& Bastos}}}
 \bibcite{Chen2008}{{6}{2008}{{Chen et~al.}}{{Chen, Davis, \& Hager}}}
 \bibcite{Cressie1992}{{7}{1993}{{Cressie}}{{}}}
 \bibcite{Dong2002}{{8}{2002}{{Dong et~al.}}{{Dong, Fang, Bock, Cheng, \& Miyazaki}}}
-\bibcite{Dong2006}{{9}{2006}{{Dong et~al.}}{{Dong, Fang, Bock, Webb, Prawirodirdjo, Kedar, \& Jamason}}}
 \@writefile{lof}{\contentsline {figure}{\numberline {A1}{\ignorespaces Outliers detected in the easting component of displacements at station SC03. The orange markers indicate detected outliers. The orange line is the best fit model to the data, which is used to compute the residual vector $ \hbox {\mathversion  {bold}$r$}$. The model being fit to the data in Panel A is $ \hbox {\mathversion  {bold}$G$} \hbox {\mathversion  {bold}$m$}$, and the model in Panel B is $ \hbox {\mathversion  {bold}$G$} \hbox {\mathversion  {bold}$m$} + v( \hbox {\mathversion  {bold}$P$})$.}}{25}}
 \newlabel{fig:Outliers}{{A1}{25}}
+\bibcite{Dong2006}{{9}{2006}{{Dong et~al.}}{{Dong, Fang, Bock, Webb, Prawirodirdjo, Kedar, \& Jamason}}}
 \bibcite{Dragert2011}{{10}{2011}{{Dragert \& Wang}}{{}}}
 \bibcite{Dragert2001}{{11}{2001}{{Dragert et~al.}}{{Dragert, Wang, \& James}}}
 \bibcite{El-Fiky1999}{{12}{1998}{{El-Fiky \& Kato}}{{}}}
@@ -208,23 +210,24 @@
 \bibcite{Murray2000}{{42}{2000}{{Murray \& Lisowski}}{{}}}
 \bibcite{Ohtani2010}{{43}{2010}{{Ohtani et~al.}}{{Ohtani, McGuire, \& Segall}}}
 \bibcite{Okada1992}{{44}{1992}{{Okada}}{{}}}
-\bibcite{Press2007}{{45}{2007}{{Press et~al.}}{{Press, Flannery, Teukolsky, \& Vetterling}}}
-\bibcite{Rasmussen2006}{{46}{2006}{{Rasmussen \& Williams}}{{}}}
-\bibcite{Roeloffs2010}{{47}{2010}{{Roeloffs}}{{}}}
-\bibcite{Roeloffs2006}{{48}{2006}{{Roeloffs}}{{}}}
-\bibcite{Rogers2003}{{49}{2003}{{Rogers \& Dragert}}{{}}}
-\bibcite{Sandwell2016}{{50}{2016}{{Sandwell \& Wessel}}{{}}}
-\bibcite{Schmidt2010}{{51}{2010}{{Schmidt \& Gao}}{{}}}
-\bibcite{Segall1997}{{52}{1997}{{Segall \& Mathews}}{{}}}
-\bibcite{Shen2015}{{53}{2015}{{Shen et~al.}}{{Shen, Wang, Zeng, \& Wang}}}
-\bibcite{Shen1996}{{54}{1996}{{Shen et~al.}}{{Shen, Jackson, Ge, \& Bob}}}
-\bibcite{Tape2009}{{55}{2009}{{Tape et~al.}}{{Tape, Mus{\'{e}}, Simons, Dong, \& Webb}}}
-\bibcite{VonMises1964}{{56}{1964}{{von Mises}}{{}}}
-\bibcite{Wdowinski1997}{{57}{1997}{{Wdowinski et~al.}}{{Wdowinski, Zhang, Fang, \& Genrich}}}
-\bibcite{Wech2010}{{58}{2010}{{Wech}}{{}}}
-\bibcite{Wech2009}{{59}{2009}{{Wech et~al.}}{{Wech, Creager, \& Melbourne}}}
-\bibcite{Wendland2005}{{60}{2005}{{Wendland}}{{}}}
-\bibcite{Williams2004}{{61}{2004}{{Williams et~al.}}{{Williams, Bock, Fang, Jamason, Nikolaidis, Prawirodirdjo, Miller, \& Johnson}}}
-\bibcite{Wyatt1982}{{62}{1982}{{Wyatt}}{{}}}
-\bibcite{Wyatt1989}{{63}{1989}{{Wyatt}}{{}}}
-\bibcite{Zhang1997}{{64}{1997}{{Zhang et~al.}}{{Zhang, Bock, Johnson, Fang, Williams, Genrich, Wdowinski, \& Behr}}}
+\bibcite{Papoulis1991}{{45}{1991}{{Papoulis}}{{}}}
+\bibcite{Press2007}{{46}{2007}{{Press et~al.}}{{Press, Flannery, Teukolsky, \& Vetterling}}}
+\bibcite{Rasmussen2006}{{47}{2006}{{Rasmussen \& Williams}}{{}}}
+\bibcite{Roeloffs2010}{{48}{2010}{{Roeloffs}}{{}}}
+\bibcite{Roeloffs2006}{{49}{2006}{{Roeloffs}}{{}}}
+\bibcite{Rogers2003}{{50}{2003}{{Rogers \& Dragert}}{{}}}
+\bibcite{Sandwell2016}{{51}{2016}{{Sandwell \& Wessel}}{{}}}
+\bibcite{Schmidt2010}{{52}{2010}{{Schmidt \& Gao}}{{}}}
+\bibcite{Segall1997}{{53}{1997}{{Segall \& Mathews}}{{}}}
+\bibcite{Shen2015}{{54}{2015}{{Shen et~al.}}{{Shen, Wang, Zeng, \& Wang}}}
+\bibcite{Shen1996}{{55}{1996}{{Shen et~al.}}{{Shen, Jackson, Ge, \& Bob}}}
+\bibcite{Tape2009}{{56}{2009}{{Tape et~al.}}{{Tape, Mus{\'{e}}, Simons, Dong, \& Webb}}}
+\bibcite{VonMises1964}{{57}{1964}{{von Mises}}{{}}}
+\bibcite{Wdowinski1997}{{58}{1997}{{Wdowinski et~al.}}{{Wdowinski, Zhang, Fang, \& Genrich}}}
+\bibcite{Wech2010}{{59}{2010}{{Wech}}{{}}}
+\bibcite{Wech2009}{{60}{2009}{{Wech et~al.}}{{Wech, Creager, \& Melbourne}}}
+\bibcite{Wendland2005}{{61}{2005}{{Wendland}}{{}}}
+\bibcite{Williams2004}{{62}{2004}{{Williams et~al.}}{{Williams, Bock, Fang, Jamason, Nikolaidis, Prawirodirdjo, Miller, \& Johnson}}}
+\bibcite{Wyatt1982}{{63}{1982}{{Wyatt}}{{}}}
+\bibcite{Wyatt1989}{{64}{1989}{{Wyatt}}{{}}}
+\bibcite{Zhang1997}{{65}{1997}{{Zhang et~al.}}{{Zhang, Bock, Johnson, Fang, Williams, Genrich, Wdowinski, \& Behr}}}

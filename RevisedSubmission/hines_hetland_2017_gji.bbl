@@ -1,4 +1,4 @@
-\begin{thebibliography}{64}
+\begin{thebibliography}{65}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 
 \bibitem[Acheson(1975)]{Acheson1975}
@@ -270,6 +270,11 @@ Okada, Y., 1992.
 \newblock {Internal deformation due to shear and tensile faults in a half
   space}, {\it Bulletin of the Seismological Society of America\/}, {\bf
   82}(2), 1018--1040.
+
+\bibitem[Papoulis(1991)]{Papoulis1991}
+Papoulis, A., 1991.
+\newblock {\it {Probability, Random Variables, and Stochastic Processes}\/},
+  McGraw-Hill, New York, 3rd edn.
 
 \bibitem[Press et~al.(2007)Press, Flannery, Teukolsky, \&
   Vetterling]{Press2007}

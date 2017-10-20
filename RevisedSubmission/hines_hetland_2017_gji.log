@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.10.6)  19 OCT 2017 09:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.24)  19 OCT 2017 22:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -296,40 +296,40 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [3]
-Underfull \vbox (badness 2326) has occurred while \output is active []
+[4]
+Underfull \vbox (badness 1331) has occurred while \output is active []
 
- [4]
-[5]
-Underfull \vbox (badness 6428) has occurred while \output is active []
+ [5]
+Underfull \vbox (badness 1748) has occurred while \output is active []
 
  [6]
-[7] [8] <figures/context_map/context-map.pdf, id=45, 505.89pt x 397.485pt>
+Underfull \vbox (badness 5741) has occurred while \output is active []
+
+ [7]
+[8] <figures/context_map/context-map.pdf, id=45, 505.89pt x 397.485pt>
 File: figures/context_map/context-map.pdf Graphic file (type pdf)
 
 <use figures/context_map/context-map.pdf>
 Package pdftex.def Info: figures/context_map/context-map.pdf used on input line
- 237.
+ 236.
 (pdftex.def)             Requested size: 505.88875pt x 397.48402pt.
 
-Overfull \hbox (62.02576pt too wide) in paragraph at lines 237--238
+Overfull \hbox (62.02576pt too wide) in paragraph at lines 236--237
  [][] 
  []
 
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 238.
-[9]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [10 <./figures/context_map/context-map.pdf>] [11]
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 237.
+[9] [10 <./figures/context_map/context-map.pdf>] [11]
 <figures/noise/noise-params.pdf, id=100, 505.89pt x 397.485pt>
 File: figures/noise/noise-params.pdf Graphic file (type pdf)
 
 <use figures/noise/noise-params.pdf>
-Package pdftex.def Info: figures/noise/noise-params.pdf used on input line 274.
+Package pdftex.def Info: figures/noise/noise-params.pdf used on input line 273.
 
 (pdftex.def)             Requested size: 505.88875pt x 397.48402pt.
 
-Overfull \hbox (62.02576pt too wide) in paragraph at lines 274--275
+Overfull \hbox (62.02576pt too wide) in paragraph at lines 273--274
  [][] 
  []
 
@@ -337,27 +337,23 @@ Overfull \hbox (62.02576pt too wide) in paragraph at lines 274--275
 File: figures/noise/noise-samples.pdf Graphic file (type pdf)
 
 <use figures/noise/noise-samples.pdf>
-Package pdftex.def Info: figures/noise/noise-samples.pdf used on input line 280
+Package pdftex.def Info: figures/noise/noise-samples.pdf used on input line 279
 .
 (pdftex.def)             Requested size: 505.88875pt x 289.07928pt.
 
-Overfull \hbox (62.02576pt too wide) in paragraph at lines 280--281
+Overfull \hbox (62.02576pt too wide) in paragraph at lines 279--280
  [][] 
  []
 
-
-Underfull \vbox (badness 8000) has occurred while \output is active []
-
- [12 <./figures/noise/noise-params.pdf>] [13 <./figures/noise/noise-samples.pdf
->] [14]
-<figures/outliers/outliers.pdf, id=187, 505.89pt x 216.81pt>
+[12 <./figures/noise/noise-params.pdf>] [13 <./figures/noise/noise-samples.pdf>
+] [14] <figures/outliers/outliers.pdf, id=187, 505.89pt x 216.81pt>
 File: figures/outliers/outliers.pdf Graphic file (type pdf)
 
 <use figures/outliers/outliers.pdf>
-Package pdftex.def Info: figures/outliers/outliers.pdf used on input line 319.
+Package pdftex.def Info: figures/outliers/outliers.pdf used on input line 318.
 (pdftex.def)             Requested size: 505.88875pt x 216.80946pt.
 
-Overfull \hbox (62.02576pt too wide) in paragraph at lines 319--320
+Overfull \hbox (62.02576pt too wide) in paragraph at lines 318--319
  [][] 
  []
 
@@ -367,10 +363,10 @@ File: figures/signal_fit/signal-fit.pdf Graphic file (type pdf)
 
 <use figures/signal_fit/signal-fit.pdf>
 Package pdftex.def Info: figures/signal_fit/signal-fit.pdf used on input line 3
-73.
+72.
 (pdftex.def)             Requested size: 505.88875pt x 433.61894pt.
 
-Overfull \hbox (62.02576pt too wide) in paragraph at lines 373--374
+Overfull \hbox (62.02576pt too wide) in paragraph at lines 372--373
  [][] 
  []
 
@@ -379,36 +375,41 @@ File: figures/strain_map/strain-map.pdf Graphic file (type pdf)
 
 <use figures/strain_map/strain-map.pdf>
 Package pdftex.def Info: figures/strain_map/strain-map.pdf used on input line 3
-84.
+83.
 (pdftex.def)             Requested size: 433.61894pt x 433.61894pt.
-
-<figures/strain_ts/strain-ts.pdf, id=239, 505.89pt x 361.35pt>
+ [17]
+<figures/strain_ts/strain-ts.pdf, id=242, 505.89pt x 361.35pt>
 File: figures/strain_ts/strain-ts.pdf Graphic file (type pdf)
 
 <use figures/strain_ts/strain-ts.pdf>
-Package pdftex.def Info: figures/strain_ts/strain-ts.pdf used on input line 392
+Package pdftex.def Info: figures/strain_ts/strain-ts.pdf used on input line 391
 .
 (pdftex.def)             Requested size: 505.88875pt x 361.34912pt.
 
-Overfull \hbox (62.02576pt too wide) in paragraph at lines 392--393
+Overfull \hbox (62.02576pt too wide) in paragraph at lines 391--392
  [][] 
  []
 
-[17] <figures/strain_ts/mag-ts.pdf, id=243, 505.89pt x 289.08pt>
+<figures/strain_ts/mag-ts.pdf, id=243, 505.89pt x 289.08pt>
 File: figures/strain_ts/mag-ts.pdf Graphic file (type pdf)
 
 <use figures/strain_ts/mag-ts.pdf>
-Package pdftex.def Info: figures/strain_ts/mag-ts.pdf used on input line 398.
+Package pdftex.def Info: figures/strain_ts/mag-ts.pdf used on input line 397.
 (pdftex.def)             Requested size: 505.88875pt x 289.07928pt.
 
-Overfull \hbox (62.02576pt too wide) in paragraph at lines 398--399
+Overfull \hbox (62.02576pt too wide) in paragraph at lines 397--398
  [][] 
  []
 
-[18 <./figures/signal_fit/signal-fit.pdf>] [19 <./figures/strain_map/strain-map
-.pdf>] [20 <./figures/strain_ts/strain-ts.pdf>] [21 <./figures/strain_ts/mag-ts
-.pdf>] [22]
-Overfull \hbox (77.70125pt too wide) in paragraph at lines 422--423
+[18 <./figures/signal_fit/signal-fit.pdf>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [19 <./figures/strain_map/strain-map.pdf>] [20 <./figures/strain_ts/strain-ts.
+pdf>]
+Underfull \vbox (badness 3849) has occurred while \output is active []
+
+ [21 <./figures/strain_ts/mag-ts.pdf>] [22]
+Overfull \hbox (77.70125pt too wide) in paragraph at lines 421--422
 \OT1/ptm/m/n/10.95 (Py-GeoNS). Py-GeoNS is dis-tributed un-der the MIT Li-cense
  and can be found at www.github.com/treverhines/PyGeoNS. 
  []
@@ -418,18 +419,18 @@ File: figures/outliers_new/outliers.pdf Graphic file (type pdf)
 
 <use figures/outliers_new/outliers.pdf>
 Package pdftex.def Info: figures/outliers_new/outliers.pdf used on input line 4
-62.
+61.
 (pdftex.def)             Requested size: 505.88875pt x 325.2142pt.
 
-Overfull \hbox (62.02576pt too wide) in paragraph at lines 462--463
+Overfull \hbox (62.02576pt too wide) in paragraph at lines 461--462
  [][] 
  []
 
-(./hines_hetland_2017_gji.bbl
-Underfull \vbox (badness 10000) has occurred while \output is active []
+
+Underfull \vbox (badness 4108) has occurred while \output is active []
 
  [24]
-[25 <./figures/outliers_new/outliers.pdf>]
+(./hines_hetland_2017_gji.bbl [25 <./figures/outliers_new/outliers.pdf>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [26]
@@ -451,11 +452,11 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  3336 strings out of 494910
  42935 string characters out of 6179836
- 113953 words of memory out of 5000000
+ 115953 words of memory out of 5000000
  6537 multiletter control sequences out of 15000+600000
  38073 words of font info for 93 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 38i,19n,24p,2402b,395s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,19n,24p,2402b,389s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist
@@ -474,7 +475,7 @@ ts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type
 1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1
 /urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr
 8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on hines_hetland_2017_gji.pdf (29 pages, 2493790 bytes).
+Output written on hines_hetland_2017_gji.pdf (29 pages, 2494085 bytes).
 PDF statistics:
  551 PDF objects out of 1000 (max. 8388607)
  180 compressed objects within 2 object streams

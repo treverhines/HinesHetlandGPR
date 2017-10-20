@@ -30,18 +30,19 @@
 \citation{Moritz1978}
 \citation{Kato1998}
 \citation{El-Fiky1999}
+\citation{Cressie1992}
 \citation{Rasmussen2006}
 \citation{Adler1981}
 \citation{Papoulis1991}
 \@writefile{toc}{\contentsline {section}{\numberline {2}Estimating Transient Strain Rates}{4}}
 \newlabel{sec:Method}{{2}{4}}
 \newlabel{eq:TransientCovariance}{{1}{4}}
+\newlabel{eq:ExampleCov}{{2}{4}}
 \citation{Dong2002}
 \citation{Langbein2008}
 \citation{Wyatt1982}
 \citation{Wyatt1989}
 \citation{Wdowinski1997}
-\newlabel{eq:ExampleCov}{{2}{5}}
 \newlabel{eq:Data}{{3}{5}}
 \newlabel{eq:DataVec}{{4}{5}}
 \citation{VonMises1964}
@@ -51,20 +52,20 @@
 \newlabel{eq:PosteriorCov}{{7}{6}}
 \newlabel{eq:PosteriorMean2}{{8}{6}}
 \newlabel{eq:PosteriorCov2}{{9}{6}}
+\newlabel{eq:PosteriorMean3}{{10}{6}}
 \citation{Papoulis1991}
-\newlabel{eq:PosteriorMean3}{{10}{7}}
 \newlabel{eq:PosteriorCov3}{{11}{7}}
 \newlabel{eq:StrainRate}{{12}{7}}
 \newlabel{eq:StrainMean}{{13}{7}}
-\newlabel{eq:StrainCov}{{14}{7}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Transient detection criterion}{7}}
-\newlabel{sec:TransientDetection}{{2.1}{7}}
+\newlabel{eq:StrainCov}{{16}{7}}
 \citation{Blewitt2016}
 \citation{Hammond2016}
 \citation{Johansson2002}
 \citation{Dong2006}
 \citation{Bos2013}
-\newlabel{eq:SNR}{{17}{8}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Transient detection criterion}{8}}
+\newlabel{sec:TransientDetection}{{2.1}{8}}
+\newlabel{eq:SNR}{{21}{8}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Outlier detection}{8}}
 \newlabel{sec:Outlier}{{2.2}{8}}
 \citation{Gazeaux2013}
@@ -86,18 +87,18 @@
 \newlabel{sec:NoiseModel}{{3.1}{9}}
 \@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Positions of continuous GNSS stations used to estimate transient strain rates. The colored regions indicate the distribution of seismic tremor as determined by \citet  {Wech2010}. The red dots show the positions of GNSS stations mentioned in this paper. The blue dot indicates the location of the transient strain rates shown in Figure 7\hbox {} and the signal-to-noise ratio shown in Figure 8\hbox {}. The blue dashed circle demarcates the spatial extent of the tremors shown in Figure 8\hbox {}.}}{10}}
 \newlabel{fig:Context}{{1}{10}}
-\newlabel{eq:FOGMdef}{{19}{10}}
+\newlabel{eq:FOGMdef}{{23}{10}}
 \citation{Harville1974}
 \citation{Cressie1992}
 \citation{Hines2017}
 \citation{Harville1974}
 \citation{Langbein1997}
 \citation{Hines2017}
-\newlabel{eq:FOGM}{{20}{11}}
-\newlabel{eq:REML}{{21}{11}}
+\newlabel{eq:FOGM}{{24}{11}}
+\newlabel{eq:REML}{{25}{11}}
 \citation{Wdowinski1997}
 \citation{Dong2006}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Distribution of estimated FOGM hyperparameters (eq. 20\hbox {}). Hyperparameters are estimated with the REML method for 38 stations in the Pacific Northwest that are east of $121^\circ $W. ``IQR'' is the interquartile range.}}{12}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Distribution of estimated FOGM hyperparameters (eq. 24\hbox {}). Hyperparameters are estimated with the REML method for 38 stations in the Pacific Northwest that are east of $121^\circ $W. ``IQR'' is the interquartile range.}}{12}}
 \newlabel{fig:NoiseParams}{{2}{12}}
 \citation{Cressie1992}
 \citation{Rasmussen2006}
@@ -107,7 +108,7 @@
 \newlabel{fig:NoiseSamples}{{3}{13}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Prior model}{13}}
 \newlabel{sec:SignalModel}{{3.2}{13}}
-\newlabel{eq:SE}{{23}{13}}
+\newlabel{eq:SE}{{27}{13}}
 \citation{Segall1997}
 \citation{McGuire2003}
 \citation{Ohtani2010}
@@ -116,16 +117,16 @@
 \citation{Chen2008}
 \citation{Lisowski2008}
 \citation{Wech2010}
-\newlabel{eq:TimeSE}{{24}{14}}
-\newlabel{eq:IBM}{{25}{14}}
-\newlabel{eq:Wendland}{{27}{14}}
+\newlabel{eq:TimeSE}{{28}{14}}
+\newlabel{eq:IBM}{{29}{14}}
+\newlabel{eq:Wendland}{{31}{14}}
 \citation{Langbein2004}
 \@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Detrended easting component of displacements at station SC03, which is located on Mount Olympus in Washington. The orange markers indicate outliers that were automatically detected using the algorithm from Section 2.2\hbox {}. The error bars show one standard deviation uncertainties. Note that outliers tend be observed in the winter, suggesting that they were caused by snow or ice.}}{15}}
 \newlabel{fig:Outliers}{{4}{15}}
 \newlabel{tab:Parameters}{{3.2}{16}}
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Optimal hyperparameters for the prior on transient displacements determined with the REML method. The temporal covariance function is indicated by the ``$T$'' column. The SE, IBM, and Wendland covariance functions are defined in eqs. (24\hbox {}), (25\hbox {}), and (27\hbox {}), respectively. The spatial covariance function, $X$, is the squared exponential (eq. 23\hbox {}) in all cases. The hyperparameters are estimated for each of the seven SSEs considered in this study, and the tabulated values indicate the median and interquartile ranges of estimates. The ``diff $\qopname  \relax o{log}$(REML)'' column compares the log REML likelihood to the log REML likelihood when using the SE covariance function for $T$. Negative values indicate that observations are more consistent with the SE covariance function.}}{16}}
-\newlabel{eq:DataPredMean}{{29}{16}}
-\newlabel{eq:DataPredCov}{{30}{16}}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Optimal hyperparameters for the prior on transient displacements determined with the REML method. The temporal covariance function is indicated by the ``$T$'' column. The SE, IBM, and Wendland covariance functions are defined in eqs. (28\hbox {}), (29\hbox {}), and (31\hbox {}), respectively. The spatial covariance function, $X$, is the squared exponential (eq. 27\hbox {}) in all cases. The hyperparameters are estimated for each of the seven SSEs considered in this study, and the tabulated values indicate the median and interquartile ranges of estimates. The ``diff $\qopname  \relax o{log}$(REML)'' column compares the log REML likelihood to the log REML likelihood when using the SE covariance function for $T$. Negative values indicate that observations are more consistent with the SE covariance function.}}{16}}
+\newlabel{eq:DataPredMean}{{33}{16}}
+\newlabel{eq:DataPredCov}{{34}{16}}
 \citation{Dragert2001}
 \citation{Wech2009}
 \citation{Schmidt2010}
@@ -138,42 +139,42 @@
 \newlabel{fig:Fit}{{5}{18}}
 \@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Estimated transient strain rates during the Winter 2015-2016 SSE. Strain glyphs show the normal strain rate along each azimuth, where orange indicates compression and blue indicates extension. The shaded regions indicate one standard deviation uncertainties in the normal strain rates.}}{19}}
 \newlabel{fig:StrainMap}{{6}{19}}
-\@writefile{toc}{\contentsline {section}{\numberline {4}Discussion}{19}}
-\newlabel{sec:Discussion}{{4}{19}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Three components of the transient horizontal strain rate tensor estimated at the position shown in Figure 1\hbox {}. The shaded regions indicate one standard deviation uncertainty.}}{20}}
+\newlabel{fig:StrainTs}{{7}{20}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Discussion}{20}}
+\newlabel{sec:Discussion}{{4}{20}}
 \citation{Dragert2011}
 \citation{Hart1996}
 \citation{Roeloffs2010}
 \citation{Hodgkinson2013}
 \citation{Roeloffs2010}
 \citation{Gladwin1987}
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Three components of the transient horizontal strain rate tensor estimated at the position shown in Figure 1\hbox {}. The shaded regions indicate one standard deviation uncertainty.}}{20}}
-\newlabel{fig:StrainTs}{{7}{20}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces (top) Signal-to-noise ratio (eq. 21\hbox {}) at the position shown in Figure 1\hbox {}. (bottom) Frequency of tremors in the region shown in Figure 1\hbox {}.}}{21}}
+\newlabel{fig:StrainMag}{{8}{21}}
 \citation{Miyazaki2003}
 \citation{Mackay1998}
-\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces (top) Signal-to-noise ratio (eq. 17\hbox {}) at the position shown in Figure 1\hbox {}. (bottom) Frequency of tremors in the region shown in Figure 1\hbox {}.}}{21}}
-\newlabel{fig:StrainMag}{{8}{21}}
 \citation{Press2007}
-\newlabel{eq:Periodic}{{31}{22}}
+\newlabel{eq:Periodic}{{35}{22}}
 \@writefile{toc}{\contentsline {section}{\numberline {5}Conclusion}{22}}
 \newlabel{sec:Conclusion}{{5}{22}}
 \citation{Acheson1975}
 \@writefile{toc}{\contentsline {section}{\numberline {6}Acknowledgements}{23}}
 \@writefile{toc}{\contentsline {section}{\numberline {A}Outlier detection algorithm}{23}}
 \newlabel{eq:OutlierDataVec}{{\hbox {\relax \fontsize  {10.95}{11}\selectfont  \abovedisplayskip 8pt plus 1pt minus 1pt \belowdisplayskip \abovedisplayskip \abovedisplayshortskip 4pt plus 1pt \belowdisplayshortskip \abovedisplayshortskip \let \leftmargin \leftmargini \parsep \z@ \topsep 6pt plus 1pt minus 1pt \itemsep \z@ plus .1pt \leftmargin \leftmargini \parsep \z@ \topsep 6pt plus 1pt minus 1pt \itemsep \z@ plus .1pt A.1}}{23}}
+\newlabel{eq:Residual}{{\hbox {\relax \fontsize  {10.95}{11}\selectfont  \abovedisplayskip 8pt plus 1pt minus 1pt \belowdisplayskip \abovedisplayskip \abovedisplayshortskip 4pt plus 1pt \belowdisplayshortskip \abovedisplayshortskip \let \leftmargin \leftmargini \parsep \z@ \topsep 6pt plus 1pt minus 1pt \itemsep \z@ plus .1pt \leftmargin \leftmargini \parsep \z@ \topsep 6pt plus 1pt minus 1pt \itemsep \z@ plus .1pt A.3}}{24}}
+\newlabel{eq:Update}{{\hbox {\relax \fontsize  {10.95}{11}\selectfont  \abovedisplayskip 8pt plus 1pt minus 1pt \belowdisplayskip \abovedisplayskip \abovedisplayshortskip 4pt plus 1pt \belowdisplayshortskip \abovedisplayshortskip \let \leftmargin \leftmargini \parsep \z@ \topsep 6pt plus 1pt minus 1pt \itemsep \z@ plus .1pt \leftmargin \leftmargini \parsep \z@ \topsep 6pt plus 1pt minus 1pt \itemsep \z@ plus .1pt A.4}}{24}}
 \bibstyle{gji}
 \bibdata{mybib}
 \bibcite{Acheson1975}{{1}{1975}{{Acheson}}{{}}}
-\newlabel{eq:Residual}{{\hbox {\relax \fontsize  {10.95}{11}\selectfont  \abovedisplayskip 8pt plus 1pt minus 1pt \belowdisplayskip \abovedisplayskip \abovedisplayshortskip 4pt plus 1pt \belowdisplayshortskip \abovedisplayshortskip \let \leftmargin \leftmargini \parsep \z@ \topsep 6pt plus 1pt minus 1pt \itemsep \z@ plus .1pt \leftmargin \leftmargini \parsep \z@ \topsep 6pt plus 1pt minus 1pt \itemsep \z@ plus .1pt A.3}}{24}}
-\newlabel{eq:Update}{{\hbox {\relax \fontsize  {10.95}{11}\selectfont  \abovedisplayskip 8pt plus 1pt minus 1pt \belowdisplayskip \abovedisplayskip \abovedisplayshortskip 4pt plus 1pt \belowdisplayshortskip \abovedisplayshortskip \let \leftmargin \leftmargini \parsep \z@ \topsep 6pt plus 1pt minus 1pt \itemsep \z@ plus .1pt \leftmargin \leftmargini \parsep \z@ \topsep 6pt plus 1pt minus 1pt \itemsep \z@ plus .1pt A.4}}{24}}
 \bibcite{Adler1981}{{2}{1981}{{Adler}}{{}}}
 \bibcite{Beavan2001}{{3}{2001}{{Beavan \& Haines}}{{}}}
 \bibcite{Blewitt2016}{{4}{2016}{{Blewitt et~al.}}{{Blewitt, Kreemer, Hammond, \& Gazeaux}}}
 \bibcite{Bos2013}{{5}{2013}{{Bos et~al.}}{{Bos, Fernandes, Williams, \& Bastos}}}
+\@writefile{lof}{\contentsline {figure}{\numberline {A1}{\ignorespaces Outliers detected in the easting component of displacements at station SC03. The orange markers indicate detected outliers. The orange line is the best fit model to the data, which is used to compute the residual vector $ \hbox {\mathversion  {bold}$r$}$. The model being fit to the data in Panel A is $ \hbox {\mathversion  {bold}$G$} \hbox {\mathversion  {bold}$m$}$, and the model in Panel B is $ \hbox {\mathversion  {bold}$G$} \hbox {\mathversion  {bold}$m$} + v( \hbox {\mathversion  {bold}$P$})$.}}{25}}
+\newlabel{fig:Outliers}{{A1}{25}}
 \bibcite{Chen2008}{{6}{2008}{{Chen et~al.}}{{Chen, Davis, \& Hager}}}
 \bibcite{Cressie1992}{{7}{1993}{{Cressie}}{{}}}
 \bibcite{Dong2002}{{8}{2002}{{Dong et~al.}}{{Dong, Fang, Bock, Cheng, \& Miyazaki}}}
-\@writefile{lof}{\contentsline {figure}{\numberline {A1}{\ignorespaces Outliers detected in the easting component of displacements at station SC03. The orange markers indicate detected outliers. The orange line is the best fit model to the data, which is used to compute the residual vector $ \hbox {\mathversion  {bold}$r$}$. The model being fit to the data in Panel A is $ \hbox {\mathversion  {bold}$G$} \hbox {\mathversion  {bold}$m$}$, and the model in Panel B is $ \hbox {\mathversion  {bold}$G$} \hbox {\mathversion  {bold}$m$} + v( \hbox {\mathversion  {bold}$P$})$.}}{25}}
-\newlabel{fig:Outliers}{{A1}{25}}
 \bibcite{Dong2006}{{9}{2006}{{Dong et~al.}}{{Dong, Fang, Bock, Webb, Prawirodirdjo, Kedar, \& Jamason}}}
 \bibcite{Dragert2011}{{10}{2011}{{Dragert \& Wang}}{{}}}
 \bibcite{Dragert2001}{{11}{2001}{{Dragert et~al.}}{{Dragert, Wang, \& James}}}

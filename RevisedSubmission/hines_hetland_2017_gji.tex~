@@ -43,7 +43,7 @@
 \newcommand{\post}{\hat{u}} % posterior
 \newcommand{\points}{\mitbf{P}} % observation points
 \newcommand{\strain}{\dot\varepsilon} % strain rate
-\newcommand{\E}[1]{\e\left[ #1 \right]} % Expected value
+\newcommand{\E}[1]{E\left[ #1 \right]} % Expected value
 \newcommand{\Cov}[1]{\mathrm{Cov}\left[ #1 \right]} % Expected value
 \newcommand{\e}{\mathrm{e}} % east subscript
 \newcommand{\n}{\mathrm{n}} % north subscript
@@ -91,6 +91,8 @@ events.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}\label{sec:Introduction}
 
+% Why we care about determining strain
+
 Crustal strain rates are fundamentally important quantities for
 assessing seismic hazard. Knowing where and how quickly strain is
 accumulating gives insight into where we can expect stored elastic
@@ -106,6 +108,8 @@ stations, such as the Plate Boundary Observatory (PBO), make it
 possible to identify transient strain with high fidelity. Developing
 and improving upon methods for deriving secular and transient strain
 from GNSS data is an active area of research.
+
+% Existing methods for determining secular strain from GPS
 
 Most methods for estimating strain rates from GNSS data assume some
 parametric form for the deformation signal. The simplest method for
@@ -142,6 +146,8 @@ lithospheric rheology and fault geometries are assumed to be known.
 Any errors in the assumed physical model could result in biased strain
 estimates and underestimated formal uncertainties.
 
+% Existing methods for determining transient strain from GPS
+
 The aforementioned studies are concerned with estimating secular
 strain rates. In recent years the Southern California Earthquake
 Center (SCEC) community has shown interest in developing methods for
@@ -168,6 +174,9 @@ spatial parameterization. It is then difficult to distinguish signal
 from noise with these methods, which limits their utility for
 transient detection.
 
+% What we are doing in this paper and why it improves upon existing
+% methods
+
 Here we propose using Gaussian process regression (GPR)
 \citep{Rasmussen2006} to estimate transient strain from GNSS data. GPR
 is closely related to kriging \citep{Cressie1992} and least squares
@@ -177,31 +186,23 @@ rates from GNSS data. GPR is a Bayesian, non-parametric method for
 inferring a continuous signal from scattered data. Since GNSS stations
 are irregularly spaced and observation times may differ between
 stations, GPR is an ideal tool for synthesizing discrete GNSS data
-into a spatially and temporally continuous representation of surface
-deformation. GPR is Bayesian in that we describe our prior
-understanding of the geophysical signal with a Gaussian process. A
-Gaussian process is a continuous stochastic process whose value at any
-collection of points can be described as a Gaussian random vector.
-Just as a Gaussian random vector is fully determined by a mean vector
-and a covariance matrix, a Gaussian process is fully determined by a
-mean function and a covariance function. For example, Brownian motion,
-$B(t)$, is a well known Gaussian process in $\mathbb{R}^1$ which has
-the mean function $\E{B(t)} = 0$ and the covariance function
-$\Cov{B(t),B(t')} = \min(t,t')$, where $t,t' \ge 0$. If there is no
-information available to help choose an appropriate prior Gaussian
-process, then maximum likelihood methods can be used to objectively
-choose one that is most consistent with the data. Once a prior is
-selected, we incorporate GNSS observations with the prior to form a
-posterior estimate of transient strain. The posterior transient strain
-is also a Gaussian process, and we can use its distribution to
-confidently discern geophysical signal from noise. We use GPR to infer
-strain resulting from SSEs in the Pacific Northwest, demonstrating
-that GPR is an effective tool for detecting transient geophysical
-processes.
+into a spatially and temporally continuous representation of transient
+strain. GPR is Bayesian in that we use a prior model to control the
+spatial and temporal roughness of the inferred transient strain. The
+prior is specified as a stochastic process, namely a Gaussian process.
+If there is no information available to help choose an appropriate
+prior Gaussian process, then maximum likelihood methods can be used to
+objectively choose one that is most consistent with the data. We use
+GPR to infer transient strain resulting from SSEs in the Pacific
+Northwest, demonstrating that GPR is an effective tool for detecting
+transient geophysical processes.
+
 
 %% ESTIMATING TRANSIENT STRAIN RATES
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Estimating Transient Strain Rates}\label{sec:Method}
+
+% Overview of what we are trying to do in this section and how
 
 We seek a spatially and temporally dependent estimate of transient
 strain rates. We consider transient strain rates to be any deviation
@@ -209,27 +210,42 @@ from secular strain rates. We denote transient strain rates as
 $\strain(p)$, where $p$ represents the ordered pair $(\pos,t)$, $\pos
 = (x_\e,x_\n)$ are spatial coordinates, and $t$ is time. For
 simplicity, we assume that the study region is sufficiently small that
-$\pos$ can be considered a point in a 2-D map projection that is
-aligned with the cardinal directions. We determine $\strain$ by
-spatially and temporally differentiating estimates of transient
-displacements, which are constrained by GNSS data.
+$\pos$ can be considered a point in a 2-D Cartesian map projection
+that is aligned with the cardinal directions. We determine $\strain$
+by spatially and temporally differentiating estimates of transient
+displacements (i.e., displacements that deviate from the secular
+trend), which are constrained by GNSS data.
+
+% Defining u as a prior Gaussian process
 
 We let $\vec{u}(p) = (u_\e(p),u_\n(p))$ be our prior understanding of
 transient displacements. Since transient displacements are not
-precisely known, we do not consider $\vec{u}$ to be a deterministic
-function. Instead, $\vec{u}$ is a stochastic process containing a
-distribution of functions that could potentially describe transient
-displacements. We let each component of $\vec{u}$ be a Gaussian
-process with zero mean and a generic covariance function
-$\Cov{u_i(p),u_i(p')} = C_{u_i}(p,p')$. Using a more concise notation,
-we write our prior on each component of $\vec{u}$ as $u_i \sim
-\mathcal{GP}\left(0,C_{u_i}\right)$. The function $C_{u_i}$ must be
-positive definite in order to be a valid covariance function. By
-definition, $C_{u_i}$ is a positive definite function if the matrix
-$[C_{u_i}(p,p')]_{(p,p') \in \points \times \points}$ is positive
-definite for any set of points $\points$ \citep[sec.
-2.5]{Cressie1992}. We assume that $C_{u_i}$ can be separated into
-spatial and temporal functions as
+precisely known, we cannot consider $\vec{u}$ to be a deterministic
+function. Instead, $\vec{u}$ is considered to be a stochastic process
+containing a distribution of functions that could potentially describe
+transient displacements. Specifically, we let each component of
+$\vec{u}$ be a Gaussian process. A Gaussian process is a stochastic
+process whose value at any collection of points can be described as a
+Gaussian random vector. Just as a Gaussian random vector is fully
+determined by a mean vector and a covariance matrix, a Gaussian
+process is fully determined by a mean function and a covariance
+function. For example, Brownian motion, $B(t)$, is a well known
+Gaussian process in $\mathbb{R}^1$ which has the mean function
+$\E{B(t)} = 0$ and the covariance function $\Cov{B(t),B(t')} =
+\min(t,t')$, where $t,t' \ge 0$. We let each component of $\vec{u}$
+have zero mean and a generic covariance function $\Cov{u_i(p),u_i(p')}
+= C_{u_i}(p,p')$. Using a more concise notation, we write our prior on
+each component of $\vec{u}$ as $u_i \sim
+\mathcal{GP}\left(0,C_{u_i}\right)$.
+
+% Constraints on the Covariance function
+
+The function $C_{u_i}$ must be positive definite in order to be a
+valid covariance function. By definition, $C_{u_i}$ is a positive
+definite function if the matrix $[C_{u_i}(p,p')]_{(p,p') \in \points
+\times \points}$ is positive definite for any set of points $\points$
+\citep[sec. 2.5]{Cressie1992}. We assume that $C_{u_i}$ can be
+separated into spatial and temporal functions as
 \begin{equation}\label{eq:TransientCovariance}
 C_{u_i}(p,p') = C_{u_i}\left((\pos,t),(\pos',t')\right) 
               = X_i(\pos,\pos')T_i(t,t').
@@ -244,8 +260,9 @@ to compute $\strain$ (See \citet[sec. 2.2]{Adler1981} or \citet[sec.
 10A]{Papoulis1991} for a definition of stochastic differentiation and
 the conditions for differentiability).
 
-To give an example of $u_i$, we can use a squared exponential function
-for $X_i$ and $T_i$,
+We provide an example to give our prior on $\vec{u}$ a more tangible
+meaning. we can use a squared exponential function for $X_i$ and
+$T_i$,
 \begin{equation}\label{eq:ExampleCov}
 X_i(\pos,\pos') = \exp\left(\frac{-||\pos - \pos'||_2^2}{2\ell^2}\right), \ \ \ \ 
 T_i(t,t') = \phi^2 \exp\left(\frac{-|t - t'|^2}{2\tau^2}\right),

@@ -20,7 +20,7 @@ gp = rbf.gauss.GaussianProcess(
 #####################################################################
 Nx = 20
 Nt = 20
-figsize = (7.0,3.25)
+figsize = (7.0,3.0)
 
 x = np.linspace(0.0,300.0,Nx)
 t = np.linspace(0.0,30.0,Nt)
@@ -69,7 +69,7 @@ p = ax.plot_surface(xg,tg,sample,cmap='viridis',edgecolor='k',linewidth=0.5)
 # set labels
 ax.set_ylabel(r'$\mathregular{t}$ [days]',fontsize=10)
 ax.set_xlabel(r'$\mathregular{x_j}$ [km]',fontsize=10)
-ax.set_zlabel('realization [mm]',fontsize=10)
+ax.set_zlabel('displacement [mm]',fontsize=10)
 ax.tick_params(pad=1.0)
 ax.tick_params(labelsize=10)
 ax.text2D(-0.05, 0.9, "B", fontsize=16, transform=ax.transAxes)

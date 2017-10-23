@@ -254,20 +254,21 @@ $C_{u_i}$ is guaranteed to also be positive definite \citep[sec.
 4.2.4]{Rasmussen2006}. We also require that the derivatives
 $\partial^2 X_i(\pos,\pos')/ \partial x_j \partial x_j'$ and
 $\partial^2 T_i(t,t') / \partial t \partial t'$ exist. This ensures
-that $\vec{u}$ is spatially and temporally differentiable, allowing us
-to compute $\strain$ (See \citet[sec. 2.2]{Adler1981} or \citet[sec.
-10A]{Papoulis1991} for a definition of stochastic differentiation and
-the conditions for differentiability).
+that $u_i$ is spatially and temporally differentiable, allowing us to
+compute transient strain rates (See \citet[sec. 2.2]{Adler1981} or
+\citet[sec. 10A]{Papoulis1991} for a definition of stochastic
+differentiation and the conditions for differentiability).
 
 % Example of the prior
 
-We provide an example to give our prior on $\vec{u}$ a more tangible
-meaning. we can use a squared exponential function for $X_i$ and
-$T_i$,
+We provide an example to give a more tangible meaning to the
+covariance function for $u_i$. we can use a squared exponential
+function for $X_i$ and $T_i$,
 \begin{equation}\label{eq:ExampleCov}
 X_i(\pos,\pos') = \exp\left(\frac{-||\pos - \pos'||_2^2}{2\ell^2}\right), \ \ \ \ 
 T_i(t,t') = \phi^2 \exp\left(\frac{-|t - t'|^2}{2\tau^2}\right),
 \end{equation}
+
 which satisfies our requirements for positive definiteness and
 differentiability. The parameters $\ell$ and $\tau$ control the
 length-scale and time-scale, respectively, of realizations (i.e.,
@@ -275,15 +276,30 @@ sample functions) of $u_i$. The parameter $\phi$, which we have
 arbitrarily chosen to incorporate into $T_i$ rather than $X_i$,
 controls the amplitude of realizations of $u_i$. Ideally, we want
 realizations of $u_i$ to have a length-scale, time-scale, and
-amplitude that resembles what we expect for the true transient
-displacements. A few realizations for $u_i$ are shown in Figure XXX.
-While the squared exponential function is a commonly used covariance
-function for GPR, it is not appropriate for every application. The
-appropriate choice for $X_i$ and $T_i$ may vary depending on the
-geophysical signal we are trying to describe. To keep this section
-sufficiently general, we hold off on specifying $X_i$ and $T_i$ until
-Section \ref{sec:SignalModel}, where we estimate transient strain from
-slow slip events in the Pacific Northwest.
+amplitude that resemble what we expect for the true transient
+displacements. The covariance function for $u_i$ and one realizations
+for $u_i$ are shown in Figure \ref{fig:PriorDemo} using the parameters
+$\ell = 100$ km, $\tau = 10$ days, and $\phi = 1$ mm. While the
+squared exponential function is a commonly used covariance function
+for GPR, it is not appropriate for every application. The appropriate
+choice for $X_i$ and $T_i$ may vary depending on the geophysical
+signal we are trying to describe. To keep this section sufficiently
+general, we hold off on specifying $X_i$ and $T_i$ until Section
+\ref{sec:SignalModel}, where we estimate transient strain from slow
+slip events in the Pacific Northwest.
+
+\begin{figure*}
+\includegraphics{figures/prior_demo/prior-demo.pdf}
+\caption{ 
+Panel A) The covariance function $C_{u_i}$ using a squared exponential
+to describe the spatial and temporal covariance (eq.
+\ref{eq:ExampleCov}). Panel B) A single realization of $u_i$ using the
+covariance function from Panel A. The realization is really a function
+of three variables, $t$, $x_\mathrm{e}$, and $x_\mathrm{n}$, although
+we only show its dependence on $t$ and one of the spatial dimensions.
+}    
+\label{fig:PriorDemo}
+\end{figure*}
 
 GNSS data records transient displacements as well as other physical
 and non-physical processes that we are not interested in. We first
@@ -523,23 +539,23 @@ and we use nonlinear uncertainty propagation to estimate the standard
 deviation,
 \begin{equation}
 \sigma_{||\strain||_\mathrm{F}} \approx
-\left( \left(\left. \frac{\partial ||\strain||_\mathrm{F}}{\partial \strain_\e\e}\right|_{\strain = \mu_{\strain}} \right)^2 
-       \sigma^2_{\strain_\e\e} +
-       \left(\left. \frac{\partial ||\strain||_\mathrm{F}}{\partial \strain_\n\n}\right|_{\strain = \mu_{\strain}} \right)^2
-       \sigma^2_{\strain_\n\n} +
-       \left(\left. \frac{\partial ||\strain||_\mathrm{F}}{\partial \strain_\e\n}\right|_{\strain = \mu_{\strain}} \right)^2 
-       \sigma^2_{\strain_\e\n} \right)^\frac{1}{2},
+\left( \left(\left. \frac{\partial ||\strain||_\mathrm{F}}{\partial \strain_{\e\e}}\right|_{\strain = \mu_{\strain}} \right)^2 
+       \sigma^2_{\strain_{\e\e}} +
+       \left(\left. \frac{\partial ||\strain||_\mathrm{F}}{\partial \strain_{\n\n}}\right|_{\strain = \mu_{\strain}} \right)^2
+       \sigma^2_{\strain_{\n\n}} +
+       \left(\left. \frac{\partial ||\strain||_\mathrm{F}}{\partial \strain_{\e\n}}\right|_{\strain = \mu_{\strain}} \right)^2 
+       \sigma^2_{\strain_{\e\n}} \right)^\frac{1}{2},
 \end{equation}
 where $\sigma^2_{\strain_{ij}}(p) = C_{\strain_{ij}}(p,p)$. After some
 calculations, we find SNR to be
 \begin{align}\label{eq:SNR}
 \mathrm{SNR}(p) &= \frac{\mu_{||\strain||_\mathrm{F}}(p)}{\sigma_{||\strain||_\mathrm{F}}(p)} \\
-                &= \frac{\mu_{\strain_\e\e}(p)^2 +
-                         \mu_{\strain_\n\n}(p)^2 +
-                         2\mu_{\strain_\e\n}(p)^2}
-                        {\big(\sigma^2_{\strain_\e\e}(p)\mu_{\strain_\e\e}(p)^2 + 
-                              \sigma^2_{\strain_\n\n}(p)\mu_{\strain_\n\n}(p)^2 + 
-                              4\sigma^2_{\strain_\e\n}(p)\mu_{\strain_\e\n}(p)^2
+                &= \frac{\mu_{\strain_{\e\e}}(p)^2 +
+                         \mu_{\strain_{\n\n}}(p)^2 +
+                         2\mu_{\strain_{\e\n}}(p)^2}
+                        {\big(\sigma^2_{\strain_{\e\e}}(p)\mu_{\strain_{\e\e}}(p)^2 + 
+                              \sigma^2_{\strain_{\n\n}}(p)\mu_{\strain_{\n\n}}(p)^2 + 
+                              4\sigma^2_{\strain_{\e\n}}(p)\mu_{\strain_{\e\n}}(p)^2
                          \big)^{\frac{1}{2}}}.
 \end{align}
 We explicitly show that SNR is a function of $p$ to emphasize that it

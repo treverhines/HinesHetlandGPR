@@ -41,7 +41,7 @@ us = 1000*data['east_std_dev'][:,idx]
 # toss out times that are out of range or have missing data
 tidx = (t >= xmin) & (t <= xmax) & np.isfinite(u)
 
-fig,axs = plt.subplots(2,1,figsize=(7,4.5),sharex=True)
+fig,axs = plt.subplots(2,1,figsize=(7.0,4.5),sharex=True)
 pygeons.plot.plot._setup_ts_ax(axs)
 
 axs[0].set_xticks(xticks)
@@ -76,7 +76,7 @@ def basis(t):
                    np.cos(4*np.pi*t[:,0]/365.25)]).T
                    
 # parameters
-tol = 3.0
+tol = 2.5
 
 # using just basis functions
 gp = rbf.gauss.gpbfci(basis)

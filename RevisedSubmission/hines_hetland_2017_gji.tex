@@ -261,9 +261,9 @@ differentiation and the conditions for differentiability).
 
 % Example of the prior
 
-We provide an example to give the covariance function for $u_i$ a more
-tangible meaning. we can use a squared exponential function for $X_i$
-and $T_i$,
+We provide an example to give the prior on transient displacements a
+more tangible meaning. we can use a squared exponential function for
+$X_i$ and $T_i$,
 
 \begin{equation}\label{eq:ExampleCov}
 X_i(\pos,\pos') = \exp\left(\frac{-||\pos - \pos'||_2^2}{2\ell^2}\right), \ \ \ \ 
@@ -300,12 +300,15 @@ slip events in the Pacific Northwest.
 \begin{figure*}
 \includegraphics{figures/prior_demo/prior-demo.pdf}
 \caption{ 
-Panel A) The covariance function $C_{u_i}$ using a squared exponential
-to describe the spatial and temporal covariance of $u_i$ (eq.
-\ref{eq:ExampleCov}). Panel B) A single realization of $u_i$ using the
-covariance function from Panel A. The realization is really a function
-of three variables, $t$, $x_\mathrm{e}$, and $x_\mathrm{n}$, although
-we only show its dependence on $t$ and one of the spatial dimensions.
+Panel A) The covariance between $u_i(p)$ and $u_i(p')$,
+$C_{u_i}(p,p')$, as a function of the spatial and temporal distance
+between $p$ and $p'$. The covariance function $C_{u_i}$ is composed of
+squared exponentials to describe the spatial and temporal covariance
+of $u_i$ (eq. \ref{eq:ExampleCov}). Panel B) A single realization of
+$u_i$ using the covariance function from Panel A. The realization is
+really a function of three variables, $t$, $x_\mathrm{e}$, and
+$x_\mathrm{n}$, although we only show its dependence on $t$ and one of
+the spatial dimensions.
 }    
 \label{fig:PriorDemo}
 \end{figure*}

@@ -43,7 +43,7 @@
 \newcommand{\post}{\hat{u}} % posterior
 \newcommand{\points}{\mitbf{P}} % observation points
 \newcommand{\strain}{\dot\varepsilon} % strain rate
-\newcommand{\E}[1]{E\left[ #1 \right]} % Expected value
+\newcommand{\E}[1]{\mathrm{E}\left[ #1 \right]} % Expected value
 \newcommand{\Cov}[1]{\mathrm{Cov}\left[ #1 \right]} % Expected value
 \newcommand{\e}{\mathrm{e}} % east subscript
 \newcommand{\n}{\mathrm{n}} % north subscript
@@ -206,15 +206,14 @@ transient geophysical processes.
 
 We seek a spatially and temporally dependent estimate of transient
 strain rates. We consider transient strain rates to be any deviation
-from secular strain rates. We denote transient strain rates as
+from the secular strain rates. We denote transient strain rates as
 $\strain(p)$, where $p$ represents the ordered pair $(\pos,t)$, $\pos
 = (x_\e,x_\n)$ are spatial coordinates, and $t$ is time. For
 simplicity, we assume that the study region is sufficiently small that
 $\pos$ can be considered a point in a 2-D Cartesian map projection
 that is aligned with the cardinal directions. We determine $\strain$
 by spatially and temporally differentiating estimates of transient
-displacements (i.e., displacements that deviate from the secular
-trend), which are constrained by GNSS data.
+displacements, which are constrained by GNSS data.
 
 % Defining u as a prior Gaussian process
 
@@ -260,6 +259,8 @@ to compute $\strain$ (See \citet[sec. 2.2]{Adler1981} or \citet[sec.
 10A]{Papoulis1991} for a definition of stochastic differentiation and
 the conditions for differentiability).
 
+% Example of the prior
+
 We provide an example to give our prior on $\vec{u}$ a more tangible
 meaning. we can use a squared exponential function for $X_i$ and
 $T_i$,
@@ -274,15 +275,15 @@ sample functions) of $u_i$. The parameter $\phi$, which we have
 arbitrarily chosen to incorporate into $T_i$ rather than $X_i$,
 controls the amplitude of realizations of $u_i$. Ideally, we want
 realizations of $u_i$ to have a length-scale, time-scale, and
-amplitude that resembles what we expect from true signal. A few
-realizations for $u_i$ are shown in Figure XXX. While the squared
-exponential function is a commonly used covariance function for GPR,
-it is not appropriate for every application. The appropriate choice
-for $X_i$ and $T_i$ may vary depending on the geophysical signal we
-are trying to describe. To keep this section sufficiently general, we
-hold off on specifying $X_i$ and $T_i$ until Section
-\ref{sec:SignalModel}, where we estimate transient strain from slow
-slip events in the Pacific Northwest.
+amplitude that resembles what we expect for the true transient
+displacements. A few realizations for $u_i$ are shown in Figure XXX.
+While the squared exponential function is a commonly used covariance
+function for GPR, it is not appropriate for every application. The
+appropriate choice for $X_i$ and $T_i$ may vary depending on the
+geophysical signal we are trying to describe. To keep this section
+sufficiently general, we hold off on specifying $X_i$ and $T_i$ until
+Section \ref{sec:SignalModel}, where we estimate transient strain from
+slow slip events in the Pacific Northwest.
 
 GNSS data records transient displacements as well as other physical
 and non-physical processes that we are not interested in. We first
@@ -477,17 +478,17 @@ processes $\post_i$ and $\post_j$, we know that $\strain_{ij}$ is also
 a Gaussian process. From \citet[sec. 10]{Papoulis1991}, we find that
 the mean and covariance functions for $\dot{\varepsilon}_{ij}$ are
 \begin{align}\label{eq:StrainMean}
-\mu_{\strain_\e\e}(p) &= \frac{\partial^2 \mu_{\post_\e}(p)}{\partial t \, \partial x_\e} \\
-\mu_{\strain_\n\n}(p) &= \frac{\partial^2 \mu_{\post_\n}(p)}{\partial t \, \partial x_\n} \\
-\mu_{\strain_\e\n}(p) &= \frac{1}{2}\frac{\partial}{\partial t}\left(
+\mu_{\strain_{\e\e}}(p) &= \frac{\partial^2 \mu_{\post_\e}(p)}{\partial t \, \partial x_\e} \\
+\mu_{\strain_{\n\n}}(p) &= \frac{\partial^2 \mu_{\post_\n}(p)}{\partial t \, \partial x_\n} \\
+\mu_{\strain_{\e\n}}(p) &= \frac{1}{2}\frac{\partial}{\partial t}\left(
                                     \frac{\partial \mu_{\post_\e}(p)}{\partial x_\n} + 
                                     \frac{\partial \mu_{\post_\n}(p)}{\partial x_\e} \right)
 \end{align} 
 and
 \begin{align}\label{eq:StrainCov}
-C_{\strain_\e\e}(p,p') &= \frac{\partial^4 C_{\post_\e}(p,p')}{\partial t \, \partial t' \, \partial x_\e \, \partial x'_\e} \\
-C_{\strain_\n\n}(p,p') &= \frac{\partial^4 C_{\post_\n}(p,p')}{\partial t \, \partial t' \, \partial x_\n \, \partial x'_\n} \\
-C_{\strain_\e\n}(p,p') &= \frac{1}{4} \frac{\partial^2}{\partial t \, \partial t'}\left(
+C_{\strain_{\e\e}}(p,p') &= \frac{\partial^4 C_{\post_\e}(p,p')}{\partial t \, \partial t' \, \partial x_\e \, \partial x'_\e} \\
+C_{\strain_{\n\n}}(p,p') &= \frac{\partial^4 C_{\post_\n}(p,p')}{\partial t \, \partial t' \, \partial x_\n \, \partial x'_\n} \\
+C_{\strain_{\e\n}}(p,p') &= \frac{1}{4} \frac{\partial^2}{\partial t \, \partial t'}\left(
                                       \frac{\partial^2 C_{\post_\e}(p,p')}{\partial x_\n \, \partial x'_\n} + 
                                       \frac{\partial^2 C_{\post_\n}(p,p')}{\partial x_\e \, \partial x'_\e} \right),
 \end{align} 
@@ -514,9 +515,9 @@ $||\strain||_\mathrm{F}$. An estimate of the mean is found by
 evaluating $||\strain||_\mathrm{F}$ at the mean of $\strain$,
 \begin{align}
 \mu_{||\strain||_\mathrm{F}} &\approx ||\strain||_F \big|_{\strain = \mu_{\strain}}\nonumber \\
-                             &= \left(\mu_{\strain_\e\e}^2 + 
-                                      \mu_{\strain_\n\n}^2 + 
-                                      2\mu_{\strain_\e\n}^2 \right)^\frac{1}{2},
+                             &= \left(\mu_{\strain_{\e\e}}^2 + 
+                                      \mu_{\strain_{\n\n}}^2 + 
+                                      2\mu_{\strain_{\e\n}}^2 \right)^\frac{1}{2},
 \end{align}
 and we use nonlinear uncertainty propagation to estimate the standard
 deviation,

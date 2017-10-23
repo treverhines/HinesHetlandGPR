@@ -264,12 +264,10 @@ differentiation and the conditions for differentiability).
 We provide an example to give the prior on transient displacements a
 more tangible meaning. we can use a squared exponential function for
 $X_i$ and $T_i$,
-
 \begin{equation}\label{eq:ExampleCov}
 X_i(\pos,\pos') = \exp\left(\frac{-||\pos - \pos'||_2^2}{2\ell^2}\right), \ \ \ \ 
 T_i(t,t') = \phi^2 \exp\left(\frac{-|t - t'|^2}{2\tau^2}\right),
 \end{equation}
-
 which satisfies our requirements for positive definiteness and
 differentiability. The parameters $\ell$ and $\tau$ control the
 length-scale and time-scale, respectively, of realizations (i.e.,
@@ -279,23 +277,18 @@ controls the amplitude of realizations of $u_i$. Ideally, we want
 realizations of $u_i$ to have a length-scale, time-scale, and
 amplitude that resemble what we expect for the true transient
 displacements. In Figure \ref{fig:PriorDemo}A, we show $C_{u_i}$ using
-the squared exponential function $X_i$ and $T_i$ and the parameters
-$\ell = 100$ km, $\tau = 10$ days, and $\phi = 1$ mm. A single
-realization of $u_i$ corresponsing to that choice of covariance
+the squared exponential function for $X_i$ and $T_i$ and the
+parameters $\ell = 100$ km, $\tau = 10$ days, and $\phi = 1$ mm. A
+single realization of $u_i$ corresponsing to that choice of covariance
 function is shown in Figure \ref{fig:PriorDemo}B (See \citet[sec.
 A3]{Rasmussen2006} for details on drawing realization from Gaussian
-processes).
-
-The covariance function for $u_i$ and one realizations
-for $u_i$ are shown in Figure \ref{fig:PriorDemo} using the parameters
-While the
-squared exponential function is a commonly used covariance function
-for GPR, it is not appropriate for every application. The appropriate
-choice for $X_i$ and $T_i$ may vary depending on the geophysical
-signal we are trying to describe. To keep this section sufficiently
-general, we hold off on specifying $X_i$ and $T_i$ until Section
-\ref{sec:SignalModel}, where we estimate transient strain from slow
-slip events in the Pacific Northwest.
+processes). While the squared exponential function is a commonly used
+covariance function for GPR, it is not appropriate for every
+application. The appropriate choice for $X_i$ and $T_i$ may vary
+depending on the geophysical signal we are trying to describe. To keep
+this section sufficiently general, we hold off on specifying $X_i$ and
+$T_i$ until Section \ref{sec:SignalModel}, where we estimate transient
+strain from slow slip events in the Pacific Northwest.
 
 \begin{figure*}
 \includegraphics{figures/prior_demo/prior-demo.pdf}

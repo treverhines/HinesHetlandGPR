@@ -38,19 +38,19 @@
 \newlabel{sec:Method}{{2}{4}}
 \newlabel{eq:TransientCovariance}{{1}{4}}
 \citation{Rasmussen2006}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces  Panel A) The covariance between $u_i(p)$ and $u_i(p')$, $C_{u_i}(p,p')$, as a function of the spatial and temporal distance between $p$ and $p'$. The covariance function $C_{u_i}$ is composed of squared exponentials to describe the spatial and temporal covariance of $u_i$ (eq. 2\hbox {}). Panel B) A single realization of $u_i$ using the covariance function from Panel A. The realization is really a function of three variables, $t$, $x_\mathrm  {e}$, and $x_\mathrm  {n}$, although we only show its dependence on $t$ and one of the spatial dimensions. }}{5}}
+\newlabel{fig:PriorDemo}{{1}{5}}
 \newlabel{eq:ExampleCov}{{2}{5}}
-\newlabel{eq:Data}{{3}{5}}
 \citation{Dong2002}
 \citation{Langbein2008}
 \citation{Wyatt1982}
 \citation{Wyatt1989}
 \citation{Wdowinski1997}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces  Panel A) The covariance between $u_i(p)$ and $u_i(p')$, $C_{u_i}(p,p')$, as a function of the spatial and temporal distance between $p$ and $p'$. The covariance function $C_{u_i}$ is composed of squared exponentials to describe the spatial and temporal covariance of $u_i$ (eq. 2\hbox {}). Panel B) A single realization of $u_i$ using the covariance function from Panel A. The realization is really a function of three variables, $t$, $x_\mathrm  {e}$, and $x_\mathrm  {n}$, although we only show its dependence on $t$ and one of the spatial dimensions. }}{6}}
-\newlabel{fig:PriorDemo}{{1}{6}}
+\newlabel{eq:Data}{{3}{6}}
 \newlabel{eq:DataVec}{{4}{6}}
+\newlabel{eq:DataDist}{{5}{6}}
 \citation{VonMises1964}
 \citation{Press2007}
-\newlabel{eq:DataDist}{{5}{7}}
 \newlabel{eq:PosteriorMean}{{6}{7}}
 \newlabel{eq:PosteriorCov}{{7}{7}}
 \newlabel{eq:PosteriorMean2}{{8}{7}}
@@ -68,10 +68,10 @@
 \citation{Johansson2002}
 \citation{Dong2006}
 \citation{Bos2013}
+\citation{Gazeaux2013}
 \newlabel{eq:SNR}{{21}{9}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Outlier detection}{9}}
 \newlabel{sec:Outlier}{{2.2}{9}}
-\citation{Gazeaux2013}
 \citation{Dragert2001}
 \citation{Rogers2003}
 \citation{Wech2010}
@@ -88,30 +88,31 @@
 \newlabel{sec:Cascadia}{{3}{10}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Noise model}{10}}
 \newlabel{sec:NoiseModel}{{3.1}{10}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces  Positions of continuous GNSS stations used to estimate transient strain rates. The colored regions indicate the distribution of seismic tremor as determined by \citet  {Wech2010}. The red dots show the positions of GNSS stations mentioned in this paper. The blue dot indicates the location of the transient strain rates shown in Figure 8\hbox {} and the signal-to-noise ratio shown in Figure 9\hbox {}. The blue dashed circle demarcates the spatial extent of the tremors shown in Figure 9\hbox {}. }}{11}}
-\newlabel{fig:Context}{{2}{11}}
-\newlabel{eq:FOGMdef}{{23}{11}}
+\newlabel{eq:FOGMdef}{{23}{10}}
 \citation{Harville1974}
 \citation{Cressie1992}
 \citation{Hines2017}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces  Positions of continuous GNSS stations used to estimate transient strain rates. The colored regions indicate the distribution of seismic tremor as determined by \citet  {Wech2010}. The red dots show the positions of GNSS stations mentioned in this paper. The blue dot indicates the location of the transient strain rates shown in Figure 8\hbox {} and the signal-to-noise ratio shown in Figure 9\hbox {}. The blue dashed circle demarcates the spatial extent of the tremors shown in Figure 9\hbox {}. }}{11}}
+\newlabel{fig:Context}{{2}{11}}
+\newlabel{eq:FOGM}{{24}{11}}
 \citation{Harville1974}
 \citation{Langbein1997}
 \citation{Hines2017}
-\newlabel{eq:FOGM}{{24}{12}}
-\newlabel{eq:REML}{{25}{12}}
 \citation{Wdowinski1997}
 \citation{Dong2006}
+\newlabel{eq:REML}{{25}{12}}
 \@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces  Distribution of estimated FOGM hyperparameters (eq. 24\hbox {}). Hyperparameters are estimated with the REML method for 38 stations in the Pacific Northwest that are east of $121^\circ $W. ``IQR'' is the interquartile range. }}{13}}
 \newlabel{fig:NoiseParams}{{3}{13}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Prior model}{13}}
+\newlabel{sec:SignalModel}{{3.2}{13}}
 \citation{Cressie1992}
 \citation{Rasmussen2006}
 \citation{Kato1998}
 \citation{El-Fiky1999}
 \@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces  Two FOGM noise samples for each component. The FOGM hyperparameters have been set to the median values from Figure 3\hbox {}. }}{14}}
 \newlabel{fig:NoiseSamples}{{4}{14}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Prior model}{14}}
-\newlabel{sec:SignalModel}{{3.2}{14}}
 \newlabel{eq:SE}{{27}{14}}
+\newlabel{eq:TimeSE}{{28}{14}}
 \citation{Segall1997}
 \citation{McGuire2003}
 \citation{Ohtani2010}
@@ -120,7 +121,6 @@
 \citation{Chen2008}
 \citation{Lisowski2008}
 \citation{Wech2010}
-\newlabel{eq:TimeSE}{{28}{15}}
 \newlabel{eq:IBM}{{29}{15}}
 \newlabel{eq:Wendland}{{31}{15}}
 \citation{Langbein2004}
@@ -167,18 +167,18 @@
 \bibstyle{gji}
 \bibdata{mybib}
 \bibcite{Acheson1975}{{1}{1975}{{Acheson}}{{}}}
+\bibcite{Adler1981}{{2}{1981}{{Adler}}{{}}}
 \newlabel{eq:Residual}{{\hbox {\relax \fontsize  {10.95}{11}\selectfont  \abovedisplayskip 8pt plus 1pt minus 1pt \belowdisplayskip \abovedisplayskip \abovedisplayshortskip 4pt plus 1pt \belowdisplayshortskip \abovedisplayshortskip \let \leftmargin \leftmargini \parsep \z@ \topsep 6pt plus 1pt minus 1pt \itemsep \z@ plus .1pt \leftmargin \leftmargini \parsep \z@ \topsep 6pt plus 1pt minus 1pt \itemsep \z@ plus .1pt A.3}}{25}}
 \newlabel{eq:Update}{{\hbox {\relax \fontsize  {10.95}{11}\selectfont  \abovedisplayskip 8pt plus 1pt minus 1pt \belowdisplayskip \abovedisplayskip \abovedisplayshortskip 4pt plus 1pt \belowdisplayshortskip \abovedisplayshortskip \let \leftmargin \leftmargini \parsep \z@ \topsep 6pt plus 1pt minus 1pt \itemsep \z@ plus .1pt \leftmargin \leftmargini \parsep \z@ \topsep 6pt plus 1pt minus 1pt \itemsep \z@ plus .1pt A.4}}{25}}
-\bibcite{Adler1981}{{2}{1981}{{Adler}}{{}}}
 \bibcite{Beavan2001}{{3}{2001}{{Beavan \& Haines}}{{}}}
 \bibcite{Blewitt2016}{{4}{2016}{{Blewitt et~al.}}{{Blewitt, Kreemer, Hammond, \& Gazeaux}}}
 \bibcite{Bos2013}{{5}{2013}{{Bos et~al.}}{{Bos, Fernandes, Williams, \& Bastos}}}
 \bibcite{Chen2008}{{6}{2008}{{Chen et~al.}}{{Chen, Davis, \& Hager}}}
 \bibcite{Cressie1992}{{7}{1993}{{Cressie}}{{}}}
 \bibcite{Dong2002}{{8}{2002}{{Dong et~al.}}{{Dong, Fang, Bock, Cheng, \& Miyazaki}}}
+\bibcite{Dong2006}{{9}{2006}{{Dong et~al.}}{{Dong, Fang, Bock, Webb, Prawirodirdjo, Kedar, \& Jamason}}}
 \@writefile{lof}{\contentsline {figure}{\numberline {A1}{\ignorespaces  Outliers detected in the easting component of displacements at station SC03. The orange markers indicate detected outliers. The orange line is the best fit model to the data, which is used to compute the residual vector $ \hbox {\mathversion  {bold}$r$}$. The model being fit to the data in Panel A is $ \hbox {\mathversion  {bold}$G$} \hbox {\mathversion  {bold}$m$}$, and the model in Panel B is $ \hbox {\mathversion  {bold}$G$} \hbox {\mathversion  {bold}$m$} + v( \hbox {\mathversion  {bold}$P$})$. }}{26}}
 \newlabel{fig:Outliers}{{A1}{26}}
-\bibcite{Dong2006}{{9}{2006}{{Dong et~al.}}{{Dong, Fang, Bock, Webb, Prawirodirdjo, Kedar, \& Jamason}}}
 \bibcite{Dragert2011}{{10}{2011}{{Dragert \& Wang}}{{}}}
 \bibcite{Dragert2001}{{11}{2001}{{Dragert et~al.}}{{Dragert, Wang, \& James}}}
 \bibcite{El-Fiky1999}{{12}{1998}{{El-Fiky \& Kato}}{{}}}

@@ -261,9 +261,10 @@ differentiation and the conditions for differentiability).
 
 % Example of the prior
 
-We provide an example to give a more tangible meaning to the
-covariance function for $u_i$. we can use a squared exponential
-function for $X_i$ and $T_i$,
+We provide an example to give the covariance function for $u_i$ a more
+tangible meaning. we can use a squared exponential function for $X_i$
+and $T_i$,
+
 \begin{equation}\label{eq:ExampleCov}
 X_i(\pos,\pos') = \exp\left(\frac{-||\pos - \pos'||_2^2}{2\ell^2}\right), \ \ \ \ 
 T_i(t,t') = \phi^2 \exp\left(\frac{-|t - t'|^2}{2\tau^2}\right),
@@ -277,9 +278,15 @@ arbitrarily chosen to incorporate into $T_i$ rather than $X_i$,
 controls the amplitude of realizations of $u_i$. Ideally, we want
 realizations of $u_i$ to have a length-scale, time-scale, and
 amplitude that resemble what we expect for the true transient
-displacements. The covariance function for $u_i$ and one realizations
+displacements. In Figure \ref{fig:PriorDemo}A, we show $C_{u_i}$ using
+the squared exponential function $X_i$ and $T_i$ and the parameters
+$\ell = 100$ km, $\tau = 10$ days, and $\phi = 1$ mm. A single
+realization of $u_i$ corresponsing to that choice of covariance
+function is shown in Figure \ref{fig:PriorDemo}B (See \citet[sec. A3]{Rasmussen2006} for details on drawing realization from Gaussian processes). 
+
+The covariance function for $u_i$ and one realizations
 for $u_i$ are shown in Figure \ref{fig:PriorDemo} using the parameters
-$\ell = 100$ km, $\tau = 10$ days, and $\phi = 1$ mm. While the
+While the
 squared exponential function is a commonly used covariance function
 for GPR, it is not appropriate for every application. The appropriate
 choice for $X_i$ and $T_i$ may vary depending on the geophysical
@@ -292,7 +299,7 @@ slip events in the Pacific Northwest.
 \includegraphics{figures/prior_demo/prior-demo.pdf}
 \caption{ 
 Panel A) The covariance function $C_{u_i}$ using a squared exponential
-to describe the spatial and temporal covariance (eq.
+to describe the spatial and temporal covariance of $u_i$ (eq.
 \ref{eq:ExampleCov}). Panel B) A single realization of $u_i$ using the
 covariance function from Panel A. The realization is really a function
 of three variables, $t$, $x_\mathrm{e}$, and $x_\mathrm{n}$, although

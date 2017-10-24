@@ -213,7 +213,7 @@ simplicity, we assume that the study region is sufficiently small that
 $\pos$ can be considered a point in a 2-D Cartesian map projection
 that is aligned with the cardinal directions. We determine $\strain$
 by spatially and temporally differentiating estimates of transient
-displacements, which are constrained by GNSS data.
+displacements, which we constrain with GNSS data.
 
 % Defining u as a prior Gaussian process
 
@@ -298,13 +298,15 @@ $C_{u_i}(p,p')$, as a function of the spatial and temporal distance
 between $p$ and $p'$. The covariance function $C_{u_i}$ is composed of
 squared exponentials to describe the spatial and temporal covariance
 of $u_i$ (eq. \ref{eq:ExampleCov}). Panel B) A single realization of
-$u_i$ using the covariance function from Panel A. The realization is
-really a function of three variables, $t$, $x_\mathrm{e}$, and
+$u_i$ corresponding to the covariance function from Panel A. The
+realization is a function of three variables, $t$, $x_\mathrm{e}$, and
 $x_\mathrm{n}$, although we only show its dependence on $t$ and one of
 the spatial dimensions.
 }    
 \label{fig:PriorDemo}
 \end{figure*}
+
+% define the components of a datum 
 
 GNSS data records transient displacements as well as other physical
 and non-physical processes that we are not interested in. We first
@@ -326,25 +328,31 @@ d_i^{(jk)} = &u_i\left(\pos^{(j)},t^{(k)}\right) +
 where $\eta_i^{(jk)}$ describes noise, $a_i^{(j)}$ is an offset that
 is unique for each station, $b_i^{(j)}$ is the secular velocity at
 $\pos^{(j)}$, and the sinusoids describe seasonal deformation (using
-units of years for $t^{(k)}$). We then consider the column vector of
-$n$ GNSS displacement observations, $\data^*_i$, where the subscript
-indicates that we are still only considering component $i$ of
-displacements. The observations are made at $m$ stations, and the
-times and positions for each observation are described by the set
-$\points$. $\data^*_i$ can be considered a realization of the random
-vector $\data_i$, which is formed by evaluating eq. (\ref{eq:Data}) at
-each point in $\points$. To write out $\data_i$ explicitly, we let
-$\G$ be an $n \times 6m$ matrix consisting of the basis functions from
-eq. (\ref{eq:Data}) (i.e., the linear trends and sinusoids for each
-station) evaluated at each point in $\points$. The coefficients
-corresponding to each basis function are collected into the column
-vector $\mitbf{m}_i$. The noise for all the observations are described
-by the column vector $\mitbf{\eta}_i$. We can then write $\data_i$ as
+units of years for $t^{(k)}$). 
+
+% define the data vector 
+
+We then consider the column vector of $n$ GNSS displacement
+observations, $\data^*_i$, where the subscript indicates that we are
+still only considering component $i$ of displacements. The
+observations are made at $m$ stations, and the times and positions for
+each observation are described by the set $\points$. $\data^*_i$ can
+be considered a realization of the random vector $\data_i$, which is
+formed by evaluating eq. (\ref{eq:Data}) at each point in $\points$.
+To write out $\data_i$ explicitly, we let $\G$ be an $n \times 6m$
+matrix consisting of the basis functions from eq. (\ref{eq:Data})
+(i.e., the linear trends and sinusoids for each station) evaluated at
+each point in $\points$. The coefficients corresponding to each basis
+function are collected into the column vector $\mitbf{m}_i$. The noise
+for all the observations are described by the column vector
+$\mitbf{\eta}_i$. We can then write $\data_i$ as
 \begin{equation}\label{eq:DataVec}
 \data_i = u_i(\points) + \mitbf{\eta}_i + \G\mitbf{m}_i,
 \end{equation}
 where the notation $u_i(\points)$ represents the column vector
 $[u_i(p)]_{p \in \points}$.
+
+% establishing the distribution of the parameters in d and d itself
 
 We assume a diffuse prior for the components of $\mitbf{m}_i$, that is
 to say $\mitbf{m}_i \sim \mathcal{N}(\zeros,\kappa^2\eye)$ in the
@@ -374,6 +382,9 @@ distribution of $\data_i$ as
 \end{equation}
 where $C_{u_i}(\points,\points)$ represents the matrix
 $[C_{u_i}(p,p')]_{(p,p') \in \points \times \points}$.
+
+% Combining the data and prior to form posterior transient
+% displacements
 
 We form a posterior estimate of transient displacements, denoted as
 $\post_i$, by updating $u_i$ with the fact that $\data_i^*$ was
@@ -474,6 +485,8 @@ are too few observations at a station. In that case, a singular value
 decomposition can be used to remove linearly dependent components from
 $\G$.
 
+% Noting that we ignore covariance between components
+
 It should be noted that we have ignored any covariances between the
 easting and northing components of $\vec{u}$ and $\vec{\data}$.
 This simplification reduces the computational complexity of evaluating
@@ -482,6 +495,9 @@ evaluated independently. However, we are inherently assuming that the
 principle axes describing the distribution of $\vec{u}(p)$ and
 $\vec{d}^{(jk)}$ are aligned with the cardinal directions, which is
 admittedly an arbitrary assumption.
+
+% converting posterior transient displacements to posterior transient
+% strain
 
 The posterior transient displacements are spatially and temporally
 continuous, and we can use eqs. (\ref{eq:PosteriorMean3}) and
@@ -571,6 +587,9 @@ occurring wherever and whenever SNR is larger than ${\sim}3$.
 %% OUTLIER DETECTION
 \subsection{Outlier detection}\label{sec:Outlier}
 
+% Non-technical description of outlier detection methods and our
+% outlier detection method
+
 In deriving our formulation for transient strain rates, we have
 assumed that noise in the data vector is normally distributed. This is
 not an appropriate assumption for GNSS data, which often have more
@@ -593,6 +612,8 @@ model used in our outlier detection algorithm additionally consists of
 a temporally correlated Gaussian process. The details of our algorithm
 are given in Appendix A.
 
+% Acknowledging that jumps are not detected 
+
 It should be noted that our algorithm does not identify jumps in GNSS
 time series, which are another common issue. Some, but not all, jumps
 can be automatically removed by looking up the dates of equipment
@@ -604,26 +625,30 @@ necessary to manually find and remove jumps of unknown origin.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Application to Pacific Northwest Slow Slip Events}\label{sec:Cascadia}
 
-We use our method to estimate transient strain rates in the Pacific
-Northwest, and we are specifically interested in identifying strain
-resulting from SSEs \citep[e.g.,][]{Dragert2001}. In the Pacific
-Northwest, SSEs can be detected by monitoring for associated seismic
-tremor \citep{Rogers2003}, which is actively being done by the Pacific
-Northwest Seismic Network \citep{Wech2010}. We can thus compare the
-tremor records to the transient strain rates estimated with GPR to
-verify that we are indeed identifying strain from SSEs.
+% Overview of what we are doing in this section
 
-We use the daily displacement solutions generated by the Geodesy
-Advancing Geosciences and EarthScope (GAGE) facility for continuous
-GNSS stations \citep{Herring2016}. This data is publicly available and
-can be found at www.unavco.org. We limit the dataset to the stations
-and time ranges which are pertinent to the seven most recent SSEs in
-the Puget Sound region. The earliest SSE considered in this study
-began in August 2010, and the most recent SSE began in February 2017.
-We use these most recent SSEs because the station coverage is
-sufficiently dense for us to use maximum likelihood methods to
-constrain prior models.  The positions of GNSS stations used to
-estimate transient strain rates are shown in Figure \ref{fig:Context}.
+In this section we estimate transient strain rates in the Pacific
+Northwest, and we are specifically interested in identifying transient
+strain resulting from SSEs \citep[e.g.,][]{Dragert2001}. Before
+estimating transient strain rates, we establish a noise model for GNSS
+stations in this region, and we establish a prior Gaussian process to
+describe displacements from SSEs. SSEs in the Pacific Northwest can be
+detected by monitoring for associated seismic tremor
+\citep{Rogers2003}, which is actively being done by the Pacific
+Northwest Seismic Network \citep{Wech2010}. We can then compare the
+tremor records to our estimated transient strain rates to verify that
+we are indeed identifying strain from SSEs.
+
+% Dataset used here
+
+We use the daily displacement solutions for continuous GNSS stations
+generated by the Geodesy Advancing Geosciences and EarthScope (GAGE)
+Facility \citep{Herring2016}. We limit the dataset to the stations and
+times that are pertinent to the seven most recent SSEs in the Puget
+Sound region. The earliest SSE considered in this study began in
+August 2010, and the most recent SSE began in February 2017. The
+positions of GNSS stations used to estimate transient strain rates are
+shown in Figure \ref{fig:Context}.
 
 \begin{figure*}
 \includegraphics{figures/context_map/context-map.pdf}
@@ -643,20 +668,36 @@ extent of the tremors shown in Figure \ref{fig:StrainMag}.
 %% NOISE MODEL
 \subsection{Noise model}\label{sec:NoiseModel}
 
-Before we determine the transient strain rates, we must establish a
-prior for the transient displacements, $u$, and the noise, $\eta$. In
-this section we discuss our choice for the noise covariance function
-$C_\eta$. There have been numerous studies on temporally correlated
-noise in GNSS data \citep[e.g.,][]{Zhang1997, Mao1999, Williams2004,
-Langbein2008}. In these studies, temporally correlated noise was
-described with some combination of Brownian motion, a first-order
-Gauss-Markov (FOGM) process, and/or flicker noise. There is some
-physical justification for using Brownian motion as a noise model
-because it accurately describes the power spectrum of motion resulting
-from instability in geodetic monuments \citep[e.g.,][]{Wyatt1982,
-Wyatt1989}. Here we describe the time dependence of $\eta$ as a FOGM
-process and consider $\eta$ to be spatially uncorrelated. A FOGM
-process is a solution to the stochastic differential equation
+% landing on the FOGM noise model
+
+In this section we establish a noise model for the GNSS data. The
+noise in GNSS data, specifically the temporally correlated noise, has
+been thoroughly studied over the past two decades
+\citep[e.g.,][]{Zhang1997, Mao1999, Williams2004, Langbein2008}. In
+these studies, temporally correlated noise is described with some
+combination of Brownian motion, a first-order Gauss-Markov (FOGM)
+process, and/or flicker noise. There is some physical justification
+for using Brownian motion as a noise model because it accurately
+describes the power spectrum of motion resulting from instability in
+geodetic monuments \citep[e.g.,][]{Wyatt1982, Wyatt1989}. In
+particular, the power spectrums for Brownian motion and monument
+motion are both proportional to $f^{-2}$, where $f$ is frequency.
+Brownian motion (which is also known as a Weiner process), by
+definition, contains a reference time at which the process begins.
+Since there is no notion of when noise ``begins" in GNSS data, we do
+not find Brownian motion to be an appropriate noise model. On the
+other hand, a FOGM process also has a power spectrum that is
+proportional to $f^{-2}$, above some corner frequency, and it has no
+reference time (i.e., a FOGM process is stationary). In this study, we
+describe the temporal covariance of GNSS noise with a FOGM process. We
+do not explore spatial covariance in GNSS noise and simply assume that
+it is spatially uncorrelated.
+
+Here we
+describe the time dependence of $\eta$ as a FOGM process and consider
+$\eta$ to be spatially uncorrelated. A FOGM process is a solution to
+the stochastic differential equation
+
 \begin{equation}\label{eq:FOGMdef}
 \dot{\eta}(t) + \alpha \eta(t) = \beta w(t),
 \end{equation}

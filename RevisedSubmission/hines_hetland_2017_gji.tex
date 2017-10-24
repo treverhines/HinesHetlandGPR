@@ -208,12 +208,13 @@ We seek a spatially and temporally dependent estimate of transient
 strain rates. We consider transient strain rates to be any deviation
 from the secular strain rates. We denote transient strain rates as
 $\strain(p)$, where $p$ represents the ordered pair $(\pos,t)$, $\pos
-= (x_\e,x_\n)$ are spatial coordinates, and $t$ is time. For
-simplicity, we assume that the study region is sufficiently small that
-$\pos$ can be considered a point in a 2-D Cartesian map projection
-that is aligned with the cardinal directions. We determine $\strain$
-by spatially and temporally differentiating estimates of transient
-displacements, which we constrain with GNSS data.
+= (x_\e,x_\n)$ are spatial coordinates, and $t$ is time. The
+subscripts ``e" and ``n" indicate the east and north component, and we
+assume that the study region is sufficiently small that $\pos$ can be
+considered a point in a 2-D Cartesian map projection that is aligned
+with the cardinal directions. We determine $\strain$ by spatially and
+temporally differentiating estimates of transient displacements, which
+we constrain with GNSS data.
 
 % Defining u as a prior Gaussian process
 
@@ -224,12 +225,14 @@ function. Instead, $\vec{u}$ is considered to be a stochastic process
 containing a distribution of functions that could potentially describe
 transient displacements. Specifically, we let each component of
 $\vec{u}$ be a Gaussian process. A Gaussian process is a stochastic
-process whose value at any collection of points can be described as a
-Gaussian random vector. Just as a Gaussian random vector is fully
-determined by a mean vector and a covariance matrix, a Gaussian
-process is fully determined by a mean function and a covariance
-function. For example, Brownian motion, $B(t)$, is a well known
-Gaussian process in $\mathbb{R}^1$ which has the mean function
+process whose value at any collection of points can be described with
+a multivariate normal distribution. That is to say, the random vector
+$[u_i(p)]_{p \in \points}$ has a multivariate normal distribution for
+any collection of points $\points$. Just as a multivariate normal
+distribution is fully determined by a mean vector and a covariance
+matrix, a Gaussian process is fully determined by a mean function and
+a covariance function. For example, Brownian motion, $B(t)$, is a well
+known Gaussian process in $\mathbb{R}^1$ which has the mean function
 $\E{B(t)} = 0$ and the covariance function $\Cov{B(t),B(t')} =
 \min(t,t')$, where $t,t' \ge 0$. We let each component of $\vec{u}$
 have zero mean and a generic covariance function $\Cov{u_i(p),u_i(p')}

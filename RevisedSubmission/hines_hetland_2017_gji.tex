@@ -228,17 +228,19 @@ $\vec{u}$ be a Gaussian process. A Gaussian process is a stochastic
 process whose value at any collection of points can be described with
 a multivariate normal distribution. That is to say, the random vector
 $[u_i(p)]_{p \in \points}$ has a multivariate normal distribution for
-any collection of points $\points$. Just as a multivariate normal
-distribution is fully determined by a mean vector and a covariance
-matrix, a Gaussian process is fully determined by a mean function and
-a covariance function. For example, Brownian motion, $B(t)$, is a well
-known Gaussian process in $\mathbb{R}^1$ which has the mean function
-$\E{B(t)} = 0$ and the covariance function $\Cov{B(t),B(t')} =
-\min(t,t')$, where $t,t' \ge 0$. We let each component of $\vec{u}$
-have zero mean and a generic covariance function $\Cov{u_i(p),u_i(p')}
-= C_{u_i}(p,p')$. Using a more concise notation, we write our prior on
-each component of $\vec{u}$ as $u_i \sim
-\mathcal{GP}\left(0,C_{u_i}\right)$.
+any collection of points $\points$. A realization of the random vector
+$[u_i(p)]_{p \in \points}$ can be interpretted as a realization of
+$u_i$ (i.e., a sample function) that is evaluated at $\points$. Just
+as a multivariate normal distribution is fully determined by a mean
+vector and a covariance matrix, a Gaussian process is fully determined
+by a mean function and a covariance function. For example, Brownian
+motion, $B(t)$, is a well known Gaussian process in $\mathbb{R}^1$
+which has the mean function $\E{B(t)} = 0$ and the covariance function
+$\Cov{B(t),B(t')} = \min(t,t')$, where $t,t' \ge 0$. We let each
+component of $\vec{u}$ have zero mean and a generic covariance
+function $\Cov{u_i(p),u_i(p')} = C_{u_i}(p,p')$. Using a more concise
+notation, we write our prior on each component of $\vec{u}$ as $u_i
+\sim \mathcal{GP}\left(0,C_{u_i}\right)$.
 
 % Constraints on the Covariance function
 
@@ -273,21 +275,20 @@ T_i(t,t') = \phi^2 \exp\left(\frac{-|t - t'|^2}{2\tau^2}\right),
 \end{equation}
 which satisfies our requirements for positive definiteness and
 differentiability. The parameters $\ell$ and $\tau$ control the
-length-scale and time-scale, respectively, of realizations (i.e.,
-sample functions) of $u_i$. The parameter $\phi$, which we have
-arbitrarily chosen to incorporate into $T_i$ rather than $X_i$,
-controls the amplitude of realizations of $u_i$. Ideally, we want
-realizations of $u_i$ to have a length-scale, time-scale, and
-amplitude that resemble what we expect for the true transient
-displacements. In Figure \ref{fig:PriorDemo}A, we show $C_{u_i}$ using
-the squared exponential function for $X_i$ and $T_i$ and the
-parameters $\ell = 100$ km, $\tau = 10$ days, and $\phi = 1$ mm. A
-single realization of $u_i$ corresponsing to that choice of covariance
-function is shown in Figure \ref{fig:PriorDemo}B (See \citet[sec.
-A3]{Rasmussen2006} for details on drawing realization from Gaussian
-processes). While the squared exponential function is a commonly used
-covariance function for GPR, it is not appropriate for every
-application. The appropriate choice for $X_i$ and $T_i$ may vary
+length-scale and time-scale, respectively, of realizations of $u_i$.
+The parameter $\phi$, which we have arbitrarily chosen to incorporate
+into $T_i$ rather than $X_i$, controls the amplitude of realizations
+of $u_i$. Ideally, we want realizations of $u_i$ to have a
+length-scale, time-scale, and amplitude that resemble what we expect
+for the true transient displacements. In Figure \ref{fig:PriorDemo}A,
+we show $C_{u_i}$ using the squared exponential function for $X_i$ and
+$T_i$ and the parameters $\ell = 100$ km, $\tau = 10$ days, and $\phi
+= 1$ mm. A single realization of $u_i$ corresponsing to that choice of
+covariance function is shown in Figure \ref{fig:PriorDemo}B (See
+\citet[sec. A3]{Rasmussen2006} for details on drawing realization from
+Gaussian processes). While the squared exponential function is a
+commonly used covariance function for GPR, it is not appropriate for
+every application. The appropriate choice for $X_i$ and $T_i$ may vary
 depending on the geophysical signal we are trying to describe. To keep
 this section sufficiently general, we hold off on specifying $X_i$ and
 $T_i$ until Section \ref{sec:SignalModel}, where we estimate transient

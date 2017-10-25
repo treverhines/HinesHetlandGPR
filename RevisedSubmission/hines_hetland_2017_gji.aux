@@ -84,24 +84,24 @@
 \citation{Langbein2008}
 \citation{Wyatt1982}
 \citation{Wyatt1989}
+\citation{Langbein2004}
 \@writefile{toc}{\contentsline {section}{\numberline {3}Application to Pacific Northwest Slow Slip Events}{10}}
 \newlabel{sec:Cascadia}{{3}{10}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Noise model}{10}}
 \newlabel{sec:NoiseModel}{{3.1}{10}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces  Positions of continuous GNSS stations used to estimate transient strain rates. The colored regions indicate the distribution of seismic tremor as determined by \citet  {Wech2010}. The red dots show the positions of GNSS stations mentioned in this paper. The blue dot indicates the location of the transient strain rates shown in Figure 8\hbox {} and the signal-to-noise ratio shown in Figure 9\hbox {}. The blue dashed circle demarcates the spatial extent of the tremors shown in Figure 9\hbox {}. }}{11}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces  Positions of continuous GNSS stations used to estimate transient strain rates. The colored regions indicate the distribution of seismic tremor as determined by \citet  {Wech2010}. The red dots show the positions of GNSS stations mentioned in this paper. The blue dot indicates the location of the transient strain rates shown in Figure 7\hbox {} and the signal-to-noise ratio shown in Figure 8\hbox {}. The blue dashed circle demarcates the spatial extent of the tremors shown in Figure 8\hbox {}. }}{11}}
 \newlabel{fig:Context}{{2}{11}}
+\citation{Rasmussen2006}
 \citation{Harville1974}
 \citation{Cressie1992}
-\citation{Hines2017}
 \citation{Harville1974}
 \citation{Langbein1997}
 \citation{Hines2017}
-\newlabel{eq:FOGMdef}{{23}{12}}
-\newlabel{eq:FOGM}{{24}{12}}
-\newlabel{eq:REML}{{25}{12}}
+\newlabel{eq:FOGM}{{25}{12}}
+\newlabel{eq:REML}{{26}{12}}
 \citation{Wdowinski1997}
 \citation{Dong2006}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces  Distribution of estimated FOGM hyperparameters (eq. 24\hbox {}). Hyperparameters are estimated with the REML method for 38 stations in the Pacific Northwest that are east of $121^\circ $W. ``IQR'' is the interquartile range. }}{13}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces  Distribution of estimated FOGM hyperparameters (eq. 25\hbox {}). Hyperparameters are estimated with the REML method for 38 stations in the Pacific Northwest that are east of $121^\circ $W. ``IQR'' is the interquartile range. }}{13}}
 \newlabel{fig:NoiseParams}{{3}{13}}
 \citation{Cressie1992}
 \citation{Rasmussen2006}
@@ -111,68 +111,65 @@
 \newlabel{fig:NoiseSamples}{{4}{14}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Prior model}{14}}
 \newlabel{sec:SignalModel}{{3.2}{14}}
-\newlabel{eq:SE}{{27}{14}}
+\newlabel{eq:SE}{{28}{14}}
 \citation{Segall1997}
 \citation{McGuire2003}
 \citation{Ohtani2010}
 \citation{Hines2016a}
 \citation{Wendland2005}
 \citation{Chen2008}
-\citation{Lisowski2008}
 \citation{Wech2010}
-\newlabel{eq:TimeSE}{{28}{15}}
-\newlabel{eq:IBM}{{29}{15}}
-\newlabel{eq:Wendland}{{31}{15}}
+\newlabel{eq:TimeSE}{{29}{15}}
+\newlabel{eq:IBM}{{30}{15}}
+\newlabel{eq:Wendland}{{32}{15}}
 \citation{Langbein2004}
 \newlabel{tab:Parameters}{{3.2}{16}}
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces  Optimal hyperparameters for the prior on transient displacements determined with the REML method. The temporal covariance function is indicated by the ``$T$'' column. The SE, IBM, and Wendland covariance functions are defined in eqs. (28\hbox {}), (29\hbox {}), and (31\hbox {}), respectively. The spatial covariance function, $X$, is the squared exponential (eq. 27\hbox {}) in all cases. The hyperparameters are estimated for each of the seven SSEs considered in this study, and the tabulated values indicate the median and interquartile ranges of estimates. The ``diff $\qopname  \relax o{log}$(REML)'' column compares the log REML likelihood to the log REML likelihood when using the SE covariance function for $T$. Negative values indicate that observations are more consistent with the SE covariance function. }}{16}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces  Detrended easting component of displacements at station SC03, which is located on Mount Olympus in Washington. The orange markers indicate outliers that were automatically detected using the algorithm from Section 2.2\hbox {}. The error bars show one standard deviation uncertainties. Note that outliers tend be observed in the winter, suggesting that they were caused by snow or ice. }}{17}}
-\newlabel{fig:Outliers}{{5}{17}}
-\newlabel{eq:DataPredMean}{{33}{17}}
-\newlabel{eq:DataPredCov}{{34}{17}}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces  Optimal hyperparameters for the prior on transient displacements determined with the REML method. The temporal covariance function is indicated by the ``$T$'' column. The SE, IBM, and Wendland covariance functions are defined in eqs. (29\hbox {}), (30\hbox {}), and (32\hbox {}), respectively. The spatial covariance function, $X$, is the squared exponential (eq. 28\hbox {}) in all cases. The hyperparameters are estimated for each of the seven SSEs considered in this study, and the tabulated values indicate the median and interquartile ranges of estimates. The ``diff $\qopname  \relax o{log}$(REML)'' column compares the log REML likelihood to the log REML likelihood when using the SE covariance function for $T$. Negative values indicate that observations are more consistent with the SE covariance function. }}{16}}
 \citation{Dragert2001}
 \citation{Wech2009}
 \citation{Schmidt2010}
 \citation{Murray2000}
 \citation{McCaffrey2007}
 \citation{McCaffrey2013}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Transient Strain Rates}{18}}
-\newlabel{sec:Results}{{3.3}{18}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces  Easting component of the observed displacements, $ \hbox {\mathversion  {bold}$d$}_*$, and predicted displacements, $\mathaccentV {hat}05E{ \hbox {\mathversion  {bold}$d$}}$, during an SSE at three stations where the SSE signal is strongest. The predicted displacements are shown for when $T$ is a squared exponential (SE), Wendland, and integrated Brownian motion (IBM) covariance function. The one standard deviation uncertainties are shown for the observations and the SE predictions. For clarity, uncertainties are not shown for the IBM and Wendland predictions, but they are nearly equivalent to the uncertainties for the SE predictions. The SE and Wendland predictions are practically indistinguishable. }}{19}}
-\newlabel{fig:Fit}{{6}{19}}
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces  Estimated transient strain rates during the Winter 2015-2016 SSE. Strain glyphs show the normal strain rate along each azimuth, where orange indicates compression and blue indicates extension. The shaded regions indicate one standard deviation uncertainties in the normal strain rates. }}{20}}
-\newlabel{fig:StrainMap}{{7}{20}}
-\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces  Three components of the transient horizontal strain rate tensor estimated at the position shown in Figure 2\hbox {}. The shaded regions indicate one standard deviation uncertainty. }}{21}}
-\newlabel{fig:StrainTs}{{8}{21}}
-\@writefile{toc}{\contentsline {section}{\numberline {4}Discussion}{21}}
-\newlabel{sec:Discussion}{{4}{21}}
+\newlabel{eq:DataPredMean}{{34}{17}}
+\newlabel{eq:DataPredCov}{{35}{17}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Transient Strain Rates}{17}}
+\newlabel{sec:Results}{{3.3}{17}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces  Easting component of the observed displacements, $ \hbox {\mathversion  {bold}$d$}_*$, and predicted displacements, $\mathaccentV {hat}05E{ \hbox {\mathversion  {bold}$d$}}$, during an SSE at three stations where the SSE signal is strongest. The predicted displacements are shown for when $T$ is a squared exponential (SE), Wendland, and integrated Brownian motion (IBM) covariance function. The one standard deviation uncertainties are shown for the observations and the SE predictions. For clarity, uncertainties are not shown for the IBM and Wendland predictions, but they are nearly equivalent to the uncertainties for the SE predictions. The SE and Wendland predictions are practically indistinguishable. }}{18}}
+\newlabel{fig:Fit}{{5}{18}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces  Estimated transient strain rates during the Winter 2015-2016 SSE. Strain glyphs show the normal strain rate along each azimuth, where orange indicates compression and blue indicates extension. The shaded regions indicate one standard deviation uncertainties in the normal strain rates. }}{19}}
+\newlabel{fig:StrainMap}{{6}{19}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces  Three components of the transient horizontal strain rate tensor estimated at the position shown in Figure 2\hbox {}. The shaded regions indicate one standard deviation uncertainty. }}{20}}
+\newlabel{fig:StrainTs}{{7}{20}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Discussion}{20}}
+\newlabel{sec:Discussion}{{4}{20}}
 \citation{Dragert2011}
 \citation{Hart1996}
 \citation{Roeloffs2010}
 \citation{Hodgkinson2013}
 \citation{Roeloffs2010}
 \citation{Gladwin1987}
-\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces  (top) Signal-to-noise ratio (eq. 21\hbox {}) at the position shown in Figure 2\hbox {}. (bottom) Frequency of tremors in the region shown in Figure 2\hbox {}. }}{22}}
-\newlabel{fig:StrainMag}{{9}{22}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces  (top) Signal-to-noise ratio (eq. 21\hbox {}) at the position shown in Figure 2\hbox {}. (bottom) Frequency of tremors in the region shown in Figure 2\hbox {}. }}{21}}
+\newlabel{fig:StrainMag}{{8}{21}}
 \citation{Miyazaki2003}
 \citation{Mackay1998}
 \citation{Press2007}
-\newlabel{eq:Periodic}{{35}{23}}
+\newlabel{eq:Periodic}{{36}{22}}
 \citation{Acheson1975}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Conclusion}{24}}
-\newlabel{sec:Conclusion}{{5}{24}}
-\@writefile{toc}{\contentsline {section}{\numberline {6}Acknowledgements}{24}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Conclusion}{23}}
+\newlabel{sec:Conclusion}{{5}{23}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Acknowledgements}{23}}
 \@writefile{toc}{\contentsline {section}{\numberline {A}Outlier detection algorithm}{24}}
-\newlabel{eq:OutlierDataVec}{{\hbox {\relax \fontsize  {10.95}{11}\selectfont  \abovedisplayskip 8pt plus 1pt minus 1pt \belowdisplayskip \abovedisplayskip \abovedisplayshortskip 4pt plus 1pt \belowdisplayshortskip \abovedisplayshortskip \let \leftmargin \leftmargini \parsep \z@ \topsep 6pt plus 1pt minus 1pt \itemsep \z@ plus .1pt \leftmargin \leftmargini \parsep \z@ \topsep 6pt plus 1pt minus 1pt \itemsep \z@ plus .1pt A.1}}{25}}
-\newlabel{eq:Residual}{{\hbox {\relax \fontsize  {10.95}{11}\selectfont  \abovedisplayskip 8pt plus 1pt minus 1pt \belowdisplayskip \abovedisplayskip \abovedisplayshortskip 4pt plus 1pt \belowdisplayshortskip \abovedisplayshortskip \let \leftmargin \leftmargini \parsep \z@ \topsep 6pt plus 1pt minus 1pt \itemsep \z@ plus .1pt \leftmargin \leftmargini \parsep \z@ \topsep 6pt plus 1pt minus 1pt \itemsep \z@ plus .1pt A.3}}{25}}
-\newlabel{eq:Update}{{\hbox {\relax \fontsize  {10.95}{11}\selectfont  \abovedisplayskip 8pt plus 1pt minus 1pt \belowdisplayskip \abovedisplayskip \abovedisplayshortskip 4pt plus 1pt \belowdisplayshortskip \abovedisplayshortskip \let \leftmargin \leftmargini \parsep \z@ \topsep 6pt plus 1pt minus 1pt \itemsep \z@ plus .1pt \leftmargin \leftmargini \parsep \z@ \topsep 6pt plus 1pt minus 1pt \itemsep \z@ plus .1pt A.4}}{25}}
+\newlabel{eq:OutlierDataVec}{{\hbox {\relax \fontsize  {10.95}{11}\selectfont  \abovedisplayskip 8pt plus 1pt minus 1pt \belowdisplayskip \abovedisplayskip \abovedisplayshortskip 4pt plus 1pt \belowdisplayshortskip \abovedisplayshortskip \let \leftmargin \leftmargini \parsep \z@ \topsep 6pt plus 1pt minus 1pt \itemsep \z@ plus .1pt \leftmargin \leftmargini \parsep \z@ \topsep 6pt plus 1pt minus 1pt \itemsep \z@ plus .1pt A.1}}{24}}
+\newlabel{eq:Residual}{{\hbox {\relax \fontsize  {10.95}{11}\selectfont  \abovedisplayskip 8pt plus 1pt minus 1pt \belowdisplayskip \abovedisplayskip \abovedisplayshortskip 4pt plus 1pt \belowdisplayshortskip \abovedisplayshortskip \let \leftmargin \leftmargini \parsep \z@ \topsep 6pt plus 1pt minus 1pt \itemsep \z@ plus .1pt \leftmargin \leftmargini \parsep \z@ \topsep 6pt plus 1pt minus 1pt \itemsep \z@ plus .1pt A.3}}{24}}
+\newlabel{eq:Update}{{\hbox {\relax \fontsize  {10.95}{11}\selectfont  \abovedisplayskip 8pt plus 1pt minus 1pt \belowdisplayskip \abovedisplayskip \abovedisplayshortskip 4pt plus 1pt \belowdisplayshortskip \abovedisplayshortskip \let \leftmargin \leftmargini \parsep \z@ \topsep 6pt plus 1pt minus 1pt \itemsep \z@ plus .1pt \leftmargin \leftmargini \parsep \z@ \topsep 6pt plus 1pt minus 1pt \itemsep \z@ plus .1pt A.4}}{24}}
 \bibstyle{gji}
 \bibdata{mybib}
 \bibcite{Acheson1975}{{1}{1975}{{Acheson}}{{}}}
+\@writefile{lof}{\contentsline {figure}{\numberline {A1}{\ignorespaces  Outliers detected in the easting component of displacements at station SC03. The orange markers indicate detected outliers. The orange line is the best fit model to the data, which is used to compute the residual vector $ \hbox {\mathversion  {bold}$r$}$. The model being fit to the data in Panel A is $ \hbox {\mathversion  {bold}$G$} \hbox {\mathversion  {bold}$m$}$, and the model in Panel B is $ \hbox {\mathversion  {bold}$G$} \hbox {\mathversion  {bold}$m$} + v( \hbox {\mathversion  {bold}$P$})$. }}{25}}
+\newlabel{fig:Outliers}{{A1}{25}}
 \bibcite{Adler1981}{{2}{1981}{{Adler}}{{}}}
 \bibcite{Beavan2001}{{3}{2001}{{Beavan \& Haines}}{{}}}
-\@writefile{lof}{\contentsline {figure}{\numberline {A1}{\ignorespaces  Outliers detected in the easting component of displacements at station SC03. The orange markers indicate detected outliers. The orange line is the best fit model to the data, which is used to compute the residual vector $ \hbox {\mathversion  {bold}$r$}$. The model being fit to the data in Panel A is $ \hbox {\mathversion  {bold}$G$} \hbox {\mathversion  {bold}$m$}$, and the model in Panel B is $ \hbox {\mathversion  {bold}$G$} \hbox {\mathversion  {bold}$m$} + v( \hbox {\mathversion  {bold}$P$})$. }}{26}}
-\newlabel{fig:Outliers}{{A1}{26}}
 \bibcite{Blewitt2016}{{4}{2016}{{Blewitt et~al.}}{{Blewitt, Kreemer, Hammond, \& Gazeaux}}}
 \bibcite{Bos2013}{{5}{2013}{{Bos et~al.}}{{Bos, Fernandes, Williams, \& Bastos}}}
 \bibcite{Chen2008}{{6}{2008}{{Chen et~al.}}{{Chen, Davis, \& Hager}}}
@@ -201,37 +198,36 @@
 \bibcite{Langbein2004}{{29}{2004}{{Langbein}}{{}}}
 \bibcite{Langbein2008}{{30}{2008}{{Langbein}}{{}}}
 \bibcite{Langbein1997}{{31}{1997}{{Langbein \& Johnson}}{{}}}
-\bibcite{Lisowski2008}{{32}{2008}{{Lisowski et~al.}}{{Lisowski, Dzurisin, Denlinger, \& Iwatsubo}}}
-\bibcite{Lohman2013}{{33}{2013}{{Lohman \& Murray}}{{}}}
-\bibcite{Mackay1998}{{34}{1998}{{Mackay}}{{}}}
-\bibcite{Mao1999}{{35}{1999}{{Mao et~al.}}{{Mao, Harrison, \& Dixon}}}
-\bibcite{McCaffrey2007}{{36}{2007}{{McCaffrey et~al.}}{{McCaffrey, Qamar, King, Wells, Khazaradze, Williams, Stevens, Vollick, \& Zwick}}}
-\bibcite{McCaffrey2013}{{37}{2013}{{McCaffrey et~al.}}{{McCaffrey, King, Payne, \& Lancaster}}}
-\bibcite{McGuire2003}{{38}{2003}{{McGuire \& Segall}}{{}}}
-\bibcite{Meade2005}{{39}{2005}{{Meade \& Hager}}{{}}}
-\bibcite{Miyazaki2003}{{40}{2003}{{Miyazaki et~al.}}{{Miyazaki, McGuire, \& Segall}}}
-\bibcite{Moritz1978}{{41}{1978}{{Moritz}}{{}}}
-\bibcite{Murray2000}{{42}{2000}{{Murray \& Lisowski}}{{}}}
-\bibcite{Ohtani2010}{{43}{2010}{{Ohtani et~al.}}{{Ohtani, McGuire, \& Segall}}}
-\bibcite{Okada1992}{{44}{1992}{{Okada}}{{}}}
-\bibcite{Papoulis1991}{{45}{1991}{{Papoulis}}{{}}}
-\bibcite{Press2007}{{46}{2007}{{Press et~al.}}{{Press, Flannery, Teukolsky, \& Vetterling}}}
-\bibcite{Rasmussen2006}{{47}{2006}{{Rasmussen \& Williams}}{{}}}
-\bibcite{Roeloffs2010}{{48}{2010}{{Roeloffs}}{{}}}
-\bibcite{Roeloffs2006}{{49}{2006}{{Roeloffs}}{{}}}
-\bibcite{Rogers2003}{{50}{2003}{{Rogers \& Dragert}}{{}}}
-\bibcite{Sandwell2016}{{51}{2016}{{Sandwell \& Wessel}}{{}}}
-\bibcite{Schmidt2010}{{52}{2010}{{Schmidt \& Gao}}{{}}}
-\bibcite{Segall1997}{{53}{1997}{{Segall \& Mathews}}{{}}}
-\bibcite{Shen2015}{{54}{2015}{{Shen et~al.}}{{Shen, Wang, Zeng, \& Wang}}}
-\bibcite{Shen1996}{{55}{1996}{{Shen et~al.}}{{Shen, Jackson, Ge, \& Bob}}}
-\bibcite{Tape2009}{{56}{2009}{{Tape et~al.}}{{Tape, Mus{\'{e}}, Simons, Dong, \& Webb}}}
-\bibcite{VonMises1964}{{57}{1964}{{von Mises}}{{}}}
-\bibcite{Wdowinski1997}{{58}{1997}{{Wdowinski et~al.}}{{Wdowinski, Zhang, Fang, \& Genrich}}}
-\bibcite{Wech2010}{{59}{2010}{{Wech}}{{}}}
-\bibcite{Wech2009}{{60}{2009}{{Wech et~al.}}{{Wech, Creager, \& Melbourne}}}
-\bibcite{Wendland2005}{{61}{2005}{{Wendland}}{{}}}
-\bibcite{Williams2004}{{62}{2004}{{Williams et~al.}}{{Williams, Bock, Fang, Jamason, Nikolaidis, Prawirodirdjo, Miller, \& Johnson}}}
-\bibcite{Wyatt1982}{{63}{1982}{{Wyatt}}{{}}}
-\bibcite{Wyatt1989}{{64}{1989}{{Wyatt}}{{}}}
-\bibcite{Zhang1997}{{65}{1997}{{Zhang et~al.}}{{Zhang, Bock, Johnson, Fang, Williams, Genrich, Wdowinski, \& Behr}}}
+\bibcite{Lohman2013}{{32}{2013}{{Lohman \& Murray}}{{}}}
+\bibcite{Mackay1998}{{33}{1998}{{Mackay}}{{}}}
+\bibcite{Mao1999}{{34}{1999}{{Mao et~al.}}{{Mao, Harrison, \& Dixon}}}
+\bibcite{McCaffrey2007}{{35}{2007}{{McCaffrey et~al.}}{{McCaffrey, Qamar, King, Wells, Khazaradze, Williams, Stevens, Vollick, \& Zwick}}}
+\bibcite{McCaffrey2013}{{36}{2013}{{McCaffrey et~al.}}{{McCaffrey, King, Payne, \& Lancaster}}}
+\bibcite{McGuire2003}{{37}{2003}{{McGuire \& Segall}}{{}}}
+\bibcite{Meade2005}{{38}{2005}{{Meade \& Hager}}{{}}}
+\bibcite{Miyazaki2003}{{39}{2003}{{Miyazaki et~al.}}{{Miyazaki, McGuire, \& Segall}}}
+\bibcite{Moritz1978}{{40}{1978}{{Moritz}}{{}}}
+\bibcite{Murray2000}{{41}{2000}{{Murray \& Lisowski}}{{}}}
+\bibcite{Ohtani2010}{{42}{2010}{{Ohtani et~al.}}{{Ohtani, McGuire, \& Segall}}}
+\bibcite{Okada1992}{{43}{1992}{{Okada}}{{}}}
+\bibcite{Papoulis1991}{{44}{1991}{{Papoulis}}{{}}}
+\bibcite{Press2007}{{45}{2007}{{Press et~al.}}{{Press, Flannery, Teukolsky, \& Vetterling}}}
+\bibcite{Rasmussen2006}{{46}{2006}{{Rasmussen \& Williams}}{{}}}
+\bibcite{Roeloffs2010}{{47}{2010}{{Roeloffs}}{{}}}
+\bibcite{Roeloffs2006}{{48}{2006}{{Roeloffs}}{{}}}
+\bibcite{Rogers2003}{{49}{2003}{{Rogers \& Dragert}}{{}}}
+\bibcite{Sandwell2016}{{50}{2016}{{Sandwell \& Wessel}}{{}}}
+\bibcite{Schmidt2010}{{51}{2010}{{Schmidt \& Gao}}{{}}}
+\bibcite{Segall1997}{{52}{1997}{{Segall \& Mathews}}{{}}}
+\bibcite{Shen2015}{{53}{2015}{{Shen et~al.}}{{Shen, Wang, Zeng, \& Wang}}}
+\bibcite{Shen1996}{{54}{1996}{{Shen et~al.}}{{Shen, Jackson, Ge, \& Bob}}}
+\bibcite{Tape2009}{{55}{2009}{{Tape et~al.}}{{Tape, Mus{\'{e}}, Simons, Dong, \& Webb}}}
+\bibcite{VonMises1964}{{56}{1964}{{von Mises}}{{}}}
+\bibcite{Wdowinski1997}{{57}{1997}{{Wdowinski et~al.}}{{Wdowinski, Zhang, Fang, \& Genrich}}}
+\bibcite{Wech2010}{{58}{2010}{{Wech}}{{}}}
+\bibcite{Wech2009}{{59}{2009}{{Wech et~al.}}{{Wech, Creager, \& Melbourne}}}
+\bibcite{Wendland2005}{{60}{2005}{{Wendland}}{{}}}
+\bibcite{Williams2004}{{61}{2004}{{Williams et~al.}}{{Williams, Bock, Fang, Jamason, Nikolaidis, Prawirodirdjo, Miller, \& Johnson}}}
+\bibcite{Wyatt1982}{{62}{1982}{{Wyatt}}{{}}}
+\bibcite{Wyatt1989}{{63}{1989}{{Wyatt}}{{}}}
+\bibcite{Zhang1997}{{64}{1997}{{Zhang et~al.}}{{Zhang, Bock, Johnson, Fang, Williams, Genrich, Wdowinski, \& Behr}}}

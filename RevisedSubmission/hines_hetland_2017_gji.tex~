@@ -275,21 +275,20 @@ T_i(t,t') = \phi^2 \exp\left(\frac{-|t - t'|^2}{2\tau^2}\right),
 \end{equation}
 which satisfies our requirements for positive definiteness and
 differentiability. The parameters $\ell$ and $\tau$ control the
-length-scale and time-scale, respectively, of realizations (i.e.,
-sample functions) of $u_i$. The parameter $\phi$, which we have
-arbitrarily chosen to incorporate into $T_i$ rather than $X_i$,
-controls the amplitude of realizations of $u_i$. Ideally, we want
-realizations of $u_i$ to have a length-scale, time-scale, and
-amplitude that resemble what we expect for the true transient
-displacements. In Figure \ref{fig:PriorDemo}A, we show $C_{u_i}$ using
-the squared exponential function for $X_i$ and $T_i$ and the
-parameters $\ell = 100$ km, $\tau = 10$ days, and $\phi = 1$ mm. A
-single realization of $u_i$ corresponsing to that choice of covariance
-function is shown in Figure \ref{fig:PriorDemo}B (See \citet[sec.
-A3]{Rasmussen2006} for details on drawing realization from Gaussian
-processes). While the squared exponential function is a commonly used
-covariance function for GPR, it is not appropriate for every
-application. The appropriate choice for $X_i$ and $T_i$ may vary
+length-scale and time-scale, respectively, of realizations of $u_i$.
+The parameter $\phi$, which we have arbitrarily chosen to incorporate
+into $T_i$ rather than $X_i$, controls the amplitude of realizations
+of $u_i$. Ideally, we want realizations of $u_i$ to have a
+length-scale, time-scale, and amplitude that resemble what we expect
+for the true transient displacements. In Figure \ref{fig:PriorDemo}A,
+we show $C_{u_i}$ using the squared exponential function for $X_i$ and
+$T_i$ and the parameters $\ell = 100$ km, $\tau = 10$ days, and $\phi
+= 1$ mm. A single realization of $u_i$ corresponsing to that choice of
+covariance function is shown in Figure \ref{fig:PriorDemo}B (See
+\citet[sec. A3]{Rasmussen2006} for details on drawing realization from
+Gaussian processes). While the squared exponential function is a
+commonly used covariance function for GPR, it is not appropriate for
+every application. The appropriate choice for $X_i$ and $T_i$ may vary
 depending on the geophysical signal we are trying to describe. To keep
 this section sufficiently general, we hold off on specifying $X_i$ and
 $T_i$ until Section \ref{sec:SignalModel}, where we estimate transient
@@ -673,64 +672,62 @@ extent of the tremors shown in Figure \ref{fig:StrainMag}.
 %% NOISE MODEL
 \subsection{Noise model}\label{sec:NoiseModel}
 
-% landing on the FOGM noise model
+% Defining the components of the noise vector
 
-In this section we establish a noise model for the GNSS data. The
-noise in GNSS data, specifically the temporally correlated noise, has
-been thoroughly studied over the past two decades
-\citep[e.g.,][]{Zhang1997, Mao1999, Williams2004, Langbein2008}. In
-these studies, temporally correlated noise is described with some
-combination of Brownian motion, a first-order Gauss-Markov (FOGM)
-process, and/or flicker noise. There is some physical justification
-for using Brownian motion as a noise model because it accurately
-describes the power spectrum of motion resulting from instability in
-geodetic monuments \citep[e.g.,][]{Wyatt1982, Wyatt1989}. In
-particular, the power spectrums for Brownian motion and monument
-motion are both proportional to $f^{-2}$, where $f$ is frequency.
-Brownian motion (which is also known as a Weiner process), by
-definition, contains a reference time at which the process begins.
-Since there is no notion of when noise ``begins" in GNSS data, we do
-not find Brownian motion to be an appropriate noise model. On the
-other hand, a FOGM process also has a power spectrum that is
-proportional to $f^{-2}$, above some corner frequency, and it has no
-reference time (i.e., a FOGM process is stationary). In this study, we
-describe the temporal covariance of GNSS noise with a FOGM process. We
-do not explore spatial covariance in GNSS noise and simply assume that
-it is spatially uncorrelated.
-
-Here we
-describe the time dependence of $\eta$ as a FOGM process and consider
-$\eta$ to be spatially uncorrelated. A FOGM process is a solution to
-the stochastic differential equation
-
-\begin{equation}\label{eq:FOGMdef}
-\dot{\eta}(t) + \alpha \eta(t) = \beta w(t),
+We consider the noise vector, $\mitbf{\eta}_i$, to be composed of a
+temporally correlated Gaussian process, $\mathcal{L}_i \sim
+\mathcal{GP}(0,C_{\mathcal{L}_i})$, and a vector of uncorrelated
+Gaussian noise, $\mitbf{w}_i$, so that
+\begin{equation}
+\mitbf{\eta}_i = \mathcal{L}_i(\points) + \mitbf{w}_i.
 \end{equation}
-where $w(t)$ is white noise with unit variance. The FOGM process
-degenerates to the commonly used Brownian motion noise model under the
-condition that $\alpha=0$ and $\eta(0) = 0$. Our spatially
-uncorrelated noise model that satisfies eq. (\ref{eq:FOGMdef}) is a
-Gaussian process with zero mean and the covariance function
+The standard deviations for $\mitbf{w}_i$ are given by the
+uncertainties derived for the GNSS displacement solutions,
+$\mitbf{\sigma}_i$. The noise vector then has zero mean and the
+covariance matrix
+\begin{equation}
+\mitbf{C}_{\eta_i} = C_{\mathcal{L}_i}(\points,\points) +
+                     \mathrm{diag}(\mitbf{\sigma}_i^2).
+\end{equation}
+
+The temporally correlated noise in GNSS data has been thoroughly
+studied over the past two decades \citep[e.g.,][]{Zhang1997, Mao1999,
+Williams2004, Langbein2008}. In these studies, temporally correlated
+noise tends to be described with some combination of Brownian motion
+(also known as random walk noise or a Weiner process), a first-order
+Gauss-Markov (FOGM) process, and/or flicker noise. There is some
+physical justification for using Brownian motion as a noise model
+because it accurately describes the power spectrum of motion resulting
+from instability in geodetic monuments \citep[e.g.,][]{Wyatt1982,
+Wyatt1989}. In particular, the power spectrums for Brownian motion and
+monument motion are both proportional to $f^{-2}$, where $f$ is
+frequency. Brownian motion, by definition, contains a reference time
+at which the process begins. Since there is no notion of when noise
+``begins" in GNSS data, we do not find Brownian motion to be an
+appropriate noise model. On the other hand, a FOGM process also has a
+power spectrum that is proportional to $f^{-2}$, above some corner
+frequency, and it has no reference time (i.e., a FOGM process is
+stationary) \citep{Langbein2004}. We then let $\mathcal{L}_i$ be a
+spatially uncorrelated FOGM process, which has the covariance function
 \begin{equation}\label{eq:FOGM}
-C_\eta\left((\pos,t),(\pos',t')\right) = 
-\begin{cases}
-\frac{\beta^2}{2\alpha}\exp\left(-\alpha|t - t'|\right), &\pos = \pos' \\
-0, &\pos \neq \pos'
-\end{cases}. 
+C_{\mathcal{L}_i}\left((\pos,t),(\pos',t')\right) = 
+\frac{\beta^2}{2\alpha}
+\exp\left(-\alpha|t - t'|\right)\delta_{\pos,\pos'}
 \end{equation}
+\citep[sec. B2.1]{Rasmussen2006}, where $\delta_{\pos,\pos'}$ is 1 if
+$\pos = \pos'$ and 0 otherwise.
 
-We constrain the hyperparameters for $\eta$, $\alpha$ and $\beta$,
-with a set of 38 continuous GNSS stations in the Pacific Northwest
-that are east of 121$^\circ$W.  These stations are sufficiently far
-from the subduction zone that they are unlikely to contain transient
-signal associated with SSEs.  We clean the data for these stations by
-removing jumps at times of equipment changes, and we remove outliers
-that have been detected with the algorithm described in Section
-\ref{sec:Outlier}. We then find $\alpha$ and $\beta$ for each station
-time series with the Restricted Maximum Likelihood (REML) method
-\cite[e.g.,][]{Harville1974,Cressie1992,Hines2017}. The REML method
-finds the hyperparameters, which we collectively refer to as
-$\mitbf{\theta}$, that maximize the likelihood function
+% How we constrain the parameters
+
+We constrain the parameters for $\mitbf{\eta}_i$, $\alpha$ and
+$\beta$, with a set of 38 continuous GNSS stations in the Pacific
+Northwest that are east of 121$^\circ$W.  These stations are
+sufficiently far from the subduction zone that they are unlikely to
+contain transient signal associated with SSEs. We find $\alpha$ and
+$\beta$ for each station time series with the Restricted Maximum
+Likelihood (REML) method \cite[e.g.,][]{Harville1974, Cressie1992}.
+The REML method finds the hyperparameters, which we collectively refer
+to as $\mitbf{\theta}$, that maximize the likelihood function
 \begin{equation}\label{eq:REML}
 \mathcal{L}(\mitbf{\theta}) = \left(\frac{\left|\G^T\G\right|}{(2\pi)^{n-6m} 
                                     \left| \mitbf{\Sigma}(\mitbf{\theta}) \right| 
@@ -753,33 +750,36 @@ for the improper prior that we assigned to $\mitbf{a}$
 \citep{Hines2017}. We independently estimate $\mitbf{\theta}$ for each
 station, and so $\data_*$ consists of displacements for an individual
 station. We are assuming $u(p)=0$ when estimating the noise
-hyperparameters for this section. The distribution of inferred
-$\alpha$ and $\beta$ are shown in Figure \ref{fig:NoiseParams}. The
-amplitude of FOGM noise, $\beta$, for the easting and northing
-components is notably low and are clustered around 0.5 mm/yr$^{0.5}$.
-The corresponding estimates of $\alpha$ tend to cluster around 0
-yr$^{-1}$, suggesting that noise can be described with Brownian
-motion. We also estimate hyperparameters for the vertical component of
-displacements, under the hope that vertical deformation gradients
-could reveal some geophysical signal. The amplitude of FOGM noise for
-the vertical component is relatively large with a median value of 13.5
-mm/yr$^{0.5}$.  The inferred values for $\alpha$ are also higher for
-the vertical component with a median value of 8.21 yr$^{-1}$. In
-Figure \ref{fig:NoiseSamples}, we use the median values of $\alpha$
-and $\beta$ to generate two random samples of FOGM noise for each
-component. The samples span five years and over these five years the
-easting and northing samples drift by about 1 mm. In the context of
-detecting SSEs, which produce several mm's of surface displacement on
-the time-scale of weeks, the estimated FOGM noise for the easting and
-northing component is negligible. In contrast, the estimated FOGM
-noise for the vertical component is larger than the signal we would
-expect from SSEs. We suspect that the higher amplitude for the FOGM
-noise in the vertical component is accommodating for deficiencies in
-our rather simple seasonal model. Based on this analysis, we
-henceforth ignore temporally correlated noise in the easting and
-northing component because of its low amplitude. We also do not use
-vertical displacements because of the presumably low signal-to-noise
-ratio.
+hyperparameters for this section. 
+
+% results of estimated parameters
+
+The distribution of inferred $\alpha$ and $\beta$ are shown in Figure
+\ref{fig:NoiseParams}. The amplitude of FOGM noise, $\beta$, for the
+easting and northing components is notably low and are clustered
+around 0.5 mm/yr$^{0.5}$. The corresponding estimates of $\alpha$ tend
+to cluster around 0 yr$^{-1}$, suggesting that noise can be described
+with Brownian motion. We also estimate hyperparameters for the
+vertical component of displacements, under the hope that vertical
+deformation gradients could reveal some geophysical signal. The
+amplitude of FOGM noise for the vertical component is relatively large
+with a median value of 13.5 mm/yr$^{0.5}$.  The inferred values for
+$\alpha$ are also higher for the vertical component with a median
+value of 8.21 yr$^{-1}$. In Figure \ref{fig:NoiseSamples}, we use the
+median values of $\alpha$ and $\beta$ to generate two random samples
+of FOGM noise for each component. The samples span five years and over
+these five years the easting and northing samples drift by about 1 mm.
+In the context of detecting SSEs, which produce several mm's of
+surface displacement on the time-scale of weeks, the estimated FOGM
+noise for the easting and northing component is negligible. In
+contrast, the estimated FOGM noise for the vertical component is
+larger than the signal we would expect from SSEs. We suspect that the
+higher amplitude for the FOGM noise in the vertical component is
+accommodating for deficiencies in our rather simple seasonal model.
+Based on this analysis, we henceforth ignore temporally correlated
+noise in the easting and northing component because of its low
+amplitude. We also do not use vertical displacements because of the
+presumably low signal-to-noise ratio.
 
 \begin{figure*}
 \includegraphics{figures/noise/noise-params.pdf}
@@ -800,6 +800,8 @@ have been set to the median values from Figure \ref{fig:NoiseParams}.
 }   
 \label{fig:NoiseSamples}
 \end{figure*}
+
+% Note spatially correlated noise
 
 Another significant source of noise in GNSS data is common mode error
 \citep[e.g.,][]{Wdowinski1997,Dong2006}, which is noise that is highly
@@ -882,21 +884,9 @@ t, \ \ \ t > 0 \\
 \end{equation}
 
 We next determine appropriate hyperparameters for $X$ and each of the
-three candidate covariance functions for $T$. First, we clean the GNSS
-datasets by removing offsets at times of equipment changes and
-removing outliers with the method describe in Section
-\ref{sec:Outlier}. For the outlier detection algorithm, our prior
-model, $u$, is chosen to have a length-scale and time-scale that is
-able to approximately describe SSE displacements. We use the SE
-covariance function for $X$ with length-scale $\ell = 100$ km, and we
-use the Wendland covariance function for $T$, due to its computational
-efficiency, with time-scale $\tau = 0.1$ yr and $\phi = 1$ mm.  The
-outlier detection algorithm is particularly effective at removing
-outliers for stations at high elevation (Figure \ref{fig:Outliers}),
-which can be adversely affected by ice or snow during the winter
-\citep{Lisowski2008}. After cleaning the dataset, we divide it into
-seven subsets which are four months long and each centered on the time
-of a SSE. The times of the seven SSEs are determined with tremor
+three candidate covariance functions for $T$. we divide the dataset
+into seven subsets which are four months long and each centered on the
+time of a SSE. The times of the seven SSEs are determined with tremor
 records from \cite{Wech2010}. We use the REML method to find the
 optimal hyperparameters for $T$ and $X$ for each subset of data. We
 choose to make each data subsets four months long because it is long
@@ -911,19 +901,6 @@ This suggests that the median of estimated hyperparameters should be
 an appropriate prior model for all Pacific Northwest SSEs. For the IBM
 model, there are several anomalously large values for $\ell$ and
 $\phi$, which results in large interquartile ranges.
-
-\begin{figure*}
-\includegraphics{figures/outliers/outliers.pdf}
-\caption{
-Detrended easting component of displacements at station SC03, which is
-located on Mount Olympus in Washington. The orange markers indicate
-outliers that were automatically detected using the algorithm from
-Section \ref{sec:Outlier}. The error bars show one standard deviation
-uncertainties. Note that outliers tend be observed in the winter,
-suggesting that they were caused by snow or ice.
-}   
-\label{fig:Outliers}
-\end{figure*}
 
 \begin{table}\label{tab:Parameters}
 \caption{
@@ -1039,22 +1016,22 @@ Wendland predictions are practically indistinguishable.
 \subsection{Transient Strain Rates}\label{sec:Results} 
 
 Having established a noise model and a prior for transient
-displacements, we use the cleaned GNSS dataset to calculate transient
-strain rates in the Puget Sound region.  We calculate transient strain
-rates for each day from January 1, 2010 to May 15, 2017. The strain
-rates are estimates at a grid of points spanning the study area. In
-Figure \ref{fig:StrainMap} we show the transient strain rates on
-January 1, 2016, which coincides with the height of the winter
-2015-2016 SSE. We have included an animation showing the map view of
-strain rates through time as supplementary material. The strain rates
-shown in Figure \ref{fig:StrainMap} are generally similar to the
-strain rates during the other six SSEs considered in this study. The
-SSEs cause trench perpendicular compression in the Olympic Peninsula
-and extension east of Puget Sound. The strain transitions from
-compression to extension around the southern tip of Vancouver Island,
-which coincides with the location of thrust slip for SSEs in the Puget
-Sound region \citep[e.g.,][]{Dragert2001,Wech2009,Schmidt2010}. Thus,
-this pattern of strain is to be expected. During the period in between
+displacements, we use the GNSS dataset to calculate transient strain
+rates in the Puget Sound region. We calculate transient strain rates
+for each day from January 1, 2010 to May 15, 2017. The strain rates
+are estimates at a grid of points spanning the study area. In Figure
+\ref{fig:StrainMap} we show the transient strain rates on January 1,
+2016, which coincides with the height of the winter 2015-2016 SSE. We
+have included an animation showing the map view of strain rates
+through time as supplementary material. The strain rates shown in
+Figure \ref{fig:StrainMap} are generally similar to the strain rates
+during the other six SSEs considered in this study. The SSEs cause
+trench perpendicular compression in the Olympic Peninsula and
+extension east of Puget Sound. The strain transitions from compression
+to extension around the southern tip of Vancouver Island, which
+coincides with the location of thrust slip for SSEs in the Puget Sound
+region \citep[e.g.,][]{Dragert2001,Wech2009,Schmidt2010}. Thus, this
+pattern of strain is to be expected. During the period in between
 SSEs, secular strain rates indicate trench perpendicular compression
 throughout this study region \citep{Murray2000, McCaffrey2007,
 McCaffrey2013}. When comparing inferred strain rates from SSEs to the

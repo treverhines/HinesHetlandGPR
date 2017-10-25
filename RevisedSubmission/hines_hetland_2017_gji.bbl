@@ -1,4 +1,4 @@
-\begin{thebibliography}{65}
+\begin{thebibliography}{64}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 
 \bibitem[Acheson(1975)]{Acheson1975}
@@ -194,13 +194,6 @@ Langbein, J. \& Johnson, H., 1997.
 \newblock {Correlated errors in geodetic time series: Implications for
   time-dependent deformation}, {\it Journal of Geophysical Research\/}, {\bf
   102}(B1), 591--603.
-
-\bibitem[Lisowski et~al.(2008)Lisowski, Dzurisin, Denlinger, \&
-  Iwatsubo]{Lisowski2008}
-Lisowski, M., Dzurisin, D., Denlinger, R.~P., \& Iwatsubo, E.~Y., 2008.
-\newblock {Analysis of GPS-Measured Deformation Associated with the 2004 –
-  2006 Dome-Building Eruption of Mout St. Helens, Washington}, Tech. Rep.
-  September 1984.
 
 \bibitem[Lohman \& Murray(2013)]{Lohman2013}
 Lohman, R.~B. \& Murray, J.~R., 2013.

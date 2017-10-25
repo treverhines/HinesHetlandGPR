@@ -3,48 +3,47 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: hines_hetland_2017_gji.aux
 The style file: gji.bst
 Database file #1: mybib.bib
-Warning--empty institution in Lisowski2008
 Warning--empty journal in Wdowinski1997
 Warning--empty publisher in Wendland2005
-You've used 65 entries,
+You've used 64 entries,
             2773 wiz_defined-function locations,
-            1408 strings with 19967 characters,
-and the built_in function-call counts, 31139 in all, are:
-= -- 2605
-> -- 2164
-< -- 42
-+ -- 731
-- -- 666
-* -- 3441
-:= -- 5037
-add.period$ -- 130
-call.type$ -- 65
-change.case$ -- 418
-chr.to.int$ -- 80
-cite$ -- 198
-duplicate$ -- 1129
-empty$ -- 1990
-format.name$ -- 765
-if$ -- 5941
+            1401 strings with 19590 characters,
+and the built_in function-call counts, 30706 in all, are:
+= -- 2572
+> -- 2125
+< -- 41
++ -- 718
+- -- 654
+* -- 3390
+:= -- 4962
+add.period$ -- 128
+call.type$ -- 64
+change.case$ -- 411
+chr.to.int$ -- 79
+cite$ -- 194
+duplicate$ -- 1114
+empty$ -- 1970
+format.name$ -- 752
+if$ -- 5863
 int.to.chr$ -- 1
 int.to.str$ -- 1
 missing$ -- 71
-newline$ -- 264
-num.names$ -- 260
-pop$ -- 526
+newline$ -- 260
+num.names$ -- 256
+pop$ -- 516
 preamble$ -- 1
-purify$ -- 352
+purify$ -- 346
 quote$ -- 0
-skip$ -- 928
+skip$ -- 916
 stack$ -- 0
-substring$ -- 1388
-swap$ -- 309
-text.length$ -- 3
+substring$ -- 1385
+swap$ -- 305
+text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 561
-warning$ -- 3
-while$ -- 296
+type$ -- 552
+warning$ -- 2
+while$ -- 293
 width$ -- 0
-write$ -- 773
-(There were 3 warnings)
+write$ -- 762
+(There were 2 warnings)

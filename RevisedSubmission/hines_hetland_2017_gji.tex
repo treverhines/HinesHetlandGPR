@@ -675,18 +675,18 @@ extent of the tremors shown in Figure \ref{fig:StrainMag}.
 % Defining the components of the noise vector
 
 We consider the noise vector, $\mitbf{\eta}_i$, to be composed of a
-temporally correlated Gaussian process, $\mathcal{L}_i \sim
-\mathcal{GP}(0,C_{\mathcal{L}_i})$, and a vector of uncorrelated
+temporally correlated Gaussian process, $z_i \sim
+\mathcal{GP}(0,C_{z_i})$, and a vector of uncorrelated
 Gaussian noise, $\mitbf{w}_i$, so that
 \begin{equation}
-\mitbf{\eta}_i = \mathcal{L}_i(\points) + \mitbf{w}_i.
+\mitbf{\eta}_i = z_i(\points) + \mitbf{w}_i.
 \end{equation}
 The standard deviations for $\mitbf{w}_i$ are taken to be the
 uncertainties derived for the GNSS displacement solutions,
 $\mitbf{\sigma}_i$. The noise vector then has zero mean and the
 covariance matrix
 \begin{equation}
-\mitbf{C}_{\eta_i} = C_{\mathcal{L}_i}(\points,\points) +
+\mitbf{C}_{\eta_i} = C_{z_i}(\points,\points) +
                      \mathrm{diag}(\mitbf{\sigma}_i^2).
 \end{equation}
 
@@ -700,53 +700,58 @@ noise tends to be described with some combination of Brownian motion
 Gauss-Markov (FOGM) process, and/or flicker noise. There is some
 physical justification for using Brownian motion as a noise model
 because it accurately describes the power spectrum of motion resulting
-from instability in geodetic monuments \citep[e.g.,][]{Wyatt1982,
+from instability in a geodetic monument \citep[e.g.,][]{Wyatt1982,
 Wyatt1989}. In particular, the power spectrums for Brownian motion and
-monument motion are both proportional to $f^{-2}$, where $f$ is
-frequency. Brownian motion, by definition, contains a reference time
-at which the process begins. Since there is no notion of when noise
-``begins" in GNSS data, we do not find Brownian motion to be an
-appropriate noise model. On the other hand, a FOGM process also has a
-power spectrum that is proportional to $f^{-2}$, above some corner
-frequency, and it has no reference time (i.e., a FOGM process is
-stationary). We then let $\mathcal{L}_i$ be a spatially uncorrelated
-FOGM process, which has the covariance function
-\begin{equation}\label{eq:FOGM}
-C_{\mathcal{L}_i}\left((\pos,t),(\pos',t')\right) = 
-\frac{\beta^2}{2\alpha}
-\exp\left(-\alpha|t - t'|\right)\delta_{\pos,\pos'}
+monument motion both decay proportionally to $f^{-2}$, where $f$ is
+frequency. However, Brownian motion necessarily contains a reference
+time at which the process begins. Since there is no notion of when
+noise ``begins" in GNSS data, we do not find Brownian motion to be an
+appropriate noise model. On the other hand, a FOGM process has no
+reference time (i.e., it is stationary), and its power spectrum,
+\begin{equation}\label{eq:FOGMPS}
+S(f) = \frac{\beta^2}{(2 \pi f)^2 + \alpha^2},
 \end{equation}
-\citep[sec. B2.1]{Rasmussen2006}, where $\delta_{\pos,\pos'}$ is 1 if
-$\pos = \pos'$ and 0 otherwise.
+decays proportionally to $f^{-2}$ above the cutoff frequency $\alpha /
+(2 \pi)$. We then choose $z_i$ to be a spatially
+uncorrelated FOGM process, which has the covariance function
+\begin{equation}\label{eq:FOGM}
+C_{z_i}\left((\pos,t),(\pos',t')\right) = 
+\frac{\beta^2}{2\alpha}
+\exp\left(-\alpha|t - t'|\right)\delta_{\pos,\pos'},
+\end{equation}
+where $\delta_{\pos,\pos'}$ is 1 if $\pos = \pos'$ and 0 otherwise.
+See \citet[sec. B2]{Rasmussen2006} for more information on the FOGM
+process.
 
 % How we constrain the parameters
 
-By choosing a FOGM process for $\mathcal{L}_i$, we have introduced two
+By choosing a FOGM process for $z_i$, we have introduced two
 parameters that need to be constrained, $\alpha$ and $\beta$. We
 constrain these parameters, which we collectively refer to as
 $\mitbf{\theta}$, with the Restricted Maximum Likelihood (REML) method
 \citep{Harville1974}. The REML method is conceptually similar to the
 Maximum Likelihood Estimation (MLE) method from \citet{Langbein1997},
-where we pick $\mitbf{\theta}$ to maximize the likelihood of drawing
-the observed data, $\mitbf{d}_i^*$, from the random vector
-$\mitbf{d}_i$. However, unlike the MLE method, the REML method
-produces unbiased estimates of $\mitbf{\theta}$ \citep[sec.
-2.6]{Cressie1992}. We use the REML method to independently estimate
-$\mitbf{\theta}$ at 38 continuous GNSS stations in the Pacific
-Northwest that are east of 121$^\circ$W. These stations are
-sufficiently far from the subduction zone that they are unlikely to
-contain transient signal associated with SSEs. We assume that the
-noise at these inland stations is representative of the noise at all
-the stations considered in this study, which is probably a poor
-assumption since the inland stations are subject to distinctly
-different climatic conditions. Nonetheless, we find the
-$\mitbf{\theta}$ for each inland station and for each displacement
-component that maximizes the REML likelihood function
+in that we attempt to pick $\mitbf{\theta}$ to maximize the
+probability of drawing the observed data, $\mitbf{d}_i^*$, from the
+random vector $\mitbf{d}_i$. However, unlike the MLE method, the REML
+method produces unbiased estimates of $\mitbf{\theta}$ \citep[sec.
+2.6]{Cressie1992}. We use the REML method to estimate $\mitbf{\theta}$
+at 38 continuous GNSS stations in the Pacific Northwest that are east
+of 121$^\circ$W. These stations are sufficiently far from the
+subduction zone that they are unlikely to contain transient signal
+associated with SSEs, allowing us to ignore displacements from $u_i$
+in $\mitbf{d}_i$. We assume the noise at these inland stations is
+representative of the noise at all the stations considered in this
+study, which is probably a poor assumption since the inland stations
+are subject to distinctly different climatic conditions. Nonetheless,
+we find $\mitbf{\theta}$ for each of the inland stations and for each
+displacement component by maximizing the REML likelihood function
+
 \begin{equation}\label{eq:REML}
 \mathcal{L}(\mitbf{\theta}) = \left(\frac{\left|\G^T\G\right|}{(2\pi)^{n-6m} 
                                     \left| \mitbf{C}_{\eta_i}(\mitbf{\theta}) \right| 
                                     \left| \G^T\mitbf{C}_{\eta_i}(\mitbf{\theta})^{-1}\G \right|}\right)^{\frac{1}{2}} 
-                              e^{-\tfrac{1}{2}\data_i^{*T}\mitbf{K}(\mitbf{\theta})\data_i^*},
+                              e^{-\tfrac{1}{2}\data_i^{*T}\mitbf{K}(\mitbf{\theta})\data_i^*}
 \end{equation}
 with respect to $\mitbf{\theta}$, where
 \begin{equation}
@@ -760,29 +765,31 @@ with respect to $\mitbf{\theta}$, where
 
 The distribution of inferred $\alpha$ and $\beta$ are shown in Figure
 \ref{fig:NoiseParams}. The estimates of $\beta$ for the easting and
-northing components are notably low and are clustered around 0.5
-mm/yr$^{0.5}$. The corresponding estimates of $\alpha$ tend to cluster
-around 0 yr$^{-1}$. We also estimate $\alpha$ and $\beta$ for the vertical
-component of displacements, with the hope that vertical deformation
-gradients could reveal some geophysical signal. For the vertical
-component, $\beta$ is relatively large with a median value of 13.5
-mm/yr$^{0.5}$. The inferred values for $\alpha$ are also higher for
-the vertical component with a median value of 8.21 yr$^{-1}$. In
-Figure \ref{fig:NoiseSamples}, we use the median values of $\alpha$
-and $\beta$ to generate two realizations of FOGM noise for each
-component. The realizations span five years, and the easting and
-northing realizations drift by about 1 mm over these five years. In
-the context of detecting SSEs, which produce several mm's of surface
-displacement on the time-scale of weeks, the estimated FOGM noise for
-the easting and northing component is negligible. In contrast, the
-estimated FOGM noise for the vertical component is larger than the
-signal we would expect from SSEs. We suspect that the higher amplitude
-for the FOGM noise in the vertical component is accommodating for
-deficiencies in our rather simple seasonal model. Based on this
-analysis, we henceforth ignore temporally correlated noise in the
-easting and northing component because of its low amplitude. We also
-do not use vertical displacements because of the presumably low
-signal-to-noise ratio.
+northing components are clustered around 0.5 mm/yr$^{0.5}$. The
+corresponding estimates of $\alpha$ tend to cluster around 0
+yr$^{-1}$, indicating that the power spectrum of noise indeed decays
+proportionally to $f^{-2}$ over a wide band of frequencies. We also
+estimate $\alpha$ and $\beta$ for the vertical component of
+displacements, with the hope that vertical deformation gradients could
+reveal some geophysical signal. For the vertical component, $\beta$ is
+relatively large with a median value of 13.5 mm/yr$^{0.5}$. The
+inferred values for $\alpha$ are also higher for the vertical
+component with a median value of 8.21 yr$^{-1}$. In Figure
+\ref{fig:NoiseSamples}, we use the median values of $\alpha$ and
+$\beta$ to generate two realizations of FOGM noise for each component.
+The realizations span five years, and the easting and northing
+realizations drift by about 1 mm over these five years. In the context
+of detecting SSEs, which produce several mm's of surface displacement
+on the time-scale of weeks, the estimated FOGM noise for the easting
+and northing component is negligible. In contrast, the estimated FOGM
+noise for the vertical component is larger than the signal we would
+expect from SSEs. We suspect that the higher amplitude for the FOGM
+noise in the vertical component is accommodating for deficiencies in
+our rather simple seasonal model. Based on this analysis, we
+henceforth ignore temporally correlated noise in the easting and
+northing component because of its low amplitude. We also do not use
+vertical displacements because of the presumably low signal-to-noise
+ratio.
 
 \begin{figure*}
 \includegraphics{figures/noise/noise-params.pdf}

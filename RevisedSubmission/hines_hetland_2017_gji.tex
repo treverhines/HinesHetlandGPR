@@ -533,7 +533,42 @@ C_{\strain_{\e\n}}(p,p') &= \frac{1}{4} \frac{\partial^2}{\partial t \, \partial
                                       \frac{\partial^2 C_{\post_\e}(p,p')}{\partial x_\n \, \partial x'_\n} + 
                                       \frac{\partial^2 C_{\post_\n}(p,p')}{\partial x_\e \, \partial x'_\e} \right),
 \end{align} 
-respectively.
+
+respectively. The above derivatives of $\mu_{\post_i}$ and
+$C_{\post_i}$ can be computed analytically by replacing the terms
+$C_{u_i}(p,\points)$, $C_{u_i}(\points,p')$, and $C_{u_i}(p,p')$ in
+eqs. (\ref{eq:PosteriorMean3}) and (\ref{eq:PosteriorCov3}) with their
+appropriate derivatives. For example, the mean and covariance
+functions for $\strain_{\e\e}$ are
+\begin{equation}\label{eq:StrainMeanEE}
+\mu_{\strain_{\e\e}}(p) = \left[\begin{array}{cc}
+                          \frac{\partial^2 C_{u_\e}\left( p,\points \right)}{\partial t \, \partial x_\e} & 
+                          \zeros \\
+                          \end{array}\right]
+                          \left[\begin{array}{cc}
+                          C_{u_\e}(\points,\points) + \mitbf{C}_{\eta_\e} & \G \\
+                          \G^T  & \zeros \\
+                          \end{array}\right]^{-1}
+                          \left[\begin{array}{c}
+                          \data^*_\e \\
+                          \zeros \\
+                          \end{array}\right]
+\end{equation}    
+and
+\begin{multline}\label{eq:StrainCovEE}
+C_{\strain_{\e\e}}(p,p') = \frac{\partial^4 C_{u_\e}(p,p')}{\partial t \, \partial t' \, \partial x_\e \, \partial x'_\e} - \\
+                           \left[\begin{array}{cc}
+                           \frac{\partial^2 C_{u_\e}\left( p,\points \right)}{\partial t \, \partial x_\e} & \zeros \\
+                           \end{array}\right]
+                           \left[\begin{array}{cc}
+                           C_{u_\e}(\points,\points) + \mitbf{C}_{\eta_\e} & \G \\
+                           \G^T  & \zeros \\
+                           \end{array}\right]^{-1}
+                           \left[\begin{array}{c}
+                           \frac{\partial^2 C_{u_\e}\left(\points, p' \right)}{\partial t' \, \partial x'_\e} \\
+                           \zeros \\
+                           \end{array}\right].
+\end{multline}    
 
 %% TRANSIENT DETECTION CRITERION
 \subsection{Transient detection criterion}\label{sec:TransientDetection}

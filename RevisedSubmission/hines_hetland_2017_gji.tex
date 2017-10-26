@@ -533,13 +533,12 @@ C_{\strain_{\e\n}}(p,p') &= \frac{1}{4} \frac{\partial^2}{\partial t \, \partial
                                       \frac{\partial^2 C_{\post_\e}(p,p')}{\partial x_\n \, \partial x'_\n} + 
                                       \frac{\partial^2 C_{\post_\n}(p,p')}{\partial x_\e \, \partial x'_\e} \right),
 \end{align} 
-
 respectively. The above derivatives of $\mu_{\post_i}$ and
-$C_{\post_i}$ can be computed analytically by replacing the terms
+$C_{\post_i}$ are computed analytically by replacing the terms
 $C_{u_i}(p,\points)$, $C_{u_i}(\points,p')$, and $C_{u_i}(p,p')$ in
 eqs. (\ref{eq:PosteriorMean3}) and (\ref{eq:PosteriorCov3}) with their
 appropriate derivatives. For example, the mean and covariance
-functions for $\strain_{\e\e}$ are
+functions for $\strain_{\e\e}$ can be written more verbosely as
 \begin{equation}\label{eq:StrainMeanEE}
 \mu_{\strain_{\e\e}}(p) = \left[\begin{array}{cc}
                           \frac{\partial^2 C_{u_\e}\left( p,\points \right)}{\partial t \, \partial x_\e} & 

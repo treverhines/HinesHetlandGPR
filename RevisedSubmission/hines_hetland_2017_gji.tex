@@ -681,7 +681,7 @@ Gaussian noise, $\mitbf{w}_i$, so that
 \begin{equation}
 \mitbf{\eta}_i = \mathcal{L}_i(\points) + \mitbf{w}_i.
 \end{equation}
-The standard deviations for $\mitbf{w}_i$ are given by the
+The standard deviations for $\mitbf{w}_i$ are taken to be the
 uncertainties derived for the GNSS displacement solutions,
 $\mitbf{\sigma}_i$. The noise vector then has zero mean and the
 covariance matrix
@@ -689,6 +689,8 @@ covariance matrix
 \mitbf{C}_{\eta_i} = C_{\mathcal{L}_i}(\points,\points) +
                      \mathrm{diag}(\mitbf{\sigma}_i^2).
 \end{equation}
+
+% Justifying our temporal noise model
 
 The temporally correlated noise in GNSS data has been thoroughly
 studied over the past two decades \citep[e.g.,][]{Zhang1997, Mao1999,
@@ -707,8 +709,8 @@ at which the process begins. Since there is no notion of when noise
 appropriate noise model. On the other hand, a FOGM process also has a
 power spectrum that is proportional to $f^{-2}$, above some corner
 frequency, and it has no reference time (i.e., a FOGM process is
-stationary) \citep{Langbein2004}. We then let $\mathcal{L}_i$ be a
-spatially uncorrelated FOGM process, which has the covariance function
+stationary). We then let $\mathcal{L}_i$ be a spatially uncorrelated
+FOGM process, which has the covariance function
 \begin{equation}\label{eq:FOGM}
 C_{\mathcal{L}_i}\left((\pos,t),(\pos',t')\right) = 
 \frac{\beta^2}{2\alpha}
@@ -719,73 +721,74 @@ $\pos = \pos'$ and 0 otherwise.
 
 % How we constrain the parameters
 
-We constrain the parameters for $\mitbf{\eta}_i$, $\alpha$ and
-$\beta$, with a set of 38 continuous GNSS stations in the Pacific
-Northwest that are east of 121$^\circ$W.  These stations are
+By choosing a FOGM process for $\mathcal{L}_i$, we have introduced two
+parameters that need to be constrained, $\alpha$ and $\beta$. We
+constrain these parameters, which we collectively refer to as
+$\mitbf{\theta}$, with the Restricted Maximum Likelihood (REML) method
+\citep{Harville1974}. The REML method is conceptually similar to the
+Maximum Likelihood Estimation (MLE) method from \citet{Langbein1997},
+where we pick $\mitbf{\theta}$ to maximize the likelihood of drawing
+the observed data, $\mitbf{d}_i^*$, from the random vector
+$\mitbf{d}_i$. However, unlike the MLE method, the REML method
+produces unbiased estimates of $\mitbf{\theta}$ \citep[sec.
+2.6]{Cressie1992}. We use the REML method to independently estimate
+$\mitbf{\theta}$ at 38 continuous GNSS stations in the Pacific
+Northwest that are east of 121$^\circ$W. These stations are
 sufficiently far from the subduction zone that they are unlikely to
-contain transient signal associated with SSEs. We find $\alpha$ and
-$\beta$ for each station time series with the Restricted Maximum
-Likelihood (REML) method \cite[e.g.,][]{Harville1974, Cressie1992}.
-The REML method finds the hyperparameters, which we collectively refer
-to as $\mitbf{\theta}$, that maximize the likelihood function
+contain transient signal associated with SSEs. We assume that the
+noise at these inland stations is representative of the noise at all
+the stations considered in this study, which is probably a poor
+assumption since the inland stations are subject to distinctly
+different climatic conditions. Nonetheless, we find the
+$\mitbf{\theta}$ for each inland station and for each displacement
+component that maximizes the REML likelihood function
 \begin{equation}\label{eq:REML}
 \mathcal{L}(\mitbf{\theta}) = \left(\frac{\left|\G^T\G\right|}{(2\pi)^{n-6m} 
-                                    \left| \mitbf{\Sigma}(\mitbf{\theta}) \right| 
-                                    \left| \G^T\mitbf{\Sigma}(\mitbf{\theta})^{-1}\G \right|}\right)^{\frac{1}{2}} 
-                              e^{-\tfrac{1}{2}\data_*^T\mitbf{K}(\mitbf{\theta})\data_*},
+                                    \left| \mitbf{C}_{\eta_i}(\mitbf{\theta}) \right| 
+                                    \left| \G^T\mitbf{C}_{\eta_i}(\mitbf{\theta})^{-1}\G \right|}\right)^{\frac{1}{2}} 
+                              e^{-\tfrac{1}{2}\data_i^{*T}\mitbf{K}(\mitbf{\theta})\data_i^*},
 \end{equation}
-where
+with respect to $\mitbf{\theta}$, where
 \begin{equation}
-\mitbf{K}(\mitbf{\theta}) = \mitbf{\Sigma}(\mitbf{\theta})^{-1} - 
-                            \mitbf{\Sigma}(\mitbf{\theta})^{-1}\G
-                            \left(\G^T\mitbf{\Sigma}(\mitbf{\theta})^{-1}\G\right)^{-1}
-                            \G^T\mitbf{\Sigma}(\mitbf{\theta})^{-1}.
+\mitbf{K}(\mitbf{\theta}) = \mitbf{C}_{\eta_i}(\mitbf{\theta})^{-1} - 
+                            \mitbf{C}_{\eta_i}(\mitbf{\theta})^{-1}\G
+                            \left(\G^T\mitbf{C}_{\eta_i}(\mitbf{\theta})^{-1}\G\right)^{-1}
+                            \G^T\mitbf{C}_{\eta_i}(\mitbf{\theta})^{-1}.
 \end{equation}
-\citet{Harville1974} showed that choosing the hyperparameters which
-maximize eq. (\ref{eq:REML}) is equivalent to choosing the
-hyperparameters which maximize the probability of drawing $\data_*$
-from $\data$. We use the REML method over the maximum likelihood
-method \citep[e.g.,][]{Langbein1997} because the REML method accounts
-for the improper prior that we assigned to $\mitbf{a}$
-\citep{Hines2017}. We independently estimate $\mitbf{\theta}$ for each
-station, and so $\data_*$ consists of displacements for an individual
-station. We are assuming $u(p)=0$ when estimating the noise
-hyperparameters for this section. 
 
 % results of estimated parameters
 
 The distribution of inferred $\alpha$ and $\beta$ are shown in Figure
-\ref{fig:NoiseParams}. The amplitude of FOGM noise, $\beta$, for the
-easting and northing components is notably low and are clustered
-around 0.5 mm/yr$^{0.5}$. The corresponding estimates of $\alpha$ tend
-to cluster around 0 yr$^{-1}$, suggesting that noise can be described
-with Brownian motion. We also estimate hyperparameters for the
-vertical component of displacements, under the hope that vertical
-deformation gradients could reveal some geophysical signal. The
-amplitude of FOGM noise for the vertical component is relatively large
-with a median value of 13.5 mm/yr$^{0.5}$.  The inferred values for
-$\alpha$ are also higher for the vertical component with a median
-value of 8.21 yr$^{-1}$. In Figure \ref{fig:NoiseSamples}, we use the
-median values of $\alpha$ and $\beta$ to generate two random samples
-of FOGM noise for each component. The samples span five years and over
-these five years the easting and northing samples drift by about 1 mm.
-In the context of detecting SSEs, which produce several mm's of
-surface displacement on the time-scale of weeks, the estimated FOGM
-noise for the easting and northing component is negligible. In
-contrast, the estimated FOGM noise for the vertical component is
-larger than the signal we would expect from SSEs. We suspect that the
-higher amplitude for the FOGM noise in the vertical component is
-accommodating for deficiencies in our rather simple seasonal model.
-Based on this analysis, we henceforth ignore temporally correlated
-noise in the easting and northing component because of its low
-amplitude. We also do not use vertical displacements because of the
-presumably low signal-to-noise ratio.
+\ref{fig:NoiseParams}. The estimates of $\beta$ for the easting and
+northing components are notably low and are clustered around 0.5
+mm/yr$^{0.5}$. The corresponding estimates of $\alpha$ tend to cluster
+around 0 yr$^{-1}$. We also estimate $\alpha$ and $\beta$ for the vertical
+component of displacements, with the hope that vertical deformation
+gradients could reveal some geophysical signal. For the vertical
+component, $\beta$ is relatively large with a median value of 13.5
+mm/yr$^{0.5}$. The inferred values for $\alpha$ are also higher for
+the vertical component with a median value of 8.21 yr$^{-1}$. In
+Figure \ref{fig:NoiseSamples}, we use the median values of $\alpha$
+and $\beta$ to generate two realizations of FOGM noise for each
+component. The realizations span five years, and the easting and
+northing realizations drift by about 1 mm over these five years. In
+the context of detecting SSEs, which produce several mm's of surface
+displacement on the time-scale of weeks, the estimated FOGM noise for
+the easting and northing component is negligible. In contrast, the
+estimated FOGM noise for the vertical component is larger than the
+signal we would expect from SSEs. We suspect that the higher amplitude
+for the FOGM noise in the vertical component is accommodating for
+deficiencies in our rather simple seasonal model. Based on this
+analysis, we henceforth ignore temporally correlated noise in the
+easting and northing component because of its low amplitude. We also
+do not use vertical displacements because of the presumably low
+signal-to-noise ratio.
 
 \begin{figure*}
 \includegraphics{figures/noise/noise-params.pdf}
 \caption{
-Distribution of estimated FOGM hyperparameters (eq. \ref{eq:FOGM}).
-Hyperparameters are estimated with the REML method for 38 stations in
+Distribution of estimated FOGM parameters (eq. \ref{eq:FOGM}).
+parameters are estimated with the REML method for 38 stations in
 the Pacific Northwest that are east of $121^\circ$W. ``IQR'' is the
 interquartile range.
 }   
@@ -795,7 +798,7 @@ interquartile range.
 \begin{figure*}
 \includegraphics{figures/noise/noise-samples.pdf}
 \caption{
-Two FOGM noise samples for each component. The FOGM hyperparameters
+Two FOGM noise samples for each component. The FOGM parameters
 have been set to the median values from Figure \ref{fig:NoiseParams}.
 }   
 \label{fig:NoiseSamples}
@@ -808,10 +811,8 @@ Another significant source of noise in GNSS data is common mode error
 spatially correlated. When not accounted for, common mode error
 manifests as spatially uniform undulations in estimated transient
 displacements. However, estimated transient strain rates are
-insensitive to common mode error. We therefore do not include common
-mode error in our noise model. We then make the simplifying assumption
-that $\eta(p) = 0$ for the easting and northing component of GNSS
-data.
+insensitive to common mode error, and so we do not need to include
+common mode error in our noise model.
 
 %% PRIOR MODEL
 \subsection{Prior model}\label{sec:SignalModel}

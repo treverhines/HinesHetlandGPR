@@ -5,45 +5,45 @@ The style file: gji.bst
 Database file #1: mybib.bib
 Warning--empty journal in Wdowinski1997
 Warning--empty publisher in Wendland2005
-You've used 64 entries,
+You've used 63 entries,
             2773 wiz_defined-function locations,
-            1401 strings with 19590 characters,
-and the built_in function-call counts, 30706 in all, are:
-= -- 2572
-> -- 2125
-< -- 41
-+ -- 718
-- -- 654
-* -- 3390
-:= -- 4962
-add.period$ -- 128
-call.type$ -- 64
-change.case$ -- 411
-chr.to.int$ -- 79
-cite$ -- 194
-duplicate$ -- 1114
-empty$ -- 1970
-format.name$ -- 752
-if$ -- 5863
+            1396 strings with 19484 characters,
+and the built_in function-call counts, 30365 in all, are:
+= -- 2544
+> -- 2104
+< -- 40
++ -- 711
+- -- 648
+* -- 3357
+:= -- 4905
+add.period$ -- 126
+call.type$ -- 63
+change.case$ -- 406
+chr.to.int$ -- 78
+cite$ -- 191
+duplicate$ -- 1098
+empty$ -- 1948
+format.name$ -- 743
+if$ -- 5799
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 71
-newline$ -- 260
-num.names$ -- 256
-pop$ -- 516
+missing$ -- 70
+newline$ -- 256
+num.names$ -- 252
+pop$ -- 509
 preamble$ -- 1
-purify$ -- 346
+purify$ -- 342
 quote$ -- 0
-skip$ -- 916
+skip$ -- 902
 stack$ -- 0
-substring$ -- 1385
-swap$ -- 305
+substring$ -- 1382
+swap$ -- 300
 text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 552
+type$ -- 543
 warning$ -- 2
-while$ -- 293
+while$ -- 290
 width$ -- 0
-write$ -- 762
+write$ -- 751
 (There were 2 warnings)

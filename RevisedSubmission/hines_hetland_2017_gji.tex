@@ -764,10 +764,10 @@ constrain these parameters, which we collectively refer to as
 $\mitbf{\theta}$, with the Restricted Maximum Likelihood (REML) method
 \citep{Harville1974}. The REML method is conceptually similar to the
 Maximum Likelihood Estimation (MLE) method from \citet{Langbein1997},
-in that we attempt to pick $\mitbf{\theta}$ to maximize the
-probability of drawing the observed data, $\mitbf{d}_i^*$, from the
-random vector $\mitbf{d}_i$. However, unlike the MLE method, the REML
-method produces unbiased estimates of $\mitbf{\theta}$ \citep[sec.
+where we pick $\mitbf{\theta}$ to maximize the probability of drawing
+the observed data, $\mitbf{d}_i^*$, from the random vector
+$\mitbf{d}_i$. However, unlike the MLE method, the REML method
+produces unbiased estimates of $\mitbf{\theta}$ \citep[sec.
 2.6]{Cressie1992}. We use the REML method to estimate $\mitbf{\theta}$
 at 38 continuous GNSS stations in the Pacific Northwest that are east
 of 121$^\circ$W. These stations are sufficiently far from the
@@ -779,8 +779,7 @@ study, which is probably a poor assumption since the inland stations
 are subject to distinctly different climatic conditions. Nonetheless,
 we find $\mitbf{\theta}$ for each of the inland stations and for each
 displacement component by maximizing the REML likelihood function
-
-\begin{equation}\label{eq:REML}
+\begin{equation}\label{eq:REMLNoise}
 \mathcal{L}(\mitbf{\theta}) = \left(\frac{\left|\G^T\G\right|}{(2\pi)^{n-6m} 
                                     \left| \mitbf{C}_{\eta_i}(\mitbf{\theta}) \right| 
                                     \left| \G^T\mitbf{C}_{\eta_i}(\mitbf{\theta})^{-1}\G \right|}\right)^{\frac{1}{2}} 
@@ -793,6 +792,7 @@ with respect to $\mitbf{\theta}$, where
                             \left(\G^T\mitbf{C}_{\eta_i}(\mitbf{\theta})^{-1}\G\right)^{-1}
                             \G^T\mitbf{C}_{\eta_i}(\mitbf{\theta})^{-1}.
 \end{equation}
+In the above equation, $\data^*_i$ consists of the data for a single station.
 
 % results of estimated parameters
 
@@ -861,45 +861,44 @@ common mode error in our noise model.
 
 We next establish our prior model for transient displacements.
 Specifically, we discuss our choice for the functions $X_i$ and $T_i$.
-For $X_i$, we use the squared exponential (SE) function,
+For $X_i$, we use the squared exponential (SE) covariance function,
 \begin{equation}\label{eq:SE}
 X_i(\pos,\pos') = \exp\left(\frac{-||\pos - \pos'||_2^2}{2 \ell^2}\right).
 \end{equation}
-As we have mentioned, the SE function is commonly used for kriging
+The SE covariance function is commonly used for kriging
 \citep[e.g,][]{Cressie1992} and Gaussian process regression
 \citep[e.g.,][]{Rasmussen2006}. In terms of geodetic applications,
 \citet{Kato1998} and \cite{El-Fiky1999} demonstrated that the SE
-function accurately describes the spatial covariance of secular GNSS
-derived velocities in Japan. 
+covariance function accurately describes the spatial covariance of
+secular GNSS derived velocities in Japan.
 
 % List our choices for T_i
 
 We consider three potential choices for $T_i$. The first option is the
-one-dimensional SE function,
+one-dimensional SE covariance function,
 \begin{equation}\label{eq:TimeSE}
 T_i(t,t') = \phi^2\exp\left(\frac{-|t - t'|^2}{2\tau^2}\right).
 \end{equation}
 Note that $T_i$ includes the parameter $\phi$, which serves to scale
-the covariance function $C_{u_i}$. The second option is the Wendland
-class of covariance functions \citep{Wendland2005}. Wendland
-covariance functions have compact support and hence their
+the covariance function $C_{u_i}$. The second option is a member of
+the Wendland class of covariance functions \citep{Wendland2005}.
+Wendland covariance functions have compact support and hence their
 corresponding covariance matrices are sparse. In our analysis, we
 exploit this sparsity with the CHOLMOD software package
-\citep{Chen2008}. Wendland functions are positive definite in
-$\mathbb{R}^d$, and they can be differentiated $k$ times. The form of
-the covariance function depends on the choice of $d$ and $k$. We use
-$d=1$ since we are describing the temporal covariance of $u_i$. We use
-$k=2$, giving samples of $u_i$ continuous velocities and
+\citep{Chen2008}. Wendland covariance functions can be constructed
+such that they are positive definite in $\mathbb{R}^d$ and their
+corresponding Gaussian process can be differentiated $k$ times. We use
+$d=1$, because we are describing the temporal covariance of $u_i$, and
+we use $k=2$, giving samples of $u_i$ continuous velocities and
 accelerations. The corresponding Wendland covariance function is
 \begin{equation}\label{eq:Wendland} 
 T_i(t,t') = \phi^2\left(1 - \frac{|t - t'|}{\tau}\right)^5_+ 
             \left(\frac{8|t - t'|^2}{\tau^2} + \frac{5|t - t'|}{\tau} + 1\right), 
 \end{equation} 
-where $(t)_+ = \mathrm{min}(0,t)$.
-The third option for $T_i$ is the covariance function for integrated
-Brownian motion (IBM). IBM is a Gaussian process with zero mean and
-its covariance function can be found by integrating the covariance
-function for Brownian motion,
+where $(t)_+ = \mathrm{max}(0,t)$. The third option for $T_i$ is the
+covariance function for integrated Brownian motion (IBM). IBM is a
+Gaussian process with zero mean and its covariance function can be
+found by integrating the covariance function for Brownian motion,
 \begin{align}\label{eq:IBM}
 T_i(t,t') &= \int_0^t \int_0^{t'} \phi^2 \min(s,s') \,ds'\,ds \\
           &= \frac{\phi^2}{2}\min(t,t')^2 \left(\max(t,t') - \frac{1}{3}\min(t,t')\right), \ \ \ t,t' \geq 0.
@@ -913,47 +912,62 @@ have this reference time. For example, if we are trying to identify
 postseismic deformation then $t$ should be zero at the time of the
 earthquake.  However, if we are interesting in detecting transient
 events, where there is no known start time, then IBM may not be an
-appropriate prior. Instead, one should prefer an isotropic choice for
-$T_i$, meaning that it is invariant to time shifts and can be written
-in terms of $|t - t'|$. In the following analysis, we make the choice
-that $t$ is zero on the first epoch of $\data_i^*$. Using an earlier
-reference time does not change the results discussed in this section.
+appropriate prior model. Instead, one may prefer to use the SE or
+Wendland covariance functions because they are stationary. In the
+following analysis, we make the choice that $t$ is zero on the first
+epoch of $\data_i^*$. Using an earlier reference time does not change
+the results discussed in this section.
 
 % Choosing the parameters
 
-% SHOW REML EQUATION IN HERE
-
-We next use the REML method to determine appropriate parameters for
-$X_i$ and each of the three choices for $T_i$. we divide the dataset
-into seven subsets which are four months long and each centered on the
-time of a SSE. The times of the seven SSEs are determined with tremor
-records from \cite{Wech2010}. We find the optimal parameters for $T_i$
-and $X_i$ for each subset of data. We choose to make each data subsets
-four months long because it is long enough to encompass a SSE in the
-Pacific Northwest, while it is short enough to still be
-computationally tractable. However, four months is too short to
-resolve the sinusoids in $\data_i$, and they are omitted from
-$\data_i$ in this REML analysis for Pacific Northwest SSEs. 
-
-% Results for our parameters
-
-The estimated hyperparameters for $u$ are summarized in Table 1. Based
-on the interquartile ranges, the estimated hyperparameters for the SE
-and Wendland covariance functions do not vary significantly between
-SSEs. This suggests that the median of estimated hyperparameters
-should be an appropriate prior model for all Pacific Northwest SSEs.
-For the IBM model, there are several anomalously large values for
-$\ell$ and $\phi$, which results in large interquartile ranges.
+We use the REML method to determine the appropriate values for the
+parameters in $X_i$ and $T_i$, $\mitbf{\theta} = \{\ell, \phi, \tau
+\}$. we divide the GNSS data into seven subsets that are four months
+long and each centered on the time of a SSE. The times of the seven
+SSEs are determined with tremor records from \cite{Wech2010}. We find
+the optimal $\mitbf{\theta}$ for each subset of data, for each
+displacement component, and for each choice of $T_i$. We choose to
+make each data subsets four months long because it is long enough to
+encompass a SSE in the Pacific Northwest, while it is still
+computationally tractable to estimate $\mitbf{\theta}$. However, four
+months is too short to resolve the sinusoids in $\data_i$, and they
+are omitted from $\data_i$ in this REML analysis. The REML likelihood
+function that we are maximizing with respect to $\mitbf{\theta}$ is
+now 
+\begin{equation}\label{eq:REMLPrior} 
+\mathcal{L}(\mitbf{\theta}) =
+\left(\frac{\left| \G^T \G \right|}{(2\pi)^{n-6m}
+                                    \left| \mitbf{\Sigma}(\mitbf{\theta}) \right| 
+                                    \left| \G^T \mitbf{\Sigma}(\mitbf{\theta})^{-1} \G \right|}\right)^{\frac{1}{2}} 
+                              e^{-\tfrac{1}{2} \data_i^{*T} \mitbf{K}(\mitbf{\theta}) \data_i^*},
+\end{equation}
+where
+\begin{equation}
+\mitbf{K}(\mitbf{\theta}) = \mitbf{\Sigma}(\mitbf{\theta})^{-1} - 
+                            \mitbf{\Sigma}(\mitbf{\theta})^{-1} \G
+                            \left( \G^T \mitbf{\Sigma}(\mitbf{\theta})^{-1} \G \right)^{-1}
+                            \G^T \mitbf{\Sigma}(\mitbf{\theta})^{-1}
+\end{equation}
+and $\mitbf{\Sigma}(\mitbf{\theta}) = \mitbf{C}_{\eta_i} +
+C_{u_i}(\points,\points;\mitbf{\theta})$. In the above equation,
+$\data^*_i$ consists of a single subset of data. The estimated
+parameters are summarized in Table 1. Based on the interquartile
+ranges, the estimated parameters for the SE and Wendland covariance
+functions do not vary significantly between SSEs. This suggests that
+the median of estimated parameters should be an appropriate prior
+model for all Pacific Northwest SSEs. For the IBM model, there are
+several anomalously large values for $\ell$ and $\phi$, which is why
+the interquartile ranges are large.
 
 \begin{table}\label{tab:Parameters}
 \caption{
-Optimal hyperparameters for the prior on transient displacements
-determined with the REML method. The temporal covariance function is
-indicated by the ``$T$'' column. The SE, IBM, and Wendland covariance
-functions are defined in eqs. (\ref{eq:TimeSE}), (\ref{eq:IBM}), and
+Optimal parameters for the prior on transient displacements determined
+with the REML method. The temporal covariance function is indicated by
+the ``$T$'' column. The SE, IBM, and Wendland covariance functions are
+defined in eqs. (\ref{eq:TimeSE}), (\ref{eq:IBM}), and
 (\ref{eq:Wendland}), respectively. The spatial covariance function,
 $X$, is the squared exponential (eq. \ref{eq:SE}) in all cases. The
-hyperparameters are estimated for each of the seven SSEs considered in
+parameters are estimated for each of the seven SSEs considered in
 this study, and the tabulated values indicate the median and
 interquartile ranges of estimates. The ``diff $\log$(REML)'' column
 compares the log REML likelihood to the log REML likelihood when using
@@ -1017,7 +1031,7 @@ and covariance
                               \end{array}\right].
 \end{equation}
 We compute $\hat{\data}$ using SE, Wendland, and IBM covariance
-functions for $T$ and the median hyperparameters from Table 1. Figure
+functions for $T$ and the median parameters from Table 1. Figure
 \ref{fig:Fit} compares the easting component of $\data_*$ to
 $\hat{\data}$ during the winter 2015-2016 SSE at the three stations
 that record the strongest SSE signal, ALBH, P436, and SC02. Based on
@@ -1028,13 +1042,13 @@ spurious, features. When comparing $\hat{\data}$ to $\data_*$ at
 station ALBH and SC02, it appears that $\hat{\data}$ slightly
 underestimates the rate of deformation during the SSE, regardless of
 the chosen covariance function. This over-smoothing could indicate
-that the chosen time-scale hyperparameter, $\tau$, is too large. The
+that the chosen time-scale parameter, $\tau$, is too large. The
 predicted displacements at the remaining stations, which record more
 subtle SSE deformation, seem to faithfully describe $\data_*$.
 
 For our estimates of transient strain discussed in the next section,
 we ultimately settle on the Wendland covariance function for $T$ and
-use the median values from Table 1 for the hyperparameters. We choose
+use the median values from Table 1 for the parameters. We choose
 the Wendland covariance function over the SE covariance function
 because of its computational advantages.
 

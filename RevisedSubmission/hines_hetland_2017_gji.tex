@@ -910,7 +910,7 @@ Similar to Brownian motion, IBM has a reference time, $t=0$, at which
 the process begins. For some geophysical signals, it is appropriate to
 have this reference time. For example, if we are trying to identify
 postseismic deformation then $t$ should be zero at the time of the
-earthquake.  However, if we are interesting in detecting transient
+earthquake.  However, if we are interested in detecting transient
 events, where there is no known start time, then IBM may not be an
 appropriate prior model. Instead, one may prefer to use the SE or
 Wendland covariance functions because they are stationary. In the
@@ -953,10 +953,10 @@ $\data^*_i$ consists of a single subset of data. The estimated
 parameters are summarized in Table 1. Based on the interquartile
 ranges, the estimated parameters for the SE and Wendland covariance
 functions do not vary significantly between SSEs. This suggests that
-the median of the estimated parameters should be an appropriate prior
-model for all Pacific Northwest SSEs. For the IBM model, there are
-several anomalously large values for $\ell$ and $\phi$, which is why
-the interquartile ranges are large.
+the median of the estimated parameters should be appropriate for all
+the Pacific Northwest SSEs. For the IBM model, there are several
+anomalously large values for $\ell$ and $\phi$, which is why the
+interquartile ranges are large.
 
 \begin{table}\label{tab:Parameters}
 \caption{
@@ -973,7 +973,7 @@ the SE covariance function. Negative values indicate that observations
 are more consistent with the SE covariance function.
 } 
 \begin{tabular} {l l l l l l}
-$T_i$ & direction & $\ell$  & $\phi$   & $\tau$  & diff. $\log$(REML) \\ \hline
+$T_i$ & component & $\ell$  & $\phi$   & $\tau$  & diff. $\log$(REML) \\ \hline
 SE & east   & 92 $\pm$ 25 km  & 0.62 $\pm$ 0.11 mm  & 0.026 $\pm$ 0.011 yr  &  - \\
 SE & north  & 91 $\pm$ 53 km  & 0.43 $\pm$ 0.05 mm  & 0.030 $\pm$ 0.017 yr  &  - \\
 Wendland & east   & 95 $\pm$ 30 km  & 0.66 $\pm$ 0.15 mm  & 0.093 $\pm$ 0.044 yr &  0.78 $\pm$ 0.87 \\

@@ -922,18 +922,17 @@ the results discussed in this section.
 
 We use the REML method to determine the appropriate values for the
 parameters in $X_i$ and $T_i$, $\mitbf{\theta} = \{\ell, \phi, \tau
-\}$. we divide the GNSS data into seven subsets that are four months
+\}$. We divide the GNSS data into seven subsets that are four months
 long and each centered on the time of a SSE. The times of the seven
-SSEs are determined with tremor records from \cite{Wech2010}. We find
-the optimal $\mitbf{\theta}$ for each subset of data, for each
-displacement component, and for each choice of $T_i$. We choose to
-make each data subsets four months long because it is long enough to
-encompass a SSE in the Pacific Northwest, while it is still
+SSEs are determined with tremor records from \cite{Wech2010}. We
+choose to make each data subsets four months long because it is long
+enough to encompass a SSE in the Pacific Northwest, while it is still
 computationally tractable to estimate $\mitbf{\theta}$. However, four
 months is too short to resolve the sinusoids in $\data_i$, and they
-are omitted from $\data_i$ in this REML analysis. The REML likelihood
-function that we are maximizing with respect to $\mitbf{\theta}$ is
-now 
+are omitted from $\data_i$ in this REML analysis. We find the optimal
+$\mitbf{\theta}$ for each subset of data, for each displacement
+component, and for each choice of $T_i$. The REML likelihood function
+that we are maximizing with respect to $\mitbf{\theta}$ is now
 \begin{equation}\label{eq:REMLPrior} 
 \mathcal{L}(\mitbf{\theta}) =
 \left(\frac{\left| \G^T \G \right|}{(2\pi)^{n-6m}
@@ -954,28 +953,27 @@ $\data^*_i$ consists of a single subset of data. The estimated
 parameters are summarized in Table 1. Based on the interquartile
 ranges, the estimated parameters for the SE and Wendland covariance
 functions do not vary significantly between SSEs. This suggests that
-the median of estimated parameters should be an appropriate prior
+the median of the estimated parameters should be an appropriate prior
 model for all Pacific Northwest SSEs. For the IBM model, there are
 several anomalously large values for $\ell$ and $\phi$, which is why
 the interquartile ranges are large.
 
 \begin{table}\label{tab:Parameters}
 \caption{
-Optimal parameters for the prior on transient displacements determined
-with the REML method. The temporal covariance function is indicated by
-the ``$T$'' column. The SE, IBM, and Wendland covariance functions are
-defined in eqs. (\ref{eq:TimeSE}), (\ref{eq:IBM}), and
-(\ref{eq:Wendland}), respectively. The spatial covariance function,
-$X$, is the squared exponential (eq. \ref{eq:SE}) in all cases. The
-parameters are estimated for each of the seven SSEs considered in
+Optimal values for the parameters in $X_i$ and $T_i$ determined with
+the REML method. The covariance function for $T_i$ is indicated by the
+``$T_i$'' column. The SE, Wendland, and IBM covariance functions are
+defined in eqs. (\ref{eq:TimeSE}), (\ref{eq:Wendland}), and
+(\ref{eq:IBM}), respectively. We use eq. (\ref{eq:SE}) for $X_i$.
+The parameters are estimated for each of the seven SSEs considered in
 this study, and the tabulated values indicate the median and
 interquartile ranges of estimates. The ``diff $\log$(REML)'' column
-compares the log REML likelihood to the log REML likelihood when using
-the SE covariance function for $T$. Negative values indicate that
-observations are more consistent with the SE covariance function.
+compares the optimal log REML likelihoods to those for when $T_i$ is
+the SE covariance function. Negative values indicate that observations
+are more consistent with the SE covariance function.
 } 
 \begin{tabular} {l l l l l l}
-$T$ & direction & $\ell$  & $\phi$   & $\tau$  & diff. $\log$(REML) \\ \hline
+$T_i$ & direction & $\ell$  & $\phi$   & $\tau$  & diff. $\log$(REML) \\ \hline
 SE & east   & 92 $\pm$ 25 km  & 0.62 $\pm$ 0.11 mm  & 0.026 $\pm$ 0.011 yr  &  - \\
 SE & north  & 91 $\pm$ 53 km  & 0.43 $\pm$ 0.05 mm  & 0.030 $\pm$ 0.017 yr  &  - \\
 Wendland & east   & 95 $\pm$ 30 km  & 0.66 $\pm$ 0.15 mm  & 0.093 $\pm$ 0.044 yr &  0.78 $\pm$ 0.87 \\
@@ -985,86 +983,99 @@ IBM & north  & 150 $\pm$ 560 km & 110 $\pm$ 250 mm/yr$^{1.5}$ & -           & -1
 \end{tabular}
 \end{table}
 
-Next we identify which covariance function for $T$ best describes the
-SSEs. One approach is to compare the REML likelihoods for each
-covariance function, similar to the analysis in \citet{Langbein2004}.
-In Table 1, we summarize how the log REML likelihoods for the Wendland
-and IBM covariance functions compare to the SE covariance function.
-Based on the differences in log REML likelihoods, the data is
-substantially more likely to come from a Gaussian process with a SE or
-Wendland covariance function than an IBM covariance function. The REML
-likelihoods do not definitively indicate whether the SE or Wendland
-covariance function is preferable.
+% Choosing the covariance function for T_i with REML
 
-To further explore which covariance function for $T$ best describes
-SSEs, we compare the observations to the predicted displacements for
-each covariance function. We consider the data prediction vector to be
-$\hat{\data} = \left(u(\points) + \G\mitbf{a}\right)|\data_*$.
-Following a similar procedure as in Section \ref{sec:Method}, it can
-be shown that $\hat{\data}$ is normally distributed with mean
+Next, we identify which covariance function for $T_i$ best describes
+the time dependence of deformation from SSEs. One approach is to
+choose the covariance function that produces the largest optimal REML
+likelihoods, similar to the analysis in \citet{Langbein2004}. In Table
+1, we summarize how the optimal REML likelihoods for the Wendland and
+IBM covariance functions compare to those for the SE covariance
+function. Based on the differences in optimal REML likelihoods, the
+data is substantially more likely to come from a Gaussian process with
+a SE or Wendland covariance function than an IBM covariance function.
+The REML likelihoods do not definitively indicate whether the SE or
+Wendland covariance function is preferable.
+
+% Choosing the covariance function for T_i with posterior fit
+
+A more intuitive way of deciding which function to use for $T_i$ is to
+compare the posterior displacements and the observed displacements.
+The posterior displacements consist of our estimate of transient
+displacements, secular trends, and seasonal deformation. Specifically,
+the posterior displacement vector is $\hat{\data}_i = \left(
+u_i(\points) + \G\mitbf{m}_i \right) | \left( \data_i = \data_i^*
+\right)$. Following a similar procedure as in Section
+\ref{sec:Method}, it can be shown that $\hat{\data}_i$ has a
+multivariate normal distribution with mean vector
 \begin{equation}\label{eq:DataPredMean}
-\mitbf{\mu}_{\hat{d}} = \left[\begin{array}{cc}
-                           C_u(\points,\points) & \G \\
-                           \end{array}\right]
-                     \left[\begin{array}{cc}
-                           \mitbf{\Sigma} & \G \\
-                           \G^T  & \zeros \\
-                           \end{array}\right]^{-1}
-                     \left[\begin{array}{c}
-                           \data_* \\
-                           \zeros \\
-                           \end{array}\right]
+\mitbf{\mu}_{\hat{d}_i} = \left[\begin{array}{cc}
+                          C_{u_i}(\points,\points) & \G \\
+                          \end{array}\right]
+                          \left[\begin{array}{cc}
+                          \mitbf{C}_{\eta_i} + C_{u_i}(\points,\points) & \G \\
+                          \G^T  & \zeros \\
+                          \end{array}\right]^{-1}
+                          \left[\begin{array}{c}
+                          \data_i^* \\
+                          \zeros \\
+                          \end{array}\right]
 \end{equation}  
-and covariance
+and covariance matrix
 \begin{equation}\label{eq:DataPredCov}
-\mitbf{C}_{\hat{\data}} = C_u(\points,\points) - 
+\mitbf{C}_{\hat{d}_i} = C_{u_i}(\points,\points) - 
                         \left[\begin{array}{cc}
-                              C_u(\points,\points) & \G \\
+                              C_{u_i}(\points,\points) & \G \\
                               \end{array}\right]
                         \left[\begin{array}{cc}
-                              \mitbf{\Sigma} & \G \\
+                              \mitbf{C}_{\eta_i} + C_{u_i}(\points,\points) & \G \\
                               \G^T  & \zeros \\
                               \end{array}\right]^{-1}
                         \left[\begin{array}{c}
-                              C_u(\points,\points) \\
+                              C_{u_i}(\points,\points) \\
                               \G^T \\
                               \end{array}\right].
 \end{equation}
-We compute $\hat{\data}$ using SE, Wendland, and IBM covariance
-functions for $T$ and the median parameters from Table 1. Figure
-\ref{fig:Fit} compares the easting component of $\data_*$ to
-$\hat{\data}$ during the winter 2015-2016 SSE at the three stations
-that record the strongest SSE signal, ALBH, P436, and SC02. Based on
-Figure \ref{fig:Fit}, $\hat{\data}$ is insensitive to the choice of
-covariance function for $T$. The predicted displacements for the IBM
-covariance function contain slightly more high frequency, and perhaps
-spurious, features. When comparing $\hat{\data}$ to $\data_*$ at
-station ALBH and SC02, it appears that $\hat{\data}$ slightly
-underestimates the rate of deformation during the SSE, regardless of
-the chosen covariance function. This over-smoothing could indicate
-that the chosen time-scale parameter, $\tau$, is too large. The
-predicted displacements at the remaining stations, which record more
-subtle SSE deformation, seem to faithfully describe $\data_*$.
+We compute $\hat{\data}_i$ using the SE, Wendland, and IBM covariance
+functions for $T_i$, and we use the median values from Table 1 for
+$\mitbf{\theta}$. Figure \ref{fig:Fit} compares $\data_i^*$ to
+$\hat{\data}_i$ for the winter 2015-2016 SSE at stations ALBH, P436,
+and SC02. Based on Figure \ref{fig:Fit}, the chosen covariance
+function for $T_i$ has almost no effect on $\hat{\data}_i$. The
+posterior displacements for the IBM covariance function contain
+slightly more high frequency, and perhaps spurious, features.
+Regardless of the chosen covariance function, $\hat{\data}_i$ appears
+to underestimate the rate of deformation during the SSE at stations
+ALBH and SC02. The deformation at these two stations is particularly
+rapid compared to the surrounding stations, and the misfit between
+$\data_i^*$ and $\hat{\data}_i$ is likely due to over-smoothing. This
+over-smoothing could indicate that the chosen values for $\tau$ or
+$\ell$ are too large. However, $\hat{\data}_i$ does faithfully fit
+$\data_i^*$ at the remaining stations, and so we do not attempt to
+further refine the parameters.
+
+% The choice 
 
 For our estimates of transient strain discussed in the next section,
-we ultimately settle on the Wendland covariance function for $T$ and
-use the median values from Table 1 for the parameters. We choose
-the Wendland covariance function over the SE covariance function
-because of its computational advantages.
+we ultimately settle on the Wendland covariance function for $T_i$,
+and we use the median values from Table 1 for the parameters. We
+choose the Wendland covariance function over the SE covariance
+function because of its computational advantages.
 
 \begin{figure*}
 \includegraphics{figures/signal_fit/signal-fit.pdf}
 \caption{
-Easting component of the observed displacements, $\data_*$, and
-predicted displacements, $\hat{\data}$, during an SSE at three
-stations where the SSE signal is strongest. The predicted
-displacements are shown for when $T$ is a squared exponential (SE),
-Wendland, and integrated Brownian motion (IBM) covariance function.
-The one standard deviation uncertainties are shown for the
-observations and the SE predictions. For clarity, uncertainties are
-not shown for the IBM and Wendland predictions, but they are nearly
-equivalent to the uncertainties for the SE predictions. The SE and
-Wendland predictions are practically indistinguishable.
+Easting component of the observed displacements, $\data_\e^*$, and
+posterior displacements, $\hat{\data}_\e$, during the winter 2015-2016
+SSE. We show $\hat{\data}_\e$ for when $T_i$ is a SE, Wendland, and
+IBM covariance function. The one standard deviation uncertainties are
+shown for $\data_\e^*$ and the $\hat{\data}_\e$ that has a SE
+covariance function for $T_i$. For clarity, uncertainties are not
+shown for $\hat{\data}_\e$ when $T_i$ is an IBM or Wendland covariance
+function, but the uncertainties are nearly equivalent to the
+uncertainties for when $T_i$ is the SE covariance function. The
+posterior displacements for the different covariance functions are all
+practically indistinguishable.
 }   
 \label{fig:Fit}
 \end{figure*}

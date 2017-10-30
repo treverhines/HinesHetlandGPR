@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.24)  28 OCT 2017 19:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.24)  29 OCT 2017 23:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -377,10 +377,10 @@ File: figures/signal_fit/signal-fit.pdf Graphic file (type pdf)
 
 <use figures/signal_fit/signal-fit.pdf>
 Package pdftex.def Info: figures/signal_fit/signal-fit.pdf used on input line 1
-056.
+066.
 (pdftex.def)             Requested size: 505.88875pt x 433.61894pt.
 
-Overfull \hbox (62.02576pt too wide) in paragraph at lines 1056--1068
+Overfull \hbox (62.02576pt too wide) in paragraph at lines 1066--1079
  [][] 
  []
 
@@ -389,61 +389,62 @@ File: figures/strain_map/strain-map.pdf Graphic file (type pdf)
 
 <use figures/strain_map/strain-map.pdf>
 Package pdftex.def Info: figures/strain_map/strain-map.pdf used on input line 1
-111.
+122.
 (pdftex.def)             Requested size: 433.61894pt x 433.61894pt.
  [18]
 <figures/strain_ts/strain-ts.pdf, id=247, 505.89pt x 361.35pt>
 File: figures/strain_ts/strain-ts.pdf Graphic file (type pdf)
 
 <use figures/strain_ts/strain-ts.pdf>
-Package pdftex.def Info: figures/strain_ts/strain-ts.pdf used on input line 113
-9.
+Package pdftex.def Info: figures/strain_ts/strain-ts.pdf used on input line 115
+0.
 (pdftex.def)             Requested size: 505.88875pt x 361.34912pt.
 
-Overfull \hbox (62.02576pt too wide) in paragraph at lines 1139--1144
+Overfull \hbox (62.02576pt too wide) in paragraph at lines 1150--1155
  [][] 
  []
 
-<figures/strain_ts/mag-ts.pdf, id=248, 505.89pt x 289.08pt>
+
+Underfull \vbox (badness 2837) has occurred while \output is active []
+
+ [19 <./figures/signal_fit/signal-fit.pdf>]
+<figures/strain_ts/mag-ts.pdf, id=305, 505.89pt x 289.08pt>
 File: figures/strain_ts/mag-ts.pdf Graphic file (type pdf)
 
 <use figures/strain_ts/mag-ts.pdf>
-Package pdftex.def Info: figures/strain_ts/mag-ts.pdf used on input line 1149.
+Package pdftex.def Info: figures/strain_ts/mag-ts.pdf used on input line 1160.
 (pdftex.def)             Requested size: 505.88875pt x 289.07928pt.
 
-Overfull \hbox (62.02576pt too wide) in paragraph at lines 1149--1154
+Overfull \hbox (62.02576pt too wide) in paragraph at lines 1160--1165
  [][] 
  []
 
-[19 <./figures/signal_fit/signal-fit.pdf>]
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [20 <./figures/strain_map/strain-map.pdf>] [21 <./figures/strain_ts/strain-ts.
 pdf>]
-Underfull \vbox (badness 3849) has occurred while \output is active []
+[22 <./figures/strain_ts/mag-ts.pdf>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [22 <./figures/strain_ts/mag-ts.pdf>] [23]
-Overfull \hbox (77.70125pt too wide) in paragraph at lines 1292--1301
+ [23]
+Overfull \hbox (77.70125pt too wide) in paragraph at lines 1303--1312
 \OT1/ptm/m/n/10.95 (Py-GeoNS). Py-GeoNS is dis-tributed un-der the MIT Li-cense
  and can be found at www.github.com/treverhines/PyGeoNS. 
  []
 
-[24] <figures/outliers_new/outliers.pdf, id=431, 505.89pt x 325.215pt>
+[24] [25] <figures/outliers_new/outliers.pdf, id=436, 505.89pt x 325.215pt>
 File: figures/outliers_new/outliers.pdf Graphic file (type pdf)
 
 <use figures/outliers_new/outliers.pdf>
 Package pdftex.def Info: figures/outliers_new/outliers.pdf used on input line 1
-388.
+399.
 (pdftex.def)             Requested size: 505.88875pt x 325.2142pt.
 
-Overfull \hbox (62.02576pt too wide) in paragraph at lines 1388--1396
+Overfull \hbox (62.02576pt too wide) in paragraph at lines 1399--1407
  [][] 
  []
 
-
-Underfull \vbox (badness 4108) has occurred while \output is active []
-
- [25]
 (./hines_hetland_2017_gji.bbl [26 <./figures/outliers_new/outliers.pdf>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -462,7 +463,7 @@ Here is how much of TeX's memory you used:
  6547 multiletter control sequences out of 15000+600000
  38073 words of font info for 93 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 38i,19n,24p,934b,387s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,19n,24p,1121b,381s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/d
 vips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
 cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10
@@ -483,7 +484,7 @@ exlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/te
 xlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/u
 rw/times/utmri8a.pfb>
-Output written on hines_hetland_2017_gji.pdf (30 pages, 2475468 bytes).
+Output written on hines_hetland_2017_gji.pdf (30 pages, 2475690 bytes).
 PDF statistics:
  559 PDF objects out of 1000 (max. 8388607)
  185 compressed objects within 2 object streams

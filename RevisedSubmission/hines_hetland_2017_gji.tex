@@ -771,9 +771,9 @@ produces unbiased estimates of $\mitbf{\theta}$ \citep[sec.
 2.6]{Cressie1992}. We use the REML method to estimate $\mitbf{\theta}$
 at 38 continuous GNSS stations in the Pacific Northwest that are east
 of 121$^\circ$W. These stations are sufficiently far from the
-subduction zone that they are unlikely to contain transient signal
-associated with SSEs, allowing us to ignore displacements from $u_i$
-in $\mitbf{d}_i$. We assume the noise at these inland stations is
+subduction zone that they are unlikely to record transient deformation
+from SSEs, allowing us to ingore the term $u_i(\points)$ in
+$\mitbf{d}_i$. We assume the noise at these inland stations is
 representative of the noise at all the stations considered in this
 study, which is probably a poor assumption since the inland stations
 are subject to distinctly different climatic conditions. Nonetheless,
@@ -922,20 +922,18 @@ the results discussed in this section.
 % Choosing the parameters
 
 We use the REML method to determine the appropriate values for the
-parameters in $C_{u_i}$, $\mitbf{\theta} = \{\ell, \phi, \tau \}$.
-Just as in Section \ref{sec:NoiseModel}, we pick $\mitbf{\theta}$ to
-maximize the probability of drawing $\data_i^*$ from $\data_i$, but
-now $\data_i$ includes $u_i(\points)$, and $\mitbf{\theta}$ refers to
-the parameters for $C_{u_i}(\points,\points)$ rather than
-$\mitbf{C}_{\eta_i}$. We divide the GNSS data into seven subsets that
-are four months long and each centered on the time of a SSE. The times
-of the seven SSEs are determined with tremor records from
-\cite{Wech2010}. We find the optimal $\mitbf{\theta}$ for each subset
-of data, for each displacement component, and for each choice of
-$T_i$. We choose to make each data subsets four months long because it
-is long enough to encompass a SSE in the Pacific Northwest, while it
-is still computationally tractable to estimate $\mitbf{\theta}$. The
-REML likelihood function that we are maximizing with respect to
+parameters in $C_{u_i}$, which are $\ell$, $\phi$, and $\tau$. We
+refer to these parameters collectively as $\mitbf{\theta}$. Just as in
+Section \ref{sec:NoiseModel}, we pick $\mitbf{\theta}$ to maximize the
+probability of drawing $\data_i^*$ from $\data_i$, but now we are
+including $u_i(\points)$ in $\data_i$. and we are optimizing the
+parameters for $C_{u_i}$ rather than $\mitbf{C}_{\eta_i}$. We divide
+the GNSS data into seven subsets that are four months long and each
+centered on the time of a SSE. The times of the seven SSEs are
+determined with tremor records from \cite{Wech2010}. We find the
+optimal $\mitbf{\theta}$ for each subset of data, for each
+displacement component, and for each choice of $T_i$. The REML
+likelihood function that we are maximizing with respect to
 $\mitbf{\theta}$ is now
 \begin{equation}\label{eq:REMLPrior} 
 \mathcal{L}(\mitbf{\theta}) =
@@ -1043,10 +1041,11 @@ and covariance matrix
 We compute $\hat{\data}_i$ using the SE, Wendland, and IBM covariance
 functions for $T_i$, and we use the median values from Table 1 for
 $\mitbf{\theta}$. Figure \ref{fig:Fit} compares $\data_i^*$ to
-$\hat{\data}_i$ for the winter 2015-2016 SSE at stations ALBH, P436,
-and SC02. Based on Figure \ref{fig:Fit}, the chosen covariance
-function for $T_i$ has almost no effect on $\hat{\data}_i$. The
-posterior displacements for the IBM covariance function contain
+$\hat{\data}_i$ during the winter 2015-2016 SSE at stations ALBH,
+P436, and SC02, which are the stations that recorded the strongest
+signal from this SSE. Based on Figure \ref{fig:Fit}, the chosen
+covariance function for $T_i$ has almost no effect on $\hat{\data}_i$.
+The posterior displacements for the IBM covariance function contain
 slightly more high frequency, and perhaps spurious, features.
 Regardless of the chosen covariance function, $\hat{\data}_i$ appears
 to underestimate the rate of deformation during the SSE at stations
@@ -1075,11 +1074,9 @@ SSE. We show $\hat{\data}_\e$ for when $T_i$ is a SE, Wendland, and
 IBM covariance function. The one standard deviation uncertainties are
 shown for $\data_\e^*$ and the $\hat{\data}_\e$ that has a SE
 covariance function for $T_i$. For clarity, uncertainties are not
-shown for $\hat{\data}_\e$ when $T_i$ is an IBM or Wendland covariance
-function, but the uncertainties are nearly equivalent to the
-uncertainties for when $T_i$ is the SE covariance function. The
-posterior displacements for the different covariance functions are all
-practically indistinguishable.
+shown for the $\hat{\data}_\e$ that have an IBM or Wendland covariance
+function for $T_i$. The posterior displacements for the different
+covariance functions are all practically indistinguishable.
 }   
 \label{fig:Fit}
 \end{figure*}

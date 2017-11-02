@@ -572,21 +572,22 @@ C_{\strain_{\e\e}}(p,p') = \frac{\partial^4 C_{u_\e}(p,p')}{\partial t \, \parti
 \subsection{Transient detection criterion}\label{sec:TransientDetection}
 
 Our motivation for estimating transient strain rates is, in part, to
-detect geophysical phenomena. As we will see, geophysical signal can
-be easily identified by visually inspecting the solution for $\strain$
-from eqs. (\ref{eq:StrainMean}) and (\ref{eq:StrainCov}). However, if
-we want to detect geophysical phenomena automatically, then we need to
-define a detection criterion. We use a signal-to-noise ratio, SNR,
-that is based on the Frobenius norm of $\strain$,
-$||\strain||_\mathrm{F} = \left(\strain_{\e\e}^2 + \strain_{\n\n}^2 +
-2\strain_{\e\n}^2\right)^{\frac{1}{2}}$, for our detection criterion.
-In the geodetic literature, $||\dot{\varepsilon}||_\mathrm{F}$ is
-often used as a metric for the strain rate ``magnitude", and it is
-sometimes referred to as the second invariant of strain rate. Noting
-that $||\strain||_\mathrm{F}$ is a random variable, we take SNR to be
-the ratio of the estimated mean and standard deviation of
-$||\strain||_\mathrm{F}$. An estimate of the mean is found by
-evaluating $||\strain||_\mathrm{F}$ at the mean of $\strain$,
+detect transient geophysical processes. As we will see, geophysical
+signal can be easily identified by visually inspecting the solution
+for $\strain$ from eqs. (\ref{eq:StrainMean}) and
+(\ref{eq:StrainCov}). However, if we want to detect geophysical signal
+automatically, then we need to define a detection criterion. We use a
+signal-to-noise ratio, SNR, that is based on the Frobenius norm of
+$\strain$, $||\strain||_\mathrm{F} = \left(\strain_{\e\e}^2 +
+\strain_{\n\n}^2 + 2\strain_{\e\n}^2\right)^{\frac{1}{2}}$, for our
+detection criterion. In the geodetic literature,
+$||\dot{\varepsilon}||_\mathrm{F}$ is often used as a metric for the
+strain rate ``magnitude", and it is sometimes referred to as the
+second invariant of strain rate. Noting that $||\strain||_\mathrm{F}$
+is a random variable, we take SNR to be the ratio of the estimated
+mean and standard deviation of $||\strain||_\mathrm{F}$. An estimate
+of the mean is found by evaluating $||\strain||_\mathrm{F}$ at the
+mean of $\strain$,
 \begin{align}
 \mu_{||\strain||_\mathrm{F}} &\approx ||\strain||_F \big|_{\strain = \mu_{\strain}}\nonumber \\
                              &= \left(\mu_{\strain_{\e\e}}^2 + 
@@ -859,7 +860,7 @@ common mode error in our noise model.
 
 % State our choice for X_i
 
-We next establish our prior model for transient displacements.
+We next establish a prior model for transient displacements.
 Specifically, we discuss our choice for the spatial and temporal
 functions making up $C_{u_i}$, $X_i$ and $T_i$. For $X_i$, we use the
 squared exponential (SE) covariance function,
@@ -1087,45 +1088,35 @@ covariance functions are all practically indistinguishable.
 % Stating how we calculate strain and refering to the figures
 
 Having established a noise model and a prior for transient
-displacements, we can now use the GNSS data to calculate transient
-strain rates, $\strain$, in the Puget Sound region. We evaluate
-$\strain$ at a grid of points spanning the study area for each day
-from January 1, 2010 to May 15, 2017. In Figure \ref{fig:StrainMap},
-we show a map view of $\strain$ on January 1, 2016, which coincides
-with the height of the winter 2015-2016 SSE. In Figure
-\ref{fig:StrainTs}, we show a time series of $\strain$ at a position
-on the Olympic Peninsula, which tends to be where $\strain$ is the
-largest during SSEs. We also include a supplementary animation showing
-a map view of $\strain$ over time.
+displacements, we can now calculate transient strain rates, $\strain$,
+in the Puget Sound region from the GNSS data. We evaluate $\strain$ at
+a grid of points spanning the study area for each day from January 1,
+2010 to May 15, 2017. In Figure \ref{fig:StrainMap}, we show a map
+view of $\strain$ on January 1, 2016, which coincides with the height
+of the winter 2015-2016 SSE. In Figure \ref{fig:StrainTs}, we show a
+time series of $\strain$ at a position on the Olympic Peninsula, which
+is where $\strain$ tends to be the largest during SSEs. We also
+include a supplementary animation showing a map view of $\strain$ over
+time. In each figure, we show the mean and standard deviation of
+$\strain$, making it easy to identify which features are statistically
+significant.
 
 % Describe the strain during SSEs and tectonic implications
 
-The strain rates shown in Figure \ref{fig:StrainMap} are generally
-similar to the strain rates during the other six SSEs considered in
-this study. The SSEs cause trench perpendicular compression in the
-Olympic Peninsula and extension east of Puget Sound. The strain
+The transient strain rates shown for the winter 2015-2016 SSE in
+Figure \ref{fig:StrainMap} are characteristic of most SSEs in the
+Puget Sound region. The SSEs cause trench perpendicular compression in
+the Olympic Peninsula and extension east of Puget Sound. The strain
 transitions from compression to extension around the southern tip of
-Vancouver Island, which coincides with the location of thrust slip for
-SSEs in the Puget Sound region \citep[e.g.,][]{Dragert2001, Wech2009,
-Schmidt2010}. Thus, this pattern of strain is to be expected. During
-the period in between SSEs, secular strain rates indicate trench
-perpendicular compression throughout this study region
-\citep{Murray2000, McCaffrey2007, McCaffrey2013}. When comparing
-inferred strain rates from SSEs to the secular strain rates, we see
-that SSEs are concentrating tectonically accumulated strain energy
-towards the trench, and presumably pushing the subduction zone closer
-to failure.
-
-%A key difference between the strain inferred here and strain that can
-%be derived from fault slip models is that our estimated strain rates
-%are not based on an assumed physical model. In contrast, fault slip
-%models can be biased by errors in the assumed fault geometry or
-%lithospheric rheology. Moreover, the degrees of freedom in fault slip
-%models usually cannot be constrained by GNSS data alone, and it is
-%necessary to impose regularization which further biases the results.
-%Since our estimated strain rates lack such systematic errors, we can
-%be more confident that our solution is unbiased and has meaningful
-%uncertainties.
+Vancouver Island, coinciding with where fault slip tends to be
+inferred \citep[e.g.,][]{Dragert2001, Wech2009, Schmidt2010}. Thus,
+this pattern of strain is to be expected. Over decadal timescales,
+there is trench perpendicular compression throughout this study region
+caused by steady tectonic plate motion \citep{Murray2000,
+McCaffrey2007, McCaffrey2013}. When comparing the transient strain
+rates caused by SSEs to the secular strain rates, we see that SSEs are
+concentrating tectonically accumulated strain energy towards the
+trench, and presumably pushing the subduction zone closer to failure.
 
 \begin{figure*}
 \includegraphics{figures/strain_map/strain-map.pdf}
@@ -1146,16 +1137,17 @@ uncertainties for the principal normal strain rates.
 
 To verify that the estimated transient strain rates are accurately
 identifying geophysical signal, we compare the signal-to-noise ratio
-from eq. (\ref{eq:SNR}) to the frequency of seismic tremor (Figure
-\ref{fig:StrainMag}). A signal-to-noise ratio greater than ${\sim}3$
-can be interpreted as a detected geophysical signal. We detect nine
-distinct events, which each correspond to peaks in seismic tremor. The
-smaller events detected in August 2014 and February 2017 can be
-considered inter-SSE events. They were not among the SSEs used to
-constrain the prior covariance function. In between peaks in seismic
-tremor, the signal-to-noise ratio is consistently between 0 and 2,
-suggesting that all the transient strain detected at this location is
-associated with SSEs and inter-SSE events.
+from eq. (\ref{eq:SNR}) at a point on the Olympic Peninsula to the
+frequency of seismic tremor (Figure \ref{fig:StrainMag}). A
+signal-to-noise ratio greater than ${\sim}3$ can be interpreted as a
+detected geophysical signal. We detect nine distinct events, which
+each correspond to peaks in seismic tremor. The smaller events
+detected in August 2014 and February 2017 can be considered inter-SSE
+events. They were not among the SSEs used to constrain the prior
+covariance function. In between peaks in seismic tremor, the
+signal-to-noise ratio is consistently between 0 and 2, suggesting that
+all the transient strain detected at this point on the Olympic
+Peninsula is associated with SSEs and inter-SSE events.
 
 \begin{figure*}
 \includegraphics{figures/strain_ts/strain-ts.pdf}
@@ -1177,15 +1169,13 @@ region shown in Figure \ref{fig:Context}.
 \label{fig:StrainMag}
 \end{figure*}
 
-The results we have presented thus far indicate that we are
-identifying the strain that we should expect to see. There are,
-however, subtle features in our estimated transient strain rates which
-we were not expecting. For example, some SSEs are preceded by a brief
-period of east-west extension on the Olympic Peninsula. This feature
-can be seen several days before the summer 2012 and winter 2015-2016
-SSEs in Figure \ref{fig:StrainTs} as well as in the supplementary
-animation. While this deformation is noteworthy, a discussion on the
-mechanisms causing it is outside the scope of this study.
+% note that we are only discussing strain with known origin
+
+The results we have presented indicate that we are identifying the
+transient strain that we should expect to see. This is not to say that
+there are no unexpected features in $\strain$ that are worth further
+exploration. However, a discussion on features in $\strain$ that have
+unknown origin would be outside the scope of this paper.
 
 %% DISCUSSION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

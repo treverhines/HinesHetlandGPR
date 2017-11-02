@@ -1175,6 +1175,10 @@ unknown origin would be outside the scope of this paper.
 %% DISCUSSION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Discussion}\label{sec:Discussion}
+
+% Why transient strain, rather than displacements, are used to detect
+% geophysical signal
+
 Our results demonstrate that GPR is an effective tool for estimating
 transient strain from GNSS data, which can then be used to detect
 geophysical processes. One may argue that geophysical signal can also
@@ -1197,6 +1201,8 @@ transient strain rates estimated with the method described in Section
 \ref{sec:Method} can illuminate geophysical signal that may not be
 discernible from the noise in the GNSS displacement data.
 
+% Potential applications to BSM
+
 In addition to detecting geophysical processes, the GNSS derived
 transient strain rates can be used to better understand the data from
 borehole strain meters (BSMs). The Plate Boundary Observatory
@@ -1218,6 +1224,8 @@ with in an ad-hoc manner by fitting and removing exponentials and
 low-order polynomials. We envision that the GNSS derived strain rates
 from this paper can be used as a reference strain for calibrating BSM
 data and quantify its noise.
+
+% Potential improvements on the noise model
 
 There is potential for a more thorough analysis of the spatio-temporal
 noise in GNSS data, $\eta$, than what was performed in Section
@@ -1243,6 +1251,13 @@ by $\tau$. Decreasing $\tau$ has the same effect as including higher
 frequency sinusoids in the seasonal model. The optimal value for
 $\tau$ can be found with the REML method as described in Section
 \ref{sec:NoiseModel}.
+
+% Numerical considerations
+
+% note that the compact covariance function is not a perfect solution
+% because it is only compact if the signal has a short timescale. Long
+% wavelength features will still have a dense covariance matrix. This is
+% part of the reason why we omitted the temporal noise model.
 
 The transient strain rates estimated in this study are constrained by
 about seven years of daily displacement observations from 94 GNSS

@@ -297,15 +297,13 @@ strain from slow slip events in the Pacific Northwest.
 \begin{figure*}
 \includegraphics{figures/prior_demo/prior-demo.pdf}
 \caption{ 
-Panel A) The covariance between $u_i(p)$ and $u_i(p')$,
-$C_{u_i}(p,p')$, as a function of the spatial and temporal distance
-between $p$ and $p'$. The covariance function $C_{u_i}$ is composed of
-squared exponentials to describe the spatial and temporal covariance
-of $u_i$ (eq. \ref{eq:ExampleCov}). Panel B) A single realization of
-$u_i$ corresponding to the covariance function from Panel A. The
-realization is a function of three variables, $t$, $x_\mathrm{e}$, and
-$x_\mathrm{n}$, although we only show its dependence on $t$ and one of
-the spatial dimensions.
+(A) An example covariance function for transient displacements,
+$C_{u_i}(p,p')$, shown as a function of the spatial and temporal
+distance between $p$ and $p'$. (B) A single realization of transient
+displacements, $u_i(p)$, corresponding to the covariance function from
+Panel A. The realization is a function of three variables, $t$,
+$x_\mathrm{e}$, and $x_\mathrm{n}$, although we only show its
+dependence on $t$ and one of the spatial dimensions.
 }    
 \label{fig:PriorDemo}
 \end{figure*}
@@ -340,16 +338,16 @@ We then consider the column vector of $n$ GNSS displacement
 observations, $\data^*_i$, where the subscript indicates that we are
 still only considering component $i$ of displacements. The
 observations are made at $m$ stations, and the times and positions for
-each observation are described by the set $\points$. $\data^*_i$ can
-be considered a realization of the random vector $\data_i$, which is
-formed by evaluating eq. (\ref{eq:Data}) at each point in $\points$.
-To write out $\data_i$ explicitly, we let $\G$ be an $n \times 6m$
-matrix consisting of the basis functions from eq. (\ref{eq:Data})
-(i.e., the linear trends and sinusoids for each station) evaluated at
-each point in $\points$. The coefficients corresponding to each basis
-function are collected into the column vector $\mitbf{m}_i$. The noise
-for all the observations are described by the column vector
-$\mitbf{\eta}_i$. We can then write $\data_i$ as
+each observation are described by the set $\points$. The data vector
+$\data^*_i$ can be considered a realization of the random vector
+$\data_i$, which is formed by evaluating eq. (\ref{eq:Data}) at each
+point in $\points$. To write out $\data_i$ explicitly, we let $\G$ be
+an $n \times 6m$ matrix consisting of the basis functions from eq.
+(\ref{eq:Data}) (i.e., the linear trends and sinusoids for each
+station) evaluated at each point in $\points$. The coefficients
+corresponding to each basis function are collected into the column
+vector $\mitbf{m}_i$. The noise for all the observations are described
+by the column vector $\mitbf{\eta}_i$. We can then write $\data_i$ as
 \begin{equation}\label{eq:DataVec}
 \data_i = u_i(\points) + \mitbf{\eta}_i + \G\mitbf{m}_i,
 \end{equation}
@@ -691,11 +689,11 @@ shown in Figure \ref{fig:Context}.
 \begin{figure*}
 \includegraphics{figures/context_map/context-map.pdf}
 \caption{
-Positions of continuous GNSS stations used to estimate transient
-strain rates. The colored regions indicate the distribution of seismic
-tremor as determined by \citet{Wech2010}. The red dots show the
-positions of GNSS stations mentioned in this paper. The blue dot
-indicates the location of the transient strain rates shown in Figure
+Positions of the GNSS stations used to estimate transient strain
+rates. The colored regions indicate the distribution of seismic tremor
+as determined by \citet{Wech2010}. The red dots show the positions of
+GNSS stations mentioned in this paper. The blue dot indicates the
+location of the transient strain rates shown in Figure
 \ref{fig:StrainTs} and the signal-to-noise ratio shown in Figure
 \ref{fig:StrainMag}. The blue dashed circle demarcates the spatial
 extent of the tremors shown in Figure \ref{fig:StrainMag}.
@@ -797,13 +795,13 @@ In the above equation, $\data^*_i$ consists of the data for a single station.
 
 % results of estimated parameters
 
-The distribution of inferred $\alpha$ and $\beta$ are shown in Figure
-\ref{fig:NoiseParams}. The estimates of $\beta$ for the easting and
-northing components are clustered around 0.5 mm/yr$^{0.5}$. The
-corresponding estimates of $\alpha$ tend to cluster around 0
-yr$^{-1}$, indicating that the power spectrum of noise indeed decays
-proportionally to $f^{-2}$ over a wide band of frequencies. We also
-estimate $\alpha$ and $\beta$ for the vertical component of
+The distribution of inferred values for $\alpha$ and $\beta$ are shown
+in Figure \ref{fig:NoiseParams}. The estimates of $\beta$ for the
+easting and northing components are clustered around 0.5
+mm/yr$^{0.5}$. The corresponding estimates of $\alpha$ tend to cluster
+around 0 yr$^{-1}$, indicating that the power spectrum of noise indeed
+decays proportionally to $f^{-2}$ over a wide band of frequencies. We
+also estimate $\alpha$ and $\beta$ for the vertical component of
 displacements, with the hope that vertical deformation gradients could
 reveal some geophysical signal. For the vertical component, $\beta$ is
 relatively large with a median value of 13.5 mm/yr$^{0.5}$. The
@@ -828,10 +826,9 @@ ratio.
 \begin{figure*}
 \includegraphics{figures/noise/noise-params.pdf}
 \caption{
-Distribution of estimated FOGM parameters (eq. \ref{eq:FOGM}).
-parameters are estimated with the REML method for 38 stations in
-the Pacific Northwest that are east of $121^\circ$W. ``IQR'' is the
-interquartile range.
+Distribution of inferred values for the parameters in the FOGM noise
+model (eq. \ref{eq:FOGM}). ``IQR'' is the interquartile range of
+inferred values.
 }   
 \label{fig:NoiseParams}
 \end{figure*}
@@ -839,8 +836,9 @@ interquartile range.
 \begin{figure*}
 \includegraphics{figures/noise/noise-samples.pdf}
 \caption{
-Two FOGM noise samples for each component. The FOGM parameters
-have been set to the median values from Figure \ref{fig:NoiseParams}.
+Two samples of FOGM noise for each displacement component. The
+parameters for the FOGM noise model have been set to the median values
+from Figure \ref{fig:NoiseParams}.
 }   
 \label{fig:NoiseSamples}
 \end{figure*}
@@ -970,7 +968,7 @@ defined in eqs. (\ref{eq:TimeSE}), (\ref{eq:Wendland}), and
 (\ref{eq:IBM}), respectively. We use eq. (\ref{eq:SE}) for $X_i$.
 The parameters are estimated for each of the seven SSEs considered in
 this study, and the tabulated values indicate the median and
-interquartile ranges of estimates. The ``diff $\log$(REML)'' column
+interquartile ranges of estimated values. The ``diff $\log$(REML)'' column
 compares the optimal log REML likelihoods to those for when $T_i$ is
 the SE covariance function. Negative values indicate that observations
 are more consistent with the SE covariance function.
@@ -1125,10 +1123,7 @@ Transient strain rates during the Winter 2015-2016 SSE. The glyphs
 show the normal strain rates as a function of azimuth, where orange
 indicates compression and blue indicates extension. The shaded regions
 indicate the one standard deviation uncertainties for the normal
-strain rates. It is common to depict strain rates by showing just the
-principal normal strain rates; however, we deviate from this
-convention because there is no straight-forward way of showing the
-uncertainties for the principal normal strain rates.
+strain rates.
 }   
 \label{fig:StrainMap}
 \end{figure*}
@@ -1152,9 +1147,9 @@ Peninsula is associated with SSEs and inter-SSE events.
 \begin{figure*}
 \includegraphics{figures/strain_ts/strain-ts.pdf}
 \caption{
-Three components of the transient horizontal strain rate tensor
-estimated at the position shown in Figure \ref{fig:Context}. The
-shaded regions indicate one standard deviation uncertainty.
+Components of the transient strain rates at the position shown in
+Figure \ref{fig:Context}. The shaded regions indicate the one standard
+deviation uncertainties.
 }   
 \label{fig:StrainTs}
 \end{figure*}
@@ -1163,8 +1158,8 @@ shaded regions indicate one standard deviation uncertainty.
 \includegraphics{figures/strain_ts/mag-ts.pdf}
 \caption{
 (top) Signal-to-noise ratio (eq. \ref{eq:SNR}) at the position shown
-in Figure \ref{fig:Context}. (bottom) Frequency of tremors in the
-region shown in Figure \ref{fig:Context}.
+in Figure \ref{fig:Context}. (bottom) Frequency of seismic tremors in
+the region shown in Figure \ref{fig:Context}.
 }   
 \label{fig:StrainMag}
 \end{figure*}

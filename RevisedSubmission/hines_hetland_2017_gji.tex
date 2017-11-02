@@ -1084,29 +1084,37 @@ covariance functions are all practically indistinguishable.
 %% TRANSIENT STRAIN RATES
 \subsection{Transient Strain Rates}\label{sec:Results} 
 
+% Stating how we calculate strain and refering to the figures
+
 Having established a noise model and a prior for transient
-displacements, we use the GNSS dataset to calculate transient strain
-rates in the Puget Sound region. We calculate transient strain rates
-for each day from January 1, 2010 to May 15, 2017. The strain rates
-are estimates at a grid of points spanning the study area. In Figure
-\ref{fig:StrainMap} we show the transient strain rates on January 1,
-2016, which coincides with the height of the winter 2015-2016 SSE. We
-have included an animation showing the map view of strain rates
-through time as supplementary material. The strain rates shown in
-Figure \ref{fig:StrainMap} are generally similar to the strain rates
-during the other six SSEs considered in this study. The SSEs cause
-trench perpendicular compression in the Olympic Peninsula and
-extension east of Puget Sound. The strain transitions from compression
-to extension around the southern tip of Vancouver Island, which
-coincides with the location of thrust slip for SSEs in the Puget Sound
-region \citep[e.g.,][]{Dragert2001,Wech2009,Schmidt2010}. Thus, this
-pattern of strain is to be expected. During the period in between
-SSEs, secular strain rates indicate trench perpendicular compression
-throughout this study region \citep{Murray2000, McCaffrey2007,
-McCaffrey2013}. When comparing inferred strain rates from SSEs to the
-secular strain rates, we see that SSEs are concentrating tectonically
-accumulated strain energy towards the trench, and presumably pushing
-the subduction zone closer to failure.
+displacements, we can now use the GNSS data to calculate transient
+strain rates, $\strain$, in the Puget Sound region. We evaluate
+$\strain$ at a grid of points spanning the study area for each day
+from January 1, 2010 to May 15, 2017. In Figure \ref{fig:StrainMap},
+we show a map view of $\strain$ on January 1, 2016, which coincides
+with the height of the winter 2015-2016 SSE. In Figure
+\ref{fig:StrainTs}, we show a time series of $\strain$ at a position
+on the Olympic Peninsula, which tends to be where $\strain$ is the
+largest during SSEs. We also include a supplementary animation showing
+a map view of $\strain$ over time.
+
+% Describe the strain during SSEs and tectonic implications
+
+The strain rates shown in Figure \ref{fig:StrainMap} are generally
+similar to the strain rates during the other six SSEs considered in
+this study. The SSEs cause trench perpendicular compression in the
+Olympic Peninsula and extension east of Puget Sound. The strain
+transitions from compression to extension around the southern tip of
+Vancouver Island, which coincides with the location of thrust slip for
+SSEs in the Puget Sound region \citep[e.g.,][]{Dragert2001, Wech2009,
+Schmidt2010}. Thus, this pattern of strain is to be expected. During
+the period in between SSEs, secular strain rates indicate trench
+perpendicular compression throughout this study region
+\citep{Murray2000, McCaffrey2007, McCaffrey2013}. When comparing
+inferred strain rates from SSEs to the secular strain rates, we see
+that SSEs are concentrating tectonically accumulated strain energy
+towards the trench, and presumably pushing the subduction zone closer
+to failure.
 
 %A key difference between the strain inferred here and strain that can
 %be derived from fault slip models is that our estimated strain rates
@@ -1122,21 +1130,23 @@ the subduction zone closer to failure.
 \begin{figure*}
 \includegraphics{figures/strain_map/strain-map.pdf}
 \caption{
-Estimated transient strain rates during the Winter 2015-2016 SSE.
-Strain glyphs show the normal strain rate along each azimuth, where
-orange indicates compression and blue indicates extension. The shaded
-regions indicate one standard deviation uncertainties in the normal
-strain rates.
+Transient strain rates during the Winter 2015-2016 SSE. The glyphs
+show the normal strain rates as a function of azimuth, where orange
+indicates compression and blue indicates extension. The shaded regions
+indicate the one standard deviation uncertainties for the normal
+strain rates. It is common to depict strain rates by showing just the
+principal normal strain rates; however, we deviate from this
+convention because there is no straight-forward way of showing the
+uncertainties for the principal normal strain rates.
 }   
 \label{fig:StrainMap}
 \end{figure*}
 
-In Figure \ref{fig:StrainTs} we show the time dependence of estimated
-transient strain rates at a position on the Olympic Peninsula, where
-transient strain rates from SSEs are largest. To verify that the
-estimated transient strain rates are accurately identifying
-geophysical signal, we compare the signal-to-noise ratio from eq.
-(\ref{eq:SNR}) to the frequency of seismic tremor (Figure
+% compare seismic tremor to SNR
+
+To verify that the estimated transient strain rates are accurately
+identifying geophysical signal, we compare the signal-to-noise ratio
+from eq. (\ref{eq:SNR}) to the frequency of seismic tremor (Figure
 \ref{fig:StrainMag}). A signal-to-noise ratio greater than ${\sim}3$
 can be interpreted as a detected geophysical signal. We detect nine
 distinct events, which each correspond to peaks in seismic tremor. The

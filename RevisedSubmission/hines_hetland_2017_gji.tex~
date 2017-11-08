@@ -1187,7 +1187,7 @@ data. However, there are some aspects of our method that warrant
 further research. For example, there is potential for a more thorough
 analysis of the spatio-temporal noise in the GNSS data than what was
 performed in Section \ref{sec:NoiseModel}. Specifically, we did not
-explore spatially correlated noise, such as from common mode error. We
+explore spatially correlated noise, such as common mode error. We
 have assumed that any spatially correlated noise has a sufficiently
 long wavelength that it has a negligible effect on transient strain
 rates. We can also improve upon the seasonal noise model used in this
@@ -1219,32 +1219,23 @@ $\tau$ can be found with the REML method.
 
 Another potential research direction would be to reduce the
 computational cost of our method for estimating transient strain
-rates. GPR is generally a computationally expensive operation when
-there are many observations. The transient strain rates estimated in
-this study are constrained by about seven years of daily displacement
-observations from 94 GNSS stations, which amounts to about 240,000
-observations for each displacement component. For a dataset with this
-size, it is difficult to evaluate the matrix inverses in eqs.
-(\ref{eq:PosteriorMean3}) and (\ref{eq:PosteriorCov3}). We
-significantly reduce the amount of memory needed to estimate transient
-strain rates by describing the temporal covariance of displacements
-with a compact Wendland covariance function. Using a compact
-covariance function for our prior turns eqs. (\ref{eq:PosteriorMean3})
-and (\ref{eq:PosteriorCov3}) into sparse systems of equations, which
-is more tractable to solve. 
-
-
-
-
-CHOLMOD is
-designed for solving sparse, positive definite systems of equations.
-The matrix being inverted in eqs. (\ref{eq:PosteriorMean3}) and
-(\ref{eq:PosteriorCov3}) is not positive definite; however, we can use
-another partitioned matrix inversion identity from \citet{Press2007}
-to partition it into positive definite submatrices to be inverted.
-Even when using a compact covariance function, it may still be
-necessary to reduce the computational burden by dividing the data into
-subsets and evaluating transient strain rates for each subset.
+rates. GPR is generally computationally expensive when there are many
+observations. The transient strain rates estimated in this study are
+constrained by seven years of daily displacement observations from 94
+GNSS stations, which amounts to about 240,000 observations for each
+displacement component. For a dataset with this size, it is difficult
+to evaluate the matrix inverses in eqs. (\ref{eq:PosteriorMean3}) and
+(\ref{eq:PosteriorCov3}). We alleviate this computational cost by
+using a compact Wendland covariance function for our prior. By using a
+compact covariance function for our prior, eqs.
+(\ref{eq:PosteriorMean3}) and (\ref{eq:PosteriorCov3}) become sparse
+systems of equations that are more tractable to evaluate. However, the
+sparsity decreases when the Wendland covariance function has a larger
+time-scale parameter. The Wendland covariance then offers less of a
+computational advantage when we were interested in geophysical
+processes that occur over longer times-scales. An alternative approach
+to dealing with large datasets would be to explore approximation
+methods for GPR \citep[sec. 8]{Rassmussen2006}.
 
 % additional applications
 

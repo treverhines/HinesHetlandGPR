@@ -1,4 +1,4 @@
-\begin{thebibliography}{63}
+\begin{thebibliography}{62}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 
 \bibitem[Acheson(1975)]{Acheson1975}
@@ -230,12 +230,6 @@ Meade, B.~J. \& Hager, B.~H., 2005.
 \newblock {Block models of crustal motion in southern California constrained by
   GPS measurements}, {\it Journal of Geophysical Research: Solid Earth\/}, {\bf
   110}, 1--19.
-
-\bibitem[Miyazaki et~al.(2003)Miyazaki, McGuire, \& Segall]{Miyazaki2003}
-Miyazaki, S., McGuire, J.~J., \& Segall, P., 2003.
-\newblock {A transient subduction zone slip episode in southwest Japan observed
-  by the nationwide GPS array}, {\it Journal of Geophysical Research\/}, {\bf
-  108}(B2), 1--15.
 
 \bibitem[Moritz(1978)]{Moritz1978}
 Moritz, H., 1978.

@@ -55,6 +55,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{summary}
 
+% focus on subjective vs object rather than "we have uncertainties"
+
 Transient strain rates derived from GNSS data can be used to detect
 and understand geophysical phenomena such as slow slip events and
 postseismic deformation. Here we propose using Gaussian process
@@ -166,7 +168,7 @@ method described in \citet{Holt2013} was also tested in the SCEC
 transient detection exercise, which calculates strain rates using a
 bi-cubic spatial parameterization of displacements between time
 epochs. \citet{Holt2013} defined a detection threshold based on the
-strain rate magnitude, and below we demonstrate that this is indeed an
+strain rate magnitude, and we demonstrate that this is indeed an
 effective criterion for identifying geophysical signal. For the same
 reasons descibed above, the transient deformation and corresponding
 uncertainties estimated by these methods can be biased by the chosen
@@ -848,10 +850,10 @@ from Figure \ref{fig:NoiseParams}.
 Another significant source of noise in GNSS data is common mode error
 \citep[e.g.,][]{Wdowinski1997,Dong2006}, which is noise that is highly
 spatially correlated. When not accounted for, common mode error
-manifests as spatially uniform undulations in estimated transient
-displacements. However, estimated transient strain rates are
-insensitive to common mode error, and so we do not need to include
-common mode error in our noise model.
+manifests as spatially uniform undulations in our estimated transient
+displacements. These undulations have no effect on the transient
+strain rates, and so we do not need to include common mode error in
+our noise model.
 
 %% PRIOR MODEL
 \subsection{Prior model}\label{sec:SignalModel}
@@ -1176,32 +1178,65 @@ unknown origin would be outside the scope of this paper.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Discussion}\label{sec:Discussion}
 
-% Why transient strain, rather than displacements, are used to detect
-% geophysical signal
+% issues and potential improvements on noise
 
 Our results demonstrate that GPR is an effective tool for estimating
-transient strain from GNSS data, which can then be used to detect
-geophysical processes. One may argue that geophysical signal can also
-be detected by merely inspecting the GNSS displacement time series.
-Indeed, the SSEs identified in Figure \ref{fig:StrainMag} do produce
-visible displacements in the GNSS data. However, the GNSS data also
-contains outliers and non-tectonic deformation that is localized to
-individual stations. In contrast, our estimates of transient strain
-only identify features that are sufficiently spatially and temporally
-coherent, based on our chosen prior model. Furthermore, our estimates
-of transient strain are insensitive to common mode noise, which is
-highly spatially correlated noise resulting from factors such as
-reference frame error. Common mode noise can obscure geophysical
-signal in the GNSS data, but it gets canceled out when computing the
-transient strain. Lastly, our estimates of transient strain rates are
-a spatial and temporal derivative of displacements, and thus any
-geophysical signal in the transient strain rates tends to be more
-pronounced than in the GNSS data. For these reasons, we argue that
-transient strain rates estimated with the method described in Section
-\ref{sec:Method} can illuminate geophysical signal that may not be
-discernible from the noise in the GNSS displacement data.
+transient strain rates and detecting geophysical processes from GNSS
+data. However, there are some aspects of our method that warrant
+further research. For example, there is potential for a more thorough
+analysis of the spatio-temporal noise in the GNSS data than what was
+performed in Section \ref{sec:NoiseModel}. Specifically, we did not
+explore spatially correlated noise, such as from common mode error. We
+have assumed that any spatially correlated noise has a sufficiently
+long wavelength that it has a negligible effect on transient strain
+rates. We can also improve upon the seasonal noise model used in this
+study, which consists of four spatially uncorrelated sinusoids for
+each station. We did not explore the spatial covariance of seasonal
+deformation or the temporal roughness (i.e., the number of sinusoids
+needed to describe the observations). The periodic Gaussian process
+\citep{Mackay1998} is an alternative model for seasonal deformation
+and is well suited for exploring the roughness of seasonal
+deformation.  The periodic Gaussian process has zero mean and the
+covariance function 
 
-% Potential applications to BSM
+\begin{equation}\label{eq:Periodic}
+  T(t,t') = \phi^2 \exp\left(\frac{-\sin(\pi|t - t'|)^2}{2\tau^2}\right). 
+\end{equation}
+
+Realizations have annual periodicity and the roughness is controlled
+by $\tau$. Decreasing $\tau$ has the same effect as including higher
+frequency sinusoids in the seasonal model. The optimal value for
+$\tau$ can be found with the REML method as described in Section
+\ref{sec:NoiseModel}.
+
+% issues and potential improvements on numerical consideratiosn
+
+% Numerical considerations
+
+% note that the compact covariance function is not a perfect solution
+% because it is only compact if the signal has a short timescale. Long
+% wavelength features will still have a dense covariance matrix. This is
+% part of the reason why we omitted the temporal noise model.
+
+There are numerical considerations as well ...
+The transient strain rates estimated in this study are constrained by
+about seven years of daily displacement observations from 94 GNSS
+stations. It can be computationally intensive to evaluate eqs.
+(\ref{eq:PosteriorMean3}) and (\ref{eq:PosteriorCov3}) for a dataset
+with this size. We significantly reduce the amount of memory needed to
+estimate transient strain rates by describing the temporal covariance
+of displacements with a compact Wendland covariance function. Using a
+compact covariance function for our prior turns eqs.
+(\ref{eq:PosteriorMean3}) and (\ref{eq:PosteriorCov3}) into sparse
+systems of equations, which we then solve with CHOLMOD. CHOLMOD is
+designed for solving sparse, positive definite systems of equations.
+The matrix being inverted in eqs. (\ref{eq:PosteriorMean3}) and
+(\ref{eq:PosteriorCov3}) is not positive definite; however, we can use
+another partitioned matrix inversion identity from \citet{Press2007}
+to partition it into positive definite submatrices to be inverted.
+Even when using a compact covariance function, it may still be
+necessary to reduce the computational burden by dividing the data into
+subsets and evaluating transient strain rates for each subset.
 
 In addition to detecting geophysical processes, the GNSS derived
 transient strain rates can be used to better understand the data from
@@ -1225,58 +1260,6 @@ low-order polynomials. We envision that the GNSS derived strain rates
 from this paper can be used as a reference strain for calibrating BSM
 data and quantify its noise.
 
-% Potential improvements on the noise model
-
-There is potential for a more thorough analysis of the spatio-temporal
-noise in GNSS data, $\eta$, than what was performed in Section
-\ref{sec:NoiseModel}. We did not explore the spatial covariance of
-$\eta$, which would describe common mode noise. We are able to ignore
-common mode error in this study; however, for other geophysical
-studies based on GNSS data, such as fault slip inversions, it may be
-necessary to incorporate a spatially covarying noise model
-\citep[e.g.,][]{Miyazaki2003}. We can also improve upon the seasonal
-model used in this study, which consists of four spatially
-uncorrelated sinusoids for each station. We did not explore the
-spatial covariance of seasonal deformation or the temporal roughness
-(i.e., the number of sinusoids needed to describe the observations).
-The periodic Gaussian process \citep{Mackay1998} is an alternative
-model for seasonal deformation and is well suited for exploring the
-roughness of seasonal deformation.  The periodic Gaussian process has
-zero mean and the covariance function
-\begin{equation}\label{eq:Periodic}
-T(t,t') = \phi^2 \exp\left(\frac{-\sin(\pi|t - t'|)^2}{2\tau^2}\right).
-\end{equation}
-Realizations have annual periodicity and the roughness is controlled
-by $\tau$. Decreasing $\tau$ has the same effect as including higher
-frequency sinusoids in the seasonal model. The optimal value for
-$\tau$ can be found with the REML method as described in Section
-\ref{sec:NoiseModel}.
-
-% Numerical considerations
-
-% note that the compact covariance function is not a perfect solution
-% because it is only compact if the signal has a short timescale. Long
-% wavelength features will still have a dense covariance matrix. This is
-% part of the reason why we omitted the temporal noise model.
-
-The transient strain rates estimated in this study are constrained by
-about seven years of daily displacement observations from 94 GNSS
-stations. It can be computationally intensive to evaluate eqs.
-(\ref{eq:PosteriorMean3}) and (\ref{eq:PosteriorCov3}) for a dataset
-with this size. We significantly reduce the amount of memory needed to
-estimate transient strain rates by describing the temporal covariance
-of displacements with a compact Wendland covariance function. Using a
-compact covariance function for our prior turns eqs.
-(\ref{eq:PosteriorMean3}) and (\ref{eq:PosteriorCov3}) into sparse
-systems of equations, which we then solve with CHOLMOD. CHOLMOD is
-designed for solving sparse, positive definite systems of equations.
-The matrix being inverted in eqs. (\ref{eq:PosteriorMean3}) and
-(\ref{eq:PosteriorCov3}) is not positive definite; however, we can use
-another partitioned matrix inversion identity from \citet{Press2007}
-to partition it into positive definite submatrices to be inverted.
-Even when using a compact covariance function, it may still be
-necessary to reduce the computational burden by dividing the data into
-subsets and evaluating transient strain rates for each subset.
 
 %% CONCLUSION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

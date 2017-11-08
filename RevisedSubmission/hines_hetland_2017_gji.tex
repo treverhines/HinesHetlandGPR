@@ -1178,7 +1178,8 @@ unknown origin would be outside the scope of this paper.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Discussion}\label{sec:Discussion}
 
-% issues and potential improvements on noise
+%% Areas for improvement and further study
+% noise model
 
 Our results demonstrate that GPR is an effective tool for estimating
 transient strain rates and detecting geophysical processes from GNSS
@@ -1190,24 +1191,20 @@ explore spatially correlated noise, such as from common mode error. We
 have assumed that any spatially correlated noise has a sufficiently
 long wavelength that it has a negligible effect on transient strain
 rates. We can also improve upon the seasonal noise model used in this
-study, which consists of four spatially uncorrelated sinusoids for
-each station. We did not explore the spatial covariance of seasonal
-deformation or the temporal roughness (i.e., the number of sinusoids
-needed to describe the observations). The periodic Gaussian process
-\citep{Mackay1998} is an alternative model for seasonal deformation
-and is well suited for exploring the roughness of seasonal
+study, which consists of four sinusoids for each station. We did not
+explore the roughness of the seasonal deformation (i.e., the number of
+sinusoids needed to describe the deformation). The periodic Gaussian
+process \citep{Mackay1998} is an alternative model for seasonal
+deformation and is well suited for exploring the roughness of seasonal
 deformation.  The periodic Gaussian process has zero mean and the
-covariance function 
-
+covariance function
 \begin{equation}\label{eq:Periodic}
   T(t,t') = \phi^2 \exp\left(\frac{-\sin(\pi|t - t'|)^2}{2\tau^2}\right). 
 \end{equation}
-
 Realizations have annual periodicity and the roughness is controlled
 by $\tau$. Decreasing $\tau$ has the same effect as including higher
 frequency sinusoids in the seasonal model. The optimal value for
-$\tau$ can be found with the REML method as described in Section
-\ref{sec:NoiseModel}.
+$\tau$ can be found with the REML method.
 
 % issues and potential improvements on numerical consideratiosn
 
@@ -1218,17 +1215,28 @@ $\tau$ can be found with the REML method as described in Section
 % wavelength features will still have a dense covariance matrix. This is
 % part of the reason why we omitted the temporal noise model.
 
-There are numerical considerations as well ...
-The transient strain rates estimated in this study are constrained by
-about seven years of daily displacement observations from 94 GNSS
-stations. It can be computationally intensive to evaluate eqs.
-(\ref{eq:PosteriorMean3}) and (\ref{eq:PosteriorCov3}) for a dataset
-with this size. We significantly reduce the amount of memory needed to
-estimate transient strain rates by describing the temporal covariance
-of displacements with a compact Wendland covariance function. Using a
-compact covariance function for our prior turns eqs.
-(\ref{eq:PosteriorMean3}) and (\ref{eq:PosteriorCov3}) into sparse
-systems of equations, which we then solve with CHOLMOD. CHOLMOD is
+% numerical issues
+
+Another potential research direction would be to reduce the
+computational cost of our method for estimating transient strain
+rates. GPR is generally a computationally expensive operation when
+there are many observations. The transient strain rates estimated in
+this study are constrained by about seven years of daily displacement
+observations from 94 GNSS stations, which amounts to about 240,000
+observations for each displacement component. For a dataset with this
+size, it is difficult to evaluate the matrix inverses in eqs.
+(\ref{eq:PosteriorMean3}) and (\ref{eq:PosteriorCov3}). We
+significantly reduce the amount of memory needed to estimate transient
+strain rates by describing the temporal covariance of displacements
+with a compact Wendland covariance function. Using a compact
+covariance function for our prior turns eqs. (\ref{eq:PosteriorMean3})
+and (\ref{eq:PosteriorCov3}) into sparse systems of equations, which
+is more tractable to solve. 
+
+
+
+
+CHOLMOD is
 designed for solving sparse, positive definite systems of equations.
 The matrix being inverted in eqs. (\ref{eq:PosteriorMean3}) and
 (\ref{eq:PosteriorCov3}) is not positive definite; however, we can use

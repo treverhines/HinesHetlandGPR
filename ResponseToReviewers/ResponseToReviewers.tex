@@ -12,13 +12,44 @@
 \begin{letter}{}
 \opening{Dear Editor,}
 
-We were pleased with the positive comments from you and the reviewers, and we feel that the comments brought up valid concerns. We hope that we have addressed these concerns sufficiently in our revision. In order to fully address the comments, we have included a supplementary material document.  We have also made some changes to the manuscript which were not specifically requested by the reviewers.  Most of these changes were stylistic and do not change the content of the manuscript.  One of the more substantial changes was that we merged Figures 7 and 14, which are both showing observed and predicted radial components of postseismic displacements, facilitating direct comparison of the figures. 
+We were pleased with the positive comments from you and the reviewers,
+and we feel that the comments brought up valid concerns. We hope that
+we have addressed these concerns sufficiently in our revision. In
+order to fully address the comments, we have included a supplementary
+material document.  We have also made some changes to the manuscript
+which were not specifically requested by the reviewers.  Most of these
+changes were stylistic and do not change the content of the
+manuscript.  One of the more substantial changes was that we merged
+Figures 7 and 14, which are both showing observed and predicted radial
+components of postseismic displacements, facilitating direct
+comparison of the figures.
 
-We added supporting figures S3 and S4, which break down the predicted displacements of our preferred model into an elastic and viscoelastic component.  We feel that these figures help support our discussion on lines 509 to 523, where we attribute inferences of fault slip and viscoelastic relaxation to different aspects of the observed postseismic displacements.  
+We added supporting figures S3 and S4, which break down the predicted
+displacements of our preferred model into an elastic and viscoelastic
+component.  We feel that these figures help support our discussion on
+lines 509 to 523, where we attribute inferences of fault slip and
+viscoelastic relaxation to different aspects of the observed
+postseismic displacements.
 
-On line 500 to 502 of our previous version of this manuscript we make the claim that “After one year, afterslip is inferred to be deeper down on the Sierra Cucapah segment, which is describing much of the sustained near-field postseismic deformation.”  This sentence is not accurate of the preferred model we present in the manuscript. As can be clearly seen in the new figures S3-S4, afterslip is describing some of the later near-field deformation, although most of it is being described by viscoelastic relaxation.  We have reworded this passage and updated the introduction and conclusion to accurately describe our interpretations of the mechanisms driving later near-field deformation.  This does not significantly alter the main conclusions of our manuscript, because we are very clear, both in the original and revised versions, that the deformation mechanism driving later near-field deformation cannot be definitively resolved with these data.        
+On line 500 to 502 of our previous version of this manuscript we make
+the claim that “After one year, afterslip is inferred to be deeper
+down on the Sierra Cucapah segment, which is describing much of the
+sustained near-field postseismic deformation.” This sentence is not
+accurate of the preferred model we present in the manuscript. As can
+be clearly seen in the new figures S3-S4, afterslip is describing some
+of the later near-field deformation, although most of it is being
+described by viscoelastic relaxation.  We have reworded this passage
+and updated the introduction and conclusion to accurately describe our
+interpretations of the mechanisms driving later near-field
+deformation.  This does not significantly alter the main conclusions
+of our manuscript, because we are very clear, both in the original and
+revised versions, that the deformation mechanism driving later
+near-field deformation cannot be definitively resolved with these
+data.
 
-Each of the reviewer comments are included below followed by our response and a description of how these comments were addressed in this revised manuscript.
+Each of the reviewer comments are included below followed by our
+response and a description of how these comments were addressed in
+this revised manuscript.
 
 %% REVIEWER 1
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -45,10 +76,17 @@ together with the effects of using different kind of prior. Perhaps,
 that overshadows slightly your results. You could consider to
 reorganize the article to make it more readable for geophysicists.}
 
+I have rewritten the methods section to contain more examples and I
+elaborated on concepts that may not be familiar to a reader that does
+not have a strong background in stochastic processes. I sincerely hope
+that my revised draft is more readable to geophysicists.
 
 \textbf{I also require that a comparison between your outlier removal model
 and one other algorithm could help to support your claims about the
 efficiency of your method.}
+
+(See my response to the comment ``Also, the paper would be improved if
+the proposed outlier detection ...")
 
 \textbf{Otherwise, I have underlined a few clarifications needed about the
 stochastic model and some paragraphs within the text.}
@@ -77,6 +115,11 @@ covariance matrix is defined differently (see the literature – Bock and
 Melgar Reviews of Geophysics 2016, He et al., Journal of geodynamics
 2017).}
 
+I have changed my description of the data so that it includes a single
+term, $\eta$, that encompasses correlated and uncorrelated noise. I
+then break $\eta$ down into correlated and uncorrelated components in
+Section 3.1 (eq. 25), where I go into detail about the noise model for
+the Pacific Northwest. 
 
 \textbf{2- First, the author should give a summary of stochastic noise
 modelling in GNSS. I also think that a discussion is needed to relate
@@ -86,19 +129,52 @@ between the parameters in your deterministic model (i.e. secular
 velocities) could be absorbed in the estimation of the covariance
 matrix $C_{\eta}$.}
 
+In Section 3.1, I acknowledge that noise models for GNSS data have
+been thoroughly researched and my FOGM noise model is not a new
+concept. I fear that a full summary of stochastic noise modelling
+would be too much of a distraction to the reader. However, I have
+referred the reader to He et al 2017 for such a review TODO.
 
-\textbf{Now, I am confused When looking at p.8 Section 4.1, the description of
-the noise models should be given as a subsection of Section 2 p.4. I
-would also improve the literature review. Several other models have
-also been discussed (i.e. Montillet et al., 2014 uses a fractional
-Brownian motion model; ARMA, ARFIMA, GGM or Band pass noise – see Het
-et al., 2017).}
+We agree that the spatial correlation between paramaters in the
+deterministic model can be incorporated into our noise model. We
+acknowledge this possibility in Section when we say ``the secular
+velocities, $b_i$, are spatially correlated and we could invoke a
+tectonic model to form a prior on $b_i$. However, in our application
+to the Pacific Northwest, we will be using displacement time series
+which are long enough to sufficiently constrain $b_i$ for each
+station, avoiding the need to incorporate a prior. Likewise, seasonal
+deformation is spatially correlated (Dong et al. 2002; Langbein 2008),
+and it may be worth exploring and exploiting such a correlation in a
+future study."
+
+\textbf{Now, I am confused When looking at p.8 Section 4.1, the
+description of the noise models should be given as a subsection of
+Section 2 p.4. I would also improve the literature review. Several
+other models have also been discussed (i.e. Montillet et al., 2014
+uses a fractional Brownian motion model; ARMA, ARFIMA, GGM or Band
+pass noise – see Het et al., 2017).}
+
+The paper is laid out so that Section 2 contains a general description
+of the method, and Section 3 contains details that are specific to
+each application. The choice of noise model is specific to the
+application, and so we feel that it should remain in Section 3. To
+help clarify any confusion caused by this layout, we say in Section 2,
+``The appropriate noise model may vary depending on the application,
+and we hold off on specifying the covariance matrix, $C_{\eta_i}$,
+until Section 3.1".
+
+We feel that a full review on stochastic noise models would be a
+distraction to the reader, but we refer the reader to He et al 2017
+for such as review.
 
 \textbf{Outlier detection:}
 
 \textbf{1- P7 : I would give a longer summary in the introduction about all
 the efforts in outlier detection in GNSS time series. The first
 paragraph p.7 is not enough.}
+
+In Section 2.2, we have expanded our discussion of previous efforts to
+detect outliers in GNSS data.
 
 
 \textbf{2- Also, the paper would be improved if the proposed outlier detection
@@ -107,6 +183,28 @@ package (Bos et al., 2013). For example, the comparison between this
 method and another one could be done when applying the algorithm in p.
 13 (last paragraph below equation 18).}
 
+My outlier detection algorithm is quite similar to what is used in Bos
+et al 2013 (and many other papers), in that the outliers are
+determined based on the residuals for a best fitting model. The only
+difference is that I am fitting the data with a stochastic model
+rather than a parametric model consisting of a linear trend and
+sinusoids. When using a parametric model, I found that deformation
+from slow slip events would sometimes be erroneously identified as an
+outlier. The stochastic model used in my outlier detection method is
+more flexible and able to describe this transient deformation, and so
+only high frequency anomalous observations get identified as outliers.
+I have included Figure A1 to demonstrate this.
+
+Of course, a parametric model that includes, for example, B-splines
+would be just as effective at detecting outliers without removing
+geophysical signal. So I am not suggesting that my outlier detection
+method is a significant advancement or even a novel method. Instead, I
+am only describing my outlier detection method for the sake of
+completeness. The previous version of my paper seems to have put too
+much emphasis on the outlier detection method, when the main focus
+should remain on the method for estimating transient strain rates. To
+help keep my paper focused, I placed the description of the outlier
+detection method in the appendix.
 
 \textbf{Results:}
 
@@ -116,19 +214,34 @@ confusing. Perhaps, a table could summary the different priors and the
 main results. It would ease the reading of Section 4.2, 4.3 and then
 the discussion in Section 5.}
 
+In the previous draft, I was discussing two different priors: a prior
+for the outlier detection algorithm, and a prior used in computing
+transient strain rates. I acknowledge that this was convoluted. In the
+revised draft, all the details of the outlier detection algorithm are
+confined to the appendix. I hope this clarifies any confusion.
 
 \textbf{Minor issues:}
 
 \textbf{P2 line 30 : “fidelity” replace with “reliability”.}
+
+Done
 
 \textbf{P2 line 30-31 “ Developing and improving upon methods for deriving
 secular...area of research.” Need references.}
 
 \textbf{p.2 line 43 :”too large of an area” ... perhaps “ a very large area”}
 
+Done
+
 \textbf{P5 line 32 : “formal data uncertainty”: can you define it?}
 
+By "formal data uncertainties" I meant "the derived uncertainties that
+accompany the GNSS displacement solutions". The text has been
+clarified.
+
 \textbf{P 6 : Need reference to show Equation 15.}
+
+I have shown a few more steps in the derivation of eq. 15.
 
 \textbf{P 7 line 54-60: This paragraph can be further enhanced with references
 (Bock and Melgar, 2016, Gazeaux et al., 2013).}
@@ -138,6 +251,8 @@ Melbourne, Scriver 2009), (Melbourne and Szeliga 2005), (Melbourne and
 Webb, 2003, 2002).}
 
 \textbf{P.8 line 20 delete www.unavco.org (only in Acknowledgment)}
+
+Done
 
 \textbf{p. 11 line 45 “common mode error” you need to add some references and
 define it properly.}

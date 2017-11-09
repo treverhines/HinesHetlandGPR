@@ -66,17 +66,18 @@ scattered data. In our approach, we assume a stochastic prior model
 for transient displacements. The prior describes how much we expect
 transient displacements to covary spatially and temporally. A
 posterior estimate of transient strain rates is obtained by
-differentiating the posterior displacements. As a demonstration, we
-use GPR to detect transient strain resulting from slow slip events in
-the Pacific Northwest. Maximum likelihood methods are used to
-constrain a prior model for transient displacements in this region.
-The temporal covariance of our prior model is described by a compact
-Wendland covariance function, which significantly reduces the
-computational burden that can be associated with GPR. Our results
-reveal the spatial and temporal evolution of strain from slow slip
-events. We verify that the transient strain estimated with GPR is in
-fact geophysical signal by comparing it to the seismic tremor that is
-associated with Pacific Northwest slow slip events.
+differentiating the posterior displacements, which are formed by
+conditioning the prior with the GNSS data. As a demonstration, we use
+GPR to detect transient strain resulting from slow slip events in the
+Pacific Northwest. Maximum likelihood methods are used to constrain a
+prior model for transient displacements in this region. The temporal
+covariance of our prior model is described by a compact Wendland
+covariance function, which significantly reduces the computational
+burden that can be associated with GPR. Our results reveal the spatial
+and temporal evolution of strain from slow slip events. We verify that
+the transient strain estimated with GPR is in fact geophysical signal
+by comparing it to the seismic tremor that is associated with Pacific
+Northwest slow slip events.
 
 \end{summary}
 
@@ -102,7 +103,7 @@ assessing seismic hazard. While transient strain itself is not
 damaging, there is a risk that it can trigger major earthquakes
 \citep{Roeloffs2006,Freed2001}. Dense networks of continuous GNSS
 stations, such as the Plate Boundary Observatory (PBO), make it
-possible to identify transient strain with high fidelity. Developing
+possible to identify transient strain with high reliability. Developing
 and improving upon methods for deriving secular and transient strain
 from GNSS data is an active area of research.
 
@@ -117,7 +118,7 @@ gradients are constant) over some subnetwork of the GNSS stations
 rate tensor for each subnetwork are then determined from the least
 squares fit to the observations. The assumption that deformation
 gradients are spatially uniform is not appropriate when subnetworks
-span too large of an area. To help overcome this deficiency,
+span a very large area. To help overcome this deficiency,
 \citet{Shen1996,Shen2015} used an inverse distance weighting scheme,
 in which the estimated strain rate at a point is primarily controlled
 by observations at nearby stations. The method of
@@ -141,7 +142,7 @@ with a physically motivated model of interseismic deformation
 \citep[e.g.,][]{Meade2005,McCaffrey2007}. In such models the
 lithospheric rheology and fault geometries are assumed to be known.
 Any errors in the assumed physical model could result in biased strain
-estimates and underestimated formal uncertainties.
+estimates and underestimated uncertainties.
 
 % Existing methods for determining transient strain from GPS
 

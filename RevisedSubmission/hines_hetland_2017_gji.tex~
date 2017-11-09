@@ -58,30 +58,25 @@
 % focus on subjective vs object rather than "we have uncertainties"
 
 Transient strain rates derived from GNSS data can be used to detect
-and understand geophysical phenomena such as slow slip events and
+and understand geophysical processes such as slow slip events and
 postseismic deformation. Here we propose using Gaussian process
 regression (GPR) as a tool for estimating transient strain rates from
 GNSS data. GPR is a non-parametric, Bayesian method for interpolating
-scattered data. Transient strain rates estimated with GPR have
-meaningful uncertainties, allowing geophysical signal to be easily
-discerned from noise. In our approach, we assume a stochastic prior
-model for transient displacements. The prior describes how much one
-expects transient displacements to covary spatially and temporally. A
+scattered data. In our approach, we assume a stochastic prior model
+for transient displacements. The prior describes how much we expect
+transient displacements to covary spatially and temporally. A
 posterior estimate of transient strain rates is obtained by
-differentiating the posterior displacements. One limitation with GPR
-is that it is not robust against outliers, so we introduce a
-pre-processing method for detecting and removing outliers in GNSS
-data. As a demonstration, we use GPR to detect transient strain
-resulting from slow slip events in the Pacific Northwest. Maximum
-likelihood methods are used to constrain a prior model for transient
-displacements in this region. The temporal covariance of our prior
-model is described by a compact Wendland covariance function, which
-significantly reduces the computational burden that can be associated
-with GPR. Our results reveal the spatial and temporal evolution of
-strain from slow slip events. We verify that the transient strain
-estimated with GPR is in fact geophysical signal by comparing it to
-the seismic tremor that is associated with Pacific Northwest slow slip
-events.
+differentiating the posterior displacements. As a demonstration, we
+use GPR to detect transient strain resulting from slow slip events in
+the Pacific Northwest. Maximum likelihood methods are used to
+constrain a prior model for transient displacements in this region.
+The temporal covariance of our prior model is described by a compact
+Wendland covariance function, which significantly reduces the
+computational burden that can be associated with GPR. Our results
+reveal the spatial and temporal evolution of strain from slow slip
+events. We verify that the transient strain estimated with GPR is in
+fact geophysical signal by comparing it to the seismic tremor that is
+associated with Pacific Northwest slow slip events.
 
 \end{summary}
 
@@ -1235,14 +1230,14 @@ time-scale parameter. The Wendland covariance then offers less of a
 computational advantage when we were interested in geophysical
 processes that occur over longer times-scales. An alternative approach
 to dealing with large datasets would be to explore approximation
-methods for GPR \citep[sec. 8]{Rassmussen2006}.
+methods for GPR \citep[sec. 8]{Rasmussen2006}.
 
 % additional applications
 
 In addition to detecting geophysical processes, the GNSS derived
 transient strain rates can be used to better understand the data from
-borehole strain meters (BSMs). The Plate Boundary Observatory
-maintains about forty BSMs in the Pacific Northwest, and it has been
+borehole strain meters (BSMs). The Plate Boundary Observatory contains
+about forty BSMs in the Pacific Northwest, and it has been
 demonstrated that BSMs are able to record transient geophysical events
 such as SSEs \citep[e.g.,][]{Dragert2011}. However, there are
 complications that prevent BSM data from being used quantitatively in
@@ -1265,8 +1260,9 @@ data and quantify its noise.
 %% CONCLUSION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusion}\label{sec:Conclusion}
-In this paper we propose using Gaussian process regression (GPR) to
-estimate transient strain rates from GNSS data. Most other methods for
+
+We propose using Gaussian process regression (GPR) to estimate
+transient strain rates from GNSS data. Most other methods for
 estimating strain rates assume a parametric representation of
 deformation, which can bias the results if the parameterization is not
 chosen carefully. Here we assume a stochastic, rather than parametric,
@@ -1274,23 +1270,12 @@ prior model for displacements. Our prior model describes how much we
 expect transient displacements to covary spatially and temporally. If
 we know nothing about the underlying signal that we are trying to
 recover, then the prior model can be chosen objectively with maximum
-likelihood methods. Because GPR is a Bayesian method, the
-uncertainties on our estimated transient strain rates are well
-quantified, allowing one to discern geophysical signal from noise. We
-demonstrate that GPR is an effective tool for detecting geophysical
-phenomena, such as slow slip events, in our application to GNSS data
-from the Pacific Northwest. One limitation with GPR is that it is not
-robust against outliers. To overcome this limitation, we have
-introduced an effective pre-processing method for identifying and
-removing outliers from GNSS datasets. Another complication with GPR is
-that it usually involves inverting a dense matrix where the number of
-rows and columns is equal to the number of observations. This is
-prohibitive when using several years of daily GNSS observations from a
-network of several hundred stations. We significantly reduce the
-computational burden of GPR by using compact Wendland covariance
-function to describe our prior model. While this paper just focuses on
-estimating transient strain rates, we believe that GPR is a powerful
-tool that can be applied to a wide range of geophysical problems.
+likelihood methods. We demonstrate that GPR is an effective tool for
+detecting geophysical processes, such as slow slip events, in our
+application to the Pacific Northwest. While this paper just focuses on
+using GPR to estimate transient strain rates and detect geophysical
+processes, we believe that GPR is a powerful tool that can be applied
+to a wide range of geophysical problems.
 
 %% ACKNOWLEDGEMENTS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

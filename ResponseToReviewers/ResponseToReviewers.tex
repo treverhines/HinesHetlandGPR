@@ -1,0 +1,283 @@
+\documentclass[10pt,a4paper]{letter}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+
+\begin{document}
+
+\signature{Trever T. Hines}
+
+\begin{letter}{}
+\opening{Dear Editor,}
+
+We were pleased with the positive comments from you and the reviewers, and we feel that the comments brought up valid concerns. We hope that we have addressed these concerns sufficiently in our revision. In order to fully address the comments, we have included a supplementary material document.  We have also made some changes to the manuscript which were not specifically requested by the reviewers.  Most of these changes were stylistic and do not change the content of the manuscript.  One of the more substantial changes was that we merged Figures 7 and 14, which are both showing observed and predicted radial components of postseismic displacements, facilitating direct comparison of the figures. 
+
+We added supporting figures S3 and S4, which break down the predicted displacements of our preferred model into an elastic and viscoelastic component.  We feel that these figures help support our discussion on lines 509 to 523, where we attribute inferences of fault slip and viscoelastic relaxation to different aspects of the observed postseismic displacements.  
+
+On line 500 to 502 of our previous version of this manuscript we make the claim that “After one year, afterslip is inferred to be deeper down on the Sierra Cucapah segment, which is describing much of the sustained near-field postseismic deformation.”  This sentence is not accurate of the preferred model we present in the manuscript. As can be clearly seen in the new figures S3-S4, afterslip is describing some of the later near-field deformation, although most of it is being described by viscoelastic relaxation.  We have reworded this passage and updated the introduction and conclusion to accurately describe our interpretations of the mechanisms driving later near-field deformation.  This does not significantly alter the main conclusions of our manuscript, because we are very clear, both in the original and revised versions, that the deformation mechanism driving later near-field deformation cannot be definitively resolved with these data.        
+
+Each of the reviewer comments are included below followed by our response and a description of how these comments were addressed in this revised manuscript.
+
+%% REVIEWER 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textbf{Reviewer \#1:}\newline
+
+\textbf{Review of the paper : Revealing transient strain in geodetic data
+with Gaussian process regression}
+
+\textbf{Overview of the work: The paper focuses on a new non-parametric
+Bayesian method to estimate transient strain rate from GNSS data. It
+is based on Gaussian Process regression. The method also includes an
+outlier removal processing step. This technique is then applied to the
+detection of slow slip events in Cascadia. The validity of the
+detected transient signals is accomplished via comparison with the
+seismic tremor recorded along the Cascadia range.}
+
+
+\textbf{The article is well-written and your algorithm is very interesting. I
+think the use of Gaussian Process Regression is novel and open new
+roads in GNSS data analysis. I believe that you spend a lot of efforts
+in trying to justify most of the assumptions behind your model,
+together with the effects of using different kind of prior. Perhaps,
+that overshadows slightly your results. You could consider to
+reorganize the article to make it more readable for geophysicists.}
+
+
+\textbf{I also require that a comparison between your outlier removal model
+and one other algorithm could help to support your claims about the
+efficiency of your method.}
+
+\textbf{Otherwise, I have underlined a few clarifications needed about the
+stochastic model and some paragraphs within the text.}
+
+
+\textbf{General Comments:}
+
+\textbf{About the method:}
+
+\textbf{The method is well established. The assumptions to justify the various
+hypothesis on the deterministic models of the GNSS time series are
+generally well supported (seasonal signal, tectonic rate, offsets).}
+
+\textbf{1- Now, the correlation of the stochastic processes is not completely
+clear. When the authors justify the model behind equation 3, wij is a
+normally distributed, uncorrelated noise. In statistic, it is equal to
+a WGN process. Then, the authors introduce a separate parameter (eta)
+which models the temporally correlated noise. This parameter is also
+following a Gaussian distribution, with a zero-mean and a covariance
+matrix $C_{\eta}$ (i.e. line 10 p5). This approach is not common in
+modelling GNSS time series. The standard is based on Williams 2003,
+where the author established a stochastic model with a covariance
+matrix as sum of identity matrix for the white noise and another
+matrix which represents the coloured noise. The coloured noise
+covariance matrix is defined differently (see the literature – Bock and
+Melgar Reviews of Geophysics 2016, He et al., Journal of geodynamics
+2017).}
+
+
+\textbf{2- First, the author should give a summary of stochastic noise
+modelling in GNSS. I also think that a discussion is needed to relate
+to previous models. Why using separated stochastic models? Also I
+would comment on the possibility that the (low) spatial correlation
+between the parameters in your deterministic model (i.e. secular
+velocities) could be absorbed in the estimation of the covariance
+matrix $C_{\eta}$.}
+
+
+\textbf{Now, I am confused When looking at p.8 Section 4.1, the description of
+the noise models should be given as a subsection of Section 2 p.4. I
+would also improve the literature review. Several other models have
+also been discussed (i.e. Montillet et al., 2014 uses a fractional
+Brownian motion model; ARMA, ARFIMA, GGM or Band pass noise – see Het
+et al., 2017).}
+
+\textbf{Outlier detection:}
+
+\textbf{1- P7 : I would give a longer summary in the introduction about all
+the efforts in outlier detection in GNSS time series. The first
+paragraph p.7 is not enough.}
+
+
+\textbf{2- Also, the paper would be improved if the proposed outlier detection
+method is compared with existing ones such as the Hector software
+package (Bos et al., 2013). For example, the comparison between this
+method and another one could be done when applying the algorithm in p.
+13 (last paragraph below equation 18).}
+
+
+\textbf{Results:}
+
+\textbf{The results are generally well explained. However, the use of
+different priors and the comparison in the text is sometimes
+confusing. Perhaps, a table could summary the different priors and the
+main results. It would ease the reading of Section 4.2, 4.3 and then
+the discussion in Section 5.}
+
+
+\textbf{Minor issues:}
+
+\textbf{P2 line 30 : “fidelity” replace with “reliability”.}
+
+\textbf{P2 line 30-31 “ Developing and improving upon methods for deriving
+secular...area of research.” Need references.}
+
+\textbf{p.2 line 43 :”too large of an area” ... perhaps “ a very large area”}
+
+\textbf{P5 line 32 : “formal data uncertainty”: can you define it?}
+
+\textbf{P 6 : Need reference to show Equation 15.}
+
+\textbf{P 7 line 54-60: This paragraph can be further enhanced with references
+(Bock and Melgar, 2016, Gazeaux et al., 2013).}
+
+\textbf{P 8 : first paragraph. add references on Cascadia range (Aguiar,
+Melbourne, Scriver 2009), (Melbourne and Szeliga 2005), (Melbourne and
+Webb, 2003, 2002).}
+
+\textbf{P.8 line 20 delete www.unavco.org (only in Acknowledgment)}
+
+\textbf{p. 11 line 45 “common mode error” you need to add some references and
+define it properly.}
+
+\textbf{p.13 : “Wendland functions have compact support and hence their
+corresponding covariance.. sparse”. I would just mention that the
+associated covariance matrices are sparse.}
+
+\textbf{p.13 line 22 what is an “isotropic Gaussian process”? please add a
+definition.}
+
+\textbf{P.20 : “ Using a compact covariance function ..” Again I would just
+say that the covariance matrix is sparse and that s why you have the
+mathematical simplification.}
+
+\textbf{p.20 line 33 “ computational burden” I think that refers to p.20 line
+60 “prohibitive when using sveral years of daily GNSS”. It would
+interesting to have some number. How do you quantify the computation
+time to process longer and longer time series?}
+
+
+%% REVIEWER 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textbf{Reviewer \#2:}\newline
+
+\textbf{Comments to the Author(s)}
+\textbf{Hines/Hetland GJI Review 08/2017}
+
+\textbf{This is a well written paper and I have just a few minor
+clarifications and suggestions below.  One point that might be of
+interest to address is would it be possible to “approximate” this
+approach so that it can run much faster?  I gather from the text that
+the method is intensive for CPU and memory use.}
+
+\textbf{Page 3: Last line: min(t,t’) needs as scaling factor to make units for
+covariance e.g., m$^2$/yr}
+
+\textbf{Page 4: Stochastic model: It would seem that the assumption of no
+covariance between the north and east components is not a very good
+one since there is a tectonic framework in which the transients occur
+and its unlikely this framework aligns along the Cardinal directions.
+Maybe add a statement of impact of the neglect and possibly the idea
+of reorienting the “axes” to align with the tectonic framework e.g.,
+perpendicular to the subduction zone interface in this case?}
+
+\textbf{Page 4/5 Equation (3): Is it worth discussing at this point whether
+the estimates of u and n (eta) can be separated without explicit prior
+knowledge (which we may not have).  For example, orbit modeling errors
+on one satellite (e.g., due to an unknown yaw problem in the
+spacecraft) wilt generate a spatially and temporally correlated error
+in $d_{ij}$.  How does this (stochastically non-modeled) error not project
+in the u estimates?}
+
+\textbf{Page 6: Equation 10: Maybe it is discussed later in the paper but it
+is probably worthwhile stating at this point how the inverse is
+performed with a block 0 in the matrix?}
+
+\textbf{Page 6: Equation 12: Maybe some additional explanation is needed here.
+How are these partial derivatives formed.  My understanding the u
+estimates at this point correspond one-to-one with the positions and
+times of the GNSS position determinations.  Did I miss something?}
+
+\textbf{Page 8: Partly addresses issue raised about eqn 3.  It probably should
+be noted that wether conditions east of -121 deg longitude are
+different to the coast so there could be possible problems with this
+noise model.}
+
+%% Editor Review
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textbf{Editor:}\newline
+
+\textbf{Editor’s Review of GJI MS 17.0593 ‘‘Revealing transient strain...’’ by
+Hines and Hetland This is an novel algorithm applied to a problem of
+great current interest. Based on the reviewer’s comments and my own
+reading, I am recommending moderate revision. The authors’ response
+should include a description of their changes, and also a version of
+the paper on which these can be seen (just as highlights in the text).}
+
+\textbf{Many of the reviewers’ comments address places where the paper could
+be more clearly written, and my overall comment would be the same. The
+current version perhaps spends a little too much time on the
+background and not enough on explaining the method and its derivation.
+As shown by the references below (these include some the authors
+cite), and the Dermanis paper, which I have also attached, strain
+estimation from scattered data is an area in which there has been a
+lot more prior work than the authors mention. I am including these
+references not because the authors need to cite many or even most of
+them, but only to make the point that the problem of estimating
+strain, and of looking for transients, is a familiar one: for many
+readers, myself among them, much more familiar than the statistical
+methods applied here. So a slightly fuller discussion of these methods
+(perhaps a little more background and some reminders of, eg, what a
+hyperparameter is) would be welcome to many readers; and increased
+clarity of presentation usu- ally means that the paper will be used
+and cited more.}
+
+\textbf{I feel the same way about the section on detecting outliers: again, a
+well-worked area. Iter- ative fitting and outlier detection, as an
+overall strategy, hav e been used for a long time. I appreci- ate that
+by imposing spatial and temporal conditions you can identify outliers
+not otherwise obvi- ous, but it would help to show an example of this,
+rather than the current Figure 4, in which most of the identified
+cases are ones that any method could easily find.}
+
+\textbf{A few specifics (numbers are page+line):}
+
+\textbf{2+26: possibility not risk: the latter is a technical term in seismic
+hazard.}
+
+\textbf{2+47-48: I do not think this description of Shen’s method (which I’ve
+used and programmed) is right, since it allows the deformation
+gradients to vary in space. I’ve always thought of it as a kind of
+adaptive kernel smoother, somewhat like applying 2-D loess; so it is
+only depen- dent on nearby points, and has no assumption of uniformity
+anywhere. (Actually this raises a more general question: is the method
+given here use local or global support?)}
+
+\textbf{3+7: could also}
+
+\textbf{3+32: redo the sentence; as it stands, you are saying that the SCEC
+exercise calculates strain rates.}
+
+\textbf{3+37: a geophysical signal}
+
+\textbf{3+47: function not signal}
+
+\textbf{3+56: by a Gaussian, not with}
+
+\textbf{4+37: displacement (not plural)}
+
+\textbf{6+56: I suspect that equation (15) took some effort to derive; could
+some details go into an Appendix?}
+
+\textbf{Figure 6: I like that the strain uncertainties can be shown, but is
+there a reason not to plot principle strains using arrows, showing
+errors by an ellipse around the tips?}
+
+\closing{Thank you for your continued consideration,}
+
+\end{letter}
+\end{document}

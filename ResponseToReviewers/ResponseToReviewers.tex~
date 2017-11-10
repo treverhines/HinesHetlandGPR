@@ -142,7 +142,7 @@ decided to save a discussion on the noise model for Section 3. This is
 clarified in Section 2 of the revised draft when I say "The
 appropriate noise model may vary depending on the application, and we
 hold off on specifying the covariance matrix, $\mitbf{C}_{\eta_i}$,
-until Section \ref{sec:NoiseModel}."
+until Section 3.1."
 
 \textbf{Now, I am confused When looking at p.8 Section 4.1, the
 description of the noise models should be given as a subsection of
@@ -303,26 +303,6 @@ that are used, the linear solver algorithm, etc.) and I am not
 convinced that my implementation is the most efficient. So I do not
 give details on the computation time, but I note in the discussion
 that this is an area for further research.
-
-
-depends on how clever I was in
-implementing the algorithm. 
-
-on many factors such as the
-sparse matrix type, 
-
-There are many different ways to implement our method
-for calculating transient strain rates and I am not convinced that I
-have found the most numerically efficient approach. For example, 
-
-There are many different numerical tricks that
-can be done to evaluate the transient strain rates more efficiently.
-
-
-that I have found the most
-numerically efficient way do so.
-
-to evaluate the transient strain rates. 
 
 
 %% REVIEWER 2

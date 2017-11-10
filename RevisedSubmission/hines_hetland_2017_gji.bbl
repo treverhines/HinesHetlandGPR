@@ -1,4 +1,4 @@
-\begin{thebibliography}{64}
+\begin{thebibliography}{65}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 
 \bibitem[Acheson(1975)]{Acheson1975}
@@ -308,6 +308,11 @@ Schmidt, D.~A. \& Gao, H., 2010.
 \newblock {Source parameters and time-dependent slip distributions of slow slip
   events on the Cascadia subduction zone from 1998 to 2008}, {\it Journal of
   Geophysical Research: Solid Earth\/}, {\bf 115}(4), 1--13.
+
+\bibitem[Schwartz \& Rokosky(2007)]{Schwartz2007}
+Schwartz, S.~Y. \& Rokosky, J.~M., 2007.
+\newblock {Slow slip events and seismic tremor at circum-Pacific subduction
+  zones}, {\it Reviews of Geophysics\/}, {\bf 45}, 1--32.
 
 \bibitem[Segall \& Mathews(1997)]{Segall1997}
 Segall, P. \& Mathews, M., 1997.

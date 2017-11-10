@@ -231,11 +231,12 @@ vector and a covariance matrix, a Gaussian process is fully determined
 by a mean function and a covariance function. For example, Brownian
 motion, $B(t)$, is a well known Gaussian process in $\mathbb{R}^1$
 which has the mean function $\E{B(t)} = 0$ and the covariance function
-$\Cov{B(t),B(t')} = \min(t,t')$, where $t,t' \ge 0$. We let each
-component of $\vec{u}$ have zero mean and a generic covariance
-function $\Cov{u_i(p),u_i(p')} = C_{u_i}(p,p')$. Using a more concise
-notation, we write our prior on each component of $\vec{u}$ as $u_i
-\sim \mathcal{GP}\left(0,C_{u_i}\right)$.
+$\Cov{B(t),B(t')} = \phi^2 \min(t,t')$, where $t,t' \ge 0$ and $\phi$
+is a scale factor. We let each component of $\vec{u}$ have zero
+mean and a generic covariance function $\Cov{u_i(p),u_i(p')} =
+C_{u_i}(p,p')$. Using a more concise notation, we write our prior on
+each component of $\vec{u}$ as $u_i \sim
+\mathcal{GP}\left(0,C_{u_i}\right)$.
 
 % Constraints on the Covariance function
 
@@ -750,7 +751,7 @@ The covariance function for $z_i$ is then
 C_{z_i}\left((\pos,t),(\pos',t')\right) = \frac{\beta^2}{2\alpha} 
                                           \exp\left(-\alpha|t - t'|\right)\delta_{\pos,\pos'}, 
 \end{equation}
-where $\delta_{\pos,\pos'}$ is 1 if $\pos = \pos'$ and 0 otherwise,
+where $\delta_{\pos,\pos'}$ is 1 if $\pos = \pos'$ and 0 otherwise
 \citep[sec. B2]{Rasmussen2006}.
 
 

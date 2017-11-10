@@ -231,11 +231,12 @@ vector and a covariance matrix, a Gaussian process is fully determined
 by a mean function and a covariance function. For example, Brownian
 motion, $B(t)$, is a well known Gaussian process in $\mathbb{R}^1$
 which has the mean function $\E{B(t)} = 0$ and the covariance function
-$\Cov{B(t),B(t')} = \min(t,t')$, where $t,t' \ge 0$. We let each
-component of $\vec{u}$ have zero mean and a generic covariance
-function $\Cov{u_i(p),u_i(p')} = C_{u_i}(p,p')$. Using a more concise
-notation, we write our prior on each component of $\vec{u}$ as $u_i
-\sim \mathcal{GP}\left(0,C_{u_i}\right)$.
+$\Cov{B(t),B(t')} = \phi^2 \min(t,t')$, where $t,t' \ge 0$ and $\phi$
+is a scale factor. We let each component of $\vec{u}$ have zero
+mean and a generic covariance function $\Cov{u_i(p),u_i(p')} =
+C_{u_i}(p,p')$. Using a more concise notation, we write our prior on
+each component of $\vec{u}$ as $u_i \sim
+\mathcal{GP}\left(0,C_{u_i}\right)$.
 
 % Constraints on the Covariance function
 
@@ -1109,7 +1110,7 @@ the Olympic Peninsula and extension east of Puget Sound. The strain
 transitions from compression to extension around the southern tip of
 Vancouver Island, coinciding with where fault slip tends to be
 inferred \citep[e.g.,][]{Dragert2001, Wech2009, Schmidt2010}. Thus,
-this pattern of strain is to be expected. Over decadal timescales,
+this pattern of strain is to be expected. Over decadal time-scales,
 there is trench perpendicular compression throughout this study region
 caused by steady tectonic plate motion \citep{Murray2000,
 McCaffrey2007, McCaffrey2013}. When comparing the transient strain

@@ -328,8 +328,16 @@ interest to address is would it be possible to “approximate” this
 approach so that it can run much faster?  I gather from the text that
 the method is intensive for CPU and memory use.}
 
-\textbf{Page 3: Last line: min(t,t’) needs as scaling factor to make units for
-covariance e.g., m$^2$/yr}
+Our approach is indeed computationally intensive and approximation
+methods for GPR do exist. In the discussion section for the revised
+draft, we suggest exploring these approximation methods in future
+research. 
+
+\textbf{Page 3: Last line: min(t,t’) needs as scaling factor to make
+units for covariance e.g., m$^2$/yr}
+
+We added the scale factor $\phi$ to the covariance function for
+Brownian motion.
 
 \textbf{Page 4: Stochastic model: It would seem that the assumption of no
 covariance between the north and east components is not a very good
@@ -339,6 +347,11 @@ Maybe add a statement of impact of the neglect and possibly the idea
 of reorienting the “axes” to align with the tectonic framework e.g.,
 perpendicular to the subduction zone interface in this case?}
 
+This is a good point that we neglected to mention in the previous
+draft. We have added a paragraph to Section 2 that explains the
+reasoning and implications for this assumption. The paragraph starts
+with "It should be noted that we have ignored any covariances ...".
+
 \textbf{Page 4/5 Equation (3): Is it worth discussing at this point whether
 the estimates of u and n (eta) can be separated without explicit prior
 knowledge (which we may not have).  For example, orbit modeling errors
@@ -347,19 +360,45 @@ spacecraft) wilt generate a spatially and temporally correlated error
 in $d_{ij}$.  How does this (stochastically non-modeled) error not project
 in the u estimates?}
 
+TODO
+
 \textbf{Page 6: Equation 10: Maybe it is discussed later in the paper but it
 is probably worthwhile stating at this point how the inverse is
 performed with a block 0 in the matrix?}
+
+The matrix being inverted in eq. 10 and 11 of the revised draft is
+still invertible with the block 0, provided that the columns of
+$\mitbf{G}$ are linearly dependent. This is explained in the revised
+draft.
 
 \textbf{Page 6: Equation 12: Maybe some additional explanation is needed here.
 How are these partial derivatives formed.  My understanding the u
 estimates at this point correspond one-to-one with the positions and
 times of the GNSS position determinations.  Did I miss something?}
 
-\textbf{Page 8: Partly addresses issue raised about eqn 3.  It probably should
-be noted that wether conditions east of -121 deg longitude are
-different to the coast so there could be possible problems with this
-noise model.}
+The posterior displacements, $\hat{u}$, are actually a spatially and
+temporally continuous stochastic process. We can evaluated $\hat{u}$
+at any position and time that we may be interested in. We are also
+able to compute the spatial and temporal derivatives analytically. In
+Section 2 of the revised draft, we explain how the derivatives are
+computed in greater detail. We hope this clarifies any confusion.
+
+\textbf{Page 8: Partly addresses issue raised about eqn 3.  It
+probably should be noted that wether conditions east of -121 deg
+longitude are different to the coast so there could be possible
+problems with this noise model.}
+
+This is also a good point that we neglected to mention in the first
+draft. In Section 3.1 of the revised draft, we acknowledge the
+potentially dubious assumption that noise east of -121 is
+representative of the entire region. We added the disclaimer saying
+"We assume the noise at these inland stations is representative of the
+noise at all the stations considered in this study, which is probably
+a poor assumption since the inland stations are subject to distincly
+different climatic conditions".
+
+
+Sectionthe 
 
 %% Editor Review
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

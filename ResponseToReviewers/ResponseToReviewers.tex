@@ -19,6 +19,8 @@
 % THE NOISE MODEL WAS INCORRECT BECAUSE I USED A DIRAC RATHER THAN A
 % KRONECKER DELTA.
 
+% WE ADDED MORE POSTERIOR DISPLACEMENT FIGURES
+
 We were pleased with the positive comments from you and the reviewers,
 and we feel that the comments brought up valid concerns. We hope that
 we have addressed these concerns sufficiently in our revision. In
@@ -85,11 +87,12 @@ reorganize the article to make it more readable for geophysicists.}
 
 I have taken several steps to make my revised draft more accessible to
 someone who does not have a strong background in stochastic processes:
-I rewritten the methods section to be clearer, contain more examples,
-and elaborate on potentially unfamiliar concepts. I have also added
-more references to the methods section to make it easier for the
-reader to find additional information. I sincerely hope that my
-revised draft is more readable to geophysicists.
+I rewritten the methods section to be clearer, avoid esoteric jargon,
+contain more examples, and elaborate on potentially unfamiliar
+concepts. I have also added more references to the methods section to
+make it easier for the reader to find additional information. I
+sincerely hope that my revised draft is more readable to
+geophysicists.
 
 \textbf{I also require that a comparison between your outlier removal model
 and one other algorithm could help to support your claims about the
@@ -359,6 +362,49 @@ on one satellite (e.g., due to an unknown yaw problem in the
 spacecraft) wilt generate a spatially and temporally correlated error
 in $d_{ij}$.  How does this (stochastically non-modeled) error not project
 in the u estimates?}
+
+If we have absolutely no prior knowledge about u or eta then it would
+not be possible to distinguish transient displacements from noise. I
+think this should go without saying.
+
+In this paper, our "prior knowledge" is that inland stations are
+unlikely to record SSE displacements, which allows us to isolate and
+characterize the statistical properties of eta. In Section 3.1, we
+only explored the temporal covariance of eta, but we could have also
+explored the spatial covariance of eta and potentially identified
+noise from orbit modeling errors. If we did find spatially correlated
+noise in eta, then our estimates of u would not be invalidated;
+rather, the estimates of u would just have larger uncertainties.
+However, we did not look for spatially correlated noise in this paper,
+and it is certainly possible that an unknown noise process could have
+propagated into our estimates of u.
+
+While the reviewer makes a valid point, I think it should go without
+saying that the an inappropriate model for $u$ and $\eta$ would
+invalidate our results for transient strain rates.
+
+it is unclear how we should
+update the text. In section 2 of the text, the statistical properties
+of $u$ and $\eta$ are assumed known, although not yet specified. 
+
+It
+should go without saying that an inappropriate model for $u$ or $\eta$
+would invalidate our estimates of transient strain rates.
+
+
+ We make it clear in the text that we do that 
+
+If there are unknown orbit modeling errors, for example, then that noise could conceivably be 
+
+
+Once eta is
+characterized, we are able to characterize u.
+
+
+ We then characterize the eta
+
+
+If a spatially and temporally correlated noise exists and we have incorporated it into 
 
 TODO
 

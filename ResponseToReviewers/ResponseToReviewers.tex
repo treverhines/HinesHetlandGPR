@@ -132,17 +132,17 @@ velocities) could be absorbed in the estimation of the covariance
 matrix $C_{\eta}$.}
 
 I believe the reviewer is refering to page 4-5 of the original draft,
-where I first introduce $\eta$. I do not think this is an appropriate
-place for a discussion on the noise model, or for a summary of past
-studies. The paper is laid out so that Section 2 contains a general
-description of the method for estimating transient strain rates, and
-Section 3 contains details that are specific to the particular
-application. There is no universally appropriate noise model so I
-decided to save a discussion on the noise model for Section 3. This is
-clarified in Section 2 of the revised draft when I say "The
-appropriate noise model may vary depending on the application, and we
-hold off on specifying the covariance matrix, $C_{\eta_i}$,
-until Section 3.1."
+where I first introduce $\eta$. I agree that a more thorough
+discussion on the noise model is necessary, but I do not think this is
+an appropriate place in the text for it. The paper is laid out so that
+Section 2 contains a general description of the method for estimating
+transient strain rates, and Section 3 contains details that are
+specific to the particular application. There is no universally
+appropriate noise model, so I decided to save a discussion on the
+noise model for Section 3. This is clarified in Section 2 of the
+revised draft when I say "The appropriate noise model may vary
+depending on the application, and we hold off on specifying the
+covariance matrix, $C_{\eta_i}$, until Section 3.1."
 
 \textbf{Now, I am confused When looking at p.8 Section 4.1, the
 description of the noise models should be given as a subsection of
@@ -158,7 +158,7 @@ application.
 We have added a few more references in Section 3.1 of the revised
 draft TODO to emphasize that GNSS noise modeling is a well-worked
 area. We refer the reader to Bock and Melgar 2016 and He et al 2017
-for a more thorough review.
+for a more complete review.
 
 \textbf{Outlier detection:}
 
@@ -166,8 +166,8 @@ for a more thorough review.
 the efforts in outlier detection in GNSS time series. The first
 paragraph p.7 is not enough.}
 
-In Section 2.2 of the revised draft, I have expanded the discussion of
-previous efforts to detect outliers in GNSS data.
+In Section 2.2 of the revised draft, I have expanded my discussion on
+how previous studies have treated outliers in GNSS data.
 
 \textbf{2- Also, the paper would be improved if the proposed outlier detection
 method is compared with existing ones such as the Hector software
@@ -212,6 +212,9 @@ transient strain rates. I acknowledge that this was convoluted. In the
 revised draft, all the details of the outlier detection algorithm are
 confined to the appendix. I hope this clarifies any confusion.
 
+Also, I have rewritten most of the results section to be more
+structured and hopefully have a clearer focus.
+
 \textbf{Minor issues:}
 
 \textbf{P2 line 30 : “fidelity” replace with “reliability”.}
@@ -221,7 +224,7 @@ Done
 \textbf{P2 line 30-31 “ Developing and improving upon methods for deriving
 secular...area of research.” Need references.}
 
-TODO
+The introduction has been revised and this sentence has been removed.
 
 \textbf{p.2 line 43 :”too large of an area” ... perhaps “ a very large area”}
 
@@ -295,15 +298,14 @@ My personal preference is to leave the wording as is.
 interesting to have some number. How do you quantify the computation
 time to process longer and longer time series?}
 
-I agree that numerical values would be interesting; however, I am
-reluctant to quantify the computational cost of evaluation transient
-strain rates. There are many factors that influence the computational
-cost (whether sparse matrices are used, the type of sparse matrices
-that are used, the linear solver algorithm, etc.) and I am not
-convinced that my implementation is the most efficient. So I do not
-give details on the computation time, but I note in the discussion
-that this is an area for further research.
-
+I agree that numerical values would be useful; however, I am reluctant
+to quantify the computational cost of evaluation transient strain
+rates. There are many factors that influence the computational cost
+(whether sparse matrices are used, the type of sparse matrices that
+are used, the linear solver algorithm, etc.) and I am not convinced
+that my implementation is the most efficient. So I do not give details
+on the computation time, but I note in the discussion that this is an
+area for further research.
 
 %% REVIEWER 2
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

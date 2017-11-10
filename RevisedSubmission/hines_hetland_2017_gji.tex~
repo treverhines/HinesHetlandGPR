@@ -663,7 +663,9 @@ necessary to manually find and remove jumps of unknown origin.
 
 In this section we estimate transient strain rates in the Pacific
 Northwest, and we are specifically interested in identifying transient
-strain resulting from SSEs \citep[e.g.,][]{Dragert2001}. Before
+strain resulting from SSEs. SSEs in the Pacific Northwest were first
+discovered by \citep[e.g.,][]{Dragert2001} and we refer the reader to
+\citet{Schwartz2007} for a review of the subsequent research. Before
 estimating transient strain rates, we establish a noise model for GNSS
 stations in this region, and we establish a prior Gaussian process to
 describe displacements from SSEs. SSEs in the Pacific Northwest can be
@@ -724,31 +726,29 @@ covariance matrix
 
 The temporally correlated noise in GNSS data has been thoroughly
 studied over the past two decades \citep[e.g.,][]{Zhang1997, Mao1999,
-Williams2004, Langbein2008}. In these studies, temporally correlated
-noise tends to be described with some combination of Brownian motion
-(also known as random walk noise or a Weiner process), a first-order
-Gauss-Markov (FOGM) process, and/or flicker noise. There is some
-physical justification for using Brownian motion as a noise model
-because it accurately describes the power spectrum of motion resulting
-from instability in a geodetic monument \citep[e.g.,][]{Wyatt1982,
-Wyatt1989}. In particular, the power spectrums for Brownian motion and
-monument motion both decay proportionally to $f^{-2}$, where $f$ is
-frequency. However, Brownian motion necessarily contains a reference
-time at which the process begins. Since there is no notion of when
-noise ``begins" in GNSS data, we do not find Brownian motion to be an
-appropriate noise model. On the other hand, a FOGM process has no
-reference time (i.e., it is stationary), and its power spectrum,
-\begin{equation}\label{eq:FOGMPS}
-S(f) = \frac{\beta^2}{(2 \pi f)^2 + \alpha^2},
-\end{equation}
-decays proportionally to $f^{-2}$ above the cutoff frequency $\alpha /
-(2 \pi)$. We then choose $z_i$ to be a spatially
-uncorrelated FOGM process, which has the covariance function
+Williams2004, Langbein2008} (See \citet{Bock2016} or \citet{He2017}
+for a review of GNSS noise modelling). In these studies, temporally
+correlated noise tends to be described with some combination of
+Brownian motion (also known as random walk noise or a Weiner process),
+a first-order Gauss-Markov (FOGM) process, and/or flicker noise. There
+is some physical justification for using Brownian motion as a noise
+model because it accurately describes the power spectrum of motion
+resulting from instability in a geodetic monument
+\citep[e.g.,][]{Wyatt1982, Wyatt1989}. In particular, the power
+spectrums for Brownian motion and monument motion both decay
+proportionally to $f^{-2}$, where $f$ is frequency. However, Brownian
+motion necessarily contains a reference time at which the process
+begins. Since there is no notion of when noise ``begins" in GNSS data,
+we do not find Brownian motion to be an appropriate noise model. On
+the other hand, a FOGM process has no reference time (i.e., it is
+stationary), and its power spectrum, \begin{equation}\label{eq:FOGMPS}
+S(f) = \frac{\beta^2}{(2 \pi f)^2 + \alpha^2}, \end{equation} decays
+proportionally to $f^{-2}$ above the cutoff frequency $\alpha / (2
+\pi)$. We then choose $z_i$ to be a spatially uncorrelated FOGM
+process, which has the covariance function
 \begin{equation}\label{eq:FOGM}
-C_{z_i}\left((\pos,t),(\pos',t')\right) = 
-\frac{\beta^2}{2\alpha}
-\exp\left(-\alpha|t - t'|\right)\delta_{\pos,\pos'},
-\end{equation}
+C_{z_i}\left((\pos,t),(\pos',t')\right) = \frac{\beta^2}{2\alpha}
+\exp\left(-\alpha|t - t'|\right)\delta_{\pos,\pos'}, \end{equation}
 where $\delta_{\pos,\pos'}$ is 1 if $\pos = \pos'$ and 0 otherwise.
 See \citet[sec. B2]{Rasmussen2006} for more information on the FOGM
 process.
@@ -877,18 +877,20 @@ one-dimensional SE covariance function,
 \begin{equation}\label{eq:TimeSE}
 T_i(t,t') = \phi^2\exp\left(\frac{-|t - t'|^2}{2\tau^2}\right).
 \end{equation}
+
 Note that $T_i$ includes the parameter $\phi$, which serves to scale
 the covariance function $C_{u_i}$. The second option is a member of
 the Wendland class of covariance functions \citep{Wendland2005}.
 Wendland covariance functions have compact support and hence their
-corresponding covariance matrices are sparse. In our analysis, we
-exploit this sparsity with the CHOLMOD software package
-\citep{Chen2008}. Wendland covariance functions can be constructed
-such that they are positive definite in $\mathbb{R}^d$ and their
-corresponding Gaussian process can be differentiated $k$ times. We use
-$d=1$, because we are describing the temporal covariance of $u_i$, and
-we use $k=2$, giving samples of $u_i$ continuous velocities and
-accelerations. The corresponding Wendland covariance function is
+corresponding covariance matrices are sparse. We exploit this sparsity
+with the CHOLMOD software package \citep{Chen2008}. Wendland
+covariance functions can be constructed such that they are positive
+definite in $\mathbb{R}^d$ and their corresponding Gaussian process
+can be differentiated $k$ times. We use $d=1$, because we are
+describing the temporal covariance of $u_i$, and we use $k=2$, giving
+samples of $u_i$ continuous velocities and accelerations. The
+corresponding Wendland covariance function is
+
 \begin{equation}\label{eq:Wendland} 
 T_i(t,t') = \phi^2\left(1 - \frac{|t - t'|}{\tau}\right)^5_+ 
             \left(\frac{8|t - t'|^2}{\tau^2} + \frac{5|t - t'|}{\tau} + 1\right), 

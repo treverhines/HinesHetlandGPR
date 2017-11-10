@@ -1,4 +1,4 @@
-\begin{thebibliography}{62}
+\begin{thebibliography}{64}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 
 \bibitem[Acheson(1975)]{Acheson1975}
@@ -24,6 +24,11 @@ Blewitt, G., Kreemer, C., Hammond, W.~C., \& Gazeaux, J., 2016.
 \newblock {MIDAS robust trend estimator for accurate GPS station velocities
   without step detection}, {\it Journal of Geophysical Research : Solid
   Earth\/}, {\bf 121}, 2054--2068.
+
+\bibitem[Bock \& Melgar(2016)]{Bock2016}
+Bock, Y. \& Melgar, D., 2016.
+\newblock {Physical applications of GPS geodesy: a review}, {\it Reports on
+  Progress in Physics\/}, {\bf 79}(10), 106801.
 
 \bibitem[Bos et~al.(2013)Bos, Fernandes, Williams, \& Bastos]{Bos2013}
 Bos, M.~S., Fernandes, R. M.~S., Williams, S. D.~P., \& Bastos, L., 2013.
@@ -131,6 +136,14 @@ Harville, D.~A., 1974.
 Hastie, T., Tibshirani, R., \& Friedman, J., 2009.
 \newblock {\it {The Elements of Statistical Learning: Data Mining, Inference,
   and Prediction}\/}, Springer-Verlag, 2nd edn.
+
+\bibitem[He et~al.(2017)He, Montillet, Fernandes, Bos, Yu, Hua, \&
+  Jiang]{He2017}
+He, X., Montillet, J.~P., Fernandes, R., Bos, M., Yu, K., Hua, X., \& Jiang,
+  W., 2017.
+\newblock {Review of current GPS methodologies for producing accurate time
+  series and their error sources}, {\it Journal of Geodynamics\/}, {\bf 106},
+  12--29.
 
 \bibitem[Herring et~al.(2016)Herring, Melbourne, Murray, Floyd, Szeliga, King,
   Phillips, Puskas, Santillan, \& Wang]{Herring2016}

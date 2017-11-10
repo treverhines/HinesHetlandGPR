@@ -722,33 +722,37 @@ covariance matrix
 % Justifying our temporal noise model
 
 The temporally correlated noise in GNSS data has been thoroughly
-studied over the past two decades \citep[e.g.,][]{Zhang1997, Mao1999,
-Williams2004, Langbein2008} (See \citet{Bock2016} or \citet{He2017}
-for a review of GNSS noise modelling). In these studies, temporally
-correlated noise tends to be described with some combination of
-Brownian motion (also known as random walk noise or a Weiner process),
-a first-order Gauss-Markov (FOGM) process, and/or flicker noise. There
-is some physical justification for using Brownian motion as a noise
-model because it accurately describes the power spectrum of motion
-resulting from instability in a geodetic monument
-\citep[e.g.,][]{Wyatt1982, Wyatt1989}. In particular, the power
-spectrums for Brownian motion and monument motion both decay
-proportionally to $f^{-2}$, where $f$ is frequency. However, Brownian
-motion necessarily contains a reference time at which the process
-begins. Since there is no notion of when noise ``begins" in GNSS data,
-we do not find Brownian motion to be an appropriate noise model. On
-the other hand, a FOGM process has no reference time (i.e., it is
-stationary), and its power spectrum, \begin{equation}\label{eq:FOGMPS}
-S(f) = \frac{\beta^2}{(2 \pi f)^2 + \alpha^2}, \end{equation} decays
-proportionally to $f^{-2}$ above the cutoff frequency $\alpha / (2
-\pi)$. We then choose $z_i$ to be a spatially uncorrelated FOGM
-process, which has the covariance function
+studied over the past two decades (See \citet{Bock2016} or
+\citet{He2017} for a review). Most studies found that the temporally
+correlated noise can be described with Brownian motion (also known as
+random walk noise or a Weiner process) or flicker noise
+\citep[e.g.,][]{Zhang1997, Mao1999, Williams2004, Langbein2008,
+Murray2017}. Less frequently used noise models include a band-pass
+process \citep[e.g.,][]{Langbein2004} and a first-order Gauss-Markov
+(FOGM) process \citep[e.g.,][]{Langbein2004,Dmitrieva2015}. There is
+some physical justification for using Brownian motion as a noise model
+because it accurately describes the power spectrum of motion resulting
+from instability in a geodetic monument \citep[e.g.,][]{Wyatt1982,
+Wyatt1989}. In particular, the power spectrums for Brownian motion and
+monument motion both decay proportionally to $f^{-2}$, where $f$ is
+frequency. However, Brownian motion necessarily contains a reference
+time at which the process begins. Since there is no notion of when
+noise ``begins" in GNSS data, we do not find Brownian motion to be an
+appropriate noise model. On the other hand, a FOGM process has no
+reference time (i.e., it is stationary), and its power spectrum,
+\begin{equation}\label{eq:FOGMPS} 
+S(f) = \frac{\beta^2}{(2 \pi f)^2 + \alpha^2}, 
+\end{equation} 
+decays proportionally to $f^{-2}$ above the cutoff frequency $\alpha /
+(2 \pi)$. We choose $z_i$ to be a spatially uncorrelated FOGM process.
+The covariance function for $z_i$ is then
 \begin{equation}\label{eq:FOGM}
-C_{z_i}\left((\pos,t),(\pos',t')\right) = \frac{\beta^2}{2\alpha}
-\exp\left(-\alpha|t - t'|\right)\delta_{\pos,\pos'}, \end{equation}
-where $\delta_{\pos,\pos'}$ is 1 if $\pos = \pos'$ and 0 otherwise.
-See \citet[sec. B2]{Rasmussen2006} for more information on the FOGM
-process.
+C_{z_i}\left((\pos,t),(\pos',t')\right) = \frac{\beta^2}{2\alpha} 
+                                          \exp\left(-\alpha|t - t'|\right)\delta_{\pos,\pos'}, 
+\end{equation}
+where $\delta_{\pos,\pos'}$ is 1 if $\pos = \pos'$ and 0 otherwise,
+\citep[sec. B2]{Rasmussen2006}.
+
 
 % How we constrain the parameters
 

@@ -12,6 +12,13 @@
 \begin{letter}{}
 \opening{Dear Editor,}
 
+% NOTE THE FOLLOWING ERRORS
+
+% STRAIN COVARIANCE WAS INCORRECT
+
+% THE NOISE MODEL WAS INCORRECT BECAUSE I USED A DIRAC RATHER THAN A
+% KRONECKER DELTA.
+
 We were pleased with the positive comments from you and the reviewers,
 and we feel that the comments brought up valid concerns. We hope that
 we have addressed these concerns sufficiently in our revision. In
@@ -156,9 +163,9 @@ in Section 3 because it is specific to the Pacific Northwest
 application. 
 
 We have added a few more references in Section 3.1 of the revised
-draft TODO to emphasize that GNSS noise modeling is a well-worked
-area. We refer the reader to Bock and Melgar 2016 and He et al 2017
-for a more complete review.
+draft to emphasize that GNSS noise modeling is a well-worked area. We
+refer the reader to Bock and Melgar 2016 and He et al 2017 for a more
+complete review.
 
 \textbf{Outlier detection:}
 

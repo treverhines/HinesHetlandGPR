@@ -1,4 +1,4 @@
-\begin{thebibliography}{64}
+\begin{thebibliography}{66}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 
 \bibitem[Acheson(1975)]{Acheson1975}
@@ -45,6 +45,11 @@ Chen, Y., Davis, T.~a., \& Hager, W.~W., 2008.
 Cressie, N., 1993.
 \newblock {\it {Statistics for Spatial Data}\/}, John Wiley {\&} Sons, New
   York, rev. edn.
+
+\bibitem[Dmitrieva et~al.(2015)Dmitrieva, Segall, \& DeMets]{Dmitrieva2015}
+Dmitrieva, K., Segall, P., \& DeMets, C., 2015.
+\newblock {Network-based estimation of time-dependent noise in GPS position
+  time series}, {\it Journal of Geodesy\/}, {\bf 89}(6), 591--606.
 
 \bibitem[Dong et~al.(2002)Dong, Fang, Bock, Cheng, \& Miyazaki]{Dong2002}
 Dong, D., Fang, P., Bock, Y., Cheng, M.~K., \& Miyazaki, S., 2002.
@@ -243,6 +248,12 @@ Meade, B.~J. \& Hager, B.~H., 2005.
 Moritz, H., 1978.
 \newblock {Least-Squares Collocation}, {\it Reviews of Geophysics\/}, {\bf
   16}(3), 421--430.
+
+\bibitem[Murray \& Svarc(2017)]{Murray2017}
+Murray, J.~R. \& Svarc, J., 2017.
+\newblock {Global Positioning System Data Collection, Processing, and Analysis
+  Conducted by the U.S. Geological Survey Earthquake Hazards Program}, {\it
+  Seismological Research Letters\/}, {\bf 88}(3), 1 -- 10.
 
 \bibitem[Murray \& Lisowski(2000)]{Murray2000}
 Murray, M.~H. \& Lisowski, M., 2000.

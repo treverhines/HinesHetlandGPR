@@ -319,7 +319,6 @@ area for further research.
 
 %% REVIEWER 2
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \textbf{Reviewer \#2:}\newline
 
 \textbf{Comments to the Author(s)}
@@ -363,46 +362,20 @@ spacecraft) wilt generate a spatially and temporally correlated error
 in $d_{ij}$.  How does this (stochastically non-modeled) error not project
 in the u estimates?}
 
-If we have absolutely no prior knowledge about u or eta then it would
-not be possible to distinguish transient displacements from noise. I
-think this should go without saying.
+At this point in the text, it is assumed that the statistical
+properties of u and eta are known, although not yet specified. So I do
+not think this would be an appropriate place to discuss a scenario in
+which we do not know u or eta. I also think that it should go with
+saying that the validity of our results are contingent on having a
+good model for u and eta.
 
-In this paper, our "prior knowledge" is that inland stations are
-unlikely to record SSE displacements, which allows us to isolate and
-characterize the statistical properties of eta. In Section 3.1, we
-only explored the temporal covariance of eta, but we could have also
-explored the spatial covariance of eta and potentially identified
-noise from orbit modeling errors. If we did find spatially correlated
-noise in eta, then our estimates of u would not be invalidated;
-rather, the estimates of u would just have larger uncertainties.
-However, we did not look for spatially correlated noise in this paper,
-and it is certainly possible that an unknown noise process could have
-propagated into our estimates of u.
-
-While the reviewer makes a valid point, it is unclear how we should
-update the text. In section 2 of the text, the statistical properties
-of $u$ and $\eta$ are assumed known, although not yet specified. 
-
-It
-should go without saying that an inappropriate model for $u$ or $\eta$
-would invalidate our estimates of transient strain rates.
-
-
- We make it clear in the text that we do that 
-
-If there are unknown orbit modeling errors, for example, then that noise could conceivably be 
-
-
-Once eta is
-characterized, we are able to characterize u.
-
-
- We then characterize the eta
-
-
-If a spatially and temporally correlated noise exists and we have incorporated it into 
-
-TODO
+In Section 3.1 and 3.2, we discuss how we choose a model for u and
+eta. The key piece of "prior knowledge" that allows us to discern u
+from eta is that u is negligible for inland stations. This allowed us
+to islolate and constrain eta first, and then we constrained u. If we
+allowed eta to be spatially correlated (which we did not), then we
+would have conceivably been able to describe the spatially and
+temporally correlated noise from, for example, orbit modeling errors.
 
 \textbf{Page 6: Equation 10: Maybe it is discussed later in the paper but it
 is probably worthwhile stating at this point how the inverse is
@@ -410,20 +383,22 @@ performed with a block 0 in the matrix?}
 
 The matrix being inverted in eq. 10 and 11 of the revised draft is
 still invertible with the block 0, provided that the columns of
-$\mitbf{G}$ are linearly dependent. This is explained in the revised
+$G$ are linearly dependent. This is explained in the revised
 draft.
 
-\textbf{Page 6: Equation 12: Maybe some additional explanation is needed here.
-How are these partial derivatives formed.  My understanding the u
-estimates at this point correspond one-to-one with the positions and
-times of the GNSS position determinations.  Did I miss something?}
+\textbf{Page 6: Equation 12: Maybe some additional explanation is
+needed here. How are these partial derivatives formed.  My
+understanding the u estimates at this point correspond one-to-one with
+the positions and times of the GNSS position determinations.  Did I
+miss something?}
 
 The posterior displacements, $\hat{u}$, are actually a spatially and
 temporally continuous stochastic process. We can evaluated $\hat{u}$
-at any position and time that we may be interested in. We are also
-able to compute the spatial and temporal derivatives analytically. In
-Section 2 of the revised draft, we explain how the derivatives are
-computed in greater detail. We hope this clarifies any confusion.
+at any position and time that we may be interested in (not just the
+position and times of the data). We are also able to compute the
+spatial and temporal derivatives analytically. In Section 2 of the
+revised draft, we explain how the derivatives are computed in greater
+detail. We hope this clarifies any confusion.
 
 \textbf{Page 8: Partly addresses issue raised about eqn 3.  It
 probably should be noted that wether conditions east of -121 deg
@@ -444,16 +419,17 @@ different climatic conditions".
 
 \textbf{Editor:}\newline
 
-\textbf{Editor’s Review of GJI MS 17.0593 ‘‘Revealing transient strain...’’ by
-Hines and Hetland This is an novel algorithm applied to a problem of
-great current interest. Based on the reviewer’s comments and my own
-reading, I am recommending moderate revision. The authors’ response
-should include a description of their changes, and also a version of
-the paper on which these can be seen (just as highlights in the text).}
+\textbf{Editor’s Review of GJI MS 17.0593 ‘‘Revealing transient
+strain...’’ by Hines and Hetland This is an novel algorithm applied to
+a problem of great current interest. Based on the reviewer’s comments
+and my own reading, I am recommending moderate revision. The authors’
+response should include a description of their changes, and also a
+version of the paper on which these can be seen (just as highlights in
+the text).}
 
-\textbf{Many of the reviewers’ comments address places where the paper could
-be more clearly written, and my overall comment would be the same. The
-current version perhaps spends a little too much time on the
+\textbf{Many of the reviewers’ comments address places where the paper
+could be more clearly written, and my overall comment would be the
+same. The current version perhaps spends a little too much time on the
 background and not enough on explaining the method and its derivation.
 As shown by the references below (these include some the authors
 cite), and the Dermanis paper, which I have also attached, strain
@@ -466,8 +442,43 @@ readers, myself among them, much more familiar than the statistical
 methods applied here. So a slightly fuller discussion of these methods
 (perhaps a little more background and some reminders of, eg, what a
 hyperparameter is) would be welcome to many readers; and increased
-clarity of presentation usu- ally means that the paper will be used
+clarity of presentation usually means that the paper will be used
 and cited more.}
+
+I appreciate this comment, and I have extensively revised the paper in
+order to make it more readable. To list some of the major changes:
+
+  1) I properly define a Gaussian process in Section 2. I elaborate on
+     its definition to give it a more tangible meaning, and I use
+     Brownian motion as an example of a Gaussian process.
+
+  2) I give more references, including section numbers for books, to
+     make it easier for the reader to get additional information.
+   
+  3) In section 2 of the revised draft, I give an example of a prior
+     for transient displacements. I include a figure showing what the
+     covariance function looks like and what a corresponding
+     realization looks like.
+  
+  4) I provide a clearer derivation of the posterior transient
+     displacements (eq. 6 and 7 of the revised draft). 
+  
+  5) In the revised draft, eq. 19 and 20 were added to help the reader
+     understand how the transient strain rates are computed.
+
+  6) I provide a clearer derivation of the signal-to-noise ratio.
+  
+  7) I moved details of the outlier detection method to the appendix
+     because it is not essential to the text.
+
+  8) I expanded the explanation of the REML method, which is used to
+     constrain u and eta in Section 3.1 and 3.2.
+
+  9) Most of the paper was reworded / restructed to improve
+     clarity. Despite the fact that very little of the original text
+     is in the revised daft, there are almost no differences in the
+     content being presented.
+ 
 
 \textbf{I feel the same way about the section on detecting outliers: again, a
 well-worked area. Iter- ative fitting and outlier detection, as an

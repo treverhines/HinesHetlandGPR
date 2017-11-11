@@ -114,7 +114,7 @@ a WGN process. Then, the authors introduce a separate parameter (eta)
 which models the temporally correlated noise. This parameter is also
 following a Gaussian distribution, with a zero-mean and a covariance
 matrix $C_{\eta}$ (i.e. line 10 p5). This approach is not common in
-modelling GNSS time series. The standard is based on Williams 2003,
+modeling GNSS time series. The standard is based on Williams 2003,
 where the author established a stochastic model with a covariance
 matrix as sum of identity matrix for the white noise and another
 matrix which represents the coloured noise. The coloured noise
@@ -129,14 +129,14 @@ uncorrelated components in Section 3.1 (eq. 25). The covariance matrix
 for $\eta$ in eq. 26 is more consistent with the literature.
 
 \textbf{2- First, the author should give a summary of stochastic noise
-modelling in GNSS. I also think that a discussion is needed to relate
+modeling in GNSS. I also think that a discussion is needed to relate
 to previous models. Why using separated stochastic models? Also I
 would comment on the possibility that the (low) spatial correlation
 between the parameters in your deterministic model (i.e. secular
 velocities) could be absorbed in the estimation of the covariance
 matrix $C_{\eta}$.}
 
-I believe the reviewer is refering to page 4-5 of the original draft,
+I believe the reviewer is referring to page 4-5 of the original draft,
 where I first introduce $\eta$. I agree that a more thorough
 discussion on the noise model is necessary, but I do not think this is
 an appropriate place in the text for it. The paper is laid out so that
@@ -156,13 +156,13 @@ other models have also been discussed (i.e. Montillet et al., 2014
 uses a fractional Brownian motion model; ARMA, ARFIMA, GGM or Band
 pass noise – see Het et al., 2017).}
 
-Again, we think that the description of the noise model should remain
+Again, I think that the description of the noise model should remain
 in Section 3 because it is specific to the Pacific Northwest
 application. 
 
-We have added a few more references in Section 3.1 of the revised
-draft to emphasize that GNSS noise modeling is a well-worked area. We
-refer the reader to Bock and Melgar 2016 and He et al 2017 for a more
+I have added a few more references in Section 3.1 of the revised draft
+to emphasize that GNSS noise modeling is a well-worked area. I refer
+the reader to Bock and Melgar 2016 and He et al 2017 for a more
 complete review.
 
 \textbf{Outlier detection:}
@@ -299,7 +299,7 @@ mathematical simplification.}
 My personal preference is to leave the wording as is.
 
 \textbf{p.20 line 33 “ computational burden” I think that refers to p.20 line
-60 “prohibitive when using sveral years of daily GNSS”. It would
+60 “prohibitive when using several years of daily GNSS”. It would
 interesting to have some number. How do you quantify the computation
 time to process longer and longer time series?}
 
@@ -367,7 +367,7 @@ good model for u and eta.
 In Section 3.1 and 3.2, we discuss how we choose a model for u and
 eta. The key piece of "prior knowledge" that allows us to discern u
 from eta is that u is negligible for inland stations. This allowed us
-to islolate and constrain eta first, and then we constrained u. If we
+to isolate and constrain eta first, and then we constrained u. If we
 allowed eta to be spatially correlated (which we did not), then we
 would have conceivably been able to describe the spatially and
 temporally correlated noise from, for example, orbit modeling errors.
@@ -406,7 +406,7 @@ potentially dubious assumption that noise east of -121 is
 representative of the entire region. We added the disclaimer saying
 "We assume the noise at these inland stations is representative of the
 noise at all the stations considered in this study, which is probably
-a poor assumption since the inland stations are subject to distincly
+a poor assumption since the inland stations are subject to distinctly
 different climatic conditions".
 
 %% Editor Review
@@ -444,8 +444,7 @@ I appreciate this comment, and I have extensively revised the paper in
 order to make it more readable. To list some of the major changes:
 
   1) I properly define a Gaussian process in Section 2. I elaborate on
-     its definition to give it a more tangible meaning, and I use
-     Brownian motion as an example of a Gaussian process.
+     its definition to give it a more tangible meaning.
 
   2) I give more references, including section numbers for books, to
      make it easier for the reader to get additional information.
@@ -474,7 +473,7 @@ order to make it more readable. To list some of the major changes:
      "parameter", which does not degrade the precision of our
      description of the method.
   
-  10) Most of the paper was reworded / restructed to improve
+  10) Most of the paper was reworded / restructured to improve
      clarity. Despite the fact that very little of the original text
      is in the revised daft, there are almost no differences in the
      content being presented.
@@ -482,9 +481,9 @@ order to make it more readable. To list some of the major changes:
 
 \textbf{I feel the same way about the section on detecting outliers: again, a
 well-worked area. Iterative fitting and outlier detection, as an
-overall strategy, hav e been used for a long time. I appreciate that
+overall strategy, ha e been used for a long time. I appreciate that
 by imposing spatial and temporal conditions you can identify outliers
-not otherwise obvi- ous, but it would help to show an example of this,
+not otherwise obvious, but it would help to show an example of this,
 rather than the current Figure 4, in which most of the identified
 cases are ones that any method could easily find.}
 
@@ -512,7 +511,7 @@ Done
 used and programmed) is right, since it allows the deformation
 gradients to vary in space. I’ve always thought of it as a kind of
 adaptive kernel smoother, somewhat like applying 2-D loess; so it is
-only depen- dent on nearby points, and has no assumption of uniformity
+only dependent on nearby points, and has no assumption of uniformity
 anywhere. (Actually this raises a more general question: is the method
 given here use local or global support?)}
 
@@ -525,8 +524,8 @@ Done
 \textbf{3+32: redo the sentence; as it stands, you are saying that the SCEC
 exercise calculates strain rates.}
 
-The text has been clarified say "The method described in Holt 2013 was
-also tested in the SCEC transient detection exercise. Holt 2013
+The text has been clarified to say "The method described in Holt 2013
+was also tested in the SCEC transient detection exercise. Holt 2013
 detects transient signal from an estimate of transient strain rates,
 and they estimate transient strain rates using a ..."
 
@@ -576,7 +575,7 @@ the uncertainties in an azimuthal representation of strain.
 I did not include this justification in the revised draft because I
 think it would be too much of a digression.
 
-\closing{Thank you for your continued consideration,}
+\closing{Thank you for your consideration,}
 
 \end{letter}
 \end{document}

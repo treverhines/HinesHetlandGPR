@@ -89,67 +89,65 @@ Northwest slow slip events.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}\label{sec:Introduction}
 
-% Why we care about determining strain
+% Why we care about determining secular and transient strain
 
 Crustal strain rates are fundamentally important quantities for
 assessing seismic hazard. Knowing where and how quickly strain is
 accumulating gives insight into where we can expect stored elastic
-energy to be released seismically. Consequently, secular crustal
-strain rates estimated from GNSS data have been used to constrain
-seismic hazard models such as UCERF3 \citep{Field2014}. Transient
-crustal strain, which is caused by geophysical phenomena such as slow
-slip events (SSEs) or postseismic deformation, is also relevant for
-assessing seismic hazard. While transient strain itself is not
-damaging, there is a risk that it can trigger major earthquakes
-\citep{Roeloffs2006,Freed2001}. Dense networks of continuous GNSS
-stations, such as the Plate Boundary Observatory (PBO), make it
-possible to identify transient strain with high fidelity. Developing
-and improving upon methods for deriving secular and transient strain
-from GNSS data is an active area of research.
+energy to be released seismically. Estimates of secular, or long-term,
+strain rates have been used to constrain seismic hazard models such as
+UCERF3 \citep{Field2014}. Transient crustal strain, which is caused by
+geophysical processes such as slow slip events (SSEs) or postseismic
+deformation, is also relevant for assessing seismic hazard. While
+transient strain itself is not damaging, there is a possibility that it can
+trigger major earthquakes \citep{Roeloffs2006,Freed2001}.
 
-% Existing methods for determining secular strain from GPS
+% How secular strain rates are estimated from GNSS
 
-Most methods for estimating strain rates from GNSS data assume some
-parametric form for the deformation signal. The simplest method for
-estimating secular strain rates assumes that GNSS derived velocities
-can be described with a first-order polynomial (i.e, the deformation
-gradients are constant) over some subnetwork of the GNSS stations
-\citep[e.g.,][]{Feigl1990,Murray2000}. The components of the strain
-rate tensor for each subnetwork are then determined from the least
-squares fit to the observations. The assumption that deformation
-gradients are spatially uniform is not appropriate when subnetworks
-span too large of an area. To help overcome this deficiency,
-\citet{Shen1996,Shen2015} used an inverse distance weighting scheme,
-in which the estimated strain rate at a point is primarily controlled
-by observations at nearby stations. The method of
-\citet{Shen1996,Shen2015} can be viewed as a form of local least
-squares regression with a first-order polynomial \citep[e.g.,][sec.
-6]{Hastie2009}. Other methods for estimating secular strain rates have
+Displacement data from dense GNSS networks, such as the Plate Boundary
+Observatory (PBO), can be used to infer secular and transient strain.
+Numerous methods for converting GNSS displacement data to strain have
+been proposed, and most involve assuming some parametric form for the
+deformation signal. The simplest method for estimating secular strain
+rates assumes that GNSS derived velocities can be described with a
+first-order polynomial (i.e, the deformation gradients are constant)
+over some subnetwork of the GNSS stations \citep[e.g.,][]{Feigl1990,
+Murray2000}. The components of the secular strain rate tensor for each
+subnetwork are then determined from the least squares fit to the
+observations. The assumption that deformation gradients are spatially
+uniform is not appropriate when subnetworks span a very large area. To
+help overcome this deficiency, \citet{Shen1996,Shen2015} used an
+inverse distance weighting scheme, in which the estimated secular
+strain rate at a point is primarily controlled by observations at
+nearby stations. The method of \citet{Shen1996,Shen2015} can be viewed
+as a form of local least squares regression with a first-order
+polynomial. Other methods for estimating secular strain rates have
 parameterized GNSS derived velocities with bi-cubic splines
 \citep{Beavan2001}, spherical wavelets \citep{Tape2009}, and
 elastostatic Green's functions \citep{Sandwell2016}. The type of basis
 functions and the number of degrees of freedom for a parameterization,
 which are often chosen subjectively, have a strong influence on the
-strain solution. If there are too few degrees of freedom in the
-parameterization, then estimated strain rates will be biased and the
-uncertainties will be underestimated. On the other hand, if there are
-too many degrees of freedom, then there will not be any coherent
-features in the estimated strain rates. The methods described by
-\citet{Beavan2001} and \citet{Tape2009} also require the user to
-specify penalty parameters that control a similar trade-off between
-bias and variance in the solution. One could parameterize deformation
-with a physically motivated model of interseismic deformation
-\citep[e.g.,][]{Meade2005,McCaffrey2007}. In such models the
-lithospheric rheology and fault geometries are assumed to be known.
-Any errors in the assumed physical model could result in biased strain
-estimates and underestimated formal uncertainties.
+solution. If there are too few degrees of freedom in the
+parameterization, then estimated secular strain rates will be biased
+and the uncertainties will be underestimated. On the other hand, if
+there are too many degrees of freedom, then there will not be any
+coherent features in the estimated secular strain rates. The methods
+described by \citet{Beavan2001} and \citet{Tape2009} also require the
+user to specify penalty parameters that control a similar trade-off
+between bias and variance in the solution. One could also parameterize
+deformation with a physically motivated model of interseismic
+deformation \citep[e.g.,][]{Meade2005, McCaffrey2007}. In such models
+the lithospheric rheology and fault geometries are assumed to be
+known. Any errors in the assumed physical model could result in biased
+estimates of the secular strain rates and underestimated
+uncertainties.
 
 % Existing methods for determining transient strain from GPS
 
 The aforementioned studies are concerned with estimating secular
 strain rates. In recent years the Southern California Earthquake
 Center (SCEC) community has shown interest in developing methods for
-detecting transient strain. SCEC supported a transient detection
+detecting transient deformation. SCEC supported a transient detection
 exercise \citep{Lohman2013}, where several research groups tested
 their methods for detecting transient geophysical signal with a
 synthetic GNSS dataset. Among the methods tested were the Network
@@ -161,39 +159,41 @@ geodetic data, uses the elastic dislocation Green's functions from
 \citet{Okada1992}. For the NSF and NIF, the time dependence of the
 geophysical signal is modeled as integrated Brownian motion. The
 method described in \citet{Holt2013} was also tested in the SCEC
-transient detection exercise, which calculates strain rates using a
-bi-cubic spatial parameterization of displacements between time
-epochs. \citet{Holt2013} defined a detection threshold based on the
-strain rate magnitude, and we demonstrate that this is indeed an
-effective criterion for identifying geophysical signal. For the same
-reasons descibed above, the transient deformation and corresponding
-uncertainties estimated by these methods can be biased by the chosen
-spatial parameterization. It is then difficult to distinguish signal
-from noise with these methods, which limits their utility for
-transient detection.
+transient detection exercise. \citet{Holt2013} detect transient
+signal from an estimate of strain rates, and they estimate strain
+rates using a bi-cubic spatial parameterization of displacements
+between time epochs. \citet{Holt2013} define a detection threshold
+based on the strain rate magnitude, and we demonstrate that this is
+indeed an effective criterion for identifying a geophysical signal.
+For the same reasons described above, the transient deformation and
+corresponding uncertainties estimated by these methods can be biased
+by the chosen spatial parameterization. It is then difficult to
+distinguish signal from noise with these methods, which limits their
+utility for transient detection.
 
 % What we are doing in this paper and why it improves upon existing
 % methods
 
 Here we propose using Gaussian process regression (GPR)
-\citep{Rasmussen2006} to estimate transient strain from GNSS data. GPR
-is closely related to kriging \citep{Cressie1992} and least squares
-collocation \citep{Moritz1978}. The latter has been used by
+\citep{Rasmussen2006} to estimate transient strain rates from GNSS
+data. GPR is closely related to kriging \citep{Cressie1992} and least
+squares collocation \citep{Moritz1978}. The latter has been used by
 \citet{Kato1998} and \citet{El-Fiky1999} to estimate secular strain
 rates from GNSS data. GPR is a Bayesian, non-parametric method for
-inferring a continuous signal from scattered data. Since GNSS stations
-are irregularly spaced and observation times may differ between
-stations, GPR is an ideal tool for synthesizing discrete GNSS data
-into a spatially and temporally continuous representation of transient
-strain. GPR is Bayesian in that we use a prior model to control the
-spatial and temporal roughness of the inferred transient strain. The
-prior is specified as a stochastic process, namely a Gaussian process.
-If there is no information available to help choose an appropriate
-prior Gaussian process, then maximum likelihood methods can be used to
-objectively choose one that is most consistent with the data. We use
-GPR to infer transient strain resulting from SSEs in the Pacific
-Northwest, demonstrating that GPR is an effective tool for detecting
-transient geophysical processes.
+inferring a continuous function from scattered data. Since GNSS
+stations are irregularly spaced and observation times may differ
+between stations, GPR is an ideal tool for synthesizing discrete GNSS
+data into a spatially and temporally continuous representation of
+transient strain rates. GPR is Bayesian in that we use a prior model
+to control the spatial and temporal roughness of the inferred
+transient strain rates. The prior is specified as a stochastic
+process, namely a Gaussian process. If there is no information
+available to help choose an appropriate prior Gaussian process, then
+maximum likelihood methods can be used to objectively choose one that
+is most consistent with the data. We use GPR to infer transient strain
+rates resulting from SSEs in the Pacific Northwest, demonstrating that
+GPR is an effective tool for detecting transient geophysical
+processes.
 
 
 %% ESTIMATING TRANSIENT STRAIN RATES
@@ -227,18 +227,19 @@ process whose value at any collection of points can be described with
 a multivariate normal distribution. That is to say, the random vector
 $[u_i(p)]_{p \in \points}$ has a multivariate normal distribution for
 any collection of points $\points$. A realization of the random vector
-$[u_i(p)]_{p \in \points}$ can be interpretted as a realization of
+$[u_i(p)]_{p \in \points}$ can be interpreted as a realization of
 $u_i$ (i.e., a sample function) that is evaluated at $\points$. Just
 as a multivariate normal distribution is fully determined by a mean
 vector and a covariance matrix, a Gaussian process is fully determined
 by a mean function and a covariance function. For example, Brownian
 motion, $B(t)$, is a well known Gaussian process in $\mathbb{R}^1$
 which has the mean function $\E{B(t)} = 0$ and the covariance function
-$\Cov{B(t),B(t')} = \min(t,t')$, where $t,t' \ge 0$. We let each
-component of $\vec{u}$ have zero mean and a generic covariance
-function $\Cov{u_i(p),u_i(p')} = C_{u_i}(p,p')$. Using a more concise
-notation, we write our prior on each component of $\vec{u}$ as $u_i
-\sim \mathcal{GP}\left(0,C_{u_i}\right)$.
+$\Cov{B(t),B(t')} = \phi^2 \min(t,t')$, where $t,t' \ge 0$ and $\phi$
+is a scale factor. We let each component of $\vec{u}$ have zero
+mean and a generic covariance function $\Cov{u_i(p),u_i(p')} =
+C_{u_i}(p,p')$. Using a more concise notation, we write our prior on
+each component of $\vec{u}$ as $u_i \sim
+\mathcal{GP}\left(0,C_{u_i}\right)$.
 
 % Constraints on the Covariance function
 
@@ -281,7 +282,7 @@ length-scale, time-scale, and amplitude that resemble what we expect
 for the true transient displacements. In Figure \ref{fig:PriorDemo}A,
 we show $C_{u_i}$ using the squared exponential function for $X_i$ and
 $T_i$ and the parameters $\ell = 100$ km, $\tau = 10$ days, and $\phi
-= 1$ mm. A single realization of $u_i$ corresponsing to that choice of
+= 1$ mm. A single realization of $u_i$ corresponding to that choice of
 covariance function is shown in Figure \ref{fig:PriorDemo}B (See
 \citet[sec. A3]{Rasmussen2006} for details on drawing realization from
 Gaussian processes). While the squared exponential function is a
@@ -663,7 +664,9 @@ necessary to manually find and remove jumps of unknown origin.
 
 In this section we estimate transient strain rates in the Pacific
 Northwest, and we are specifically interested in identifying transient
-strain resulting from SSEs \citep[e.g.,][]{Dragert2001}. Before
+strain resulting from SSEs. SSEs in the Pacific Northwest were first
+discovered by \citep[e.g.,][]{Dragert2001} and we refer the reader to
+\citet{Schwartz2007} for a review of the subsequent research. Before
 estimating transient strain rates, we establish a noise model for GNSS
 stations in this region, and we establish a prior Gaussian process to
 describe displacements from SSEs. SSEs in the Pacific Northwest can be
@@ -723,35 +726,37 @@ covariance matrix
 % Justifying our temporal noise model
 
 The temporally correlated noise in GNSS data has been thoroughly
-studied over the past two decades \citep[e.g.,][]{Zhang1997, Mao1999,
-Williams2004, Langbein2008}. In these studies, temporally correlated
-noise tends to be described with some combination of Brownian motion
-(also known as random walk noise or a Weiner process), a first-order
-Gauss-Markov (FOGM) process, and/or flicker noise. There is some
-physical justification for using Brownian motion as a noise model
+studied over the past two decades (See \citet{Bock2016} or
+\citet{He2017} for a review). Most studies found that the temporally
+correlated noise can be described with Brownian motion (also known as
+random walk noise or a Weiner process) or flicker noise
+\citep[e.g.,][]{Zhang1997, Mao1999, Williams2004, Langbein2008,
+Murray2017}. Less frequently used noise models include a band-pass
+process \citep[e.g.,][]{Langbein2004} and a first-order Gauss-Markov
+(FOGM) process \citep[e.g.,][]{Langbein2004,Dmitrieva2015}. There is
+some physical justification for using Brownian motion as a noise model
 because it accurately describes the power spectrum of motion resulting
 from instability in a geodetic monument \citep[e.g.,][]{Wyatt1982,
-Wyatt1989}. In particular, the power spectrums for Brownian motion and
+Wyatt1989}. In particular, the power spectra for Brownian motion and
 monument motion both decay proportionally to $f^{-2}$, where $f$ is
 frequency. However, Brownian motion necessarily contains a reference
 time at which the process begins. Since there is no notion of when
 noise ``begins" in GNSS data, we do not find Brownian motion to be an
 appropriate noise model. On the other hand, a FOGM process has no
 reference time (i.e., it is stationary), and its power spectrum,
-\begin{equation}\label{eq:FOGMPS}
-S(f) = \frac{\beta^2}{(2 \pi f)^2 + \alpha^2},
-\end{equation}
+\begin{equation}\label{eq:FOGMPS} 
+S(f) = \frac{\beta^2}{(2 \pi f)^2 + \alpha^2}, 
+\end{equation} 
 decays proportionally to $f^{-2}$ above the cutoff frequency $\alpha /
-(2 \pi)$. We then choose $z_i$ to be a spatially
-uncorrelated FOGM process, which has the covariance function
+(2 \pi)$. We choose $z_i$ to be a spatially uncorrelated FOGM process.
+The covariance function for $z_i$ is then
 \begin{equation}\label{eq:FOGM}
-C_{z_i}\left((\pos,t),(\pos',t')\right) = 
-\frac{\beta^2}{2\alpha}
-\exp\left(-\alpha|t - t'|\right)\delta_{\pos,\pos'},
+C_{z_i}\left((\pos,t),(\pos',t')\right) = \frac{\beta^2}{2\alpha} 
+                                          \exp\left(-\alpha|t - t'|\right)\delta_{\pos,\pos'}, 
 \end{equation}
-where $\delta_{\pos,\pos'}$ is 1 if $\pos = \pos'$ and 0 otherwise.
-See \citet[sec. B2]{Rasmussen2006} for more information on the FOGM
-process.
+where $\delta_{\pos,\pos'}$ is 1 if $\pos = \pos'$ and 0 otherwise
+\citep[sec. B2]{Rasmussen2006}.
+
 
 % How we constrain the parameters
 
@@ -769,7 +774,7 @@ produces unbiased estimates of $\mitbf{\theta}$ \citep[sec.
 at 38 continuous GNSS stations in the Pacific Northwest that are east
 of 121$^\circ$W. These stations are sufficiently far from the
 subduction zone that they are unlikely to record transient deformation
-from SSEs, allowing us to ingore the term $u_i(\points)$ in
+from SSEs, allowing us to ignore the term $u_i(\points)$ in
 $\mitbf{d}_i$. We assume the noise at these inland stations is
 representative of the noise at all the stations considered in this
 study, which is probably a poor assumption since the inland stations
@@ -877,18 +882,20 @@ one-dimensional SE covariance function,
 \begin{equation}\label{eq:TimeSE}
 T_i(t,t') = \phi^2\exp\left(\frac{-|t - t'|^2}{2\tau^2}\right).
 \end{equation}
+
 Note that $T_i$ includes the parameter $\phi$, which serves to scale
 the covariance function $C_{u_i}$. The second option is a member of
 the Wendland class of covariance functions \citep{Wendland2005}.
 Wendland covariance functions have compact support and hence their
-corresponding covariance matrices are sparse. In our analysis, we
-exploit this sparsity with the CHOLMOD software package
-\citep{Chen2008}. Wendland covariance functions can be constructed
-such that they are positive definite in $\mathbb{R}^d$ and their
-corresponding Gaussian process can be differentiated $k$ times. We use
-$d=1$, because we are describing the temporal covariance of $u_i$, and
-we use $k=2$, giving samples of $u_i$ continuous velocities and
-accelerations. The corresponding Wendland covariance function is
+corresponding covariance matrices are sparse. We exploit this sparsity
+with the CHOLMOD software package \citep{Chen2008}. Wendland
+covariance functions can be constructed such that they are positive
+definite in $\mathbb{R}^d$ and their corresponding Gaussian process
+can be differentiated $k$ times. We use $d=1$, because we are
+describing the temporal covariance of $u_i$, and we use $k=2$, giving
+samples of $u_i$ continuous velocities and accelerations. The
+corresponding Wendland covariance function is
+
 \begin{equation}\label{eq:Wendland} 
 T_i(t,t') = \phi^2\left(1 - \frac{|t - t'|}{\tau}\right)^5_+ 
             \left(\frac{8|t - t'|^2}{\tau^2} + \frac{5|t - t'|}{\tau} + 1\right), 
@@ -923,7 +930,7 @@ parameters in $C_{u_i}$, which are $\ell$, $\phi$, and $\tau$. We
 refer to these parameters collectively as $\mitbf{\theta}$. Just as in
 Section \ref{sec:NoiseModel}, we pick $\mitbf{\theta}$ to maximize the
 probability of drawing $\data_i^*$ from $\data_i$, but now we are
-including $u_i(\points)$ in $\data_i$. and we are optimizing the
+including $u_i(\points)$ in $\data_i$, and we are optimizing the
 parameters for $C_{u_i}$ rather than $\mitbf{C}_{\eta_i}$. We divide
 the GNSS data into seven subsets that are four months long and each
 centered on the time of a SSE. The times of the seven SSEs are
@@ -1106,7 +1113,7 @@ the Olympic Peninsula and extension east of Puget Sound. The strain
 transitions from compression to extension around the southern tip of
 Vancouver Island, coinciding with where fault slip tends to be
 inferred \citep[e.g.,][]{Dragert2001, Wech2009, Schmidt2010}. Thus,
-this pattern of strain is to be expected. Over decadal timescales,
+this pattern of strain is to be expected. Over decadal time-scales,
 there is trench perpendicular compression throughout this study region
 caused by steady tectonic plate motion \citep{Murray2000,
 McCaffrey2007, McCaffrey2013}. When comparing the transient strain
@@ -1244,7 +1251,7 @@ such as SSEs \citep[e.g.,][]{Dragert2011}. However, there are
 complications that prevent BSM data from being used quantitatively in
 geophysical studies. One difficulty is that BSM data should be
 calibrated with a well known strain source, such as diurnal and
-semidiurnal tides \citep{Hart1996,Roeloffs2010,Hodgkinson2013}.
+semi-diurnal tides \citep{Hart1996,Roeloffs2010,Hodgkinson2013}.
 Unfortunately, the tidal forces at BSMs which record SSEs are strongly
 influenced by local bodies of water such as the Straight of Juan de
 Fuca, making it difficult to form a theoretical prediction of tidal

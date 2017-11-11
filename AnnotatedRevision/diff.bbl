@@ -1,4 +1,4 @@
-\begin{thebibliography}{66}
+\begin{thebibliography}{70}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 
 \bibitem[Acheson(1975)]{Acheson1975}
@@ -25,6 +25,11 @@ Blewitt, G., Kreemer, C., Hammond, W.~C., \& Gazeaux, J., 2016.
   without step detection}, {\it Journal of Geophysical Research : Solid
   Earth\/}, {\bf 121}, 2054--2068.
 
+\bibitem[Bock \& Melgar(2016)]{Bock2016}
+Bock, Y. \& Melgar, D., 2016.
+\newblock {Physical applications of GPS geodesy: a review}, {\it Reports on
+  Progress in Physics\/}, {\bf 79}(10), 106801.
+
 \bibitem[Bos et~al.(2013)Bos, Fernandes, Williams, \& Bastos]{Bos2013}
 Bos, M.~S., Fernandes, R. M.~S., Williams, S. D.~P., \& Bastos, L., 2013.
 \newblock {Fast error analysis of continuous GNSS observations with missing
@@ -40,6 +45,11 @@ Chen, Y., Davis, T.~a., \& Hager, W.~W., 2008.
 Cressie, N., 1993.
 \newblock {\it {Statistics for Spatial Data}\/}, John Wiley {\&} Sons, New
   York, rev. edn.
+
+\bibitem[Dmitrieva et~al.(2015)Dmitrieva, Segall, \& DeMets]{Dmitrieva2015}
+Dmitrieva, K., Segall, P., \& DeMets, C., 2015.
+\newblock {Network-based estimation of time-dependent noise in GPS position
+  time series}, {\it Journal of Geodesy\/}, {\bf 89}(6), 591--606.
 
 \bibitem[Dong et~al.(2002)Dong, Fang, Bock, Cheng, \& Miyazaki]{Dong2002}
 Dong, D., Fang, P., Bock, Y., Cheng, M.~K., \& Miyazaki, S., 2002.
@@ -132,10 +142,13 @@ Harville, D.~A., 1974.
 \newblock {Bayesian Inference for Variance Components Using Only Error
   Contrasts}, {\it Biometrika\/}, {\bf 61}(2), 383--385.
 
-\bibitem[Hastie et~al.(2009)Hastie, Tibshirani, \& Friedman]{Hastie2009}
-Hastie, T., Tibshirani, R., \& Friedman, J., 2009.
-\newblock {\it {The Elements of Statistical Learning: Data Mining, Inference,
-  and Prediction}\/}, Springer-Verlag, 2nd edn.
+\bibitem[He et~al.(2017)He, Montillet, Fernandes, Bos, Yu, Hua, \&
+  Jiang]{He2017}
+He, X., Montillet, J.~P., Fernandes, R., Bos, M., Yu, K., Hua, X., \& Jiang,
+  W., 2017.
+\newblock {Review of current GPS methodologies for producing accurate time
+  series and their error sources}, {\it Journal of Geodynamics\/}, {\bf 106},
+  12--29.
 
 \bibitem[Herring et~al.(2016)Herring, Melbourne, Murray, Floyd, Szeliga, King,
   Phillips, Puskas, Santillan, \& Wang]{Herring2016}
@@ -259,6 +272,12 @@ Moritz, H., 1978.
 \newblock {Least-Squares Collocation}, {\it Reviews of Geophysics\/}, {\bf
   16}(3), 421--430.
 
+\bibitem[Murray \& Svarc(2017)]{Murray2017}
+Murray, J.~R. \& Svarc, J., 2017.
+\newblock {Global Positioning System Data Collection, Processing, and Analysis
+  Conducted by the U.S. Geological Survey Earthquake Hazards Program}, {\it
+  Seismological Research Letters\/}, {\bf 88}(3), 1 -- 10.
+
 \bibitem[Murray \& Lisowski(2000)]{Murray2000}
 Murray, M.~H. \& Lisowski, M., 2000.
 \newblock {Strain accumulation along the Cascadia subduction zone in western
@@ -318,6 +337,11 @@ Schmidt, D.~A. \& Gao, H., 2010.
 \newblock {Source parameters and time-dependent slip distributions of slow slip
   events on the Cascadia subduction zone from 1998 to 2008}, {\it Journal of
   Geophysical Research: Solid Earth\/}, {\bf 115}(4), 1--13.
+
+\bibitem[Schwartz \& Rokosky(2007)]{Schwartz2007}
+Schwartz, S.~Y. \& Rokosky, J.~M., 2007.
+\newblock {Slow slip events and seismic tremor at circum-Pacific subduction
+  zones}, {\it Reviews of Geophysics\/}, {\bf 45}, 1--32.
 
 \bibitem[Segall \& Mathews(1997)]{Segall1997}
 Segall, P. \& Mathews, M., 1997.

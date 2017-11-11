@@ -481,17 +481,32 @@ order to make it more readable. To list some of the major changes:
  
 
 \textbf{I feel the same way about the section on detecting outliers: again, a
-well-worked area. Iter- ative fitting and outlier detection, as an
-overall strategy, hav e been used for a long time. I appreci- ate that
+well-worked area. Iterative fitting and outlier detection, as an
+overall strategy, hav e been used for a long time. I appreciate that
 by imposing spatial and temporal conditions you can identify outliers
 not otherwise obvi- ous, but it would help to show an example of this,
 rather than the current Figure 4, in which most of the identified
 cases are ones that any method could easily find.}
 
+I recognize that outlier detection is a well-worked area. I included
+the description of the outlier detection method for completeness, and
+not because I thought it was an innovative or superior method. In
+order to keep the focus of my paper on my method for computing
+transient strain, I move the outlier detection method to the appendix.
+
+In my experimentation with the outlier detection algorithm, it turns
+out that the prior spatial covariance has virtually no effect on the
+detected outliers. However, the temporal covariance is important. The
+prior stochastic model needs to be flexible enough to describe
+deformation from, for example, SSEs. This is illustrated in Figure A1
+of the revised draft.
+
 \textbf{A few specifics (numbers are page+line):}
 
 \textbf{2+26: possibility not risk: the latter is a technical term in seismic
 hazard.}
+
+Done
 
 \textbf{2+47-48: I do not think this description of Shen’s method (which I’ve
 used and programmed) is right, since it allows the deformation
@@ -501,25 +516,64 @@ only depen- dent on nearby points, and has no assumption of uniformity
 anywhere. (Actually this raises a more general question: is the method
 given here use local or global support?)}
 
+My previous description of Shen's method was poor and misleading. I
+have my description in the revised draft.
+
 \textbf{3+7: could also}
+
+Done 
 
 \textbf{3+32: redo the sentence; as it stands, you are saying that the SCEC
 exercise calculates strain rates.}
 
+TODO
+
 \textbf{3+37: a geophysical signal}
+
+Done
 
 \textbf{3+47: function not signal}
 
+Done
+
 \textbf{3+56: by a Gaussian, not with}
 
+This sentence has been removed in the revised draft
+
 \textbf{4+37: displacement (not plural)}
+
+This sentence has been removed in the revised draft
 
 \textbf{6+56: I suspect that equation (15) took some effort to derive; could
 some details go into an Appendix?}
 
+I added a clearer derivation in the revised draft.
+
 \textbf{Figure 6: I like that the strain uncertainties can be shown, but is
 there a reason not to plot principle strains using arrows, showing
 errors by an ellipse around the tips?}
+
+I have put a lot of thought into representing strain, and I recognize
+that strain is conventionally represented by showing the principle
+strains axes. However, there is no good way of showing the
+uncertainties for the principle strain axes. For example, consider a
+perfectly dilational strain that is perturbed by a small amount of
+noise. The orientation of principle strains will be highly uncertain,
+but the magnitudes of the principle strains will be well constrained.
+If we were to draw some sort of confidence interval around the tips of
+the principle strains, then they would have a crescent shape (not an
+ellipse). It is unclear how I would write a program to draw these
+confidence intervals.
+
+Instead of showing the principle strains, I am showing the normal
+strains as a function of azimuth. For a given azimuth, the uncertainty
+in the normal strain is computed by linear propagation of the
+uncertainties in the strain. In my opinion, it is much easier to show
+the uncertainties in an azimuthal representation of strain.
+
+I did not include this justification in the revised draft because I
+think it would be too much of a digression.
+
 
 \closing{Thank you for your continued consideration,}
 

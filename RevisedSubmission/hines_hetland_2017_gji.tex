@@ -99,7 +99,7 @@ strain rates have been used to constrain seismic hazard models such as
 UCERF3 \citep{Field2014}. Transient crustal strain, which is caused by
 geophysical processes such as slow slip events (SSEs) or postseismic
 deformation, is also relevant for assessing seismic hazard. While
-transient strain itself is not damaging, there is a risk that it can
+transient strain itself is not damaging, there is a possibility that it can
 trigger major earthquakes \citep{Roeloffs2006,Freed2001}.
 
 % How secular strain rates are estimated from GNSS
@@ -134,7 +134,7 @@ freedom, then there will not be any coherent features in the estimated
 strain rates. The methods described by \citet{Beavan2001} and
 \citet{Tape2009} also require the user to specify penalty parameters
 that control a similar trade-off between bias and variance in the
-solution. One could parameterize deformation with a physically
+solution. One could also parameterize deformation with a physically
 motivated model of interseismic deformation \citep[e.g.,][]{Meade2005,
 McCaffrey2007}. In such models the lithospheric rheology and fault
 geometries are assumed to be known. Any errors in the assumed physical
@@ -162,7 +162,7 @@ transient detection exercise, which calculates strain rates using a
 bi-cubic spatial parameterization of displacements between time
 epochs. \citet{Holt2013} defined a detection threshold based on the
 strain rate magnitude, and we demonstrate that this is indeed an
-effective criterion for identifying geophysical signal. For the same
+effective criterion for identifying a geophysical signal. For the same
 reasons descibed above, the transient deformation and corresponding
 uncertainties estimated by these methods can be biased by the chosen
 spatial parameterization. It is then difficult to distinguish signal
@@ -178,19 +178,19 @@ is closely related to kriging \citep{Cressie1992} and least squares
 collocation \citep{Moritz1978}. The latter has been used by
 \citet{Kato1998} and \citet{El-Fiky1999} to estimate secular strain
 rates from GNSS data. GPR is a Bayesian, non-parametric method for
-inferring a continuous signal from scattered data. Since GNSS stations
-are irregularly spaced and observation times may differ between
-stations, GPR is an ideal tool for synthesizing discrete GNSS data
-into a spatially and temporally continuous representation of transient
-strain. GPR is Bayesian in that we use a prior model to control the
-spatial and temporal roughness of the inferred transient strain. The
-prior is specified as a stochastic process, namely a Gaussian process.
-If there is no information available to help choose an appropriate
-prior Gaussian process, then maximum likelihood methods can be used to
-objectively choose one that is most consistent with the data. We use
-GPR to infer transient strain resulting from SSEs in the Pacific
-Northwest, demonstrating that GPR is an effective tool for detecting
-transient geophysical processes.
+inferring a continuous function from scattered data. Since GNSS
+stations are irregularly spaced and observation times may differ
+between stations, GPR is an ideal tool for synthesizing discrete GNSS
+data into a spatially and temporally continuous representation of
+transient strain. GPR is Bayesian in that we use a prior model to
+control the spatial and temporal roughness of the inferred transient
+strain. The prior is specified as a stochastic process, namely a
+Gaussian process. If there is no information available to help choose
+an appropriate prior Gaussian process, then maximum likelihood methods
+can be used to objectively choose one that is most consistent with the
+data. We use GPR to infer transient strain resulting from SSEs in the
+Pacific Northwest, demonstrating that GPR is an effective tool for
+detecting transient geophysical processes.
 
 
 %% ESTIMATING TRANSIENT STRAIN RATES

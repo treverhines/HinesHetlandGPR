@@ -21,44 +21,44 @@
 
 % WE ADDED MORE POSTERIOR DISPLACEMENT FIGURES
 
-We were pleased with the positive comments from you and the reviewers,
-and we feel that the comments brought up valid concerns. We hope that
-we have addressed these concerns sufficiently in our revision. In
-order to fully address the comments, we have included a supplementary
-material document.  We have also made some changes to the manuscript
-which were not specifically requested by the reviewers.  Most of these
-changes were stylistic and do not change the content of the
-manuscript.  One of the more substantial changes was that we merged
-Figures 7 and 14, which are both showing observed and predicted radial
-components of postseismic displacements, facilitating direct
-comparison of the figures.
 
-We added supporting figures S3 and S4, which break down the predicted
-displacements of our preferred model into an elastic and viscoelastic
-component.  We feel that these figures help support our discussion on
-lines 509 to 523, where we attribute inferences of fault slip and
-viscoelastic relaxation to different aspects of the observed
-postseismic displacements.
+We are grateful for the comments from you and the reviewers. We are
+pleased that the comments are generally positive and that most of the
+concerns seem to be with the presentation of the material rather than
+the material itself. We agree that the previous draft required a
+substantial amount of clarification in order to be more accessible to
+geophysicists. Consequently, we have revised most of the methods
+section (Section 2) with the hopes of improving clarity. Details of
+our revisions are given below in our reponse to the reviewers'
+comments.
 
-On line 500 to 502 of our previous version of this manuscript we make
-the claim that “After one year, afterslip is inferred to be deeper
-down on the Sierra Cucapah segment, which is describing much of the
-sustained near-field postseismic deformation.” This sentence is not
-accurate of the preferred model we present in the manuscript. As can
-be clearly seen in the new figures S3-S4, afterslip is describing some
-of the later near-field deformation, although most of it is being
-described by viscoelastic relaxation.  We have reworded this passage
-and updated the introduction and conclusion to accurately describe our
-interpretations of the mechanisms driving later near-field
-deformation.  This does not significantly alter the main conclusions
-of our manuscript, because we are very clear, both in the original and
-revised versions, that the deformation mechanism driving later
-near-field deformation cannot be definitively resolved with these
-data.
+In the revised draft, we have addressed several issues that we found,
+which were not brought up by the reviewers:
 
-Each of the reviewer comments are included below followed by our
-response and a description of how these comments were addressed in
-this revised manuscript.
+1) The strain covariance function, eq. 14 of the previous draft, was
+incorrect. That covariance function was only correct for the shear
+strain. The normal strains differ by a factor of 2. This error was NOT
+in our software implementation of the method, and so our presented
+results have not changed.
+
+2) There was an error in eq. 20 of the previous draft. We used a Dirac
+delta function where we should have used a Kronecker delta.
+
+3) In the previous draft, Figure 5 was the only figure that showed how
+well our model fits the GNSS data. The data consists of seven years of
+daily displacements from 94 stations, so it is not possible to show
+all the data. However, we are now showing the fit at 3 stations,
+rather than 1. These stations were chosen to illustrate a slight
+over-smoothing in our fit to the data.
+
+4) In addition to clarifying Section 2, we have significantly
+rewritten Sections 3 (application to the Pacific Northwest) and
+Section 4 (the discussion) so that they have a clearer focus and
+structure. However, the content being presented has not changed.
+
+Each of the reviewers comments are written below and followed by our
+response. We hope that we have addressed their concerns sufficiently
+in our revision.
 
 %% REVIEWER 1
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -85,21 +85,16 @@ together with the effects of using different kind of prior. Perhaps,
 that overshadows slightly your results. You could consider to
 reorganize the article to make it more readable for geophysicists.}
 
-I have taken several steps to make my revised draft more accessible to
-someone who does not have a strong background in stochastic processes:
-I rewritten the methods section to be clearer, avoid esoteric jargon,
-contain more examples, and elaborate on potentially unfamiliar
-concepts. I have also added more references to the methods section to
-make it easier for the reader to find additional information. I
-sincerely hope that my revised draft is more readable to
-geophysicists.
+I have taken several steps to make my revised draft more readable for
+geophysicists. For details, see my response to the editor's comment
+``Many of the reviewers’ comments ... ".
 
 \textbf{I also require that a comparison between your outlier removal model
 and one other algorithm could help to support your claims about the
 efficiency of your method.}
 
-(See my response to the comment ``Also, the paper would be improved if
-the proposed outlier detection ...")
+See my response to the comment ``Also, the paper would be improved if
+the proposed outlier detection ..."
 
 \textbf{Otherwise, I have underlined a few clarifications needed about the
 stochastic model and some paragraphs within the text.}
@@ -474,7 +469,12 @@ order to make it more readable. To list some of the major changes:
   8) I expanded the explanation of the REML method, which is used to
      constrain u and eta in Section 3.1 and 3.2.
 
-  9) Most of the paper was reworded / restructed to improve
+  9) I attempt to avoid esoteric jargon such as "hyperparameter". In
+     the revised draft, "hyperparameter" has been replaced with
+     "parameter", which does not degrade the precision of our
+     description of the method.
+  
+  10) Most of the paper was reworded / restructed to improve
      clarity. Despite the fact that very little of the original text
      is in the revised daft, there are almost no differences in the
      content being presented.
@@ -516,8 +516,7 @@ only depen- dent on nearby points, and has no assumption of uniformity
 anywhere. (Actually this raises a more general question: is the method
 given here use local or global support?)}
 
-My previous description of Shen's method was poor and misleading. I
-have my description in the revised draft.
+I have updated my description of Shen's method in the revised draft.
 
 \textbf{3+7: could also}
 
@@ -526,7 +525,10 @@ Done
 \textbf{3+32: redo the sentence; as it stands, you are saying that the SCEC
 exercise calculates strain rates.}
 
-TODO
+The text has been clarified say "The method described in Holt 2013 was
+also tested in the SCEC transient detection exercise. Holt 2013
+detects transient signal from an estimate of transient strain rates,
+and they estimate transient strain rates using a ..."
 
 \textbf{3+37: a geophysical signal}
 
@@ -573,7 +575,6 @@ the uncertainties in an azimuthal representation of strain.
 
 I did not include this justification in the revised draft because I
 think it would be too much of a digression.
-
 
 \closing{Thank you for your continued consideration,}
 

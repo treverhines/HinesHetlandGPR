@@ -57,16 +57,16 @@
 
 % focus on subjective vs object rather than "we have uncertainties"
 
-Transient strain rates derived from GNSS data can be used to detect
-and understand geophysical processes such as slow slip events and
+Transient strain derived from GNSS data can be used to detect and
+understand geophysical processes such as slow slip events and
 postseismic deformation. Here we propose using Gaussian process
-regression (GPR) as a tool for estimating transient strain rates from
-GNSS data. GPR is a non-parametric, Bayesian method for interpolating
+regression (GPR) as a tool for estimating transient strain from GNSS
+data. GPR is a non-parametric, Bayesian method for interpolating
 scattered data. In our approach, we assume a stochastic prior model
 for transient displacements. The prior describes how much we expect
 transient displacements to covary spatially and temporally. A
-posterior estimate of transient strain rates is obtained by
-differentiating the posterior displacements, which are formed by
+posterior estimate of transient strain is obtained by differentiating
+the posterior transient displacements, which are formed by
 conditioning the prior with the GNSS data. As a demonstration, we use
 GPR to detect transient strain resulting from slow slip events in the
 Pacific Northwest. Maximum likelihood methods are used to constrain a
@@ -96,11 +96,12 @@ assessing seismic hazard. Knowing where and how quickly strain is
 accumulating gives insight into where we can expect stored elastic
 energy to be released seismically. Estimates of secular, or long-term,
 strain rates have been used to constrain seismic hazard models such as
-UCERF3 \citep{Field2014}. Transient crustal strain, which is caused by
-geophysical processes such as slow slip events (SSEs) or postseismic
-deformation, is also relevant for assessing seismic hazard. While
-transient strain itself is not damaging, there is a possibility that it can
-trigger major earthquakes \citep{Roeloffs2006,Freed2001}.
+UCERF3 \citep{Field2014}. Transient crustal strain, which is anomalous
+strain caused by geophysical processes such as slow slip events (SSEs)
+or postseismic deformation, is also relevant for assessing seismic
+hazard. While transient strain itself is not damaging, there is a
+possibility that it can trigger major earthquakes
+\citep{Roeloffs2006,Freed2001}.
 
 % How secular strain rates are estimated from GNSS
 
@@ -114,11 +115,11 @@ first-order polynomial (i.e, the deformation gradients are constant)
 over some subnetwork of the GNSS stations \citep[e.g.,][]{Feigl1990,
 Murray2000}. The components of the secular strain rate tensor for each
 subnetwork are then determined from the least squares fit to the
-observations. The assumption that deformation gradients are spatially
+velocities. The assumption that deformation gradients are spatially
 uniform is not appropriate when subnetworks span a very large area. To
 help overcome this deficiency, \citet{Shen1996,Shen2015} used an
 inverse distance weighting scheme, in which the estimated secular
-strain rate at a point is primarily controlled by observations at
+strain rate at any point is primarily controlled by the velocities at
 nearby stations. The method of \citet{Shen1996,Shen2015} can be viewed
 as a form of local least squares regression with a first-order
 polynomial. Other methods for estimating secular strain rates have
@@ -136,7 +137,7 @@ described by \citet{Beavan2001} and \citet{Tape2009} also require the
 user to specify penalty parameters that control a similar trade-off
 between bias and variance in the solution. One could also parameterize
 deformation with a physically motivated model of interseismic
-deformation \citep[e.g.,][]{Meade2005, McCaffrey2007}. In such models
+deformation \citep[e.g.,][]{Meade2005, McCaffrey2007}. In such models,
 the lithospheric rheology and fault geometries are assumed to be
 known. Any errors in the assumed physical model could result in biased
 estimates of the secular strain rates and underestimated
@@ -159,17 +160,17 @@ geodetic data, uses the elastic dislocation Green's functions from
 \citet{Okada1992}. For the NSF and NIF, the time dependence of the
 geophysical signal is modeled as integrated Brownian motion. The
 method described in \citet{Holt2013} was also tested in the SCEC
-transient detection exercise. \citet{Holt2013} detect transient
-signal from an estimate of strain rates, and they estimate strain
-rates using a bi-cubic spatial parameterization of displacements
-between time epochs. \citet{Holt2013} define a detection threshold
-based on the strain rate magnitude, and we demonstrate that this is
-indeed an effective criterion for identifying a geophysical signal.
-For the same reasons described above, the transient deformation and
-corresponding uncertainties estimated by these methods can be biased
-by the chosen spatial parameterization. It is then difficult to
-distinguish signal from noise with these methods, which limits their
-utility for transient detection.
+transient detection exercise. \citet{Holt2013} detect transient signal
+from an estimate of transient strain rates, and they estimate
+transient strain rates using a bi-cubic spatial parameterization of
+displacements between time epochs. \citet{Holt2013} define a detection
+threshold based on the transient strain rate magnitude, and we
+demonstrate that this is indeed an effective criterion for identifying
+a geophysical signal. For the same reasons described above, the
+transient deformation and corresponding uncertainties estimated by
+these methods can be biased by the chosen spatial parameterization. It
+is then difficult to distinguish signal from noise with these methods,
+which limits their utility for transient detection.
 
 % What we are doing in this paper and why it improves upon existing
 % methods
@@ -1318,7 +1319,7 @@ standard deviations $\mitbf{\sigma} = [\sigma_1, \sigma_2, ...,
 \sigma_n]$. The Gaussian process $v$ is intended to describe transient
 features in the data that cannot be explained by the linear trend or
 seasonal terms in $\G$. We let the temporal covariance of $v$ be a
-squared exponential, and we let $v$ be spatially uncorrelated so that,
+squared exponential, and we let $v$ be spatially uncorrelated so that
 \begin{equation}
 C_v(p,p') = \phi^2\exp\left(\frac{-|t - t'|^2}{2\tau^2}\right) \delta_{\pos,\pos'},
 \end{equation}

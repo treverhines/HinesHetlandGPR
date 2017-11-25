@@ -360,15 +360,20 @@ in the u estimates?}
 At this point in the text, it is assumed that the statistical
 properties of u and eta are known, although not yet specified. So I do
 not think this would be an appropriate place to discuss a scenario in
-which we do not know u or eta. I also think that it should go with
-saying that the validity of our results are contingent on having a
-good model for u and eta.
+which we do not know u or eta. I also think that it is clear that our
+results are contingent on having a good model for u and eta. Asking
+whether the strain signal can be resolved without a prior statistical
+model for u or eta is asking whether the signal can be separated from
+the noise if one does not know anything about the noise or the signal.
+I think it goes without stating that signal can not be extracted from
+observations without a model of the noise or an assumption of the
+signal sought.
 
 In Section 3.1 and 3.2, we discuss how we choose a model for u and
 eta. The key piece of "prior knowledge" that allows us to discern u
 from eta is that u is negligible for inland stations. This allowed us
-to isolate and constrain eta first, and then we constrained u. If we
-allowed eta to be spatially correlated (which we did not), then we
+to isolate and characterize eta first, and then we characterized u. If
+we allowed eta to be spatially correlated (which we did not), then we
 would have conceivably been able to describe the spatially and
 temporally correlated noise from, for example, orbit modeling errors.
 
@@ -551,22 +556,22 @@ some details go into an Appendix?}
 I added a clearer derivation in the revised draft.
 
 \textbf{Figure 6: I like that the strain uncertainties can be shown, but is
-there a reason not to plot principle strains using arrows, showing
+there a reason not to plot principal strains using arrows, showing
 errors by an ellipse around the tips?}
 
 I have put a lot of thought into representing strain, and I recognize
-that strain is conventionally represented by showing the principle
+that strain is conventionally represented by showing the principal
 strains axes. However, there is no good way of showing the
-uncertainties for the principle strain axes. For example, consider a
+uncertainties for the principal strain axes. For example, consider a
 perfectly dilational strain that is perturbed by a small amount of
-noise. The orientation of principle strains will be highly uncertain,
-but the magnitudes of the principle strains will be well constrained.
+noise. The orientation of principal strains will be highly uncertain,
+but the magnitudes of the principal strains will be well constrained.
 If we were to draw some sort of confidence interval around the tips of
-the principle strains, then they would have a crescent shape (not an
+the principal strains, then they would have a crescent shape (not an
 ellipse). It is unclear how I would write a program to draw these
 confidence intervals.
 
-Instead of showing the principle strains, I am showing the normal
+Instead of showing the principal strains, I am showing the normal
 strains as a function of azimuth. For a given azimuth, the uncertainty
 in the normal strain is computed by linear propagation of the
 uncertainties in the strain. In my opinion, it is much easier to show

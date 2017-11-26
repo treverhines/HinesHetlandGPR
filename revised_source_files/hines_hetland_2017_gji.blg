@@ -1,0 +1,49 @@
+This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: hines_hetland_2017_gji.aux
+The style file: gji.bst
+Database file #1: mybib.bib
+Warning--empty journal in Wdowinski1997
+Warning--empty publisher in Wendland2005
+You've used 66 entries,
+            2773 wiz_defined-function locations,
+            1418 strings with 20038 characters,
+and the built_in function-call counts, 31853 in all, are:
+= -- 2677
+> -- 2202
+< -- 42
++ -- 744
+- -- 678
+* -- 3528
+:= -- 5142
+add.period$ -- 132
+call.type$ -- 66
+change.case$ -- 424
+chr.to.int$ -- 78
+cite$ -- 200
+duplicate$ -- 1148
+empty$ -- 2039
+format.name$ -- 782
+if$ -- 6078
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 72
+newline$ -- 268
+num.names$ -- 264
+pop$ -- 523
+preamble$ -- 1
+purify$ -- 358
+quote$ -- 0
+skip$ -- 946
+stack$ -- 0
+substring$ -- 1473
+swap$ -- 317
+text.length$ -- 2
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 573
+warning$ -- 2
+while$ -- 305
+width$ -- 0
+write$ -- 787
+(There were 2 warnings)

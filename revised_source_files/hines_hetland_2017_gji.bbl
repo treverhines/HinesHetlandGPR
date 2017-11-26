@@ -1,0 +1,396 @@
+\begin{thebibliography}{66}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+
+\bibitem[Acheson(1975)]{Acheson1975}
+Acheson, D.~T., 1975.
+\newblock {Data editing - subroutine editq}, Tech. rep., US Department of
+  Commerce, National Oceanic and Atmospheric Administration, Environmental Data
+  Service.
+
+\bibitem[Adler(1981)]{Adler1981}
+Adler, R.~J., 1981.
+\newblock {\it {The Geometry of Random Fields}\/}, John Wiley {\&} Sons,
+  Chichester.
+
+\bibitem[Beavan \& Haines(2001)]{Beavan2001}
+Beavan, J. \& Haines, J., 2001.
+\newblock {Contemporary horizontal velocity and strain rate fields of the
+  Pacific-Australian plate boundary zone through New Zealand}, {\it Journal of
+  Geophysical Research\/}, {\bf 106}(B1), 741--770.
+
+\bibitem[Blewitt et~al.(2016)Blewitt, Kreemer, Hammond, \&
+  Gazeaux]{Blewitt2016}
+Blewitt, G., Kreemer, C., Hammond, W.~C., \& Gazeaux, J., 2016.
+\newblock {MIDAS robust trend estimator for accurate GPS station velocities
+  without step detection}, {\it Journal of Geophysical Research : Solid
+  Earth\/}, {\bf 121}, 2054--2068.
+
+\bibitem[Bock \& Melgar(2016)]{Bock2016}
+Bock, Y. \& Melgar, D., 2016.
+\newblock {Physical applications of GPS geodesy: a review}, {\it Reports on
+  Progress in Physics\/}, {\bf 79}(10), 106801.
+
+\bibitem[Bos et~al.(2013)Bos, Fernandes, Williams, \& Bastos]{Bos2013}
+Bos, M.~S., Fernandes, R. M.~S., Williams, S. D.~P., \& Bastos, L., 2013.
+\newblock {Fast error analysis of continuous GNSS observations with missing
+  data}, {\it Journal of Geodesy\/}, {\bf 87}(4), 351--360.
+
+\bibitem[Chen et~al.(2008)Chen, Davis, \& Hager]{Chen2008}
+Chen, Y., Davis, T.~a., \& Hager, W.~W., 2008.
+\newblock {Algorithm 887 : CHOLMOD , Supernodal Sparse Cholesky Factorization
+  and Update/downdate}, {\it ACM Transactions on Mathematical Software\/}, {\bf
+  35}(3), 1--12.
+
+\bibitem[Cressie(1993)]{Cressie1992}
+Cressie, N., 1993.
+\newblock {\it {Statistics for Spatial Data}\/}, John Wiley {\&} Sons, New
+  York, rev. edn.
+
+\bibitem[Dmitrieva et~al.(2015)Dmitrieva, Segall, \& DeMets]{Dmitrieva2015}
+Dmitrieva, K., Segall, P., \& DeMets, C., 2015.
+\newblock {Network-based estimation of time-dependent noise in GPS position
+  time series}, {\it Journal of Geodesy\/}, {\bf 89}(6), 591--606.
+
+\bibitem[Dong et~al.(2002)Dong, Fang, Bock, Cheng, \& Miyazaki]{Dong2002}
+Dong, D., Fang, P., Bock, Y., Cheng, M.~K., \& Miyazaki, S., 2002.
+\newblock {Anatomy of apparent seasonal variations from GPS-derived site
+  position time series}, {\it J. Geophys. Res.\/}, {\bf 107}(B4), 2075.
+
+\bibitem[Dong et~al.(2006)Dong, Fang, Bock, Webb, Prawirodirdjo, Kedar, \&
+  Jamason]{Dong2006}
+Dong, D., Fang, P., Bock, Y., Webb, F., Prawirodirdjo, L., Kedar, S., \&
+  Jamason, P., 2006.
+\newblock {Spatiotemporal filtering using principal component analysis and
+  Karhunen-Loeve expansion approaches for regional GPS network analysis}, {\it
+  Journal of Geophysical Research: Solid Earth\/}, {\bf 111}(3), 1--16.
+
+\bibitem[Dragert \& Wang(2011)]{Dragert2011}
+Dragert, H. \& Wang, K., 2011.
+\newblock {Temporal evolution of an episodic tremor and slip event along the
+  northern Cascadia margin}, {\it Journal of Geophysical Research: Solid
+  Earth\/}, {\bf 116}(12), 1--12.
+
+\bibitem[Dragert et~al.(2001)Dragert, Wang, \& James]{Dragert2001}
+Dragert, H., Wang, K., \& James, T.~S., 2001.
+\newblock {A silent slip event on the deeper Cascadia subduction interface.},
+  {\it Science\/}, {\bf 292}, 1525--1528.
+
+\bibitem[El-Fiky \& Kato(1998)]{El-Fiky1999}
+El-Fiky, G.~S. \& Kato, T., 1998.
+\newblock {Continuous distribution of the horizontal strain in the Tohoku
+  district, Japan, predicted by least-squares collocation}, {\it Journal of
+  Geodynamics\/}, {\bf 27}(2), 213--236.
+
+\bibitem[Feigl et~al.(1990)Feigl, King, \& Jordan]{Feigl1990}
+Feigl, K.~L., King, R.~W., \& Jordan, T.~H., 1990.
+\newblock {Geodetic measurement of tectonic deformation in the Santa Maria Fold
+  and Thrust Belt, California}, {\it Journal of Geophysical Research: Solid
+  Earth\/}, {\bf 95}(B3), 2679--2699.
+
+\bibitem[Field et~al.(2014)Field, Arrowsmith, Biasi, Bird, Dawson, Felzer,
+  Jackson, Johnson, Jordan, Madden, Michael, Milner, Page, Parsons, Powers,
+  Shaw, Thatcher, Weldon, \& Zeng]{Field2014}
+Field, E.~H., Arrowsmith, R.~J., Biasi, G.~P., Bird, P., Dawson, T.~E., Felzer,
+  K.~R., Jackson, D.~D., Johnson, K.~M., Jordan, T.~H., Madden, C., Michael,
+  A.~J., Milner, K.~R., Page, M.~T., Parsons, T., Powers, P.~M., Shaw, B.~E.,
+  Thatcher, W.~R., Weldon, R.~J., \& Zeng, Y., 2014.
+\newblock {Uniform California Earthquake Rupture Forecast, version 3 (UCERF3)
+  -The time-independent model}, {\it Bulletin of the Seismological Society of
+  America\/}, {\bf 104}(3), 1122--1180.
+
+\bibitem[Freed \& Lin(2001)]{Freed2001}
+Freed, a.~M. \& Lin, J., 2001.
+\newblock {Delayed triggering of the 1999 Hector Mine earthquake by
+  viscoelastic stress transfer.}, {\it Nature\/}.
+
+\bibitem[Gazeaux et~al.(2013)Gazeaux, Williams, King, Bos, Dach, Deo, Moore,
+  Ostini, Petrie, Roggero, Teferle, Olivares, \& Webb]{Gazeaux2013}
+Gazeaux, J., Williams, S., King, M., Bos, M., Dach, R., Deo, M., Moore, A.~W.,
+  Ostini, L., Petrie, E., Roggero, M., Teferle, F.~N., Olivares, G., \& Webb,
+  F.~H., 2013.
+\newblock {Detecting offsets in GPS time series: First results from the
+  detection of offsets in GPS experiment}, {\it Journal of Geophysical
+  Research: Solid Earth\/}, {\bf 118}(5), 2397--2407.
+
+\bibitem[Gladwin et~al.(1987)Gladwin, Gwyther, Hart, Francis, \&
+  Johnston]{Gladwin1987}
+Gladwin, M.~T., Gwyther, R.~L., Hart, R., Francis, M., \& Johnston, M. J.~S.,
+  1987.
+\newblock {Borehole tensor strain measurements in California}, {\it Journal of
+  Geophysical Research: Solid Earth\/}, {\bf 92}(B8), 7981--7988.
+
+\bibitem[Hammond et~al.(2016)Hammond, Blewitt, \& Kreemer]{Hammond2016}
+Hammond, W.~C., Blewitt, G., \& Kreemer, C., 2016.
+\newblock {GPS imaging of vertical land motion in California and Nevada:
+  Implications for Sierra Nevada uplift}, {\it Journal of Geophysical Research
+  : Solid Earth\/}.
+
+\bibitem[Hart et~al.(1996)Hart, Gladwin, Gwyther, Agnew, \& Wyatt]{Hart1996}
+Hart, R. H.~G., Gladwin, M.~T., Gwyther, R.~L., Agnew, D.~C., \& Wyatt, F.~K.,
+  1996.
+\newblock {Tidal calibration of borehole strain meters: Removing the effects of
+  small-scale inhomogeneity}, {\it Journal of Geophysical Research\/}, {\bf
+  101}(96).
+
+\bibitem[Harville(1974)]{Harville1974}
+Harville, D.~A., 1974.
+\newblock {Bayesian Inference for Variance Components Using Only Error
+  Contrasts}, {\it Biometrika\/}, {\bf 61}(2), 383--385.
+
+\bibitem[He et~al.(2017)He, Montillet, Fernandes, Bos, Yu, Hua, \&
+  Jiang]{He2017}
+He, X., Montillet, J.~P., Fernandes, R., Bos, M., Yu, K., Hua, X., \& Jiang,
+  W., 2017.
+\newblock {Review of current GPS methodologies for producing accurate time
+  series and their error sources}, {\it Journal of Geodynamics\/}, {\bf 106},
+  12--29.
+
+\bibitem[Herring et~al.(2016)Herring, Melbourne, Murray, Floyd, Szeliga, King,
+  Phillips, Puskas, Santillan, \& Wang]{Herring2016}
+Herring, T.~A., Melbourne, T.~I., Murray, M.~H., Floyd, M.~A., Szeliga, W.~M.,
+  King, R.~W., Phillips, D.~A., Puskas, C.~M., Santillan, M., \& Wang, L.,
+  2016.
+\newblock {Plate Boundary Observatory and related networks: GPS data analysis
+  methods and geodetic product}, {\it Reviews of Geophysics\/}, pp. 1--50.
+
+\bibitem[Hines \& Hetland(2016)]{Hines2016a}
+Hines, T.~T. \& Hetland, E.~A., 2016.
+\newblock {Rheologic constraints on the upper mantle from five years of
+  postseismic deformation following the El Mayor-Cucapah earthquake}, {\it
+  Journal of Geophysical Research: Solid Earth\/}, {\bf 121}.
+
+\bibitem[Hodgkinson et~al.(2013)Hodgkinson, Agnew, \& Roeloffs]{Hodgkinson2013}
+Hodgkinson, K., Agnew, D., \& Roeloffs, E., 2013.
+\newblock {Working With Strainmeter Data}, {\it Eos, Transactions American
+  Geophysical Union\/}, {\bf 94}(9), 91--91.
+
+\bibitem[Holt \& Shcherbenko(2013)]{Holt2013}
+Holt, W.~E. \& Shcherbenko, G., 2013.
+\newblock {Toward a Continuous Monitoring of the Horizontal Displacement
+  Gradient Tensor Field in Southern California Using cGPS Observations from
+  Plate Boundary Observatory (PBO)}, {\it Seismological Research Letters\/},
+  {\bf 84}(3), 455--467.
+
+\bibitem[Johansson et~al.(2002)Johansson, Davis, Scherneck, Milne, Vermeer,
+  Mitrovica, Bennett, Jonsson, Elgered, Elo, \& Koivula]{Johansson2002}
+Johansson, J.~M., Davis, J.~L., Scherneck, H., Milne, G.~A., Vermeer, M.,
+  Mitrovica, J.~X., Bennett, R.~A., Jonsson, B., Elgered, G., Elo, P., \&
+  Koivula, H., 2002.
+\newblock {Continuous GPS measurements of postglacial adjustment in
+  Fennoscandia 1. Geodetic results}, {\it Journal of Geophysical Research\/},
+  {\bf 107}.
+
+\bibitem[Kato et~al.(1998)Kato, El-Fiky, Oware, \& Miyazaki]{Kato1998}
+Kato, T., El-Fiky, G.~S., Oware, E.~N., \& Miyazaki, S., 1998.
+\newblock {Crustal strains in the Japanese islands as deduced from dense GPS
+  array}, {\it Geophysical Research Letters\/}, {\bf 25}(18), 3445--3448.
+
+\bibitem[Langbein(2004)]{Langbein2004}
+Langbein, J., 2004.
+\newblock {Noise in two-color electronic distance meter measurements
+  revisited}, {\it Journal of Geophysical Research: Solid Earth\/}, {\bf
+  109}(4), 1--16.
+
+\bibitem[Langbein(2008)]{Langbein2008}
+Langbein, J., 2008.
+\newblock {Noise in GPS displacement measurements from Southern California and
+  Southern Nevada}, {\it Journal of Geophysical Research: Solid Earth\/}, {\bf
+  113}(5), 1--12.
+
+\bibitem[Langbein \& Johnson(1997)]{Langbein1997}
+Langbein, J. \& Johnson, H., 1997.
+\newblock {Correlated errors in geodetic time series: Implications for
+  time-dependent deformation}, {\it Journal of Geophysical Research\/}, {\bf
+  102}(B1), 591--603.
+
+\bibitem[Lohman \& Murray(2013)]{Lohman2013}
+Lohman, R.~B. \& Murray, J.~R., 2013.
+\newblock {The SCEC Geodetic Transient-Detection Validation Exercise}, {\it
+  Seismological Research Letters\/}, {\bf 84}(3), 419--425.
+
+\bibitem[Mackay(1998)]{Mackay1998}
+Mackay, D. J.~C., 1998.
+\newblock {Introduction to Gaussian processes}, {\it Neural Networks and
+  Machine Learning\/}, {\bf 168}(1996), 133--165.
+
+\bibitem[Mao et~al.(1999)Mao, Harrison, \& Dixon]{Mao1999}
+Mao, A., Harrison, G.~A., \& Dixon, H., 1999.
+\newblock {Noise in GPS coordinate time series}, {\it Journal of Geophysical
+  Research\/}, {\bf 104}(B2), 2797--2816.
+
+\bibitem[McCaffrey et~al.(2007)McCaffrey, Qamar, King, Wells, Khazaradze,
+  Williams, Stevens, Vollick, \& Zwick]{McCaffrey2007}
+McCaffrey, R., Qamar, A.~I., King, R.~W., Wells, R., Khazaradze, G., Williams,
+  C.~A., Stevens, C.~W., Vollick, J.~J., \& Zwick, P.~C., 2007.
+\newblock {Fault locking, block rotation and crustal deformation in the Pacific
+  Northwest}, {\it Geophysical Journal International\/}, {\bf 169}(3),
+  1315--1340.
+
+\bibitem[McCaffrey et~al.(2013)McCaffrey, King, Payne, \&
+  Lancaster]{McCaffrey2013}
+McCaffrey, R., King, R.~W., Payne, S.~J., \& Lancaster, M., 2013.
+\newblock {Active tectonics of northwestern U.S. inferred from GPS-derived
+  surface velocities}, {\it Journal of Geophysical Research: Solid Earth\/},
+  {\bf 118}, 709--723.
+
+\bibitem[McGuire \& Segall(2003)]{McGuire2003}
+McGuire, J.~J. \& Segall, P., 2003.
+\newblock {Imaging of aseismic fault slip transients recorded by dense geodetic
+  networks}, {\it Geophysical Journal International\/}, {\bf 155}, 778--788.
+
+\bibitem[Meade \& Hager(2005)]{Meade2005}
+Meade, B.~J. \& Hager, B.~H., 2005.
+\newblock {Block models of crustal motion in southern California constrained by
+  GPS measurements}, {\it Journal of Geophysical Research: Solid Earth\/}, {\bf
+  110}, 1--19.
+
+\bibitem[Moritz(1978)]{Moritz1978}
+Moritz, H., 1978.
+\newblock {Least-Squares Collocation}, {\it Reviews of Geophysics\/}, {\bf
+  16}(3), 421--430.
+
+\bibitem[Murray \& Svarc(2017)]{Murray2017}
+Murray, J.~R. \& Svarc, J., 2017.
+\newblock {Global Positioning System Data Collection, Processing, and Analysis
+  Conducted by the U.S. Geological Survey Earthquake Hazards Program}, {\it
+  Seismological Research Letters\/}, {\bf 88}(3), 1 -- 10.
+
+\bibitem[Murray \& Lisowski(2000)]{Murray2000}
+Murray, M.~H. \& Lisowski, M., 2000.
+\newblock {Strain accumulation along the Cascadia subduction zone in western
+  Washington}, {\it Geophysical Research Letters\/}, {\bf 27}(22), 3631--3634.
+
+\bibitem[Ohtani et~al.(2010)Ohtani, McGuire, \& Segall]{Ohtani2010}
+Ohtani, R., McGuire, J.~J., \& Segall, P., 2010.
+\newblock {Network strain filter: A new tool for monitoring and detecting
+  transient deformation signals in GPS arrays}, {\it Journal of Geophysical
+  Research: Solid Earth\/}, {\bf 115}(12), 1--17.
+
+\bibitem[Okada(1992)]{Okada1992}
+Okada, Y., 1992.
+\newblock {Internal deformation due to shear and tensile faults in a half
+  space}, {\it Bulletin of the Seismological Society of America\/}, {\bf
+  82}(2), 1018--1040.
+
+\bibitem[Papoulis(1991)]{Papoulis1991}
+Papoulis, A., 1991.
+\newblock {\it {Probability, Random Variables, and Stochastic Processes}\/},
+  McGraw-Hill, New York, 3rd edn.
+
+\bibitem[Press et~al.(2007)Press, Flannery, Teukolsky, \&
+  Vetterling]{Press2007}
+Press, W.~H., Flannery, B.~P., Teukolsky, S.~A., \& Vetterling, W.~T., 2007.
+\newblock {\it {Numerical Recipes: The Art of Scientific Computing}\/},
+  Cambridge University Press, Cambridge, 3rd edn.
+
+\bibitem[Rasmussen \& Williams(2006)]{Rasmussen2006}
+Rasmussen, C.~E. \& Williams, C. K.~I., 2006.
+\newblock {\it {Gaussian processes for machine learning}\/}, The MIT Press.
+
+\bibitem[Roeloffs(2010)]{Roeloffs2010}
+Roeloffs, E., 2010.
+\newblock {Tidal calibration of Plate Boundary Observatory borehole
+  strainmeters: Roles of vertical and shear coupling}, {\it Journal of
+  Geophysical Research: Solid Earth\/}, {\bf 115}(6), 1--25.
+
+\bibitem[Roeloffs(2006)]{Roeloffs2006}
+Roeloffs, E.~A., 2006.
+\newblock {Evidence for Aseismic Deformation Rate Changes Prior To
+  Earthquakes}, {\it Annual Review of Earth and Planetary Sciences\/}, {\bf
+  34}(1), 591--627.
+
+\bibitem[Rogers \& Dragert(2003)]{Rogers2003}
+Rogers, G. \& Dragert, H., 2003.
+\newblock {Episodic tremor and slip on the Cascadia subduction zone: the
+  chatter of silent slip.}, {\it Science\/}, {\bf 300}, 1942--1943.
+
+\bibitem[Sandwell \& Wessel(2016)]{Sandwell2016}
+Sandwell, D.~T. \& Wessel, P., 2016.
+\newblock {Interpolation of 2-D vector data using constraints from elasticity},
+  {\it Geophysical Research Letters\/}, pp. 1--7.
+
+\bibitem[Schmidt \& Gao(2010)]{Schmidt2010}
+Schmidt, D.~A. \& Gao, H., 2010.
+\newblock {Source parameters and time-dependent slip distributions of slow slip
+  events on the Cascadia subduction zone from 1998 to 2008}, {\it Journal of
+  Geophysical Research: Solid Earth\/}, {\bf 115}(4), 1--13.
+
+\bibitem[Schwartz \& Rokosky(2007)]{Schwartz2007}
+Schwartz, S.~Y. \& Rokosky, J.~M., 2007.
+\newblock {Slow slip events and seismic tremor at circum-Pacific subduction
+  zones}, {\it Reviews of Geophysics\/}, {\bf 45}, 1--32.
+
+\bibitem[Segall \& Mathews(1997)]{Segall1997}
+Segall, P. \& Mathews, M., 1997.
+\newblock {Time dependent inversion of geodetic data}, {\it Journal of
+  Geophysical Research\/}, {\bf 102}(B10), 22391--22409.
+
+\bibitem[Shen et~al.(2015)Shen, Wang, Zeng, \& Wang]{Shen2015}
+Shen, Z., Wang, M., Zeng, Y., \& Wang, F., 2015.
+\newblock {Optimal Interpolation of Spatially Discretized Geodetic Data}, {\it
+  Bulletin of the Seismological Society of America\/}, {\bf 105}(4),
+  2117--2127.
+
+\bibitem[Shen et~al.(1996)Shen, Jackson, Ge, \& Bob]{Shen1996}
+Shen, Z.~K., Jackson, D.~D., Ge, B.~X., \& Bob, X.~G., 1996.
+\newblock {Crustal deformation across and beyond the Los Angeles basin from
+  geodetic measurements}, {\it Journal of Geophysical Research\/}, {\bf
+  101}(B12), 27927--27957.
+
+\bibitem[Tape et~al.(2009)Tape, Mus{\'{e}}, Simons, Dong, \& Webb]{Tape2009}
+Tape, C., Mus{\'{e}}, P., Simons, M., Dong, D., \& Webb, F., 2009.
+\newblock {Multiscale estimation of GPS velocity fields}, {\it Geophysical
+  Journal International\/}, {\bf 179}(2), 945--971.
+
+\bibitem[von Mises(1964)]{VonMises1964}
+von Mises, R., 1964.
+\newblock {\it {Mathematical Theory of Probability and Statistics}\/}, Academic
+  Press, New York.
+
+\bibitem[Wdowinski et~al.(1997)Wdowinski, Zhang, Fang, \&
+  Genrich]{Wdowinski1997}
+Wdowinski, S., Zhang, J., Fang, P., \& Genrich, J., 1997.
+\newblock {Southern California Permanent GPS Geodetic Array: Spatial filtering
+  of daily positions for estimating coseismic and postseismic displacements
+  induced by the 1992 Landers earthquake}, {\bf 102}(97), 57--70.
+
+\bibitem[Wech(2010)]{Wech2010}
+Wech, A.~G., 2010.
+\newblock {Interactive Tremor Monitoring}, {\it Seismological Research
+  Letters\/}, {\bf 81}(4), 664 -- 669.
+
+\bibitem[Wech et~al.(2009)Wech, Creager, \& Melbourne]{Wech2009}
+Wech, A.~G., Creager, K.~C., \& Melbourne, T.~I., 2009.
+\newblock {Seismic and geodetic constraints on Cascadia slow slip}, {\it
+  Journal of Geophysical Research: Solid Earth\/}, {\bf 114}(10), 1--9.
+
+\bibitem[Wendland(2005)]{Wendland2005}
+Wendland, H., 2005.
+\newblock {\it {Scattered data approximation}\/}.
+
+\bibitem[Williams et~al.(2004)Williams, Bock, Fang, Jamason, Nikolaidis,
+  Prawirodirdjo, Miller, \& Johnson]{Williams2004}
+Williams, S. D.~P., Bock, Y., Fang, P., Jamason, P., Nikolaidis, R.~M.,
+  Prawirodirdjo, L., Miller, M., \& Johnson, D.~J., 2004.
+\newblock {Error analysis of continuous GPS position time series}, {\it Journal
+  of Geophysical Research: Solid Earth\/}, {\bf 109}(B3).
+
+\bibitem[Wyatt(1982)]{Wyatt1982}
+Wyatt, F., 1982.
+\newblock {Displacement of Surface Monuments: Horizontal Motion}, {\it Journal
+  of Geophysical Research\/}, {\bf 87}(B2), 979--989.
+
+\bibitem[Wyatt(1989)]{Wyatt1989}
+Wyatt, F.~K., 1989.
+\newblock {Displacement of surface monuments: Vertical motion}, {\it Journal of
+  Geophysical Research\/}, {\bf 94}(B2), 1655--1664.
+
+\bibitem[Zhang et~al.(1997)Zhang, Bock, Johnson, Fang, Williams, Genrich,
+  Wdowinski, \& Behr]{Zhang1997}
+Zhang, J., Bock, Y., Johnson, H., Fang, P., Williams, S., Genrich, J.,
+  Wdowinski, S., \& Behr, J., 1997.
+\newblock {Southern California Permanent GPS Geodetic Array: Error analysis of
+  daily position estimates and site velocities}, {\it Journal of Geophysical
+  Research\/}, {\bf 102}(B8), 18035--18055.
+
+\end{thebibliography}

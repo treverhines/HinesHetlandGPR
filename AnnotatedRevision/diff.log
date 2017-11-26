@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.24)  11 NOV 2017 13:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.24)  26 NOV 2017 08:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -308,11 +308,6 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 78.
 
-Underfull \hbox (badness 10000) in paragraph at lines 78--80
-
- []
-
-
 Underfull \vbox (badness 5475) has occurred while \output is active []
 
  [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
@@ -321,29 +316,23 @@ Underfull \vbox (badness 5475) has occurred while \output is active []
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 108.
 
-Overfull \hbox (10.4997pt too wide) in paragraph at lines 138--186
+Overfull \hbox (10.4997pt too wide) in paragraph at lines 139--187
 []|   []   |   []   |   []   |   []   |   []   |   []   |   []   |   []   |   [
 ]   |   []   [][]|   []   |   []   |   []   |   []   |   []
  []
 
 
-Overfull \hbox (28.18637pt too wide) in paragraph at lines 138--186
+Overfull \hbox (28.18637pt too wide) in paragraph at lines 139--187
 \OT1/ptm/m/n/10.95 sta-tions []|   [][][]|   [][].
  []
 
 
-Overfull \hbox (27.32077pt too wide) in paragraph at lines 138--186
-|   []   |   []   |   []   |   []   |   []   |   []   |   []   |   []   |   [][
-][]|   []   |   []   |   []   |   []
- []
-
-
-Overfull \hbox (29.58867pt too wide) in paragraph at lines 138--186
-\OT1/ptm/m/n/10.95 tion []|   [][][]|   [][].
+Overfull \hbox (132.27626pt too wide) in paragraph at lines 139--187
+\OT1/ptm/m/n/10.95 of in-ter-seis-mic de-for-ma-tion []|   [][][]|   [][].
  []
 
 [2]
-Overfull \hbox (36.2897pt too wide) in paragraph at lines 223--261
+Overfull \hbox (36.2897pt too wide) in paragraph at lines 224--262
 |   []   |   []   |   []   |   []   |   []   |   []   |   []   |   []   |   [] 
   |   []   |   []
  []
@@ -352,18 +341,12 @@ Overfull \hbox (36.2897pt too wide) in paragraph at lines 223--261
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [3]
-Overfull \hbox (2.57607pt too wide) in paragraph at lines 291--293
+Overfull \hbox (2.57607pt too wide) in paragraph at lines 292--294
 []|   []   |   []   |   []   |   []   |   []   |   []   |   []   |   []   |   [
 ]   |   []   |   []   |   []
  []
 
 [4]
-Overfull \hbox (6.23192pt too wide) in paragraph at lines 334--351
-|   []   |   []   |   []   |   []   |   []   |   []   |   []   |   []   |   [] 
-  |   []
- []
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [5]
@@ -372,39 +355,39 @@ File: figures/prior_demo/prior-demo.pdf Graphic file (type pdf)
 
 <use figures/prior_demo/prior-demo.pdf>
 Package pdftex.def Info: figures/prior_demo/prior-demo.pdf used on input line 3
-85.
+86.
 (pdftex.def)             Requested size: 505.88875pt x 216.80946pt.
 
-Overfull \hbox (62.02576pt too wide) in paragraph at lines 385--394
+Overfull \hbox (62.02576pt too wide) in paragraph at lines 386--395
  [][] 
  []
 
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 394.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 395.
 
 Underfull \vbox (badness 6220) has occurred while \output is active []
 
  [6]
 [7 <./figures/prior_demo/prior-demo.pdf>]
-Overfull \hbox (14.79327pt too wide) in paragraph at lines 481--499
+Overfull \hbox (14.79327pt too wide) in paragraph at lines 482--500
 |   []   |   []   |   []   |   []   |   []   |   []   |   []   |   []   |   [] 
   |   []   |   []   |   []   |   []   |   []
  []
 
 
-Overfull \hbox (3.04584pt too wide) in paragraph at lines 481--499
+Overfull \hbox (3.04584pt too wide) in paragraph at lines 482--500
 |   []   |   []   |   []   |   []   |   []   |   []   |   []   |   []   |   [] 
   |   []
  []
 
 
-Overfull \hbox (5.49825pt too wide) in paragraph at lines 481--499
+Overfull \hbox (5.49825pt too wide) in paragraph at lines 482--500
 |   []   |   []   |   []   |   []   |   []   |   []   |   []   |   []   |   [] 
   |   []
  []
 
 
-Overfull \hbox (13.86452pt too wide) in paragraph at lines 511--522
+Overfull \hbox (13.86452pt too wide) in paragraph at lines 512--523
 |   []   |   []   |   []   |   []   |   []   |   []   |   []   |   []   |   [] 
   |   []   |   []   |   []   |   []   |   []
  []
@@ -414,13 +397,13 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [8]
 [9]
-Overfull \hbox (1.46884pt too wide) in paragraph at lines 685--693
+Overfull \hbox (5.27954pt too wide) in paragraph at lines 686--696
 |   []   |   []   |   []   |   []   |   []   |   []   |   []   |   []   |   [] 
   |   []   |   []   |   []   |   []   |   []
  []
 
 [10]
-Overfull \hbox (70.20438pt too wide) detected at line 764
+Overfull \hbox (70.20438pt too wide) detected at line 766
 [][][][]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 p[][]\OT1/cmr/m/n/10.95 ) = [][
 ][][][][] [] [] [][] []
  []
@@ -429,19 +412,19 @@ Overfull \hbox (70.20438pt too wide) detected at line 764
 Underfull \vbox (badness 1112) has occurred while \output is active []
 
  [11]
-Overfull \hbox (27.5829pt too wide) in paragraph at lines 854--872
+Overfull \hbox (27.5829pt too wide) in paragraph at lines 855--873
 |   []   |   []   |   []   |   []   |   []   |   []   |   []   |   []   |   [] 
   |   []   |   []   |   []   |   []
  []
 
 
-Overfull \hbox (64.80211pt too wide) in paragraph at lines 874--892
+Overfull \hbox (64.80211pt too wide) in paragraph at lines 875--893
 |   []   |   []   |   []   |   []   |   []   |   []   |   []   |   []   |   [] 
   |   []
  []
 
 [12]
-Overfull \hbox (21.50346pt too wide) in paragraph at lines 912--915
+Overfull \hbox (21.50346pt too wide) in paragraph at lines 913--916
 []|   []   |   []   |   []   |   []   |   []   |   []   |   []   |   []   |   [
 ]   |   []   |   []   |   []   |   []   |   []   |   []   |   []
  []
@@ -451,33 +434,33 @@ File: figures/context_map/context-map.pdf Graphic file (type pdf)
 
 <use figures/context_map/context-map.pdf>
 Package pdftex.def Info: figures/context_map/context-map.pdf used on input line
- 979.
+ 981.
 (pdftex.def)             Requested size: 505.88875pt x 397.48402pt.
 
-Overfull \hbox (62.02576pt too wide) in paragraph at lines 979--989
+Overfull \hbox (62.02576pt too wide) in paragraph at lines 981--991
  [][] 
  []
 
 
-Overfull \hbox (123.2184pt too wide) in paragraph at lines 1018--1054
+Overfull \hbox (123.2184pt too wide) in paragraph at lines 1020--1056
 []|   []   []\OT1/ptm/m/n/10.95 tem-po-rally cor-re-lated noise in GNSS data []
 |   []
  []
 
 
-Overfull \hbox (246.92195pt too wide) in paragraph at lines 1018--1054
+Overfull \hbox (246.92195pt too wide) in paragraph at lines 1020--1056
 |   []   |   []   |   []   |   []   |   []   |   []   |   []   |   []   |   [] 
   |   []   |   []
  []
 
 
-Overfull \hbox (10.10793pt too wide) in paragraph at lines 1018--1054
+Overfull \hbox (10.10793pt too wide) in paragraph at lines 1020--1056
 \OT1/ptm/m/n/10.95 Gauss-Markov (FOGM) pro-cess []|   []   |   []   |   []   | 
   [][][]|   [][]. There
  []
 
 
-Overfull \hbox (41.70932pt too wide) in paragraph at lines 1018--1054
+Overfull \hbox (41.70932pt too wide) in paragraph at lines 1020--1056
 \OT1/ptm/m/n/10.95 scribes the power spec-trum of mo-tion re-sult-ing from in-s
 ta-bil-ity in []|   []   |   []   |   []
  []
@@ -487,37 +470,40 @@ Underfull \vbox (badness 1565) has occurred while \output is active []
 
  [15 <./figures/context_map/context-map.pdf>]
 
-LaTeX Warning: Reference `eq:FOGMdef' on page 16 undefined on input line 1069.
+LaTeX Warning: Reference `eq:FOGMdef' on page 16 undefined on input line 1071.
 
 
-Overfull \hbox (6.482pt too wide) in paragraph at lines 1102--1115
+Overfull \hbox (6.482pt too wide) in paragraph at lines 1104--1117
 []|   []   |   []   |   []   |   []   |   []   |   []   |   []   |   []   |   [
 ]   |   []   |   []   |   []   |   []   |   []   |   []   |   []   |   []
  []
 
 
-Overfull \hbox (41.25699pt too wide) in paragraph at lines 1102--1115
+Overfull \hbox (41.25699pt too wide) in paragraph at lines 1104--1117
 |   []   |   []   |   []   |   []   |   []   |   []   |   []   |   []   |   [] 
   |   []   |   []   |   []   |   []   |   []
  []
 
 
-Overfull \hbox (34.19714pt too wide) in paragraph at lines 1102--1115
-|   []   |   []   |   []   |   []   |   []   |   []
+Overfull \hbox (36.27765pt too wide) in paragraph at lines 1104--1117
+|   []   |   []   |   []   |   []   |   []   |   []   |   []
  []
 
 
-Overfull \hbox (10.47926pt too wide) in paragraph at lines 1102--1115
+Overfull \hbox (10.47926pt too wide) in paragraph at lines 1104--1117
 |   []   |   []   |   []   |   []   |   []   |   []   |   []   |   []   |   [] 
   |   []   |   []   |   []   |   []   |   []   |   []
  []
 
-[16]
 
-LaTeX Warning: Reference `eq:REML' on page 17 undefined on input line 1153.
+Underfull \vbox (badness 1817) has occurred while \output is active []
+
+ [16]
+
+LaTeX Warning: Reference `eq:REML' on page 17 undefined on input line 1155.
 
 
-Overfull \hbox (3.73846pt too wide) in paragraph at lines 1145--1155
+Overfull \hbox (3.73846pt too wide) in paragraph at lines 1147--1157
 |   []   |   []   |   []   |   []   |   []   |   []   |   []   |   []   |   [] 
   |   []   |   []   |   []   |   []   |   []
  []
@@ -526,11 +512,11 @@ Overfull \hbox (3.73846pt too wide) in paragraph at lines 1145--1155
 File: figures/noise/noise-params.pdf Graphic file (type pdf)
 
 <use figures/noise/noise-params.pdf>
-Package pdftex.def Info: figures/noise/noise-params.pdf used on input line 1187
+Package pdftex.def Info: figures/noise/noise-params.pdf used on input line 1189
 .
 (pdftex.def)             Requested size: 505.88875pt x 397.48402pt.
 
-Overfull \hbox (62.02576pt too wide) in paragraph at lines 1187--1192
+Overfull \hbox (62.02576pt too wide) in paragraph at lines 1189--1194
  [][] 
  []
 
@@ -539,10 +525,10 @@ File: figures/noise/noise-samples.pdf Graphic file (type pdf)
 
 <use figures/noise/noise-samples.pdf>
 Package pdftex.def Info: figures/noise/noise-samples.pdf used on input line 119
-7.
+9.
 (pdftex.def)             Requested size: 505.88875pt x 289.07928pt.
 
-Overfull \hbox (62.02576pt too wide) in paragraph at lines 1197--1202
+Overfull \hbox (62.02576pt too wide) in paragraph at lines 1199--1204
  [][] 
  []
 
@@ -550,7 +536,7 @@ Overfull \hbox (62.02576pt too wide) in paragraph at lines 1197--1202
 ! Missing } inserted.
 <inserted text> 
                 }
-l.1250 ...e that $T$ includes the hyperparameter }
+l.1252 ...e that $T$ includes the hyperparameter }
                                                   \DIFdelend \DIFaddbegin }
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -561,7 +547,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.1250 ...e that $T$ includes the hyperparameter }
+l.1252 ...e that $T$ includes the hyperparameter }
                                                   \DIFdelend \DIFaddbegin }
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -572,7 +558,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.1250 ...e that $T$ includes the hyperparameter }
+l.1252 ...e that $T$ includes the hyperparameter }
                                                   \DIFdelend \DIFaddbegin }
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -583,7 +569,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.1250 ...e that $T$ includes the hyperparameter }
+l.1252 ...e that $T$ includes the hyperparameter }
                                                   \DIFdelend \DIFaddbegin }
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -594,7 +580,7 @@ my insertion and my current dilemma will both disappear.
 ! Display math should end with $$.
 <to be read again> 
                    T
-l.1250 ...e that $T$ includes the hyperparameter }
+l.1252 ...e that $T$ includes the hyperparameter }
                                                   \DIFdelend \DIFaddbegin }
 The `$' that I just saw supposedly matches a previous `$$'.
 So I shall assume that you typed `$$' both times.
@@ -606,7 +592,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 ! Extra }, or forgotten $.
 \UL@onmath ...rd {\UL@hrest \mathop {\kern \z@ #1}
                                                   \limits \sb {\UL@leadtype ...
-l.1250 ...e that $T$ includes the hyperparameter }
+l.1252 ...e that $T$ includes the hyperparameter }
                                                   \DIFdelend \DIFaddbegin }
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -617,14 +603,14 @@ deleted material, e.g., by typing `I$}'.
 ! Limit controls must follow a math operator.
 \UL@onmath ...hrest \mathop {\kern \z@ #1}\limits 
                                                   \sb {\UL@leadtype \LA@hski...
-l.1250 ...e that $T$ includes the hyperparameter }
+l.1252 ...e that $T$ includes the hyperparameter }
                                                   \DIFdelend \DIFaddbegin }
 I'm ignoring this misplaced \limits or \nolimits command.
 
 ! Undefined control sequence.
 \UL@onmath ...rn \z@ #1}\limits \sb {\UL@leadtype 
                                                   \LA@hskip \p@ plus1fill}}\...
-l.1250 ...e that $T$ includes the hyperparameter }
+l.1252 ...e that $T$ includes the hyperparameter }
                                                   \DIFdelend \DIFaddbegin }
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -635,7 +621,7 @@ and I'll forget about whatever was undefined.
 ! Extra }, or forgotten $.
 \UL@onmath ...L@leadtype \LA@hskip \p@ plus1fill}}
                                                   \egroup 
-l.1250 ...e that $T$ includes the hyperparameter }
+l.1252 ...e that $T$ includes the hyperparameter }
                                                   \DIFdelend \DIFaddbegin }
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -646,7 +632,7 @@ deleted material, e.g., by typing `I$}'.
 ! Extra }, or forgotten $.
 \UL@onmath ...pe \LA@hskip \p@ plus1fill}}\egroup 
                                                   
-l.1250 ...e that $T$ includes the hyperparameter }
+l.1252 ...e that $T$ includes the hyperparameter }
                                                   \DIFdelend \DIFaddbegin }
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -657,7 +643,7 @@ deleted material, e.g., by typing `I$}'.
 ! Extra }, or forgotten $.
 \DIFdel #1->{\protect \color {red}\sout {#1}}
                                              
-l.1250 ...e that $T$ includes the hyperparameter }
+l.1252 ...e that $T$ includes the hyperparameter }
                                                   \DIFdelend \DIFaddbegin }
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -666,7 +652,7 @@ the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
 ! Extra }, or forgotten $.
-l.1250 ...yperparameter }\DIFdelend \DIFaddbegin }
+l.1252 ...yperparameter }\DIFdelend \DIFaddbegin }
                                                   
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -677,30 +663,42 @@ deleted material, e.g., by typing `I$}'.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.1251 
+l.1253 
        
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 
-Overfull \hbox (1.9078pt too wide) in paragraph at lines 1252--1269
-|   []   |   []   |   []   |   []   |   []   |   []   |   []   |   []   |   [] 
-  |   []   |   []
+Overfull \hbox (36.37323pt too wide) in paragraph at lines 1254--1271
+|   []   |   []   [][]|   []   |   []   |   []   |   []   |   []   |   []   |  
+ []   |   []   |   []   |   []   |   []   |   []   |   []   |   []   |   []
  []
 
 
-Overfull \hbox (48.67268pt too wide) in paragraph at lines 1252--1269
+Overfull \hbox (4.73215pt too wide) in paragraph at lines 1254--1271
 |   []   |   []   |   []   |   []   |   []   |   []   |   []   |   []   |   [] 
-  |   []   |   []   |   []   |   []   |   []
+  |   []   |   []   |   []
  []
 
 
-Overfull \hbox (118.73126pt too wide) in paragraph at lines 1282--1307
+Overfull \hbox (6.63654pt too wide) in paragraph at lines 1254--1271
+|   []   |   []   |   []   |   []   |   []   |   []   |   []   |   []   |   [] 
+  |   []   |   []   |   []   |   []
+ []
+
+
+Overfull \hbox (6.57492pt too wide) in paragraph at lines 1254--1271
+|   []   |   []   |   []   |   []   |   []   |   []   |   []   |   []   |   [] 
+  |   []   |   []   |   []   |   []   |   []   |   []   |   []
+ []
+
+
+Overfull \hbox (118.73126pt too wide) in paragraph at lines 1284--1309
 \OT1/ptm/m/n/10.95 dence of geo-phys-i-cal sig-nals []|   []
  []
 
 
-Overfull \hbox (134.82161pt too wide) in paragraph at lines 1282--1307
+Overfull \hbox (134.82161pt too wide) in paragraph at lines 1284--1309
 |   []   |   []   |   []   |   []   |   []   |   []   [][]|   []
  []
 
@@ -708,48 +706,48 @@ Overfull \hbox (134.82161pt too wide) in paragraph at lines 1282--1307
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [21]
-Overfull \hbox (7.81776pt too wide) in paragraph at lines 1380--1385
+Overfull \hbox (7.81776pt too wide) in paragraph at lines 1382--1387
 []|   []   |   []   |   []   |   []   |   []   |   []   |   []   |   []   |   [
 ]   |   []   |   []   |   []   |   []   |   []
  []
 
 
-Overfull \hbox (9.47235pt too wide) in paragraph at lines 1380--1385
+Overfull \hbox (9.47235pt too wide) in paragraph at lines 1382--1387
 |   []   |   []   |   []   |   []   |   []   |   []   |   []   |   []   |   [] 
   |   []   |   []   |   []   |   []   |   []
  []
 
 
-LaTeX Warning: Reference `eq:TimeSE' on page 22 undefined on input line 1400.
+LaTeX Warning: Reference `eq:TimeSE' on page 22 undefined on input line 1402.
 
 
-LaTeX Warning: Reference `eq:TimeSE' on page 22 undefined on input line 1400.
+LaTeX Warning: Reference `eq:TimeSE' on page 22 undefined on input line 1402.
 
 
-Overfull \hbox (29.4323pt too wide) in paragraph at lines 1401--1410
+Overfull \hbox (29.4323pt too wide) in paragraph at lines 1403--1412
 [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1401--1410
+Underfull \hbox (badness 10000) in paragraph at lines 1403--1412
 
  []
 
 [22]
-Overfull \hbox (11.12813pt too wide) in paragraph at lines 1428--1430
+Overfull \hbox (11.12813pt too wide) in paragraph at lines 1430--1432
 []|   []   |   []   |   []   |   []   |   []   |   []   |   []   |   []   |   [
 ]   |   []   |   []   |   []   |   []   |   []   |   []
  []
 
 
-Overfull \hbox (17.75237pt too wide) in paragraph at lines 1438--1440
+Overfull \hbox (17.75237pt too wide) in paragraph at lines 1440--1442
 []|   []   |   []   |   []   |   []   |   []   |   []   |   []   |   []   |   [
 ]   |   []   |   []   |   []   |   []   |   []   |   []   |   []   |   []   |  
  []
  []
 
 
-Overfull \hbox (2.4204pt too wide) in paragraph at lines 1438--1440
+Overfull \hbox (2.4204pt too wide) in paragraph at lines 1440--1442
 |   []   |   []   |   []   |   []   |   []   |   []   |   []   |   []   |   [] 
   |   []   |   []
  []
@@ -759,21 +757,26 @@ File: figures/signal_fit/signal-fit.pdf Graphic file (type pdf)
 
 <use figures/signal_fit/signal-fit.pdf>
 Package pdftex.def Info: figures/signal_fit/signal-fit.pdf used on input line 1
-524.
+526.
 (pdftex.def)             Requested size: 505.88875pt x 433.61894pt.
 
-Overfull \hbox (62.02576pt too wide) in paragraph at lines 1524--1535
+Overfull \hbox (62.02576pt too wide) in paragraph at lines 1526--1537
  [][] 
  []
 
 
-Overfull \hbox (10.90762pt too wide) in paragraph at lines 1562--1587
+Overfull \hbox (5.49843pt too wide) in paragraph at lines 1564--1589
+|   []   |   []   |   []   |   []   |   []   |   []   |   []   |   []
+ []
+
+
+Overfull \hbox (10.90762pt too wide) in paragraph at lines 1564--1589
 |   []   |   []   [][]|   []   |   []   |   []   |   []   |   []   |   []   |  
  []
  []
 
 
-Overfull \hbox (14.92555pt too wide) in paragraph at lines 1562--1587
+Overfull \hbox (14.92555pt too wide) in paragraph at lines 1564--1589
 |   []   |   []   |   []   |   []   |   []   |   []   |   []   |   []   |   [] 
   |   []   |   []   |   []   |   []   |   []   |   []   |   []
  []
@@ -784,18 +787,18 @@ File: figures/strain_map/strain-map.pdf Graphic file (type pdf)
 
 <use figures/strain_map/strain-map.pdf>
 Package pdftex.def Info: figures/strain_map/strain-map.pdf used on input line 1
-589.
+591.
 (pdftex.def)             Requested size: 433.61894pt x 433.61894pt.
  [26 <./figures/strain_map/strain-map.pdf>] <figures/strain_ts/strain-ts.pdf, i
 d=362, 505.89pt x 361.35pt>
 File: figures/strain_ts/strain-ts.pdf Graphic file (type pdf)
 
 <use figures/strain_ts/strain-ts.pdf>
-Package pdftex.def Info: figures/strain_ts/strain-ts.pdf used on input line 161
-9.
+Package pdftex.def Info: figures/strain_ts/strain-ts.pdf used on input line 162
+1.
 (pdftex.def)             Requested size: 505.88875pt x 361.34912pt.
 
-Overfull \hbox (62.02576pt too wide) in paragraph at lines 1619--1624
+Overfull \hbox (62.02576pt too wide) in paragraph at lines 1621--1626
  [][] 
  []
 
@@ -803,10 +806,10 @@ Overfull \hbox (62.02576pt too wide) in paragraph at lines 1619--1624
 File: figures/strain_ts/mag-ts.pdf Graphic file (type pdf)
 
 <use figures/strain_ts/mag-ts.pdf>
-Package pdftex.def Info: figures/strain_ts/mag-ts.pdf used on input line 1629.
+Package pdftex.def Info: figures/strain_ts/mag-ts.pdf used on input line 1631.
 (pdftex.def)             Requested size: 505.88875pt x 289.07928pt.
 
-Overfull \hbox (62.02576pt too wide) in paragraph at lines 1629--1634
+Overfull \hbox (62.02576pt too wide) in paragraph at lines 1631--1636
  [][] 
  []
 
@@ -816,13 +819,13 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [27 <./figures/strain_ts/strain-ts.pdf>] [28 <./figures/strain_ts/mag-ts.pdf>]
  [29]
 [30]
-Overfull \hbox (77.70125pt too wide) in paragraph at lines 1788--1798
+Overfull \hbox (77.70125pt too wide) in paragraph at lines 1791--1801
 \OT1/ptm/m/n/10.95 (Py-GeoNS). Py-GeoNS is dis-tributed un-der the MIT Li-cense
  and can be found at www.github.com/treverhines/PyGeoNS. 
  []
 
 [31]
-Overfull \hbox (3.5007pt too wide) in paragraph at lines 1824--1832
+Overfull \hbox (3.5007pt too wide) in paragraph at lines 1827--1835
 |   []   |   []   |   []   |   []   |   []   |   []   |   []   |   []   |   [] 
   |   []   |   []   |   []   |   []   |   []   |   []   |   []   |   []
  []
@@ -832,10 +835,10 @@ File: figures/outliers_new/outliers.pdf Graphic file (type pdf)
 
 <use figures/outliers_new/outliers.pdf>
 Package pdftex.def Info: figures/outliers_new/outliers.pdf used on input line 1
-890.
+893.
 (pdftex.def)             Requested size: 505.88875pt x 325.2142pt.
 
-Overfull \hbox (62.02576pt too wide) in paragraph at lines 1890--1898
+Overfull \hbox (62.02576pt too wide) in paragraph at lines 1893--1901
  [][] 
  []
 
@@ -854,13 +857,13 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [36])
 
-! LaTeX Error: \begin{equation} on input line 1246 ended by \end{document}.
+! LaTeX Error: \begin{equation} on input line 1248 ended by \end{document}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1906 \end{document}
+l.1909 \end{document}
                      
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -873,7 +876,7 @@ LaTeX Warning: There were undefined references.
  )
 (\end occurred inside a group at level 1)
 
-### semi simple group (level 1) entered at line 1246 (\begingroup)
+### semi simple group (level 1) entered at line 1248 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
  3415 strings out of 494910
@@ -903,7 +906,7 @@ ts/type1/public/amsfonts/latxfont/lasy6.pfb></usr/share/texlive/texmf-dist/font
 s/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts
 /type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/time
 s/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on diff.pdf (37 pages, 2623271 bytes).
+Output written on diff.pdf (37 pages, 2623765 bytes).
 PDF statistics:
  589 PDF objects out of 1000 (max. 8388607)
  206 compressed objects within 3 object streams

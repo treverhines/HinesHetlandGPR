@@ -125,8 +125,8 @@ Melgar Reviews of Geophysics 2016, He et al., Journal of geodynamics
 I have changed my description of the data (eq. 3 in the revised draft)
 so that it includes a single term, $\eta$, that encompasses correlated
 and uncorrelated noise. I then break $\eta$ down into correlated and
-uncorrelated components in Section 3.1 (eq. 25). The covariance matrix
-for $\eta$ in eq. 26 is more consistent with the literature.
+uncorrelated components in Section 3.1 (eq. 24). The covariance matrix
+for $\eta$ in eq. 25 is more consistent with the literature.
 
 \textbf{2- First, the author should give a summary of stochastic noise
 modeling in GNSS. I also think that a discussion is needed to relate
@@ -145,7 +145,7 @@ transient strain rates, and Section 3 contains details that are
 specific to the particular application. There is no universally
 appropriate noise model, so I decided to save a discussion on the
 noise model for Section 3. This is clarified in Section 2 of the
-revised draft when I say "The appropriate noise model may vary
+revised draft when I say ``The appropriate noise model may vary
 depending on the application, and we hold off on specifying the
 covariance matrix, $C_{\eta_i}$, until Section 3.1."
 
@@ -237,7 +237,7 @@ Done
 
 \textbf{P5 line 32 : “formal data uncertainty”: can you define it?}
 
-By "formal data uncertainties" I meant "the derived uncertainties that
+By ``formal data uncertainties" I meant ``the derived uncertainties that
 accompany the GNSS displacement solutions". The revised text has been
 clarified.
 
@@ -256,7 +256,7 @@ Webb, 2003, 2002).}
 
 We agree that we need to acknowledge the extensive amount of research
 on Cascadia SSEs. In the revised draft, we refer the reader to the
-review by Schartz and Rokosky 2007.
+review by Schwartz and Rokosky 2007.
 
 \textbf{P.8 line 20 delete www.unavco.org (only in Acknowledgment)}
 
@@ -266,7 +266,7 @@ Done
 define it properly.}
 
 In Section 3.1 of the revised draft, where we elaborate on the noise
-model, we describe common mode error by saying "Another significant
+model, we describe common mode error by saying ``Another significant
 source of noise in GNSS data is common mode error (e.g., Wdowinski et
 al. 1997; Dong et al. 2006), which is noise that is highly spatially
 correlated." We believe this definition and these references are
@@ -279,7 +279,7 @@ associated covariance matrices are sparse.}
 I recognize that it may be a bit redundant to say that the covariance
 function is compact and thus the covariance matrices are sparse.
 However, Wendland covariance functions are typically described as
-"compact" in the literature, and I think it is a key adjective that
+``compact" in the literature, and I think it is a key adjective that
 should not be dropped out. I have left the wording as is.
 
 \textbf{p.13 line 22 what is an “isotropic Gaussian process”? please add a
@@ -289,7 +289,7 @@ An Gaussian process is isotropic if its covariance function,
 $C(x,x')$, can be written as a function of $||x - x'||_2^2$. An
 isotropic Gaussian process is also stationary, meaning that its
 statistical properties are invariant to translations. We have replace
-"isotropic" with "stationary" in the text because "stationary" is a
+``isotropic" with ``stationary" in the text because ``stationary" is a
 more appropriate, and perhaps more familiar, term.
 
 \textbf{P.20 : “ Using a compact covariance function ..” Again I would just
@@ -347,7 +347,7 @@ perpendicular to the subduction zone interface in this case?}
 This is a good point that we neglected to mention in the previous
 draft. We have added a paragraph to Section 2 that explains the
 reasoning and implications for this assumption. The paragraph starts
-with "It should be noted that we have ignored any covariances ...".
+with ``It should be noted that we have ignored any covariances ...".
 
 \textbf{Page 4/5 Equation (3): Is it worth discussing at this point whether
 the estimates of u and n (eta) can be separated without explicit prior
@@ -358,22 +358,22 @@ in $d_{ij}$.  How does this (stochastically non-modeled) error not project
 in the u estimates?}
 
 At this point in the text, it is assumed that the statistical
-properties of u and eta are known, although not yet specified. So I do
+properties of u and $\eta$ are known, although not yet specified. So I do
 not think this would be an appropriate place to discuss a scenario in
-which we do not know u or eta. I also think that it is clear that our
-results are contingent on having a good model for u and eta. Asking
+which we do not know u or $\eta$. I also think that it is clear that our
+results are contingent on having a good model for u and $\eta$. Asking
 whether the strain signal can be resolved without a prior statistical
-model for u or eta is asking whether the signal can be separated from
+model for u or $\eta$ is asking whether the signal can be separated from
 the noise if one does not know anything about the noise or the signal.
 I think it goes without stating that signal can not be extracted from
 observations without a model of the noise or an assumption of the
 signal sought.
 
 In Section 3.1 and 3.2, we discuss how we choose a model for u and
-eta. The key piece of "prior knowledge" that allows us to discern u
-from eta is that u is negligible for inland stations. This allowed us
-to isolate and characterize eta first, and then we characterized u. If
-we allowed eta to be spatially correlated (which we did not), then we
+$\eta$. The key piece of ``prior knowledge" that allows us to discern u
+from $\eta$ is that u is negligible for inland stations. This allowed us
+to isolate and characterize $\eta$ first, and then we characterized u. If
+we allowed $\eta$ to be spatially correlated (which we did not), then we
 would have conceivably been able to describe the spatially and
 temporally correlated noise from, for example, orbit modeling errors.
 
@@ -409,7 +409,7 @@ This is also a good point that we neglected to mention in the first
 draft. In Section 3.1 of the revised draft, we acknowledge the
 potentially dubious assumption that noise east of -121 is
 representative of the entire region. We added the disclaimer saying
-"We assume the noise at these inland stations is representative of the
+``We assume the noise at these inland stations is representative of the
 noise at all the stations considered in this study, which is probably
 a poor assumption since the inland stations are subject to distinctly
 different climatic conditions".
@@ -471,11 +471,11 @@ order to make it more readable. To list some of the major changes:
      because it is not essential to the text.
 
   8) I expanded the explanation of the REML method, which is used to
-     constrain u and eta in Section 3.1 and 3.2.
+     constrain u and $\eta$ in Section 3.1 and 3.2.
 
-  9) I attempt to avoid esoteric jargon such as "hyperparameter". In
-     the revised draft, "hyperparameter" has been replaced with
-     "parameter", which does not degrade the precision of our
+  9) I attempt to avoid esoteric jargon such as ``hyperparameter". In
+     the revised draft, ``hyperparameter" has been replaced with
+     ``parameter", which does not degrade the precision of our
      description of the method.
   
   10) Most of the paper was reworded / restructured to improve
@@ -529,7 +529,7 @@ Done
 \textbf{3+32: redo the sentence; as it stands, you are saying that the SCEC
 exercise calculates strain rates.}
 
-The text has been clarified to say "The method described in Holt 2013
+The text has been clarified to say ``The method described in Holt 2013
 was also tested in the SCEC transient detection exercise. Holt 2013
 detects transient signal from an estimate of transient strain rates,
 and they estimate transient strain rates using a ..."
@@ -580,6 +580,7 @@ the uncertainties in an azimuthal representation of strain.
 I did not include this justification in the revised draft because I
 think it would be too much of a digression.
 
+\vspace{1cm}
 \closing{Thank you for your consideration,}
 
 \end{letter}

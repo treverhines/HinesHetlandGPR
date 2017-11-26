@@ -1,7 +1,7 @@
 \documentclass[extra,mreferee]{gji}
 %DIF LATEXDIFF DIFFERENCE FILE
 %DIF DEL original.tex   Wed Nov  8 20:59:31 2017
-%DIF ADD new.tex        Sat Nov 11 13:14:28 2017
+%DIF ADD new.tex        Sun Nov 26 08:48:06 2017
 %\documentclass[extra,onecolumn,doublespacing]{gji}
 \usepackage{timet}
 \usepackage{amsmath}
@@ -76,20 +76,20 @@
 %DIF > % SUMMARY
 %DIF > %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \DIFaddend \begin{summary}
-\DIFaddbegin 
+\DIFdelbegin \DIFdel{Transient strain rates }\DIFdelend \DIFaddbegin 
 
 %DIF >  focus on subjective vs object rather than "we have uncertainties"
 
-\DIFaddend Transient strain rates derived from GNSS data can be used to detect
-and understand geophysical \DIFdelbegin \DIFdel{phenomena }\DIFdelend \DIFaddbegin \DIFadd{processes }\DIFaddend such as slow slip events and
+\DIFadd{Transient strain }\DIFaddend derived from GNSS data can be used to detect and
+understand geophysical \DIFdelbegin \DIFdel{phenomena }\DIFdelend \DIFaddbegin \DIFadd{processes }\DIFaddend such as slow slip events and
 postseismic deformation. Here we propose using Gaussian process
-regression (GPR) as a tool for estimating transient strain rates from
-GNSS data. GPR is a non-parametric, Bayesian method for interpolating
+regression (GPR) as a tool for estimating transient strain \DIFdelbegin \DIFdel{rates }\DIFdelend from GNSS
+data. GPR is a non-parametric, Bayesian method for interpolating
 scattered data. \DIFdelbegin \DIFdel{Transient strain rates estimated with GPR have meaningful uncertainties, allowing geophysical signal to be easily discerned from noise. }\DIFdelend In our approach, we assume a stochastic prior model
 for transient displacements. The prior describes how much \DIFdelbegin \DIFdel{one expects }\DIFdelend \DIFaddbegin \DIFadd{we expect
 }\DIFaddend transient displacements to covary spatially and temporally. A
-posterior estimate of transient strain rates is obtained by
-differentiating the posterior displacements\DIFdelbegin \DIFdel{. One limitation with GPR is that it is not robust against outliers, so we introduce a pre-processing method for detecting and removing outliers in }\DIFdelend \DIFaddbegin \DIFadd{, which are formed by
+posterior estimate of transient strain \DIFdelbegin \DIFdel{rates }\DIFdelend is obtained by differentiating
+the posterior \DIFdelbegin \DIFdel{displacements. One limitation with GPR is that it is not robust against outliers, so we introduce a pre-processing method for detecting and removing outliers in }\DIFdelend \DIFaddbegin \DIFadd{transient displacements, which are formed by
 conditioning the prior with the }\DIFaddend GNSS data. As a demonstration, we use
 GPR to detect transient strain resulting from slow slip events in \DIFdelbegin \DIFdel{Cascadia}\DIFdelend \DIFaddbegin \DIFadd{the
 Pacific Northwest}\DIFaddend . Maximum likelihood methods are used to constrain a
@@ -121,11 +121,12 @@ assessing seismic hazard. Knowing where and how quickly strain is
 accumulating gives insight into where we can expect stored elastic
 energy to be released seismically. \DIFdelbegin \DIFdel{Consequently, secularcrustal strain rates estimated from GNSS data }\DIFdelend \DIFaddbegin \DIFadd{Estimates of secular, or long-term,
 strain rates }\DIFaddend have been used to constrain seismic hazard models such as
-UCERF3 \citep{Field2014}. Transient crustal strain, which is caused by
-geophysical \DIFdelbegin \DIFdel{phenomena }\DIFdelend \DIFaddbegin \DIFadd{processes }\DIFaddend such as slow slip events (SSEs) or postseismic
-deformation, is also relevant for assessing seismic hazard. While
-transient strain itself is not damaging, there is a \DIFdelbegin \DIFdel{risk }\DIFdelend \DIFaddbegin \DIFadd{possibility }\DIFaddend that it can
-trigger major earthquakes \citep{Roeloffs2006,Freed2001}.
+UCERF3 \citep{Field2014}. Transient \DIFdelbegin \DIFdel{crustal }\DIFdelend strain, which is \DIFaddbegin \DIFadd{anomalous strain
+}\DIFaddend caused by geophysical \DIFdelbegin \DIFdel{phenomena }\DIFdelend \DIFaddbegin \DIFadd{processes }\DIFaddend such as slow slip events (SSEs) or
+postseismic deformation, is also relevant for assessing seismic
+hazard. While transient strain itself is not damaging, there is a
+\DIFdelbegin \DIFdel{risk }\DIFdelend \DIFaddbegin \DIFadd{possibility }\DIFaddend that it can trigger major earthquakes
+\citep{Roeloffs2006,Freed2001}.
 \DIFdelbegin \DIFdel{Dense networks of continuous GNSS stations}\DIFdelend \DIFaddbegin 
 
 %DIF >  How secular strain rates are estimated from GNSS
@@ -148,11 +149,11 @@ over some subnetwork of the GNSS stations \DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
 Murray2000}}%DIFAUXCMD
 }\DIFaddend . The components of the \DIFaddbegin \DIFadd{secular }\DIFaddend strain rate tensor for each
 subnetwork are then determined \DIFdelbegin \DIFdel{through a }\DIFdelend \DIFaddbegin \DIFadd{from the }\DIFaddend least squares fit to the
-observations. The assumption that deformation gradients are spatially
+\DIFdelbegin \DIFdel{observations}\DIFdelend \DIFaddbegin \DIFadd{velocities}\DIFaddend . The assumption that deformation gradients are spatially
 uniform is not appropriate when subnetworks span \DIFdelbegin \DIFdel{too large of an }\DIFdelend \DIFaddbegin \DIFadd{a very large }\DIFaddend area. To
 help overcome this deficiency, \citet{Shen1996,Shen2015} used an
 inverse distance weighting scheme, in which the estimated \DIFaddbegin \DIFadd{secular
-}\DIFaddend strain rate at \DIFdelbegin \DIFdel{some }\DIFdelend \DIFaddbegin \DIFadd{a }\DIFaddend point is primarily controlled by observations at
+}\DIFaddend strain rate at \DIFdelbegin \DIFdel{some }\DIFdelend \DIFaddbegin \DIFadd{any }\DIFaddend point is primarily controlled by \DIFdelbegin \DIFdel{observations }\DIFdelend \DIFaddbegin \DIFadd{the velocities }\DIFaddend at
 nearby stations. \DIFdelbegin \DIFdel{However, the methods described in \mbox{%DIFAUXCMD
 \citet{Shen1996,Shen2015} }%DIFAUXCMD
 are still formulated by assuming that the deformation gradients are uniform over the entire network. The errors in this assumption manifest as implausibly low formal uncertainties for the estimated strain rates}\DIFdelend \DIFaddbegin \DIFadd{The method of \mbox{%DIFAUXCMD
@@ -178,8 +179,8 @@ deformation \DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
 \citep[e.g.,][]{Meade2005,McCaffrey2007}}%DIFAUXCMD
 }\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
 \citep[e.g.,][]{Meade2005, McCaffrey2007}}%DIFAUXCMD
-}\DIFaddend . In such models
-the lithospheric rheology and fault geometries are assumed to be
+}\DIFaddend . In such models\DIFaddbegin \DIFadd{,
+}\DIFaddend the lithospheric rheology and fault geometries are assumed to be
 known. Any errors in the assumed physical model could result in biased
 \DIFdelbegin \DIFdel{strain estimates and underestimated formal }\DIFdelend \DIFaddbegin \DIFadd{estimates of the secular strain rates and underestimated
 }\DIFaddend uncertainties.
@@ -204,17 +205,17 @@ geophysical signal is modeled as integrated Brownian motion. The
 method described in \citet{Holt2013} was also tested in the SCEC
 transient detection exercise\DIFdelbegin \DIFdel{, which calculates }\DIFdelend \DIFaddbegin \DIFadd{. \mbox{%DIFAUXCMD
 \citet{Holt2013} }%DIFAUXCMD
-detect transient
-signal from an estimate of strain rates, and they estimate }\DIFaddend strain
-rates using a bi-cubic spatial parameterization of displacements
-between time epochs. \citet{Holt2013} \DIFdelbegin \DIFdel{defined }\DIFdelend \DIFaddbegin \DIFadd{define }\DIFaddend a detection threshold
-based on the strain rate magnitude, and \DIFdelbegin \DIFdel{below }\DIFdelend we demonstrate that this is
-indeed an effective criterion for identifying \DIFaddbegin \DIFadd{a }\DIFaddend geophysical signal.
-For the same reasons \DIFdelbegin \DIFdel{descibed }\DIFdelend \DIFaddbegin \DIFadd{described }\DIFaddend above, the transient deformation and
-corresponding uncertainties estimated by these methods can be biased
-by the chosen spatial parameterization. It is then difficult to
-distinguish signal from noise with these methods, which limits their
-utility for transient detection.
+detect transient signal
+from an estimate of transient strain rates, and they estimate
+transient }\DIFaddend strain rates using a bi-cubic spatial parameterization of
+displacements between time epochs. \citet{Holt2013} \DIFdelbegin \DIFdel{defined }\DIFdelend \DIFaddbegin \DIFadd{define }\DIFaddend a detection
+threshold based on the \DIFaddbegin \DIFadd{transient }\DIFaddend strain rate magnitude, and \DIFdelbegin \DIFdel{below }\DIFdelend we
+demonstrate that this is indeed an effective criterion for identifying
+\DIFaddbegin \DIFadd{a }\DIFaddend geophysical signal. For the same reasons \DIFdelbegin \DIFdel{descibed }\DIFdelend \DIFaddbegin \DIFadd{described }\DIFaddend above, the
+transient deformation and corresponding uncertainties estimated by
+these methods can be biased by the chosen spatial parameterization. It
+is then difficult to distinguish signal from noise with these methods,
+which limits their utility for transient detection.
 
 %DIF >  What we are doing in this paper and why it improves upon existing
 %DIF >  methods
@@ -344,7 +345,7 @@ compute transient strain rates (See \mbox{%DIFAUXCMD
 \citet[sec. 2.2]{Adler1981} }%DIFAUXCMD
 or
 \mbox{%DIFAUXCMD
-\citet[sec. 10A]{Papoulis1991} }%DIFAUXCMD
+\citet[appx. 10A]{Papoulis1991} }%DIFAUXCMD
 for a definition of stochastic
 differentiation and the conditions for differentiability).
 }
@@ -352,7 +353,7 @@ differentiation and the conditions for differentiability).
 %DIF >  Example of the prior
 
 \DIFadd{We provide an example to give the prior on transient displacements a
-more tangible meaning. we can use a squared exponential function for
+more tangible meaning. We can use a squared exponential function for
 $X_i$ and $T_i$,
 }\begin{equation}\DIFadd{\label{eq:ExampleCov}
 X_i(\pos,\pos') = \exp\left(\frac{-||\pos - \pos'||_2^2}{2\ell^2}\right), \ \ \ \ 
@@ -371,7 +372,7 @@ $T_i$ and the parameters $\ell = 100$ km, $\tau = 10$ days, and $\phi
 = 1$ mm. A single realization of $u_i$ corresponding to that choice of
 covariance function is shown in Figure \ref{fig:PriorDemo}B (See
 \mbox{%DIFAUXCMD
-\citet[sec. A3]{Rasmussen2006} }%DIFAUXCMD
+\citet[appx. A.2]{Rasmussen2006} }%DIFAUXCMD
 for details on drawing realization from
 Gaussian processes). While the squared exponential function is a
 commonly used covariance function for GPR, it is not appropriate for
@@ -682,20 +683,21 @@ $\G$.
 %DIF >  Noting that we ignore covariance between components
 
 \DIFadd{It should be noted that we have ignored any covariances between the
-}\DIFaddend easting and northing components of \DIFdelbegin \DIFdel{transient displacements. Using $\hat{u}_i$ to denote the }\DIFdelend \DIFaddbegin \DIFadd{$\vec{u}$ and $\vec{\data}$.
-This simplification reduces the computational complexity of evaluating
-the posterior transient displacements because each component can be
+}\DIFaddend easting and northing components of \DIFdelbegin \DIFdel{transient displacements. Using $\hat{u}_i$ to denote }\DIFdelend \DIFaddbegin \DIFadd{$\vec{u}$ and $\vec{\data}$. This
+simplification reduces the computational complexity of evaluating }\DIFaddend the
+posterior transient displacements \DIFdelbegin \DIFdel{along direction $i$ }\DIFdelend \DIFaddbegin \DIFadd{because each component can be
 evaluated independently. However, we are inherently assuming that the
-principle axes describing the distribution of $\vec{u}(p)$ and
-$\vec{d}^{(jk)}$ are aligned with the cardinal directions, which is
-admittedly an arbitrary assumption.
+principal components of $\vec{u}(p)$ }\DIFaddend and \DIFdelbegin \DIFdel{$x_i$ to represent the
+components of $\vec{x}$, we can write the components of $\dot\varepsilon$ as
+}\DIFdelend \DIFaddbegin \DIFadd{$\vec{d}^{(jk)}$ are aligned
+with the cardinal directions, which is admittedly an arbitrary
+assumption.
 }
 
 %DIF >  converting posterior transient displacements to posterior transient
 %DIF >  strain
 
-\DIFadd{The }\DIFaddend posterior transient displacements \DIFdelbegin \DIFdel{along direction $i$ and $x_i$ to represent the components of $\vec{x}$, we can write the components of $\dot\varepsilon$ as
-}\DIFdelend \DIFaddbegin \DIFadd{are spatially and temporally
+\DIFadd{The posterior transient displacements are spatially and temporally
 continuous, and we can use eqs. (\ref{eq:PosteriorMean3}) and
 (\ref{eq:PosteriorCov3}) to evaluate $\post_i$ at any $p$.
 Furthermore, $\post_i$ is spatially and temporally differentiable,
@@ -718,7 +720,7 @@ processes with mean functions
 \DIFdelend \DIFaddbegin \DIFadd{Since eq. (\ref{eq:StrainRate}) is a linear operation on the Gaussian
 processes $\post_i$ and $\post_j$, we know that $\strain_{ij}$ is also
 a Gaussian process. From \mbox{%DIFAUXCMD
-\citet[sec. 10]{Papoulis1991}}%DIFAUXCMD
+\citet[ch. 10]{Papoulis1991}}%DIFAUXCMD
 , we find that
 the mean and covariance functions for $\dot{\varepsilon}_{ij}$ are
 }\begin{align}\DIFadd{\label{eq:StrainMean}
@@ -785,8 +787,7 @@ C_{\strain_{\e\e}}(p,p') = \frac{\partial^4 C_{u_\e}(p,p')}{\partial t \, \parti
 Our motivation for estimating transient strain rates is, in part, to
 detect \DIFdelbegin \DIFdel{geophysical phenomena. We propose using }\DIFdelend \DIFaddbegin \DIFadd{transient geophysical processes. As we will see, geophysical
 signal can be easily identified by visually inspecting the solution
-for $\strain$ from eqs. (\ref{eq:StrainMean}) and
-(\ref{eq:StrainCov}). However, if we want to detect geophysical signal
+for $\strain$. However, if we want to detect geophysical signal
 automatically, then we need to define a detection criterion. We use }\DIFaddend a
 signal-to-noise ratio, SNR, \DIFdelbegin \DIFdel{based on $\dot\varepsilon$ for our detection criterion. The }\DIFdelend \DIFaddbegin \DIFadd{that is based on the }\DIFaddend Frobenius norm of
 \DIFdelbegin \DIFdel{$\dot\varepsilon$, $||\dot\varepsilon||_\mathrm{F}$, which is sometimes referred to as the second invariant of strain rate in }\DIFdelend \DIFaddbegin \DIFadd{$\strain$, $||\strain||_\mathrm{F} = \left(\strain_{\e\e}^2 +
@@ -800,7 +801,7 @@ mean and standard deviation of \DIFdelbegin \DIFdel{$||\dot\varepsilon||_\mathrm
 of the mean is found by evaluating $||\strain||_\mathrm{F}$ at the
 mean of $\strain$,
 }\begin{align}
-\DIFadd{\mu_{||\strain||_\mathrm{F}} }&\DIFadd{\approx ||\strain||_F \big|_{\strain = \mu_{\strain}}\nonumber }\\
+\DIFadd{\mu_{||\strain||_\mathrm{F}} }&\DIFadd{\approx ||\strain||_F \big|_{\strain = \mu_{\strain}} \nonumber }\\
                              &\DIFadd{= \left(\mu_{\strain_{\e\e}}^2 + 
                                       \mu_{\strain_{\n\n}}^2 + 
                                       2\mu_{\strain_{\e\n}}^2 \right)^\frac{1}{2},
@@ -829,7 +830,7 @@ calculations}\DIFaddend , we find SNR to be
 }\end{displaymath}
 %DIFAUXCMD
 \DIFdel{where the subscripts ``n'' and ``e'' denote north and east, respectively. For simplicity, we have ignored covariances between the transient strain rate components in eq. (\ref{eq:SNR}), even though they are non-zero}\DIFdelend \DIFaddbegin \begin{align}\DIFadd{\label{eq:SNR}
-\mathrm{SNR}(p) }&\DIFadd{= \frac{\mu_{||\strain||_\mathrm{F}}(p)}{\sigma_{||\strain||_\mathrm{F}}(p)} }\\
+\mathrm{SNR}(p) }&\DIFadd{= \frac{\mu_{||\strain||_\mathrm{F}}(p)}{\sigma_{||\strain||_\mathrm{F}}(p)} \nonumber }\\
                 &\DIFadd{= \frac{\mu_{\strain_{\e\e}}(p)^2 +
                          \mu_{\strain_{\n\n}}(p)^2 +
                          2\mu_{\strain_{\e\n}}(p)^2}{\big(\sigma^2_{\strain_{\e\e}}(p)\mu_{\strain_{\e\e}}(p)^2 + 
@@ -945,26 +946,27 @@ Northwest}\DIFaddend , and we are specifically interested in identifying \DIFadd
 \citep[e.g.,][]{Dragert2001}}%DIFAUXCMD
 . In Cascadia, SSEs }\DIFdelend \DIFaddbegin \DIFadd{. SSEs in the Pacific Northwest were first
 discovered by \mbox{%DIFAUXCMD
-\citep[e.g.,][]{Dragert2001} }%DIFAUXCMD
+\citet{Dragert2001} }%DIFAUXCMD
 and we refer the reader to
 \mbox{%DIFAUXCMD
 \citet{Schwartz2007} }%DIFAUXCMD
-for a review of the subsequent research. Before
-estimating transient strain rates, we establish a noise model for GNSS
-stations in this region, and we establish a prior Gaussian process to
-describe displacements from SSEs. SSEs in the Pacific Northwest }\DIFaddend can be
-detected by monitoring for associated seismic tremor
-\citep{Rogers2003}, which is actively being done by the Pacific
-Northwest Seismic Network \DIFdelbegin \DIFdel{(PNSN) }\DIFdelend \citep{Wech2010}. We can \DIFdelbegin \DIFdel{thus }\DIFdelend \DIFaddbegin \DIFadd{then }\DIFaddend compare the
-tremor records to \DIFdelbegin \DIFdel{the }\DIFdelend \DIFaddbegin \DIFadd{our estimated }\DIFaddend transient strain rates \DIFdelbegin \DIFdel{estimated with GPR }\DIFdelend to verify that
-we are indeed identifying strain from SSEs.
+for a review of the subsequent research. SSEs in
+the Pacific Northwest }\DIFaddend can be detected by monitoring for associated
+seismic tremor \citep{Rogers2003}, which is actively being done by the
+Pacific Northwest Seismic Network \DIFdelbegin \DIFdel{(PNSN) }\DIFdelend \citep{Wech2010}. We can \DIFdelbegin \DIFdel{thus }\DIFdelend \DIFaddbegin \DIFadd{then
+}\DIFaddend compare the tremor records to \DIFdelbegin \DIFdel{the }\DIFdelend \DIFaddbegin \DIFadd{our estimated }\DIFaddend transient strain rates \DIFdelbegin \DIFdel{estimated with GPR }\DIFdelend to
+verify that we are indeed identifying strain from SSEs. \DIFaddbegin \DIFadd{Before
+estimating transient strain rates, we first establish a noise model
+for GNSS stations in this region, and then we establish a prior
+Gaussian process to describe displacements from SSEs.
+}
 
-\DIFdelbegin \DIFdel{We use publicly available continuous GNSS data from UNAVCO \mbox{%DIFAUXCMD
+%DIF >  Dataset used here
+\DIFaddend 
+
+We use \DIFdelbegin \DIFdel{publicly available continuous GNSS data from UNAVCO \mbox{%DIFAUXCMD
 \citep{Herring2016}}%DIFAUXCMD
-, which can be found at www.unavco.org}\DIFdelend %DIF >  Dataset used here
-\DIFaddbegin 
-
-\DIFadd{We use the daily displacement solutions for continuous GNSS stations
+, which can be found at www.unavco.org}\DIFdelend \DIFaddbegin \DIFadd{the daily displacement solutions for continuous GNSS stations
 generated by the Geodesy Advancing Geosciences and EarthScope (GAGE)
 Facility \mbox{%DIFAUXCMD
 \citep{Herring2016}}%DIFAUXCMD
@@ -1102,7 +1104,7 @@ produces unbiased estimates of $\mitbf{\theta}$ \mbox{%DIFAUXCMD
 at }\DIFaddend 38 continuous GNSS stations in \DIFdelbegin \DIFdel{Cascadia }\DIFdelend \DIFaddbegin \DIFadd{the Pacific Northwest }\DIFaddend that are east
 of 121$^\circ$W. These stations are sufficiently far from the
 subduction zone that they are unlikely to \DIFdelbegin \DIFdel{contain transient signal associated with SSEs.  We clean the data for these stations by removing jumps at times of equipment changes, and we remove outliers that have been detected with the algorithm described in Section \ref{sec:Outlier}. We then find $\alpha$ and $\beta$ for each
-station time series with the Restricted Maximum Likelihood (REML) method \mbox{%DIFAUXCMD
+station time series with the Restricted Maximum Likelihood (REML ) method \mbox{%DIFAUXCMD
 \cite[e.g.,][]{Harville1974,Cressie1992,Hines2017}}%DIFAUXCMD
 . The REML method finds the hyperparameters, which we collectively refer to as }\DIFdelend \DIFaddbegin \DIFadd{record transient deformation
 from SSEs, allowing us to ignore the term $u_i(\points)$ in
@@ -1179,7 +1181,7 @@ expect from SSEs. We suspect that the higher amplitude for the FOGM
 noise in the vertical component is accommodating for deficiencies in
 our rather simple seasonal model. Based on this analysis, we
 henceforth ignore temporally correlated noise in the easting and
-northing component because of its low amplitude. We also do not use
+northing \DIFdelbegin \DIFdel{component }\DIFdelend \DIFaddbegin \DIFadd{components }\DIFaddend because of its low amplitude. We also do not use
 vertical displacements because of the presumably low signal-to-noise
 ratio.
 
@@ -1250,11 +1252,11 @@ T\DIFaddbegin \DIFadd{_i}\DIFaddend (t,t') = \phi^2\exp\left(\frac{-|t - t'|^2}{
 \DIFdel{Note that $T$ includes the hyperparameter }\DIFdelend \DIFaddbegin }
 
 \DIFadd{Note that $T_i$ includes the parameter }\DIFaddend $\phi$, which serves to scale
-the covariance function \DIFdelbegin \DIFdel{$C_u$. Second, we consider }\DIFdelend \DIFaddbegin \DIFadd{$C_{u_i}$. The second option is a member of
+the covariance function \DIFdelbegin \DIFdel{$C_u$. Second, we consider }\DIFdelend \DIFaddbegin \DIFadd{$C_{u_i}$. A second option is a member of
 the Wendland class of covariance functions \mbox{%DIFAUXCMD
 \citep{Wendland2005}}%DIFAUXCMD
 .
-Wendland covariance functions have compact support and hence their
+Wendland covariance functions have compact support, and thus their
 corresponding covariance matrices are sparse. We exploit this sparsity
 with the CHOLMOD software package \mbox{%DIFAUXCMD
 \citep{Chen2008}}%DIFAUXCMD
@@ -1271,13 +1273,13 @@ corresponding Wendland covariance function is
 T_i(t,t') = \phi^2\left(1 - \frac{|t - t'|}{\tau}\right)^5_+ 
             \left(\frac{8|t - t'|^2}{\tau^2} + \frac{5|t - t'|}{\tau} + 1\right), 
 }\end{equation} 
-\DIFadd{where $(t)_+ = \mathrm{max}(0,t)$. The third option for $T_i$ is the
+\DIFadd{where $(t)_+ = \mathrm{max}(0,t)$. A third option for $T_i$ is the
 covariance function for }\DIFaddend integrated Brownian motion (IBM). IBM \DIFdelbegin \DIFdel{has }\DIFdelend \DIFaddbegin \DIFadd{is a
 Gaussian process with }\DIFaddend zero mean and its covariance function can be
 found by integrating the covariance function for Brownian motion\DIFdelbegin \DIFdel{as
 }\DIFdelend \DIFaddbegin \DIFadd{,
 }\DIFaddend \begin{align}\label{eq:IBM}
-T\DIFaddbegin \DIFadd{_i}\DIFaddend (t,t') &= \int_0^t \int_0^{t'} \phi^2 \min(s,s') \,ds'\,ds \\
+T\DIFaddbegin \DIFadd{_i}\DIFaddend (t,t') &= \int_0^t \int_0^{t'} \phi^2 \min(s,s') \,ds'\,ds \DIFaddbegin \nonumber \DIFaddend \\
           &= \frac{\phi^2}{2}\min(t,t')^2 \left(\max(t,t') - \frac{1}{3}\min(t,t')\right), \ \ \ t,t' \geq 0.
 \end{align}
 IBM has been used in the context of Kalman filtering as a
@@ -1291,7 +1293,7 @@ It should be emphasized $t=0$ is }\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXC
 Similar to Brownian motion, IBM has }\DIFaddend a reference time\DIFaddbegin \DIFadd{, $t=0$, }\DIFaddend at which
 the \DIFdelbegin \DIFdel{Gaussian process is exactly zero}\DIFdelend \DIFaddbegin \DIFadd{process begins}\DIFaddend . For some geophysical signals, it is appropriate to
 have this reference time. For example, if we are trying to identify
-postseismic deformation then $t$ should be zero at the time of the
+postseismic deformation\DIFaddbegin \DIFadd{, }\DIFaddend then $t$ should be zero at the time of the
 earthquake.  However, if we are \DIFdelbegin \DIFdel{interesting }\DIFdelend \DIFaddbegin \DIFadd{interested }\DIFaddend in detecting transient
 events, where there is no known start time, then IBM may not be an
 appropriate prior \DIFdelbegin \DIFdel{, and an isotropic Gaussian process should be preferred}\DIFdelend \DIFaddbegin \DIFadd{model. Instead, one may prefer to use the SE or
@@ -1567,7 +1569,7 @@ transitions from compression to extension around the southern tip of
 Vancouver Island, coinciding with where fault slip tends to be
 inferred \mbox{%DIFAUXCMD
 \citep[e.g.,][]{Dragert2001, Wech2009, Schmidt2010}}%DIFAUXCMD
-. Thus,
+. Hence,
 this pattern of strain is to be expected. Over decadal time-scales,
 there is }\DIFaddend trench perpendicular compression throughout this study region
 \DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
@@ -1588,11 +1590,11 @@ trench}\DIFaddend , and presumably pushing the subduction zone closer to failure
 \begin{figure*}
 \includegraphics{figures/strain_map/strain-map.pdf}
 \caption{\DIFdelbeginFL \DIFdelFL{Estimated transient }\DIFdelendFL 
-\DIFaddbeginFL \DIFaddFL{Transient }\DIFaddendFL strain rates during the Winter 2015-2016 SSE. \DIFdelbeginFL \DIFdelFL{Strain }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{The }\DIFaddendFL glyphs
+\DIFaddbeginFL \DIFaddFL{Transient }\DIFaddendFL strain rates during the \DIFdelbeginFL \DIFdelFL{Winter }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{winter }\DIFaddendFL 2015-2016 SSE. \DIFdelbeginFL \DIFdelFL{Strain }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{The }\DIFaddendFL glyphs
 show the normal strain \DIFdelbeginFL \DIFdelFL{rate along each }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{rates as a function of }\DIFaddendFL azimuth, where orange
 indicates compression and blue indicates extension. The shaded regions
-indicate \DIFaddbeginFL \DIFaddFL{the }\DIFaddendFL one standard deviation uncertainties \DIFdelbeginFL \DIFdelFL{in }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{for }\DIFaddendFL the normal
-strain rates.
+\DIFdelbeginFL \DIFdelFL{indicate }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{show the }\DIFaddendFL one standard deviation uncertainties \DIFdelbeginFL \DIFdelFL{in }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{for }\DIFaddendFL the normal strain
+rates.
 }   
 \label{fig:StrainMap}
 \end{figure*}
@@ -1651,7 +1653,7 @@ there are no unexpected features in $\strain$ that are worth further
 exploration}\DIFaddend . However, \DIFdelbegin \DIFdel{noise in BSM data is not well understood, which complicates the use of BSM data for detecting geophysical events. The noise consists, in part, of a long-term decay resulting from the instrument equilibrating with the surrounding rock \mbox{%DIFAUXCMD
 \citep{Gladwin1987}}%DIFAUXCMD
 . Typically, this noise is dealt with in an ad-hoc manner by fitting and removing exponentials and low-order polynomials. A more rigorous quantification of BSM noise could be performed by analyzing the residuals between the the BSM data and GNSS derived strain rates. }\DIFdelend \DIFaddbegin \DIFadd{a discussion on features in $\strain$ that have
-unknown origin would be outside the scope of this paper.
+unknown origin is beyond the scope of this paper.
 }\DIFaddend 
 
 \DIFdelbegin \DIFdel{There }\DIFdelend %DIF > % DISCUSSION
@@ -1713,18 +1715,19 @@ describing the temporal covariance of displacements with }\DIFdelend \DIFaddbegi
 using }\DIFaddend a compact Wendland covariance function \DIFdelbegin \DIFdel{. Using }\DIFdelend \DIFaddbegin \DIFadd{for our prior. By using }\DIFaddend a
 compact covariance function for our prior\DIFdelbegin \DIFdel{turns }\DIFdelend \DIFaddbegin \DIFadd{, }\DIFaddend eqs.
 (\ref{eq:PosteriorMean3}) and (\ref{eq:PosteriorCov3}) \DIFdelbegin \DIFdel{into }\DIFdelend \DIFaddbegin \DIFadd{become }\DIFaddend sparse
-systems of equations \DIFdelbegin \DIFdel{, which we then solve with CHOLMOD. CHOLMOD is designed for solving sparse, positive definite systems of equations. The matrix being inverted in eqs. (\ref{eq:PosteriorMean3}) and (\ref{eq:PosteriorCov3}) is not positive definite; however, we can use another partitioned matrix inversion identity from \mbox{%DIFAUXCMD
+systems of equations \DIFdelbegin \DIFdel{, which we then solve with CHOLMOD. CHOLMOD is designed for solving sparse, positive definite systems of equations. The matrix being inverted in
+eqs. (\ref{eq:PosteriorMean3}) and (\ref{eq:PosteriorCov3}) is not positive definite; however, we can use another partitioned matrix inversion identity from \mbox{%DIFAUXCMD
 \citet{Press2007} }%DIFAUXCMD
 to partition it into positive definite submatrices to be inverted. Even when using a compact covariance function, it may still be
 necessary to reduce the computational burden by dividing the data into subsets and evaluating transient strain rates
 for each subset}\DIFdelend \DIFaddbegin \DIFadd{that are more tractable to evaluate. However, the
 sparsity decreases when the Wendland covariance function has a larger
-time-scale parameter. The Wendland covariance then offers less of a
-computational advantage when we were interested in geophysical
-processes that occur over longer times-scales. An alternative approach
-to dealing with large datasets would be to explore approximation
-methods for GPR \mbox{%DIFAUXCMD
-\citep[sec. 8]{Rasmussen2006}}%DIFAUXCMD
+time-scale parameter. The Wendland covariance function then offers
+less of a computational advantage when we are interested in
+geophysical processes that occur over longer times-scales. An
+alternative approach to dealing with large datasets would be to
+explore approximation methods for GPR \mbox{%DIFAUXCMD
+\citep[ch. 8]{Rasmussen2006}}%DIFAUXCMD
 .
 }
 
@@ -1814,11 +1817,11 @@ $\data^*$ as a realization of the random vector
 \DIFadd{where $\G$ and $\mitbf{m}$ are the same as in eq. (\ref{eq:DataVec}),
 $v$ is a Gaussian process distributed as $\mathcal{GP}(0,C_v)$, and
 $\mitbf{w}$ is a vector of uncorrelated Gaussian noise with known
-standard deviations $\mitbf{\sigma} = [\sigma_1, \sigma_2, ...,
-\sigma_n]$. The Gaussian process $v$ is intended to describe transient
-features in the data that cannot be explained by the linear trend or
-seasonal terms in $\G$. We let the temporal covariance of $v$ be a
-squared exponential, and we let $v$ be spatially uncorrelated so that,
+standard deviations $\mitbf{\sigma}$. The Gaussian process $v$ is
+intended to describe transient features in the data that cannot be
+explained by the linear trend or seasonal terms in $\G$. We let the
+temporal covariance of $v$ be a squared exponential, and we let $v$ be
+spatially uncorrelated so that
 }\begin{equation}
 \DIFadd{C_v(p,p') = \phi^2\exp\left(\frac{-|t - t'|^2}{2\tau^2}\right) \delta_{\pos,\pos'},
 }\end{equation}
@@ -1837,7 +1840,7 @@ the vector of non-outlier observations is denoted $\tilde{\data}^* =
 [d_i^*]_{i \in \mitbf{\Omega}}$). The outliers are identified
 iteratively, and we initiate $\mitbf{\Omega}$ with all $n$ indices. We
 consider outliers to be data that are poorly explained by the model
-$\G\mitbf{m} + v(\points)$, which is determine by the residual vector
+$\G\mitbf{m} + v(\points)$, which are determined by the residual vector
 }\begin{align}\DIFadd{\label{eq:Residual} 
 \mitbf{r} }&\DIFadd{= \data^* - \E{\Big(\G\mitbf{m} + v(\points)\Big) \Big| \Big(\tilde{\data} =
                                                                         \tilde{\data}^*\Big)} }\\
